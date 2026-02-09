@@ -51,13 +51,17 @@ class SimulationRunner:
         
         print("Starting Simulation Loop...")
         for t_idx in tqdm(range(self.T_ticks), desc="Simulating Choice Steps"):
-            # 1. Dynamic dt
+            # 1. Dynamic dt (Time Dilation)
             rho = np.abs(psi)**2
-            avg_rho = np.mean(rho[positions]) + 1e-6
             
             # UKFT Paper 34: dt ~ hbar / (|psi|^2 * E)
-            dt_n = self.dt_base * (0.1 / avg_rho) 
-            dt_n = np.clip(dt_n, 0.01, 0.2)
+            # Local dt per particle - "Proper Time" per choice step
+            rho_particles = rho[positions] + 1e-9
+            dt_local = self.dt_base * (0.1 / rho_particles)
+            dt_local = np.clip(dt_local, 0.01, 0.25)
+            
+            # Global dt for Field Evolution (Average Experience of the Collective)
+            dt_n = np.mean(dt_local)
             
             physical_time_elapsed += dt_n
             history_time.append(physical_time_elapsed)
@@ -76,8 +80,9 @@ class SimulationRunner:
             V_q = get_quantum_potential(psi, self.t_hop)
             v_field = get_velocity_field(psi, self.t_hop)
             
+            # Pass local dt for each particle's action calculation
             positions, _ = step_discrete_action_minimizer(
-                positions, psi, v_field, V_q, dt_n, 
+                positions, psi, v_field, V_q, dt_local, 
                 self.alpha_entropic, self.t_hop, self.N, self.dx
             )
             

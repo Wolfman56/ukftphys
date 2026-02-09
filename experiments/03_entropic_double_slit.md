@@ -21,4 +21,4 @@ Notice how the trajectories do not just "fill" the potential; they *hunt* for th
 ## Parameters
 *   **Alpha**: 2.0 (Balanced Choice)
 *   **Resolution**: 151x300 (Optimized for contrast)
-*   **dt**: 0.2 (Emergent Time base)
+*   **dt**: Dynamic/Local (Proper time $dt \propto 1/\rho$)

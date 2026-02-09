@@ -22,5 +22,7 @@ Observe how the trajectories "decide" which slit to enter. In the interference r
 Note the slope of the curve.
 *   **Steep Slope**: Fast physical time (low action density).
 *   **Flat Slope**: Slow physical time (high action/knowledge density).
+
+**Update (Local Time Dilation)**: The simulation now calculates proper time *locally* for each particle based on the knowledge density $\rho(x)$ it experiences ($dt \propto 1/\rho$).
 You may observe a "kink" or flattening as the packet hits the complex slit region, representing the increased "computational cost" (in choice steps) to navigate the superposition.
 ![Emergent Time](02_double_slit_results_fig3.png)
