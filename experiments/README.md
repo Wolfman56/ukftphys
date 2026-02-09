@@ -38,3 +38,12 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Interpretation**: 
     - At high $\alpha$, the simulation models a universe where "Action Minimization" (Choice) is dominant. 
     - Trajectories should look like lightning bolts or veins—rigidly sticking to the "optimal" (highest density) paths and avoiding low-probability regions almost entirely.
+
+### [06_ukft_entropic_binary_plus_test_3d_dynamic.py](./06_ukft_entropic_binary_plus_test_3d_dynamic.py)
+**Objective**: "Go Big or Go Home" - 3D Dynamic Space-Time warping.
+*   **Setup**: Binary star system with a test particle on a dynamically recomputing curvature sheet.
+*   **Features**:
+    - **Pure Entropic Gravity**: Orbits sustained by $\nabla \rho$ maximization.
+    - **Dynamic Curvature**: The background space-time grid warps live.
+    - **Chaos**: Test particle capture and spiral dynamics.
+*   **Significance**: Demonstrates that UKFT/Entropic Gravity can reproduce orbital mechanics and "curved space" phenomenology without General Relativity, using only knowledge density maximization.
