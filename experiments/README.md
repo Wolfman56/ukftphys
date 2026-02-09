@@ -47,3 +47,11 @@ This directory contains specific experimental setups designed to test the **Choi
     - **Dynamic Curvature**: The background space-time grid warps live.
     - **Chaos**: Test particle capture and spiral dynamics.
 *   **Significance**: Demonstrates that UKFT/Entropic Gravity can reproduce orbital mechanics and "curved space" phenomenology without General Relativity, using only knowledge density maximization.
+
+### [07_ukft_bianconi_entropic_gravity.py](./07_ukft_bianconi_entropic_gravity.py)
+**Objective**: "Relative Entropy Edition" (Bianconi/Araki patch).
+*   **Physics**: Implements force law  \propto \nabla (\ln \rho)$ based on "Gravity from Entropy" (Phys. Rev. D 111).
+*   **Features**:
+    - **Logarithmic Bias**: Minimizes quantum relative entropy between vacuum and matter states.
+    - **Emergent Λ**: Toy "G-field" expansion term.
+*   **Significance**: Connects UKFT's active choice mechanism to rigorous Information-Theoretical Gravity.
