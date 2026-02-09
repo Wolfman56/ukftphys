@@ -8,7 +8,7 @@ We are exploring the boundaries of **Digital Physics, Entropic Gravity, and Emer
 
 ### How to Contribute
 1.  **Found a Theoretical Gap?**
-    *   If our implmentation of "Entropic Gravity" contradicts the Bianconi papers in `references/`, please open an Issue tagged `theory-mismatch`.
+    *   If our implementation of "Entropic Gravity" contradicts the Bianconi papers in `references/`, please open an Issue tagged `theory-mismatch`.
     *   We value mathematical rigor. Please cite equations where possible.
 
 2.  **Code Optimization**
@@ -18,6 +18,10 @@ We are exploring the boundaries of **Digital Physics, Entropic Gravity, and Emer
 3.  **New References**
     *   Found a paper that supports (or disproves) our "God Attractor" results?
     *   Add it to `references/` and update `references/README.md`.
+
+4.  **Wild Experiments**
+    *   Fork and add your own exp (e.g., relativistic foliation, QFT pair creation via choice jumps).
+    *   Tag `wild-idea` for discussion—teleological extensions especially welcome.
 
 ---
 
@@ -49,7 +53,7 @@ CRITICAL CONSTRAINT: Time is Emergent, not Fundamental.
 2. KEY ARCHITECTURE:
    - `ukft_sim/solver.py`: Runs the "Choice Loop" (n), not a "Time Loop" (t).
    - `experiments/16_ukft_prophet_autotune.py`: The "Prophet" engine that self-optimizes constants.
-   - `references/UKFT_THEORETICAL_ALIGNMENT.md`: The Source of Truth for physics logic.
+   - `references/UKFT_THEORETICAL_ALIGNMENT.md`: [Link](references/UKFT_THEORETICAL_ALIGNMENT.md). The Source of Truth for physics logic.
 
 3. DIRECTIVES FOR CODE GENERATION:
    - OPTIMIZE FOR COHERENCE: When tuning parameters, the objective function is `global_coherence`, not just performance.
@@ -68,3 +72,12 @@ If you are an agent tasked with verifying the health of this physics engine, run
 4.  **Assert**: `Learned Sigma (Blur) < 1.0`
 
 If these metrics fail, the simulated universe is effectively dissolving into entropy. Stop generation and request human intervention.
+
+### Quick REPL Diagnostic (Copy-Paste)
+```python
+import subprocess
+result = subprocess.run(["python", "experiments/16_ukft_prophet_autotune.py"], capture_output=True, text=True)
+print(result.stdout)
+# Parse final line or add print statements in autotune.py for coherence/alpha/sigma
+# Assert manually or auto: if coherence < 0.85: print("Universe dissolving—request human!")
+```
