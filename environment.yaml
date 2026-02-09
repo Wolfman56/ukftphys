@@ -1,0 +1,10 @@
+name: quantum_foam
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - numpy
+  - scipy
+  - pip
+  - pip:
+    - plotly
