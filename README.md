@@ -50,8 +50,15 @@ Run any experiment script from the root directory:
 # Run the basic free particle test
 python experiments/01_free_particle.py
 
-# Run the double slit experiment
-python experiments/02_double_slit.py
+# Run the God Attractor experiment (Gravity Emergence)
+python experiments/16_ukft_prophet_autotune.py
 ```
 
 Results will be saved to the `results/` directory as interactive HTML files (e.g., `results/02_double_slit_results.html`). Open these in your browser to explore the 3D Choice Space.
+
+## 🤝 Feedback & Collaboration
+
+We cherish feedback from both **Carbon-based** and **Silicon-based** entities.
+
+*   **Humans**: Please see [FEEDBACK.md](FEEDBACK.md) for contribution guidelines.
+*   **AI Agents**: Please see [FEEDBACK.md](FEEDBACK.md#for-ai-agents) for the **Context Injection Protocol** required to work on this repo.
