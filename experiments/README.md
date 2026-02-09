@@ -49,6 +49,14 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Significance**: Demonstrates that UKFT/Entropic Gravity can reproduce orbital mechanics and "curved space" phenomenology without General Relativity, using only knowledge density maximization.
 
 ### [07_ukft_bianconi_entropic_gravity.py](./07_ukft_bianconi_entropic_gravity.py)
+**Objective**: Implement Bianconi/Araki Local Relative Entropy Force.
+*   **Setup**: Re-implementation of the 3-body system using a more rigorous force law: $F \propto \nabla \ln \rho$.
+*   **Features**:
+    - **Relative Entropy**: Uses the logarithmic gradient of density, stabilizing numerical behavior for small $\rho$.
+    - **Emergent $\Lambda$**: Simulation tracks the "effective" cosmological constant as the baseline curvature.
+*   **Refactor**: Uses the unified `create_3d_entropic_animation` detail visualizer.
+
+### [07_ukft_bianconi_entropic_gravity.py](./07_ukft_bianconi_entropic_gravity.py)
 **Objective**: "Relative Entropy Edition" (Bianconi/Araki patch).
 *   **Physics**: Implements force law  \propto \nabla (\ln \rho)$ based on "Gravity from Entropy" (Phys. Rev. D 111).
 *   **Features**:

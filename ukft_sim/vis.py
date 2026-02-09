@@ -53,7 +53,58 @@ def plot_heatmap_with_contours(trajectory_data, rho_history, alpha_entropic=0.2,
     print(f"Saved plot image to {png_filename}")
 
     fig.write_html(filename)
-    # fig.show() # Commented out to prevent blocking in some environments, or keep it if running interactively
+    # fig.show() # Commented out to prevent blocking in some environments
+
+def create_3d_entropic_animation(frames, title="UKFT Entropic Gravity", ranges=None):
+    """
+    Creates a standardized 3D animation figure for entropic gravity experiments.
+    """
+    if ranges is None:
+        ranges = {
+            'x': [-3.5, 3.5],
+            'y': [-3.5, 3.5],
+            'z': [-12, 3]
+        }
+        
+    fig = go.Figure(data=frames[0].data, frames=frames)
+
+    fig.update_layout(
+        title=title,
+        scene=dict(
+            xaxis=dict(range=ranges['x'], title='X'),
+            yaxis=dict(range=ranges['y'], title='Y'),
+            zaxis=dict(range=ranges['z'], title='Z (entropic curvature)'),
+            aspectmode='manual',
+            aspectratio=dict(x=1, y=1, z=0.6),
+            camera=dict(eye=dict(x=1.5, y=1.5, z=1.2))
+        ),
+        height=1000,
+        margin=dict(l=20, r=20, b=150, t=100),  # Increased bottom margin for slider
+        template="plotly_dark",
+        updatemenus=[dict(
+            type="buttons",
+            direction="left",
+            x=0.05, y=-0.15, # Position below plot area
+            showactive=False,
+            xanchor="right", yanchor="top",
+            pad=dict(t=0, r=10),
+            buttons=[dict(label="▶ Play", method="animate",
+                          args=[None, {"frame": {"duration": 60, "redraw": True}, "fromcurrent": True}]),
+                     dict(label="⏸ Pause", method="animate",
+                          args=[[None], {"frame": {"duration": 0, "redraw": False}, "mode": "immediate"}])]
+        )],
+        sliders=[dict(
+            steps=[dict(method='animate',
+                        args=[[f.name], dict(mode='immediate', frame=dict(duration=0, redraw=True), transition=dict(duration=0))],
+                        label=f'{k}') for k, f in enumerate(frames)],
+            transition=dict(duration=0),
+            x=0.1, y=-0.15, # Position below plot area aligned with buttons
+            len=0.85,
+            currentvalue=dict(font=dict(size=12), prefix='Frame: ', visible=True, xanchor='center'),
+            pad=dict(t=0, b=10)
+        )]
+    )
+    return fig
 
 def plot_simulation_results(x_grid, choice_indices, history_rho, history_pos, history_time, L_phys, alpha_entropic, dt_base, title_prefix="UKFT Simulation"):
     """

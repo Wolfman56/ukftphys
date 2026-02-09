@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 class SimulationRunner:
     def __init__(self, N=201, L_phys=50.0, t_hop=1.0, dt_base=0.05, 
-                 T_ticks=400, M_particles=1000, alpha_entropic=5.0):
+                 T_ticks=400, M_particles=1000, alpha_entropic=5.0, force_type='standard'):
         self.N = N
         self.L_phys = L_phys
         self.t_hop = t_hop
@@ -14,6 +14,7 @@ class SimulationRunner:
         self.T_ticks = T_ticks
         self.M_particles = M_particles
         self.alpha_entropic = alpha_entropic
+        self.force_type = force_type
         
         self.x_grid = np.linspace(-L_phys/2, L_phys/2, N)
         self.dx = L_phys / N
@@ -83,7 +84,8 @@ class SimulationRunner:
             # Pass local dt for each particle's action calculation
             positions, _ = step_discrete_action_minimizer(
                 positions, psi, v_field, V_q, dt_local, 
-                self.alpha_entropic, self.t_hop, self.N, self.dx
+                self.alpha_entropic, self.t_hop, self.N, dx=self.dx,
+                force_type=self.force_type
             )
             
         return {

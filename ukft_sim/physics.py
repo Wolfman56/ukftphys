@@ -33,19 +33,29 @@ def get_velocity_field(psi, t_hop):
     v = J_bond / rho
     return v
 
-def step_discrete_action_minimizer(pos_indices, psi, v_field, V_q, current_dt, alpha_entropic, t_hop, N, dx=1.0):
+def step_discrete_action_minimizer(pos_indices, psi, v_field, V_q, current_dt, alpha_entropic, t_hop, N, dx=1.0, force_type='standard'):
     """
     Selects next position to minimize Discrete Local Action.
     Action = Kinetic_mismatch + Potential_Cost
+    
+    force_type: 'standard' (Gradient of Rho) or 'bianconi' (Gradient of Log Rho)
     """
     probs = np.abs(psi)**2
     
     # Grid of potentials
     # UKFT: "Gravity" is attraction to high density (Entropic Potential)
     # Potential = V_quantum + V_entropic
-    # V_entropic = - alpha * log(rho) OR - alpha * rho.
-    # Paper 24 suggests density attracts. So Potential ~ -Density.
-    V_entropic = - alpha_entropic * probs
+    
+    if force_type == 'bianconi':
+        # Rel Entropy ~ log(rho)
+        # Force ~ grad(log rho)
+        # Potential ~ - log(rho)
+        V_entropic = - alpha_entropic * np.log(probs + 1e-12)
+    else: # standard
+        # Standard ~ rho
+        # Force ~ grad(rho)
+        # V_entropic ~ - rho
+        V_entropic = - alpha_entropic * probs
     
     V_total = V_q + V_entropic
     
