@@ -12,6 +12,10 @@ This simulation code explores the intersection of:
     *   **Dynamic Time**: Physical time is an emergent property. $dt \propto 1/\rho$. Time "slows down" (resolution increases) in regions of high Consciousness/Knowledge density.
     *   **Choice Space**: Trajectories do not cross in Physical Space-Time, but they "branch" in Choice Space based on the Entropic Gravity parameter.
 
+### Crucial Reading
+**[UKFT Theoretical Alignment: The Grand Synthesis](references/UKFT_THEORETICAL_ALIGNMENT.md)**
+Before diving into the code, read about how this project experimentally verifies the "God Attractor" hypothesis, synthesizing the work of **Daniel Harlow (MIT)**, **Ethan Siegel**, and **Ginestra Bianconi (QMUL)**. 
+
 ## Project Structure
 
 *   `ukft_sim/`: The core python package containing the physics engine, solver, and visualization logic.
@@ -19,6 +23,9 @@ This simulation code explores the intersection of:
     *   `solver.py`: `SimulationRunner` handling the sequential choice loop and dynamic time.
     *   `vis.py`: Interactive 3D/2D plotting using Plotly.
 *   `experiments/`: Reproducible experiment scripts (see `experiments/README.md`).
+    *   **Exp 16-18 (The "God Attractor" Series)**: Proving that Gravity, Entanglement, and Light Speed are emergent optimizations.
+    *   **Exp 13-15 (The Consciousness Loop)**: Simulating perception feedback.
+*   `references/`: Academic transcripts and alignment documents.
 *   `results/`: Generated HTML reports and plots (git-ignored).
 *   `archive/`: Deprecated monolithic scripts and notes.
 
