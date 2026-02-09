@@ -2,6 +2,19 @@
 
 This directory contains external academic resources, transcripts, and theoretical analysis documents that serve as the foundation for the Universal Knowledge Field Theory (UKFT) simulation.
 
+## Core Physics Canon (PDFs)
+
+We have curated a specific set of foundational papers to introduce UKFT to the Physics community. These files are located in `references/physics_canon/`.
+
+| Filename | Role |
+| :--- | :--- |
+| **01_UNIVERSAL_KNOWLEDGE_FIELD_THEORY...** | **The Axioms**: Establishes $\Psi(x,t,d)$ and the fundamental Evolution Equations. |
+| **34_Choice_Guided_Bohmian_Mechanics** | **The Formalism**: How "Choice" replaces the guiding equation. (Best for Physicists). |
+| **03_CHOICE_IS_PHYSICS...** | **The Mechanism**: Emergent Least Action through the Divine Choice Operator. |
+| **24_UNIFIED_FIELD_THEORY_GRAVITY...** | **The Unification**: Deriving Gravity ($G$) as "Curvature of Meaning". |
+| **23_UNIVERSAL_TEMPORAL_FIELD_THEORY...** | **The Dynamics**: Explains why Time is Emergent ($dt \propto 1/\rho$). |
+| **06_ZENO_UTFT_RESOLUTION...** | **The Defense**: Justifies Discrete Time against Zeno's Paradox. |
+
 ## Core Theoretical Documents
 
 *   **[UKFT Theoretical Alignment: The Grand Synthesis](UKFT_THEORETICAL_ALIGNMENT.md)**
