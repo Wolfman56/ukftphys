@@ -98,3 +98,32 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Concept**: Closed-loop control where the Observer's perception *modifies* the physical laws.
 *   **Scenario**: A chaotic event disrupts the swarm. The Observer detects coherence loss and exerts "Willpower" (increased gravity/damping) to restabilize reality.
 *   **Significance**: "The Big One". Demonstrates a self-healing quantum system.
+
+### [16_ukft_prophet_autotune.py](./16_ukft_prophet_autotune.py)
+**Objective**: The "God Attractor" - Gravity Emergence.
+*   **Concept**: A Prophet Agent tries to minimize "Trajectory Prediction Error".
+*   **Result**: The agent naturally discovers a gravitational constant $\alpha \approx 1.0$.
+*   **Conclusion**: Gravity is not an axiom, it is an optimization solution for information coherence.
+
+### [17_ukft_entanglement_propagation.py](./17_ukft_entanglement_propagation.py)
+**Objective**: The "God Attractor" - Causal Entanglement.
+*   **Concept**: Simulating "Zombie States" (undefined causality) that only resolve when a future constraint (Alice meeting Bob) is imposed.
+*   **Result**: Entanglement is shown to be the resolution of a causal graph, not superluminal communication.
+
+### [18_ukft_learning_light_speed.py](./18_ukft_learning_light_speed.py)
+**Objective**: The "God Attractor" - Speed of Light.
+*   **Concept**: Minimizing Information Propagation Delay across a discrete grid.
+*   **Result**: The maximum effective speed asymptotically approaches 1.0 grid/tick.
+*   **Conclusion**: $c$ is the processing rate limit of the simulation hardware (the Universe).
+
+### [19_hierarchy_prototype.py](./19_hierarchy_prototype.py)
+**Objective**: The "God Attractor" - Theosphere.
+*   **Concept**: A 3-Tier Control System (Geo/Noo/Theo) to prevent entropic dissolution.
+*   **Stress Test**: "The Great Disruption" (Radial Velocity Kick).
+*   **Result**: The Theosphere (Level 3) intervenes with massive force ($\alpha > 3.0$) only when the system faces critical collapse ($\phi < 0.40$).
+
+### [20_hierarchy_memory.py](./20_hierarchy_memory.py)
+**Objective**: The "God Wakes Slowly" Protocol.
+*   **Extension**: Adds memory windows ($W_{geo}=10, W_{noo}=50, W_{theo}=100$) to Exp 19.
+*   **Result**: Shows that higher intelligences ignore short-term panic. The Noosphere handled the disruption without requiring Theospheric intervention because the *averaged* coherence remained stable.
+
