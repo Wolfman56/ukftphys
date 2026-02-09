@@ -17,6 +17,7 @@ import sys
 # Ensure local package is findable
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from ukft_sim.vis import create_3d_entropic_animation
+from ukft_sim.physics import get_analytic_density_and_gradient
 
 # Parameters
 sigma = 0.2
@@ -85,31 +86,14 @@ for step in range(n_steps):
     pos_stars_hist_1.append(p_star1)
     pos_stars_hist_2.append(p_star2)
 
-    # Field Function (Bianconi Relative Entropy)
-    def rho_at(pos, sources):
-        rho = 0.0
-        for src in sources:
-            dist2 = np.sum((pos - src)**2) + 1e-8
-            rho += m_star * np.exp(-dist2 / (2 * sigma**2))
-        return rho
-
-    def grad_rho_at(pos, sources):
-        grad = np.zeros(3)
-        eps = 1e-4
-        r0 = rho_at(pos, sources)
-        for i in range(3):
-            d = np.zeros(3); d[i] = eps
-            grad[i] = (rho_at(pos + d, sources) - rho_at(pos - d, sources)) / (2*eps)
-        return grad, r0
-
     # Update Planets
-    current_sources = [p_star1, p_star2]
+    current_sources = [(p_star1, m_star), (p_star2, m_star)]
     
     for i, p_hist in enumerate(planet_positions):
         pos = p_hist[-1]
         vel = planet_vels[i]
         
-        grad, rho = grad_rho_at(pos, current_sources)
+        rho, grad = get_analytic_density_and_gradient(pos, current_sources, sigma)
         
         # F = alpha * grad(rho)/rho + lambda * pos
         # Stability epsilon for rho
@@ -129,31 +113,32 @@ for step in range(n_steps):
     # Build Frame
     if step % animate_every == 0 or step == n_steps - 1:
         # Dynamic Sheet potential Z
-        # Z ~ - Sum(m/r) approximation or just visualize rho?
-        # Let's visualize -log(rho) as the "Depth"
-        # Calculate rho grid
-        Z = np.zeros_like(X)
-        # Vectorized grid calc? slow in python loop, let's do simple approximation
-        # Just distance based sum like before for speed
-        dist1 = np.sqrt((X - p_star1[0])**2 + (Y - p_star1[1])**2 + 1e-6)
-        dist2 = np.sqrt((X - p_star2[0])**2 + (Y - p_star2[1])**2 + 1e-6)
-        # Z = - (1/d1 + 1/d2) visualizer
-        Z_stars = - z_scale * (m_star/dist1 + m_star/dist2)
+        # Use Gaussian wells for visualization to match the analytic density field
+        # Z ~ - Sum(m * exp(-r^2/2sigma^2))
         
-        # Add planet dents?
-        Z_planets = np.zeros_like(Z_stars)
+        # Calculate rho grid for Stars
+        dist1_sq = (X - p_star1[0])**2 + (Y - p_star1[1])**2
+        dist2_sq = (X - p_star2[0])**2 + (Y - p_star2[1])**2
+        
+        # Gaussian Wells for Stars
+        # We invert the density to show "gravity wells"
+        rho_stars = m_star * np.exp(-dist1_sq / (2 * sigma**2)) + \
+                    m_star * np.exp(-dist2_sq / (2 * sigma**2))
+        
+        # Add planet dents (Visual only)
+        # We give planets a slightly sharper sigma for visibility
+        rho_planets = np.zeros_like(rho_stars)
+        sigma_visual_planet = 0.5
         for i, p_hist in enumerate(planet_positions):
             p_curr = p_hist[-1]
-            dist_p = np.sqrt((X - p_curr[0])**2 + (Y - p_curr[1])**2 + 1e-6)
-            # Make planets "heavier" visually so their gravity wells are visible 
-            # against the stars. (Visual Mass 2.0 instead of 0.5)
-            Z_planets -= z_scale * (2.0 / dist_p)
+            dist_p_sq = (X - p_curr[0])**2 + (Y - p_curr[1])**2
+            # Visual mass factor 2.0
+            rho_planets += 2.0 * np.exp(-dist_p_sq / (2 * sigma_visual_planet**2))
             
-        Z = Z_stars + Z_planets
+        # Z is represented as negative density (Deep wells where mass is high)
+        Z = - z_scale * (rho_stars + rho_planets)
         
-        # Clamp Z for visibility (prevent infinite spikes)
-        # With z_scale=0.5, typical deep values are around -20
-        Z = np.maximum(Z, -20)
+        # No clamping needed for Gaussians as they are finite
         
         frame_data = [
             # Gravity Well

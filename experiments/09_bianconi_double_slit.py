@@ -24,7 +24,7 @@ from ukft_sim.vis import plot_simulation_results, save_plots_to_html
 # 1. Setup Simulation (Bianconi Mode)
 L_phys = 50.0
 N = 201
-runner = SimulationRunner(N=N, L_phys=L_phys, T_ticks=450, M_particles=150, 
+runner = SimulationRunner(N=N, L_phys=L_phys, T_ticks=150, M_particles=150, 
                           alpha_entropic=20.0, # High alpha to see effect clearly
                           force_type='bianconi') # NEW FLAG
 

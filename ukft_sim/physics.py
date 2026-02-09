@@ -33,6 +33,43 @@ def get_velocity_field(psi, t_hop):
     v = J_bond / rho
     return v
 
+def get_analytic_density_and_gradient(target_pos, sources, sigma):
+    """
+    Computes exact Rho and Grad_Rho for a set of Gaussian sources.
+    
+    Args:
+        target_pos (np.array): Position [x,y,z] to evaluate at.
+        sources (list): List of tuples (pos_vector, mass).
+        sigma (float): Width of Gaussian sources.
+        
+    Returns:
+        (rho, grad_rho): Scalar density and Vector gradient.
+        
+    Math:
+        Rho = Sum( m * exp(-r^2/2s^2) )
+        Grad = Sum( m/s^2 * exp(...) * (pos_src - pos_target) )
+    """
+    rho = 0.0
+    grad_rho = np.zeros_like(target_pos)
+    
+    for src_pos, m_src in sources:
+        delta = src_pos - target_pos # Direction towards source
+        dist2 = np.sum(delta**2)
+        
+        # Density contribution
+        factor = m_src * np.exp(-dist2 / (2 * sigma**2))
+        rho += factor
+        
+        # Gradient contribution (chain rule)
+        # d/dx ( exp(-(x-x0)^2 / 2s^2) ) = exp(...) * (-1/2s^2) * 2(x-x0) * (-1)? 
+        # Wait: d/dr (e^-r^2) = -2r e^-r^2. 
+        # Here r = target - src.
+        # d/d_target (...) = factor * (-(target-src) / s^2) = factor * (src-target) / s^2
+        if sigma > 0:
+            grad_rho += factor * (delta / sigma**2)
+            
+    return rho, grad_rho
+
 def step_discrete_action_minimizer(pos_indices, psi, v_field, V_q, current_dt, alpha_entropic, t_hop, N, dx=1.0, force_type='standard'):
     """
     Selects next position to minimize Discrete Local Action.

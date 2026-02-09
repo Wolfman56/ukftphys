@@ -13,13 +13,13 @@ We expect the **Choice-Guided Trajectories** to be much "sharper" than in Experi
 
 ## Results
 ### Figure 1: Knowledge Density Surface
-!(results/09_bianconi_double_slit_fig1.png)
+![Knowledge Density Surface](09_bianconi_double_slit_fig1.png)
 The underlying probability distribution (Schrödinger evolution) remains the same.
 
 ### Figure 2: Trajectories
-!(results/09_bianconi_double_slit_fig2.png)
+![Trajectories](09_bianconi_double_slit_fig2.png)
 *Compare this to Exp 03*. Notice how the white trajectory lines conform much more tightly to the bright channels. The "Choice" mechanism is more aggressive, leaving almost no "Quantum Foam" in the forbidden zones.
 
 ### Figure 3: Time Dilation
-!(results/09_bianconi_double_slit_fig3.png)
+![Time Dilation](09_bianconi_double_slit_fig3.png)
 The "Proper Time" experienced by the particles varies as they navigate the complex potential landscape.
