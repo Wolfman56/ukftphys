@@ -1,0 +1,678 @@
+Title: Ethan Siegel (Astrophysicist) on "The Fundamental Constants Behind Our Universe" at a Stanford LASER
+Author: Ethan Siegel
+Source: https://www.youtube.com/watch?v=ooO7C7PnE0I&t=326s
+web: https://www.startswithabang.com
+
+
+0:00
+cloud. Very good. Okay. So, Ethan Seagull, very
+0:06
+brief introduction. He's an astrophysicist and a science communicator. He has published six
+0:11
+books. [clears throat] I'm mostly familiar with the first two technology and beyond the galaxy. Uh, I hear you
+0:19
+also have a grand cosmic uh story and infinite cosmos plus
+0:26
+two two more that I don't remember the title.
+0:31
+Um, and he's the creator of the podcast
+0:36
+starts with a bang. Uh if you want to know more uh you go to laser talks.com
+0:42
+and you [clears throat] will find the link to his uh website and you will find out everything about him. Without
+0:49
+further ado, the podium is yours. All right. Thank you very much Pierro and thank you to everyone attending uh
+0:56
+the laser talks. Uh it's exciting to be here and thank you for inviting me to speak about the fundamental constants
+1:03
+behind our universe. Now when we think about our universe and we think about what is fundamental we normally say okay
+1:11
+we're going to reduce nature down to its smallest most fundamental most
+1:17
+indivisible elementary elements and that usually brings us right to this to the
+1:22
+standard model where we think okay like if I take matter and I take it apart and I go inside inside what can I create and
+1:30
+you find that there are quarks and you find that there are lepttons and you find that there are bzons like the
+1:37
+photon which mediates the electromagnetic force and the W and Z bzons which mediate the weak nuclear
+1:43
+force and the gluons that mediate the strong nuclear force and probably at
+1:49
+some level there's something that mediates gravity maybe there's a graviton or classically at least there's
+1:56
+big G the gravitational constant in Einstein's relativity plus there's the
+2:01
+Higs Bzon and you think those are the fundamental al entities that make up our
+2:06
+universe plus you know whatever dark matter and dark energy are plus if there's anything else we haven't
+2:12
+discovered yet. So if it comes to the fundamental constants what we say are okay you should tell me what a
+2:18
+fundamental constant is and usually when we say fundamental constants we say oh
+2:26
+that's right we're talking about uh we're talking about elementary things
+2:33
+like what's the elementary charge and what is plank's constant and what are
+2:39
+you know the bore magneton what's a nuclear magneton on you think of all of these different constants.
+2:46
+But what these constants are all about is they are about describing nature.
+2:53
+They are about describing the particles that exist in the universe and the
+2:58
+interactions that those particles experience with one another within this
+3:04
+universe. And so you say, well, if I want to know what those are, what are the fundamental particles and their
+3:11
+interactions? And how do the constants in the universe dictate what what rules
+3:17
+the universe follows, what the strength of various things are? And so you say, well, if we talk about particles,
+3:25
+we might want to know what sorts of properties do interacting particles
+3:31
+actually have with one another? And so maybe you can think of something like a
+3:37
+pion. And a pion can be made if you have a pi minus of a anti-up and a down
+3:42
+quark. Or a pi plus is an up and an anti- down quark. And you say, well that's an unstable configuration. And
+3:49
+virtually they will emit a w bzon and decay
+3:55
+[cough] to a muon and a muon neutrino or an
+4:00
+anti-muon and a muon nutrino. Sorry. muon and an anti-uon nutrino or a muon
+4:07
+or a positive muon and a muon nutrino. And then those muons will further decay
+4:12
+through the weak interaction into a mu nutrino or antiutrino, an electron
+4:17
+anti-utrino and an electronutrino or an electron or a posetron. And you
+4:23
+say great there are ways that these things decay. There are branching
+4:29
+ratios. There are probabilities. And so if I want to know these things that interact, whether they make a stable
+4:35
+thing or an unstable thing, what properties do they have? And you can immediately come up with a list of
+4:41
+properties in your mind. You say, "Oh yeah, they can have a mass. They can have an electric charge. They can have a
+4:48
+spin. If they're unstable, they can have a mean lifetime. Uh if they're leptons,
+4:53
+they can have a lepton number. If they're barons, they can have a baron number. If they interact through the
+4:59
+weak interaction, they can have a weak hypercharge and a weak iso spin. If they interact through the strong nuclear
+5:05
+interaction, they have to have a color charge. And there's a whole lot more. But all of these properties I I get
+5:14
+bothered when we talk about those as being the fundamental constants because all of those properties have units
+5:22
+attached to them. You measure mass. You can do it in electron volts or you can do it in um or you can do it in
+5:28
+kilograms or you can do it in, you know, whatever you want. But it has units to it. And units are arbitrary. If I choose
+5:38
+a different unit to measure something in, then I I'm going to have a different number associated with it. And so you
+5:45
+can ask yourself, well, if I don't like these units, is there some unitfree way
+5:52
+that we can describe the universe's fundamental constants in? So for
+5:57
+example, instead of using the gravitational constant and the speed of
+6:02
+light and plank's constant, all of which have units associated with them, you can
+6:09
+say, well, what if we used dimensional couplings? No, sorry, dimensionless
+6:15
+couplings instead. Couplings that are just pure raw numbers. And it turns out
+6:23
+there is a way to do this. You can absorb all of the units into the framework
+6:29
+that tells you how the universe works. And you can say, and then we're going to describe it within that framework with a
+6:36
+series of constants that should just be pure mathematical numbers. So you say
+6:42
+all right well what if I started by saying we we know how these four
+6:47
+fundamental forces works. We know how gravity works. We know how electromagnetism works. We know how the
+6:53
+weak force works. And we know how the strong force works. Then how many constants would we need to describe the
+6:59
+universe? You say well let's start with four. We'll start with the dimensionless
+7:05
+fine structure constant which dictates the strength of the electromagnetic force. And there's the strong coupling
+7:12
+constant which is the strength of the strong nuclear force and the weak coupling constant which is the strength
+7:17
+of the weak interaction. And we can even invent a gravitational coupling constant
+7:22
+instead of Newton's big G. We can say there's a gravitational coupling constant. And I say okay that's great
+7:29
+and it's within the context of our standard model of particle physics and cosmology.
+7:36
+But the standard model is messy. And by messy I mean it has a variety of
+7:43
+particles in it. And those particles come with a variety of properties that
+7:48
+are unique to each individual species of particle. The top quark is different
+7:54
+than the bottom quark is the charm and the strange and the down and the up quarks. The Higs Bzon is different than
+8:00
+the Z or the W Bzon or the quarks in the gluon. Sorry. And the photons and the gluons and you can have the leptons and
+8:08
+you have the tow and the muon and the electron. But you also have the tow nutrino and the muon nutrino and the electron neutrino.
+8:15
+So if I want to say well we had these four coupling constants for the forces.
+8:21
+What fundamental constants do we need to describe these particles of the standard
+8:27
+model? The known particles that are in existence. And you say, well, what I
+8:33
+want is if each of these particles has its own rest mass, how do I get that in
+8:39
+the standard model? Well, the way you get a rest mass is you couple to the
+8:44
+Higs field. The Higs field is what gives particles a nonzero rest mass. If you
+8:51
+don't couple to the Higs, you can be massless. So, we don't need a fundamental constant for the photon or
+8:57
+the gluon because they're massless. But everything else in the standard model has mass. You have six quarks up, down,
+9:06
+charm, strange, top, and bottom. And those six quarks have six different
+9:11
+masses. So each massive quark needs its own dimensionless coupling constant to
+9:18
+say how much it couples to the Higs field. Same thing with the leptons. We
+9:23
+have the electron mu and toao. And since the late 1990s, we've also known that
+9:29
+the electron nutrino and the muon nutrino and the tow nutrino cannot be
+9:34
+massless. They have small but nonzero rest masses. So now we need six more
+9:42
+coupling constants, six more dimensionless couplings to the hig field to explain the masses of the leptons.
+9:49
+And the W and Z bzons have mass. So we need two more coupling constants for
+9:54
+each of them. And the Higs Bzon has a mass. So we need a self- coupling from
+10:00
+the Higs Bzon to the Higs field. Bonus. Once we put these in, we discover that
+10:07
+the weak coupling constant and the gravitational coupling constant are redundant. So we added 15 more to our
+10:14
+original four, but we got to take two away. So now we only have 17. But that's
+10:21
+not the full story because within the standard model, you also have what's known as quantum mixing where particles
+10:31
+that have the same quantum numbers can mix together to create these mixed
+10:37
+states. In the quark sector, the quarks mix together in a way that we need four
+10:43
+extra mixing elements. This is determined in particle physics by the CKM or the co kabibbo kobayashi masakawa
+10:52
+mixing matrix. Whereas in the nutrino sector, we have the PMNS mixing matrix.
+11:00
+the ponte cororvo. Oh man. Well, we'll just call it the PNS PMNS mixing matrix
+11:07
+that also needs four extra elements to mix the three generations and an
+11:12
+additional phase mixing angle. So then I say all right so now I went from just
+11:20
+the four fundamental forces I went up to 17 when I added in the masses and then I
+11:26
+have mixing that's eight more that brings me up to 25 but our universe also has dark energy in
+11:34
+it and if I say well let's make dark energy the simplest thing it's allowed
+11:39
+to be and that's a cosmological constant that's great then I only need one more
+11:45
+fundamental constant. Two independent force couplings plus the 15 Higs
+11:51
+couplings plus eight mixing parameters, four for the quarks and four for the nutrinos and one cosmological constant.
+12:00
+That's 26 fundamental constants I need to describe the universe we have. And
+12:07
+that still doesn't give us everything that we need. We're still missing
+12:13
+bariogenesis. We know the universe has more matter than antimatter in it. They
+12:18
+are not symmetric. How did it get there? Well, current physics can't account for that. You need
+12:25
+some extra new physics. And new physics are probably going to mean a new coupling constant. For example, as
+12:32
+illustrated here on the screen at right, you can see well I I can add in like in grand unified theories, we have these
+12:38
+super heavy X and Y and anti-X and anti-Y bzons and they would need to have
+12:45
+their own masses and decay branching ratios and they'd need constants
+12:50
+associated with them to create this matter antimatter asymmetry. What about
+12:55
+cosmic inflation that preceded and set up the big bang where instead of being
+13:01
+filled with matter and radiation, the universe was filled with energy inherent to space itself. That probably brings
+13:08
+new physics and again new constants along with it. What about dark matter?
+13:13
+Well, if it's a massive particle, I need at least one more coupling constant and
+13:18
+that means one more fundamental constant. And why is there no strong CP
+13:23
+violation? Right? You can write it down. It's not forbidden in the standard model. Why don't we see it? Is there a
+13:30
+fundamental constant associated with that? We don't know. So 26 is sort of
+13:36
+the minimum conservative number of fundamental constants that we need. But
+13:42
+it still doesn't even explain everything about the universe we observe. But assuming that that there are maybe some
+13:49
+more constants and we can explain anything everything then you'd want to know what is it that set these
+13:57
+fundamental constants in the first place. Could they have been set in the
+14:03
+early phases of cosmic history that created the universe as we know it? That
+14:09
+resulted in the hot big bang occurring that provided the seeds of cosmic structure that have grown into the great
+14:16
+cosmic web we have before us today. Well, we have some early signals we can
+14:21
+look at and maybe that can help serve as a clue. inflation back in the very early
+14:28
+stages of the universe. You can think of similarly to how we think of the Higs
+14:34
+field that you had some restored symmetry where the field energy itself
+14:41
+was very large. But as the energy drops or as this ball as illustrated here
+14:48
+rolls down from the top of the hill into a valley, well now a symmetry is broken.
+14:54
+There's a preferred direction. There's a preferred location where the ball is. Instead of all directions looking the
+15:01
+same, when you roll off the top of a hill, you can roll into a valley. You can roll into a low point. And maybe it
+15:08
+was the act of that that set what the fundamental constants are. This is one
+15:15
+idea that shows up in the context of the multiverse. Right? In the context of
+15:21
+string theory, you say there are all these different string vacua and you have different minima that you can wind
+15:28
+up in. And maybe in one minimum you have a certain set of fundamental constants
+15:34
+that dictate how the universe is, but maybe in a different minimum you have different sets of fundamental constants
+15:41
+that set what the universe is. And so fine, but then you ask, well, I only
+15:47
+live in one pocket of this multiverse. What determines what's in the other
+15:52
+pockets? And so you add inflation and this idea of different vacua
+15:58
+together and you come to the inflationary multiverse where you say, "Oh, you look
+16:04
+inflation occurred at some energy and we inflated and inflated and space grew and
+16:09
+grew and grew and then in one region of space there was a quantum fluctuation that brought inflation to an end and
+16:17
+that resulted in a hot big bang that included our entire observer. observable
+16:23
+universe. And we can look at what we see in our observable universe from the
+16:29
+stars and galaxies that are nearby to ones at vast cosmic distances to the
+16:34
+leftover background of radiation that was created in the hot big bang. And you
+16:40
+can say, well, what can I learn about inflation from looking at that? And is
+16:46
+this consistent with the idea that well there are different pockets in the universe if you go all the way up to
+16:52
+plank scale energies that maybe the fundamental constants got set there. And
+16:58
+so you would wonder oh are there different regions of the multiverse that have different fundamental constants and
+17:03
+can I learn something about them and access them? And it turns out that if
+17:08
+you look at the cosmic microwave background and in particular what I show here is the polarization in the cosmic
+17:16
+microwave background as measured by the plank satellite. It turns out that is disa disfavored the plank scale where
+17:23
+allegedly string theory is important and gravity is comparable in strength to the other forces and maybe maybe just maybe
+17:32
+the fundamental constants get set by something that's up at the plank scale
+17:37
+at 10 to the 19 Gev of energy. But I learned from inflation and from
+17:44
+the cosmic micro background that there's a maximum energy scale that could have
+17:49
+been reached during inflation and it's more than a factor of a thousand below
+17:55
+the plank scale. It's almost four orders of magnitude down for it. So if I need
+18:02
+to be up at this high energy to set the fundamental constants and inflation occurs at a lower energy than that,
+18:09
+could the inflationary multiverse be responsible for our values of the
+18:15
+fundamental constant? It's I won't say it's not possible, but it seems disfavored by the energy arguments we
+18:22
+have. You would say, well, if if if it happened during like you had some type of symmetry breaking, maybe you would
+18:29
+see the constants vary across space or across cosmic time. Well, people have
+18:36
+looked for this. And when it comes to variations across cosmic time, people
+18:41
+have claimed to see it, but it looks really constant. No variations in the
+18:46
+fine structure constant or any other constant. What about across space? Well,
+18:52
+we've looked for that, too, and we don't see evidence for the constants varying in different directions in space. A man
+18:59
+named John Webb and his team presented evidence for that uh back in 2008 or so,
+19:05
+but it turned out that those were systematic errors with their data acquisition. And other groups went and
+19:12
+were able to say, "No, the constants don't vary down to a greater precision than Web's uncertainties were." And
+19:19
+that's kind of where we are today. In summary, we have at least 26 fundamental
+19:26
+constants that are needed to explain the universe we have. And those 26
+19:33
+fundamental constants, when you take them all together, they still don't explain several major mysteries or
+19:40
+puzzles that we have with the universe. Barioenesis, dark matter, cosmic inflation, and the strong CP problem. So
+19:49
+even with those 26 constants, we don't have enough. What sets the constants?
+19:55
+Was our universe just born this way? Was Lady Gaga right? Maybe. We don't know
+20:02
+what set them. Could it be that the constants are different in different
+20:07
+pockets of the inflationary multiverse? Well, we disfavored it based on energy
+20:12
+arguments, but the truth is we don't know that either. The fundamental constants are kind of essential to our
+20:20
+universe turning out the way it did where stars shine and atoms form and
+20:25
+link up to make complex molecules. This seems essential to our existence. And if
+20:30
+the fundamental constants you tweak them by too much, none of this would be
+20:36
+possible. So where are we? Well, this is up to the frontiers of what we know
+20:42
+today. We know what the fundamental constants are, at least many of them. We know how they play a major role in
+20:49
+setting what happens in our universe into motion. But as far as what sets the
+20:55
+values of the constants and whether they're different in different pockets
+21:00
+of the multiverse and they could have been different here in our universe, we still don't know. And that's the limits
+21:06
+of our scientific knowledge today. And I'll stop here to take questions. Thanks
+21:12
+everybody. Yeah, it's kind of breathtaking when you hear the summary in 20 minutes. Uh
+21:21
+well, this was the amount of time that some great advice I got as a grad student. Do the best job you can in the
+21:27
+time you have to do it. But it's it's uh it's even more powerful because in 20 minutes you really realize
+21:32
+the mystery. This is really not just [clears throat] fundamental constants. This is a fundamental mystery. the
+21:39
+fundamental constants are the fundamental mystery of the universe even even why 26 or you know maybe there's
+21:47
+something that we still have to discover but why that number so first of all if anybody has question please uh put them
+21:53
+in the chat or on the in the QA uh myself
+21:59
+um [clears throat] um so you mentioned briefly that there's been discussion if the constants are
+22:05
+really constant over time and over space And um I I can't find the name of the
+22:11
+Cambridge physicist that I heard a long time ago when my hair was still uh dark
+22:18
+and uh and he was a skeptic and of course I don't remember the argument and I don't remember his name. Uh but that
+22:27
+left me that thing in the back of my brain, you know. Are we really sure? Are we really sure that constants have
+22:33
+always been what they are today and that they are the same everywhere? If we could travel a 100 million light years,
+22:41
+it would still be the same speed of light. It would still be the same uh the same everything. So well there are a lot
+22:48
+of measurements we've acquired that allow us to place tremendous constraints on how much the constants are allowed to
+22:56
+vary. For example, we can look at absorptive gas clouds at different red
+23:02
+shifts and that tells us how has the cosmic microwave background changed in temperature. And we find that yes, it
+23:09
+does follow that 1 + Z relationship which rules out variations in many types
+23:15
+of constants including fine structure. We've looked at uh Yorg Grafelt did some
+23:20
+research on could could some of the fundamental constants have varied as far back as we can see distant quazars and
+23:27
+the answer turns out to be that you can say that a wide variety of constants have not changed over 11 to 13 billion
+23:35
+years of cosmic history. When you look at constraints from uh absorption lines
+23:41
+on how much could the fine structure constants have changed uh less than one part in a million over any direction you
+23:49
+look in and over you know 98% of the history of the universe which is far
+23:55
+back as our most distant galaxies go. The one type of evolution we do see is
+24:01
+that the strength of the couplings that we find they don't vary in space or time
+24:07
+but they do vary in energy at higher energies. For example, right now if you
+24:14
+say what's the fine structure constant? A lot of people know that number one over 137 and it's 1 over 137.03599
+24:24
+etc. But they say 1 over 137. But if we go up to the electroeak scale up to
+24:31
+energies that they get at, you know, Fermy Labs Teatron and at the Large Hadron Collider in CERN, um, you say,
+24:38
+well, now instead of 1 over 137, the strength of the electromagnetic coupling
+24:43
+rises up to 1 over 128. And we know that all of the couplings, the strong, weak,
+24:51
+and electromagnetic coupling are in fact energy dependent. And people have used
+24:57
+the fact that they seem to converge and almost kind of meet as evidence for well
+25:04
+maybe that's a hint that some type of grand unification of forces happens at
+25:09
+some high energies. Is that true? We don't know. Does this mean that the
+25:15
+constants do vary over time because energy varies over time? Well, in a sense, but
+25:22
+that's really only important in the very early universe. And that is, you know, evolution that's predicted by the
+25:29
+standard model. It doesn't change the value of the constants at our current energy. So that's kind of the limits of
+25:36
+where we are based on what constraints we can place based on observations and
+25:41
+experiments on constant variation today. But once you leave our observable
+25:46
+universe, all bets are off. We've only ever observed or measured what's in our
+25:52
+own. And physics at its core is always an experimental and observational
+25:57
+science. And I say this as a theorist. So, you know, as much as I love theory,
+26:04
+you've got to confront your theory with reality. Can you say a few words if you have [clears throat] an opinion on last
+26:11
+year's uh uh widely publicized finding [clears throat] that the the Daisy data
+26:18
+that showed seem to show the dark energy may evolve over time which could just
+26:26
+mean that that's not Einstein's cosmological constant or something else. What's what's your take on?
+26:33
+Well, I'm very curious about that. Right. The Desi data is a hint that maybe something is wrong with our
+26:40
+picture of the universe. And when they said we're going to we're going to make our best fit to the data we have um you
+26:48
+know they at almost three sigma or so they say it's it's it's intention with
+26:55
+standard lambda CDM but then you say I want to take a look
+27:00
+and see what you're getting in your best fit data and their best fit data for the
+27:06
+desi data says hey look we have this amount of matter density in the
+27:12
+universe. And if you have this amount of matter density in the universe, then you
+27:18
+know you have these sets of cosmological parameters. And you can, you know, only disfavor dark energy being a
+27:25
+cosmological constant at almost three sigma. And then you say, well, hang on,
+27:31
+I have other sets of observations, too. I have cosmic microwave background data and I have type 1A supernova data. and
+27:38
+you say what happens if I add them in with the DESI data and if you add them
+27:44
+in the tension goes up right if you add the cosmic microwave background data with the DESI data now it's more
+27:51
+difficult to have constant dark energy but that's also because the cosmic
+27:57
+microwave background data favors a different value for the matter density
+28:03
+of the universe than the than the DESI data than the large scale structure data does and they favor a different
+28:10
+expansion rate today and they favor a different contribution of neutrino
+28:16
+masses to the data. And then you bring in the supernova data and it turns out
+28:21
+we have three different supernova samples we can use. We can use the union data, we can use the Pantheon data or we
+28:28
+can use a third set of data that I I forget their collaboration's name. And in two of those instances, the tension
+28:36
+rises again because whereas the CMBB data predicts higher values of omega
+28:42
+matter, the supernova data favors lower values of omega matter. And whereas the
+28:48
+CMBB data favors lower expansion rates, the supernova data favors higher
+28:53
+expansion rates. So when you add all of these three data sets, the supernova and
+28:59
+the CMBB and the large scale structure data from DESI together, you find their
+29:05
+in tension. And where is that tension showing up? Well, it's in a few different places.
+29:12
+It's in the matter density of the universe. It's in the expansion rate of the universe. It's in the sum of the
+29:19
+nutrino masses in the universe, which by the way, when you combine all three data sets, the most favored value for
+29:25
+combined nutrino masses is negative. And that's a troublesome thing to me because
+29:31
+that's an unphysical solution. And then you say, oh yeah, and in addition to all
+29:37
+of those things, the different dark matter density, the different expansion rate, the different nutrino masses, it
+29:43
+also predicts different properties for dark energy. So if you say, well, I'm going to demand that we have one value
+29:50
+for nutrino masses and one value for expansion rate and one value for the
+29:57
+matter density, then the only place to put your
+30:02
+variations is in the dark energy evolution. So when you combine all of
+30:07
+that today together, that's where the suggestion of dark energy evolution
+30:12
+comes from. And I'm not saying I don't believe that dark energy could evolve, but I think that what we're seeing is
+30:20
+that there is a tension between these three different types of data sets. And what it's going to take is superior data
+30:28
+to figure out where is this tension coming from? Is it because the matter density is evolving? Is it because dark
+30:35
+energy is evolving? Is it because nutrinos are doing something weird? Is it because there was some early species
+30:41
+of energy that's decayed away? Is it because the expansion rate is evolving in some non-standard way? I think we're
+30:49
+going to await Desi's final results because they've only released their, you
+30:55
+know, first and second year results. And I think their final results are going to have about three times as much data. And
+31:02
+then after DESI, we're going to get more largecale structure data from space and
+31:07
+groundbased telescopes like Spherex, like Uklid, like Roman, and like the
+31:13
+Vera Rubin Observatory. So being that this is a datadriven science, I want to
+31:19
+see the data and when more and better data is in, then I want to know what it's telling us because there is a
+31:26
+tension where everything doesn't add up. But based on the evidence we have today,
+31:32
+on the strength of the evidence, I think it's premature to draw a conclusion that dark energy has to be the thing that's
+31:38
+evolving. [clears throat] Um, yeah, very interesting. Um, besides
+31:44
+this, um, which of the last fi in the last five years, what what what has been the
+31:51
+most intriguing, uh, finding from your point of view for an astrophysicist?
+32:02
+For me, the most profound discoveries have come from the James Webb Space
+32:07
+Telescope because it's taken us further back into the cosmic past than anything
+32:12
+else has ever taken us. Uh, if I said in 2022
+32:18
+before the James Webb Space Telescope began science operation, what was the most distant galaxy we knew of? I I
+32:25
+would have said, oh, it's GNZ11. It was discovered by Hubble. We now know its light came to us from 420 million years
+32:32
+after the Big Bang when the universe was 3% of its current age. And you know, we
+32:37
+would say that that's the most distant galaxy. And now that galaxy is not even
+32:44
+in the top 10 of most distant galaxies. All 10 of the top 10 were discovered by
+32:51
+JWST and measured by JWST. And we have found populations of early
+32:57
+galaxies, uh, the little red dot galaxies, galaxies that seem to have
+33:03
+active galactic nuclei, maybe even with over massive black holes where some of
+33:09
+them have black holes that are more massive than all the stars in the galaxy combined. I think this is really
+33:16
+teaching us, hey, we're having a revolution in how structure formed in
+33:21
+the earliest stages of cosmic history. To me, that's the biggest development is
+33:28
+we are seeing further back past the front, the old frontiers of where our cosmic limits were. And it's showing us
+33:35
+some surprises about the universe. And it's up to us and we've also made tremendous progress on this front in
+33:42
+determining how the universe did grow up to be the way we observe it to be. Um,
+33:48
+and so at those frontiers, I think fascinating things are happening. But on a more astronomical and non-cossmic
+33:56
+things, we're also seeing details in stellar and planetary systems that we've
+34:01
+never seen before. And that's another thing that JWST, ALMA, and new
+34:07
+generations of observatories are going to continue to bring us. Uh Ko, I want
+34:13
+to note that there is a question here in the Q&A that I see uh from David Schu
+34:19
+Scheler who asks uh if I can recommend some resource to help him get his head
+34:25
+around the idea of unitless constants. Uh what's a source to that'll be
+34:32
+comprehensible to someone with only an undergraduate education? Uh I'm actually
+34:37
+going to recommend there was a book written maybe maybe five or six years ago by a duo of physicists named Jerant
+34:45
+Lewis and Luke Barnes and the book was called A fortunate universe. And even if
+34:52
+you only have an undergraduate education and even if your major was not physics or astrophysics, um, A fortunate
+34:58
+universe does an excellent job of breaking down what the different fundamental constants are, what they
+35:05
+mean, and how much you could vary them and still get a universe where
+35:13
+intelligent observers like humans could still possibly exist. Um and so I think
+35:19
+that book gives an excellent treatment of that. Okay. Excellent. Well, thank you very
+35:25
+much for your presentation and thank you very much for this uh for this tip and
+35:30
+we'll keep following you on the web. All right. Well, the universe is always
+35:35
+going to be out there for us to explore and enjoy. And uh I look forward to the next opportunity I have to bring a
+35:42
+little slice of it to all of you. Okay. Thank you, Ethan. All right. Thank you very much. Have a
+35:47
+great afternoon and evening. By

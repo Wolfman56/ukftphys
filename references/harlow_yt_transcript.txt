@@ -1,0 +1,881 @@
+Title: Observers, Alpha Parameters, and the Hartle-Hawking State
+Author: Daniel Harlow
+Source: https://www.youtube.com/watch?v=gVvlBIphw9Q
+web: https://www.mit.edu/~harlow/
+
+0:10
+All
+0:15
+right, next one. So, yeah, I'm going to talk about this uh popular topics of
+0:21
+observers, alpha parameters in the hard hawking state. So, I would say we now I think Ahmed
+0:30
+described it very poetically as what whatever the first two decades of the 21st century or something, I don't know.
+0:37
+Um, we have a a fairly robust way for thinking about the black hole information problem and the black hole
+0:43
+interior. I wouldn't say we understand everything, but at least I feel I understand it better than I did when I
+0:48
+entered the field. Um, to summarize what we learned, well, maybe different people would write different summaries, but
+0:54
+here's the one I would write, which is that the effective field theory of the interior is nonisymmetrically encoded
+0:59
+into the microates of the black hole. um which leads to a page curve that's consistent with unitarity via the
+1:05
+quantum extreal service formula. Okay, so that's my attempt to have a a brief summary of what we learned. Um
+1:12
+now since we think we learned something well we should see what else we can learn and in particular since we're
+1:18
+trying to do quantum gravity while the two things we're supposed to think about are black holes and cosmology and so if
+1:23
+we're happier with black holes now let's try to think about cosmology. Um
+1:28
+unfortunately when we do this um it leads to a kind of shocking conclusion although maybe I don't know maybe by now
+1:34
+everybody's numb to it. Um which is that the Hilbert space dimension of quantum gravity in a closed universe is one. Um
+1:40
+so in other words uh in a closed universe there are zero degrees of freedom. Um and so what are we what are
+1:46
+we supposed to make of this? It doesn't feel like we have zero degrees of freedom. You know, does this mean that
+1:52
+we should just that we've ruled out experimentally that we live in a closed universe? Or does it mean that we should
+1:58
+actually we're wrong about black holes and we should give up the progress that we thought we made? Well, I'm not sure.
+2:04
+Um, and I, you know, I will say this is a very confusing thing. You know, there are a lot of papers on this subject now. I mean, some by me, some by many of you.
+2:12
+You know, my confidence level and the things I'm going to say today is not 100%. Uh, so, you know, I don't think
+2:18
+anyone else's confidence is 100%. what they are saying either and so you know some degree of humility is in order. So
+2:25
+my goal here is to have a discussion with all of you okay not just during this talk but throughout the rest of the
+2:31
+week. Um now recently um some of us proposed that
+2:37
+the problem can at least be lessened or ameliated by treating the observer who's
+2:42
+looking at the universe differently from the way you treat the rest of the universe uh in the fundamental laws of
+2:48
+nature. Um and so there are two sort of closely
+2:53
+related versions of this proposal and various um modifications floating around. Um in the one that we did the
+3:00
+idea was that in the inner product in the fundamental Hbert space uh you don't
+3:05
+actually use the standard inner product which is somewhat trivial. the Hbert space is one-dimensional but instead you use some additional structure uh to
+3:13
+define a more robust inner product basically by using a quantum to classical channel that decoheres the
+3:20
+observer in their pointer basis. Um and we argue that if you do this then you can recover semiclass physics up to
+3:27
+errors that are exponentially small in the entropy of the observer. Um so this is a small number for us something like
+3:32
+e to the minus 10 the 25 let's say for me I don't know um but it's a very big
+3:38
+number compared to what you would have expected for the scale of non-perturbative quantum gravity effects in our universe which would be something
+3:44
+like e to theus 10 120 okay that's much smaller than this so this is a large deviation from what we would have
+3:50
+expected from sort of effective field theory analysis um yeah and so then if you to to relate to the other proposal
+3:57
+you you take the observer entropy to infinity in an approximation where you treat the observer as a world line.
+4:04
+So um in these papers the discussion was phrased in terms of transition amplitudes between arbitrary states um
+4:11
+and the Harl Hawking state did not play a very special role you know which maybe was at least to me a little bit
+4:18
+unsettling because well if you think that there's only one state then that one state probably should have something to do with the Harl Hawking state at
+4:24
+least uh and so it should appear more prominently than it did in the in these uh papers. Um and so my goal today is to
+4:31
+rectify this and and get the hurl hawking state there for you more explicitly and also understand um how
+4:38
+this approach relates to alpha parameters and the sort of third quantized approach to quantum cosmology.
+4:44
+Um and I also um at the end we'll uh try to stir up some trouble by pointing out
+4:50
+a puzzle relating these ideas to the string landscape uh and uh potentially identifying some tension between ads cft
+4:57
+and a path integral. Um so this is based on a paper that Ying and I are in the works working on. Ying is going to talk
+5:04
+more about this stuff uh I guess tomorrow. Um
+5:09
+okay. Um so let me start by reviewing what I'll call baby universe quantum mechanics. Um by which I mean the sort
+5:17
+of third quantized uh path integral approach to quantum gravity. um studied
+5:22
+initially by Coleman Giddings and Struminger um and then really nicely formalized by by Mar and Maxfield um a
+5:29
+few years ago. I don't know is Henry here? I don't think Don is here. And I don't see Henry. Okay. All right. So,
+5:35
+all right. So, this will be so this will be my interpretation of what they said, but I can't promise they 100% agree with
+5:41
+everything that I'll say. So, what's the idea? The idea of baby
+5:46
+universe quantum mechanics is that you use the path integral to define an inner product um between states with arbitrary
+5:54
+numbers of closed universes. Okay. So here I'm looking at an amplitude between a one universe state and a two universe
+6:00
+state. Um uh in general they're disconnected contributions. So that goes
+6:06
+into this alif. That's their symbol. Um but I think it's appropriate. Um so the
+6:12
+sum over all disconnect you know vacuum bubbles is called ALF. So you divide by that to get a sum over connected um
+6:18
+amplitudes connecting different numbers of universes. Um and then you you want
+6:24
+to so so then you the idea is these these states that are labeled by configurations of some number of
+6:30
+universes give a span of the Hbert space or strictly speaking the prehilbert space and then you're supposed to
+6:36
+quotient by null states to get the actual Hbert space. Um this is old idea
+6:41
+like I said going back to the 80s. Um now in baby universe quantum mechanics
+6:47
+there is a hardle hawking state. Um and it's just the state with no boundaries. So if you want to compute the overlap of
+6:53
+the hard hawking state with a two universe state you put your two universe states here these these js sort of label
+6:59
+the configurations of the universes and then you do the path integral summing over whatever you can put in here with
+7:05
+no additional boundaries. Right? So that's a sense in which the hard hawking state is the no boundary state in baby
+7:11
+universe quan mechanics and as usual I've just drawn the um the connected contributions. I've neglected the vacuum
+7:16
+bubbles that this is connected in some sense because they're connected means that every component has one of is
+7:23
+attached to one of the the closed universe boundaries. It's like with fineman diagrams. Um so in um the norm
+7:30
+of the hard hawking state is just this alf. It's the sum over vacuum bubbles. And so if you want to normalize it then
+7:36
+you should you should divide it by the square root of alf. Now the main technical trick which uh as
+7:44
+far as I know was really introduced by Don and Henry um is that you introduce an operator on this Hilbert space zhat
+7:52
+of J which creates an additional universe in configuration J. Okay. So
+7:57
+acting on a state say with two J's with Z hat of J gives you a state with three J's where the new J is in the J that
+8:04
+appears here in the label of the operator. Um and so if you think about it a little you can convince yourself
+8:09
+that the operators these Z of J operator Z hat of J operators commute with each other. Um because if you can just create
+8:15
+a bunch of boundaries and it doesn't matter what order you created the boundaries in the path integral is going
+8:21
+to be the same. Um and uh you can also show that the dagger of Z hat of J is Z
+8:28
+hat of J star where J star is essentially the CRT conjugate um of J.
+8:33
+Okay. And so that's implicit here. So that it was already on the previous slide when something is in a bra you put
+8:39
+J star and when it's in a cat you put J. Um okay. And so then the trick of me and
+8:46
+Maxwell is that since you have this big set of commuting operators and actually they're normal operators because they
+8:51
+compute with commute with their daggers. Um you can simultaneously diagonalize Z
+8:57
+hat of J for all J. Um leading to what's called the the basis of alpha states
+9:02
+which are igen states of Z hat of J um with igen value Z alpha of J. Okay. Um
+9:09
+so that's a sort of lightning review of baby universe quantum mechanics. Um
+9:15
+so at least in situations where these path integrals are well defined which
+9:20
+you know honestly is probably just in oneplus 1 dimensions um then you know these alpha states are really well
+9:26
+defined what I just told you is a mathematical algorithm um and you can derive from it a version of holography
+9:32
+so you take your favorite overlap between you know n universes and m universes and you just in insert a
+9:39
+complete set of alpha states um and then since all of these These universes can be obtained from the hurdle hawking
+9:45
+state by acting with Z hat of J. Then you can just use the igen value equation to replace all of the J's by the igen
+9:51
+values in a fixed alpha sector. And so you just get an average over a
+9:56
+factorized amplitude um with probabilities given by the overlap of alpha and the hurdle hawking state.
+10:03
+Okay. Um and so the way you can think about this is you can imagine that well um for
+10:11
+each alpha you have some fixed holographic duel um where where the amplitude factorizes between all the
+10:17
+boundary between all the boundaries uh and then this average over p I'll write
+10:22
+with the bar. Okay so maybe now here's a good time to comment on this notation that I've been using. So in the baby
+10:28
+universe quantum mechanics Hbert space I write states with square brackets. Okay. when I write angle brackets those are
+10:35
+states in the holographic duel you know at fixed alpha and then when I write a bar I'm averaging over alpha okay so the
+10:42
+left hand side of this equation is what I would call baby universe quantum mechanics the right hand side is what I'll call average toography
+10:51
+so and in fact the wave function of each alpha state is completely determined by the zal alpha j you can compute it by
+10:58
+using these formulas that I wrote down um and so at fixed alpha for each fixed alpha there's you know for each set of
+11:05
+igen values of zhat there's only one state alpha um which means that the
+11:11
+Hbert space is onedimensional um in a fixed alpha theory and this is one way of getting at this conclusion that I
+11:18
+mentioned on the first slide maybe not the most intuitive or direct way but the way that is closest to our purposes
+11:24
+today right okay now I want to be clear that
+11:31
+although we can give these baby universe quantum mechanical amplitudes an
+11:37
+averaging interpretation. I want to be clear that baby universe quantum mechanics is a conventional quantum theory. It has a hilbert space. It has
+11:45
+operators and there's no funny business. So in particular um if you multiply two
+11:52
+transition amplitudes in baby universe quantum mechanics like say these two one universe transition amplitudes you do
+11:59
+not include topologies connecting this amplitude to that amplitude in the path integral. Okay in baby universe quantum
+12:07
+mechanics this quantity really is just the product of two numbers and there are no wormholes connecting one amplitude to
+12:13
+the other. Um, and so here I've I've written that here. If the the pathal calculation of this factorizes into this
+12:20
+thing times that thing with no not like a wormhole going from here to there or something like that. Um,
+12:26
+now I sometimes encounter resistance to that statement. You know, it's given all the progress in
+12:32
+recent years with replica wormholes and so on, we people always want to connect everything that you can with wormholes
+12:38
+and I'm sympathetic to that. Um, but I want to emphasize that actually the the
+12:43
+most wellstudied example of baby so baby I didn't just make up baby universe quantum mechanics neither really did
+12:49
+Coleman Giddings and Strumminger. It's the same thing you do whenever you do the world sheet approach to scattering
+12:54
+and string theory. Okay. And so if you consider a closed string scattering amplitude and you compute the S matrix
+13:01
+by summing over all the topologies when you square the S matrix to compute a cross-section you do not include world
+13:08
+sheets that connect S and SAR okay bad bad you wouldn't do that if you did that
+13:15
+uh the whole edifice of perturbative string theory would come crashing down
+13:20
+okay and so I would say string theory perturbative string theory in the world sheet approach really is baby universe
+13:25
+quantum mechanics. Um, and that's why the closed string Hbert space is not onedimensional. Okay, if you included
+13:32
+things connecting this S matrix and its complex conjugate, then you would have to conclude that the string SC the
+13:38
+string Hbert space is onedimensional. Okay. Um,
+13:45
+now um although factorization does not hold Okay. So good. Um now although
+13:52
+factorization does not hold in baby universe quantum mechanics um it does hold you know at fixed alpha in a fixed
+13:58
+holographic duel. Okay in other words so if we do one of these averages then under the average I'm allowed to take a
+14:05
+2:2 transition from two universes to two universes and split it into two one
+14:10
+universe transition amplitudes. Okay I'm allowed to do that under the bar. I'm not allowed to do it you know after the
+14:17
+you know after the bar. Um so from this point of view um average holography you
+14:23
+can think of the this non-factorization that I wrote right with this one this non-factorization
+14:29
+as coming from ensemble uh fluctuations um in uh the sort of ensemble of alpha
+14:36
+states right so it's like this right if you look at the average the bar of the product of two things it doesn't have to
+14:41
+be the product of the bars okay and that comes from fluctuations in the alpha ensemble Um
+14:48
+now the fact that ultimately things do factoriize under the bar you know in a fixed holographic theory can lead to
+14:56
+disturbing conclusions. Okay. Um so here's one kind of disturbing
+15:02
+conclusion. So so let's imagine in in the holographic theory let's try to compute the transition amplitude between
+15:07
+two states J1 and J2. And for fun we're going to compare that to just the norm of J1 and the norm of
+15:15
+J2. Okay. Um, and then to make sure that we get something positive, we'll square it.
+15:21
+Although it's actually not really necessary. It's already positive without the square, but just to be absolutely sure, we can square it. Uh, and then we
+15:28
+can compute the bar to get something that we can compute using the path integral. Um, well, this path integral
+15:33
+actually, you know, all the terms in this path integral, they they have the same boundary condition. So, they're the same path integral and so we just get
+15:40
+zero. So, in other words, the transition amplitude between any two states, you know, which are normalized. So if I
+15:46
+normalize the states to set the two norms to one, then this just becomes one. And this is saying every transition
+15:52
+amplitude between any two states in the holographic theory at sort of fixed alpha is one. Um so of course it's not
+15:59
+surprising, right? This is just a consequence of the fact that at fixed alpha the silver space of one
+16:04
+dimensional. So of course all the transition amplitudes are one. Okay. I think Luca, are you going to say more
+16:10
+about this in your talk? Maybe you are. I don't know if he's here. Yeah, he says yes. Okay. Okay. So, Luca will say more about this in his talk. Um,
+16:18
+okay. All right. So, that's it for reviewing baby universe quantum mechanics. Now, I'm going to complain
+16:24
+about it. Okay. As I said, I'm trying to start discussion here. I'm trying to give everybody stuff to to think about.
+16:31
+You know, I'm confused. I want to share my confusion with all of you. Okay. Um,
+16:37
+so let me say why I don't like it. So, there are a couple reasons. Um the first reason is because outside of 1 plus 1
+16:42
+dimensions or maybe borderline 2 plus one pure gravity um the path integral is not well defined right it's a it's a
+16:50
+this is one because gravity is not reormalizable right we have to view it as an effective field theory with a
+16:55
+bunch of high dimen high derivative terms um probably only an asmtoic
+17:01
+expansion in in gin um and and and even worse in some sense the sum over topologies is also usually not
+17:07
+convergent in higher dimensions so that's asmtoic as well. And so this machinery of constructing a formal Hbert
+17:14
+space using the path integral and then diagonalizing the normal operator Z hat
+17:20
+to construct a set of well- definfined alpha states is not um well defined. It's not something that you can actually
+17:26
+do even in principle. Um and I honestly I think it's for the best, right? like it would be kind of a pity if we could
+17:32
+if we could un you know figure out all of non-perturbative string theory by starting with the super gravity path
+17:38
+integral and running some machine you know we can of course hope to learn about it but it feels like getting the whole theory is sort of too much to ask
+17:45
+right um so that's one complaint right you I don't I really think you can derive holography from the path integral
+17:51
+except in these oneplus one cases like like sod shank or Stanford or or using more generally using this Marxfield exm
+17:58
+okay so that's complaint number Um,
+18:04
+complaint number two is that it's not holographic. Um, by which I mean that the full Hilbert space uh has
+18:11
+fundamental degrees of freedom, namely the alpha parameters. Um, which don't live at asmtoic boundaries, which is I
+18:17
+think something Jake and Kran also emphasized in their paper. Um, so and
+18:23
+moreover, I think that means it it probably doesn't give a unitary theory of black hole evaporation. Okay? Because
+18:29
+you know in the end you're just doing the bulk path integral and so in some sense you're you're not really going to be able to compute you know if you do
+18:36
+the quantum mechanics of the bulk path integral you're not going to be able to compute a unitary S matrix. Um you'll
+18:41
+end up entangled with the baby universe which you know in baby universe quantum mechanics the baby universe does have a
+18:46
+big Hbert space spanned by the alpha states right it's not it's not onedimensional in baby universe quantum
+18:52
+mechanics that's only once you do this thing of going to fixed alpha. Um now now Don and Henry in their paper they
+18:58
+did talk about getting unitary black hole evaporation but as far as I understand um they had to go to an alpha
+19:03
+state to get that and once you do that you're sort of putting holography back okay um you know which is fine if you
+19:09
+can really do it but like I said in higher dimensions you probably can't really get the alpha states out of the path integral anyway. Um
+19:17
+uh finally um I don't think baby universe quantum mechanics is compatible with string theory because in the sense
+19:23
+that you know this is sort of another version of the previous complaint. So in string theory we think every parameter
+19:30
+is the expectation value of a field right parameters are always dynamical. They're they're fixed by where you are
+19:36
+you know in the landscape. Um and in particular that includes the gauge coupling and the the you know the the n
+19:42
+of s in the nc I'll call it of s in n equals 4 superang mills. Um so these
+19:49
+things you should really think of them as being part of j right they're part of the the boundary condition in the closed
+19:56
+universe. They're not alpha parameters. Um so for example you can have a bulk
+20:01
+geometry that interpolates between a closed universe with nc= a th000 and nc=
+20:06
+101 um by putting a uklidian d3 brain in between. Okay. Um and so I just want to
+20:13
+comment because recently people have talked about maybe we should average over nc. So I don't know maybe we should
+20:18
+but but I just want to emphasize that you shouldn't think of that as an alpha average. NC is not an alpha parameter,
+20:24
+right? like n equals 4 and in fact the two zero theory and you know the abjm
+20:29
+and all this stuff are right they're all really part of the same theory the difference between those is changing j
+20:35
+and not changing alpha okay so averaging over c ofts is not averaging over alpha
+20:40
+okay that's one of the things I want to emphasize to everyone um you know in fact right since nc can
+20:48
+change between amplitudes like what does it even mean to average over like which one would you average over right if there's an amplitude that changes it
+20:54
+from 1 to 100. So my view in light of all these
+20:59
+complaints uh somewhat not sure what's the right word um
+21:05
+orthodox is that we should still look for some definite holographic theory with no
+21:11
+alpha parameters such as string theory um from which then we would hope that
+21:17
+baby universe quantum mechanics emerges not as some fundamental thing but rather
+21:22
+as some approximate emergent thing in some appropriate limit and effective field theory um with a limited regime of
+21:30
+validity. Okay, which I think would have been a completely uncontroversial statement 15 years ago, but I'm not sure
+21:36
+today. I don't know. You can tell me after the talk. Um and so what I'm going to do in the rest
+21:42
+of the talk is I'll argue that by introducing an observer, um it allows for baby universe quantum mechanics to
+21:48
+emerge from a holographic theory up to effects that again are of order e to the minus s observer. and then I'll make
+21:54
+some general comments about how holography the path integral relates to string theory. Okay,
+22:03
+so far this has been a bit high, you know, abstract. So, it's nice to have models. I like models. Um, so I want to
+22:11
+now go through this dis, you know, put this stuff in practice using this simple 2D model. So it's it's a variant of the
+22:18
+one introduced by Don and Henry and then where you take the just the oiler character is the action of 2D gravity in
+22:24
+the bulk but then you also allow for worldline matter carrying some spec species index I. So so uh in this paper
+22:32
+they introduce this modification with the matter. Um and the dynamics of the the matter index is very simple. You
+22:38
+just say that you know the species label the on the matter has to agree at the start and the end of the world line. So
+22:43
+the propagator is delta J. So um in this paper we studied this
+22:50
+model with one particle in a closed universe yesterday in this paper. Um but actually for my purposes today you know
+22:57
+we're trying to connect to the hurdle hawking state. Uh this was not so fortuitous of a of a of a set of states
+23:04
+to consider because um you know because the propagator is deltaig you can't have an amplitude to get one particle out of
+23:11
+the Harl Hawking state. So in baby universe quantum mechanics the overlap between the hartlehawking state and a
+23:17
+one particle state is zero. Um and so this kind of obfiscates the role of the hard hawking state in this model. All
+23:23
+right. So to get around this what I'll do today is instead is sort of the dumbest thing.
+23:28
+I'll just consider two particle states. So you can get two particles out of the vacuum because they can be connected
+23:34
+through now through a delta j. For example up here the propagator could just do that. Okay. And so then the you
+23:40
+know the normalized two particle amplitude of the with the Harl Hawking state is you know the hemisphere with the two particles plus that with a
+23:47
+handle plus dot dot dot. Uh and then if I compute an amplitude between two particle states there's a disconnected
+23:53
+contribution and a connected contribution. So in our previous paper this and I think also for the Berkeley
+23:59
+people this was zero and this was zero. And so we just had this right? And so what I'm going to do now is try to dwell
+24:04
+on how things change when you have this disconnected contribution. Um and so these are results right and
+24:11
+you can basically do calculations in your head in this model. So this is the full answer from this that this comes
+24:19
+from seming over genius and then you get a delta j from connecting these two with the propagator. Uh here the disconnected
+24:25
+contribution gives you a square of what you would have gotten from one of these now with two of these delta js and then
+24:30
+this is the cylinder contribution where you have to sum over the ways that you could contract the indices here. Okay.
+24:38
+Now something I want to emphasize and which we're going to return to repeatedly is that um the disconnected
+24:43
+contribution actually dominates if I equals J and I prime equals J prime because you get a E to the 2S knot here
+24:49
+that you don't have there. Okay. And so this dominant this dominance of the disconnected amplitude is going to kind
+24:55
+of be our foil for a lot of the rest of what I'm going to say.
+25:01
+Now to see how this factoriization on the Harl Hawking state relates to the one state in the fundamental Hbert space
+25:07
+we need a microscopic model right here I just told you the path integral but in some sense this is after the average right so what is the theory before the
+25:13
+average um so I'll use a variant of a code model that we had in this paper so
+25:20
+in this paper we had a 10 code model where we had a random orthogonal matrix and we fed the state of the bulk into
+25:26
+the random orthogonal matrix and then just projected onto the all zero state.
+25:31
+Now, that model is one where the overlap with the hard hawking state is zero. So, I need to get a to get a a disc
+25:38
+amplitude that's not zero. I need to have two O's so that they can connect. And so, here's what I do. I feed the
+25:43
+state of one of the particles into this O, the other particle into that O, and I project onto some entangled state Kai.
+25:50
+Okay? So that's going to be my holographic map that takes some you know bulk state or some this I and J they're
+25:57
+like the J that I had before and turns it into a number in the fundamental Hbert space at fixed O because remember
+26:03
+the fundamental Hbert space is onedimensional. So every state has to get turned into a number. If the state
+26:08
+is a cat it gets turned into a number like this. If it's a bra it gets turned into a number like that. Okay. And then
+26:15
+the I'll just you know the fine print I'll work in the limit. So these O's are D byD orthogonal matrices. I'll work in
+26:21
+the limit where D goes to infinity. I'll fix the range of I and J so that these fixed states S not K not K not K not K
+26:27
+not K not K not K not K not K not K not get bigger and bigger in this limit. Um and I'll also fix the overlap of K with
+26:32
+the unnormalized maximally mixed state going here to be something called square root of K. That's just some parameter in
+26:38
+the theory that exists in this limit. All right. Okay. So I won't teach you
+26:44
+how to do these calculations in real time. I'll just tell you the answers. So if I if I consider the Harl Hawking
+26:52
+state with a two particle state, that's just this number. And then when I average over O, I get the square root of
+26:57
+K * delta J. If I do a amplitude with two of these, right? So this is a
+27:02
+remember this is a factorized thing because V turns this into a number and V dagger turns that into a number. So this
+27:08
+is a product of two numbers because we're in a one-dimensional Hbert space. Um but then if now if I do the average
+27:14
+to try to compare with baby universe quantum mechanics um then I get a leading term which is this disconnected
+27:19
+term and then I get something like the cylinder here. Um and so at least at leading order for each index structure
+27:25
+this agrees with the path integral provided that I take this k to be e to the 2s knot. Right? So then this is the
+27:30
+hemisphere. This is the disc contribution. This is the two discs and this is the cylinder. Now, the cylinder
+27:36
+actually had a third term that was the same as this term, but I'm guess I'm viewing that as a small correction to this. Okay.
+27:43
+And this agreement actually, so I did it here with just one boundary, but it works also with more boundaries. You can
+27:49
+consider, you know, with amplitudes involving two boundaries, three boundaries, four boundaries, however many boundaries you have. For each
+27:55
+boundary, you just supply these numbers. Okay? And then do the integral at the end and you get a match with the path
+28:02
+integral in this toy model. Okay. Um so so in fact this numbers we
+28:08
+can identify them in the sort of Marov Maxwell language as being as out this O is like the alpha parameters right we're
+28:14
+averaging over the matrix O. So in this model the alpha parameters are continuous and the igen value of Z hat
+28:21
+is precisely these numbers V acting on J. Okay. Now I want to emphasize that
+28:27
+the one state in the fundamental Hilbert space here you know at fixed O is this somewhat complicated state. Okay it's
+28:34
+probably easier if you look at the picture. So let me go back right so I'm I'm taking the inner product of I J
+28:40
+which goes in here and here with you know kind of everything above I and J. So there's a kai two o's and then this s
+28:47
+knot and that gives you some messy state uh which is the actual one state um and
+28:54
+it's not the baby universe quantum mechanics harding state right that's this that's this simple delta j okay um
+29:00
+in the fundamental theory at fixed o what you really mean by the hard hawking state and this is one of the lessons
+29:06
+that I think we learn is is just the number one okay right the rule is for each boundary I supply these factors and
+29:14
+so when I don't have a boundary. I just don't supply these factors. So I just have the number one. Okay. In the fixed
+29:20
+holographic theory, that's the Harle Hawking state one. All right.
+29:27
+Okay. Um, good. So now let's go. So that's so we found so we've now seen that that an average over theories with
+29:34
+the onedimensional Hbert space can reproduce the path integral. That's not so surprising. Um, but we also have to
+29:40
+deal with my complaint that really we don't probably have a bunch of theories to average over. we just have string theory and so we want to have something
+29:46
+that works with just one theory. Okay. Um and unfortunately I argued that in
+29:52
+that one theory there's a one-dimensional Hbert space for the closed universe. And so you know you beg the question how can we account for the
+29:58
+richness of human experience in a one-dimensional Hbert space. Okay. And so that's where the that's where the
+30:05
+observer decoherence role is supposed to help you. Um so I'm going to use this.
+30:11
+Hello. So that's five minutes. Yeah. Okay. So, so I will use the observer decoherence rule um to do this. Okay.
+30:19
+And so in practice what this rule does is you know so it it the the the the most enlightening way to say it is in
+30:26
+terms of this channel but for doing calculations it's easier in practice to do something equivalent to using the
+30:32
+channel which is that you clone the observer out of the system in their pointer basis which you can think of as establishing a Heisenberg cut between
+30:39
+the observer and the system that they're measuring as in the Copenhagen interpretation of quantum mechanics. And since I said interpretation of quantum
+30:45
+mechanics I'll jump quickly to the next slide. Um so um in our model here's what
+30:52
+the rule looks like. Okay so we want to compute this averaged overlap between two between a pair of two particle
+30:57
+states. So I put in the two particles here at the boundaries and I sum over what goes in between. But then to
+31:03
+implement the observer rule I also have to include an observer here which then gets entangled with this reference
+31:08
+system that goes around out the outside. So I want to emphasize because this causes confusion. The reference system is not real. Okay it's just there to
+31:15
+help implement the change. Okay. Okay, so the observer is still here in the system. They're not outside, right? Um,
+31:22
+okay. So you can evaluate this using the path integral. Um, so it's pretty much similar to the answer we got before. You
+31:28
+know, there's the two disc contribution and the cylinder contribution. The only new ingredient is that here the observer
+31:34
+has to come out of nothing, right? So there's an amplitude lambda, which is the amplitude to create an observer from
+31:40
+the vacuum. And then yeah, this is the same set of things I drew before. It's the cylinder contractions. Okay. Um,
+31:49
+now I will call the observer observer Hilbert space KO dimension KO. And to
+31:55
+avoid excessive observer production in the vacuum, I'll assume that this amplitude to make an observer from the
+32:00
+vacuum lambda squared is less than 1 over KO. Otherwise, you just kind of can
+32:05
+produce all sorts of observers uh willy-nilly. Um now an immediate
+32:11
+observation is that although the disconnected amplitude is suppressed by lambda squared right because you had the observer coming into those spheres it's
+32:19
+enhanced by e to the 2s knot. Okay and so even though you have to pay a cost to nucleate an observer in the disconnected
+32:26
+amplitude that you don't have to pay for the connected amplitude uh the e to the 2s knot more than makes up for it at
+32:32
+least for reasonable sized observers. Um and so the dominant transition amplitude
+32:37
+uh between a state where I'm here with an atom and another state where I'm here and the atoms say decay to another state
+32:43
+is that you defluctuate the entire universe and then refluctuate a new universe. Okay, which is doesn't seem
+32:50
+consistent with experiment to say the least. Okay. Um now the the the
+32:56
+alternative observer rule from Berkeley would actually ignore the disconnected contribution, right? it would say the
+33:01
+observer can't connect through the two discs and so you just shouldn't write it down in this model you get that if you
+33:07
+really take s observer to infinity at fixed lambda because then the lambda squar is small enough to beat the the e
+33:14
+to the 2s knot enhancement but I don't feel this this limit is so fixed you know physical I feel you know if this is
+33:20
+the ditter entropy and this is r entropy then then we shouldn't be doing this okay and then and then this amplitude is
+33:25
+here and we have to think about it all right so I'll talk more about that in a sec Um let me just quickly say that you
+33:33
+know remember the goal here was to learn what happens at fixed O. The goal of the observer rule is to recover sensible
+33:38
+physics at fixed O without doing an average. Now I drew this small so you can't actually see this to do the
+33:44
+fluctuation of the of the inner product in the presence of the observer. There are 15 topologies that contribute here
+33:49
+they are. Okay. But the answer is actually pretty simple. um at large K observer um the dominant terms are these
+33:56
+ones which if you look at it a bit it's actually just the square of the of the of the single amplitude from J to I J
+34:04
+prime I prime J prime so the ensemble fluctuations are suppressed by K observer just in as in the previous
+34:10
+papers um and so what we learn is that the observer rule turns holography at fixed O into baby universe quantum
+34:15
+mechanics which is nice right so now we get baby universe quantum mechanics in a limit but only up to things that are of
+34:21
+order E to the minus S observer Okay. Um, last two slides. Um, so we've
+34:27
+now seen that the observer rule allows baby universe quantum mechanics to emerge from holography without alpha parameters, which I like because I don't
+34:34
+like alpha parameters. Okay, if you do, sorry, but I don't. Um,
+34:40
+on the other hand, um, the baby universe quantum mechanics that we got has this disturbing feature that the transition
+34:46
+amplitudes can be dominated by disconnected factorization on the Hardle Hawking state. Um, and I think of this
+34:51
+as a version of the Boltzman brain problem, right? Like the dominant way for things to happen is via fluctuation.
+34:57
+Um, now we could just hope that our initial and final states happen to be almost orthogonal to the Hardle Hawking
+35:03
+state, right? That's a cosmological question. Maybe it's true. Um, for example, in the model, we could have I not equal to J. Um, but in cosmology,
+35:11
+we'd like to have some theory of the initial state. Um, and in fact, the hard hawking state is the most appealing
+35:16
+state to choose. Oh, the the last thing is the most fun though. Okay. Can you just give me that'd be fast.
+35:23
+Um, okay. So, I I want to I want to now I want to just give you something outrageous to to finish with. Okay. Um,
+35:30
+so consider a landscape with one ads vacuum and one desitter vacuum. Um, and I'm interested in the sector of the
+35:36
+theory with just one spatial ads boundary. So, the Hilbert space is just the CTF Hbert space. Okay. And the
+35:42
+sector with one ads boundary. And the state I'll consider is a state in the CTF which has an observer sitting in the
+35:48
+middle of empty ADS, you know. So that that seems like a pretty easy state to understand in ads CFT. Um or is it?
+35:55
+Okay. So what I want to do is since you know since I've got an observer and I just argued I can use baby universe
+36:01
+quantum mechanics when I have an observer I want to compute the expectation value of an observable that
+36:07
+gives zero if there's no observer. It gives zero if the observer is in ADS and it gives one if the observer is in DS.
+36:13
+So this observable tells you whether you're going to be in ADS or in DS in this landscape in this particular state
+36:19
+of the fundamental theory. Uh and then since I want to condition on having an observer, I divide by the expectation
+36:25
+value of the thing that's just one if there's an observer and zero otherwise. Okay, last slide. So here's what the
+36:31
+calculation looks like. Uh the expectation value of Q has a term where you have so here's the ads with the
+36:37
+observer that's put there by hand in the state sai. Um but then since I get zero if the observer is in ads to get
+36:44
+something in the numerator the observer has to be in DS. So I have to fluctuate a decitter vacuum bubble uh which in it
+36:50
+has a decitter fluctuated observer. Okay so that's what this is. On the other hand in the numerator observer I have to
+36:56
+count both the case where the observer is in ads and the case where the observer is in decitter. So I get zitter
+37:02
+over 1 plus z to sitter where zitter is the sphere partition function conditioned on the presence of observer.
+37:07
+So it's E to the S ditter minus the mass of the observer in over the decitter temperature. Um and this is very large
+37:14
+compared to one which means that this is very close to one which means that the observer is almost surely in decitter
+37:20
+space. Okay, we have a state of n equals 4. It's got an observer sitting there in empty ads. But if we use the bulk path
+37:27
+integral it tells us that actually that's not where the observer is. The observer is in decitter space. And so if
+37:32
+you're an observer living in string theory in this landscape with the two vacua um the place where you should find
+37:38
+yourself is indecor
+37:46
+um okay so maybe one I don't know you have to choose between the harl hawking estate and ads cft I don't know what do
+37:53
+you think am I going to get thrown out of is
+37:58
+yeah okay so that's all I had to say so thanks for listening
+38:12
+Hey, thank you for the for the nice talk. I just want to go back to the relationship
+38:18
+between the two observer proposals. I think this is so six months ago, man.
+38:25
+Yeah. Correct. like um I would say that it's
+38:33
+okay. First of all, let me I don't want to take any sense on which one is better because they're either we're all trying to understand. We shouldn't be fighting
+38:40
+over who's better. They're both bad sympathetic to that. Yeah. Most likely
+38:46
+outcome in fact. Yes. Recovering. It's correct to say that the Berkeley
+38:54
+prescription is recovered from the MIT prescription in the as observative infinity limit. is true for the
+38:59
+dimension of the Hilbert space but for example the Berkeley prescription just
+39:06
+the dimension of the Herra space of the observer in that case can be any and the
+39:11
+H space whose dimension you're computing just the dimension of the H space trace of quantum gravity observer interacts
+39:17
+with so that's an example of why I think it's not one is the limit of the other I think they're computing different things
+39:23
+and it would be interesting to understand why I think what I can say uncontroversial is that our path
+39:30
+integral calculations become your path integral calculations in the limit that s observer goes to infinity. Now we can
+39:37
+discuss whether the interpretation changes in some way but I think it's for the calculations it's just mathematics
+39:45
+our case is not calculation that's what I want to point out so it's not the same
+39:50
+as observer doesn't appear in your calculation I don't think so
+40:00
+yeah so um okay as you probably anticipated a lot of these arguments happened in cosmology boltsman brain
+40:07
+context you know over the decades you know Don Page made a version of this argument here not about holography about
+40:14
+saying observers and quantum mechanics are incompatible and the resolution that I've always believed is that there isn't
+40:20
+in fact a um projector onto decoherent branches like there is there is not in
+40:26
+fact an observable which tells you whether you are on a branch of a wave function uh and so that would suggest
+40:32
+here that a resolution would be that actually I I think the resolution is that ditter and ads are not like
+40:39
+different direct sum sectors of the Hbert space. They're like made out of the same degrees of freedom. And so if
+40:45
+there's some overlap, I can't construct the observe you constructed on the last slide.
+40:50
+Um I mean so here here I'm trying to just use the path integral because you know that's one of the lessons we learned.
+40:57
+I it's a path integral observable. It's like I'm not sure it's a good observe in the path integral. It's a it's a
+41:03
+thing I can insert in the path integral and compute the expectation value. Now we can discuss is it an observable but
+41:08
+I don't know if it's a linear operator. Yeah. I mean in fact this calculation is happening in the context where I think
+41:14
+that the closed universe is Hbert space is one-dimensional. That's why I said that the the fundamental Hbert space is
+41:20
+just the CTF Hbert space. But in the string theory for example does it make sense to actually project
+41:25
+onto observer and decitter versus observers? I don't know in in the in the path integral that we
+41:31
+think is for the theory we think is dual to yeah I don't know in the path integral I can do it
+41:37
+cosmology with a landscape right you can't say oh I mean one vacua versus another vacuuma
+41:43
+no but the path integral tool for studying that like via the common deluch instanton and so on right or at least the best tool we currently have yeah now
+41:50
+I mean you might say that somewhere part of my interpretation in terms of philography here could be wrong I mean maybe hopefully but but it could also
+41:57
+just be that the this landscape is bad, right? I mean, this may not be how the string landscape works, right? I mean,
+42:02
+probably it isn't. I mean, I think it probably has vacua like this and vacua like that. Sorry to the swamplanders.
+42:07
+Um, but it has a lot of other vacua, too. And I could imagine that if you took into account all of them, it would change the result of this calculation.
+42:14
+That's a hope that I have, but it's just a hope and it might not be true. So on your last slide um where you do
+42:21
+this calculation I think you're doing the calculation in the way your guys' paper had done it but
+42:26
+if you if you do the calculation with the rule of you freeze the observer's world line and use as a boundary condition of the gravitational path
+42:32
+integral and I'm not sure what calculation you're doing because on the bottom those two terms do not have the
+42:37
+same boundary condition because they have different observer world lines. Yeah.
+42:42
+I'm I'm allowing for you to be a fluctuated observer, right? And so yeah, so I I think that's part of the issue
+42:48
+here is I think there's really two issues in getting from holography to something like quantum field theory and
+42:53
+curved spacetime. One obstacle is this issue of ensemble fluctuations and that
+42:59
+was fixed by the observer rule. But then there's additional issue just within baby universe quantum mechanics of the
+43:05
+disconnected contribution to things and somehow that's that's the thing which uh
+43:12
+need I mean somehow to me that's just a feature of the theory like the theory may if the theory predicts that observers are fluctuations I'm a bit
+43:19
+nervous to just ignore that. I feel I feel like it's something we have to take at least a little bit seriously.
+43:26
+Yeah. So sorry I I couldn't follow the um details. So um so in this in this in
+43:35
+this model where observer is fluctuating does the observer see any deviation from quantum mechanics like this small
+43:42
+deviation or Yeah. So Yang is going to talk about this more in her talk I think. So there's two things you could mean by
+43:47
+that right there's questions about you set up an experiment right next to you and you do the experiment and you see
+43:54
+what comes out of the experiment. So that's one way of testing the laws of physics. But there are and that I think
+43:59
+it should be fine. That's what Ying is going to say. But if you ask questions that are about the world you find
+44:05
+yourself in, like should I expect to see distant galaxies or should I expect to
+44:11
+remember my parents or things like this, right? These are questions that are sensitive to whether or not you came
+44:17
+from a fluctuation. Uh and I feel like those questions should be within the realm of science like that. I mean that
+44:22
+is cosmology, right? We try to learn about the initial state of the universe and it's a little different than trying to learn about the laws of physics right
+44:29
+now. I mean they're related of course but yeah in the first case there's no correction
+44:34
+or there like small correction I think in the first case there's small corrections but but that but that the
+44:41
+universe that you find yourself in may not be consistent with the one that we live in and then that's also a problem
+44:47
+right so presumably we live in a universe with
+44:53
+multiple observers different observers don't need a priority to have the same pointer basis
+44:59
+So what happens when is there some phenomenon that brings observers pointer
+45:04
+bases into alignment when they interact? Ours are pretty well aligned. Right. Right. But in this model is is
+45:11
+um yeah so I think uh you're the one you're supposed to use is
+45:17
+the one that's you right. So in a world with multi is Elliot
+45:24
+Elliot. Yeah. So in Elliot's talk I think he's going to say a little bit about this. Right. So the observer rule, you're not supposed to apply it to all
+45:30
+observers. You're supposed to apply it to yourself. And so different observers can get different answers. And so we
+45:35
+wrote this paper with Elliot and Neta saying that that's a kind of complimentarity. Um yeah, and then I would say that when
+45:43
+observers can sort of classically communicate, then it better not matter which one that we pick. But if they're in disconnected universes,
+45:51
+I don't know. Okay. So we we end here. We thank Daniel again.
