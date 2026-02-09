@@ -2,6 +2,8 @@ import numpy as np
 import scipy.linalg
 from .physics import get_quantum_potential, get_velocity_field, step_discrete_action_minimizer
 
+from tqdm import tqdm
+
 class SimulationRunner:
     def __init__(self, N=201, L_phys=50.0, t_hop=1.0, dt_base=0.05, 
                  T_ticks=400, M_particles=1000, alpha_entropic=5.0):
@@ -48,7 +50,7 @@ class SimulationRunner:
         physical_time_elapsed = 0.0
         
         print("Starting Simulation Loop...")
-        for t_idx in range(self.T_ticks):
+        for t_idx in tqdm(range(self.T_ticks), desc="Simulating Choice Steps"):
             # 1. Dynamic dt
             rho = np.abs(psi)**2
             avg_rho = np.mean(rho[positions]) + 1e-6

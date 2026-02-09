@@ -1,5 +1,59 @@
 import numpy as np
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+def plot_heatmap_with_contours(trajectory_data, rho_history, alpha_entropic=0.2, filename="results/ukft_choice_guided.html"):
+    """
+    Plots empirical particle density heatmap with theoretical wavefunction contours.
+    """
+    T_ticks, M_particles = trajectory_data.shape
+    N = rho_history.shape[1]
+    
+    # Empirical heatmap (density over time)
+    fig = make_subplots()
+    hist_data = go.Histogram2d(x=np.repeat(np.arange(T_ticks), M_particles),
+                              y=trajectory_data.flatten(),
+                              nbinsx=T_ticks, nbinsy=N,
+                              colorscale='Magma',
+                              colorbar=dict(title="Empirical Density"))
+    fig.add_trace(hist_data)
+    
+    # Theoretical contours
+    contour = go.Contour(z=rho_history.T, # Transpose to align (Rows=Space=Y, Cols=Time=X)
+                        x=np.arange(T_ticks),
+                        y=np.arange(N),
+                        contours_coloring='lines',
+                        line_color='lime',
+                        line_width=1.5,
+                        contours=dict(showlabels=True))
+    fig.add_trace(contour)
+    
+    # Sample trajectories overlay
+    samples = 50
+    # Guard against fewer particles
+    actual_samples = min(samples, M_particles)
+    
+    for i in range(actual_samples):
+        fig.add_trace(go.Scatter(x=np.arange(T_ticks),
+                                 y=trajectory_data[:, i],
+                                 mode='lines',
+                                 line=dict(color='white', width=0.8),
+                                 opacity=0.15,
+                                 name=f"T_{i}"))
+    
+    fig.update_layout(title=f"Entropic Double Slit: Choice-Guided Trajectories + |ψ|² Contours (α_entropic={alpha_entropic})",
+                      xaxis_title="Choice Tick / Emergent Time",
+                      yaxis_title="Lattice Site",
+                      height=800,
+                      template="plotly_dark")
+    
+    # Save PNG
+    png_filename = filename.replace(".html", ".png")
+    fig.write_image(png_filename)
+    print(f"Saved plot image to {png_filename}")
+
+    fig.write_html(filename)
+    # fig.show() # Commented out to prevent blocking in some environments, or keep it if running interactively
 
 def plot_simulation_results(x_grid, choice_indices, history_rho, history_pos, history_time, L_phys, alpha_entropic, dt_base, title_prefix="UKFT Simulation"):
     """
@@ -105,6 +159,16 @@ def plot_simulation_results(x_grid, choice_indices, history_rho, history_pos, hi
     return fig, fig2, fig3
 
 def save_plots_to_html(filename, figs, title, description):
+    # Save PNGs for each figure
+    base_filename = filename.replace(".html", "")
+    for i, fig in enumerate(figs):
+        png_name = f"{base_filename}_fig{i+1}.png"
+        try:
+            fig.write_image(png_name)
+            print(f"Saved plot image to {png_name}")
+        except Exception as e:
+            print(f"Failed to save PNG {png_name}: {e}")
+
     with open(filename, 'w') as f:
         f.write(f"<h1>{title}</h1>")
         f.write(f"<h2>{description}</h2>")

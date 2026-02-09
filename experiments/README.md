@@ -20,6 +20,15 @@ This directory contains specific experimental setups designed to test the **Choi
     - Watch how trajectories "decide" which slit to enter.
     - **Time Dilation**: Observe the Red "World Line" in the results. It should flatten (time slows) as the particle "processes" the complex information at the slits.
 
+### [03_entropic_double_slit.py](./03_entropic_double_slit.py)
+**Objective**: "The Golden Path" Visualization.
+*   **Setup**: Double-slit barrier with high contrast visualization.
+*   **Features**: 
+    - **Magma Heatmap**: Empirical particle density.
+    - **Lime Contours**: Theoretical quantum potential ridges.
+    - **White Trails**: Individual choice-minimize trajectories ($T_0, T_1...$).
+*   **Significance**: This is the flagship experiment demonstrating how `Choice` (Entropic Gravity) aligns particles with high-knowledge regions, sharpening the wavefunction reality.
+
 ### [03_entropic_sweep.py](./03_entropic_sweep.py)
 **Objective**: Visualize the effect of Entropic Gravity ($\alpha$).
 *   **Setup**: Runs the Double Slit experiment three times with varying $\alpha$ parameters:
