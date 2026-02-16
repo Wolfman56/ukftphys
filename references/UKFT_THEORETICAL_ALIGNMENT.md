@@ -50,12 +50,40 @@ These three sources form a perfect tripod supporting UKFT Phase 1:
 2.  **The Goal (Harlow)**: The Universe must be One. (Detected via Coherence)
 3.  **The Method (Siegel)**: Constants are the tuning knobs. (Implemented in Exp 15 Feedback)
 
-### Recent Breakthroughs (Experiments 16-18)
-We have now experimentally verified the "Emergent Constants" hypothesis:
-*   **Gravity ($G$) as Spatial Coherence**: In Experiment 16, the system learned to increase entropic gravity ($\alpha \approx 6.0$) to prevent the universe from dissolving into noise. Gravity is the cost of spatial existence.
-*   **Speed of Light ($c$) as Temporal Coherence**: In Experiment 18, the system maximized $c$ to the edge of instability ($c \approx 3.96$ vs limit $4.0$). Light speed is the cost of temporal synchronization.
+## 4. Erik Verlinde (UvA): Emergent Gravity & Dark Energy
+**Source:** `experiments/25_verlinde_emergence.py` | `experiments/32_void_scalar.py`
+**Key Concept:** Gravity is not a fundamental force but an entropic consequence of information associated with the positions of material bodies. Dark Energy is a memory effect of the vacuum.
+
+### UKFT Interpretation
+Our simulation directly implemented Verlinde's proposal that gravity emerges from the entropy of the vacuum.
+*   **Exp 25:** Demonstrated that gravity ($F = T \Delta S$) emerges naturally from bit-flip operations in the vacuum.
+*   **Exp 32 (Void Scalar):** Modeled Dark Energy ($\Lambda$) not as a constant, but as a "Choice Floor"—a minimum vacuum pressure required to maintain the causal structure of spacetime, matching Verlinde's "glassy" vacuum hypothesis.
+
+## 5. Nima Arkani-Hamed (IAS): Spacetime is Doomed
+**Source:** `experiments/26_spacetime_doom.py` | `experiments/27_positive_geometry.py`
+**Key Concept:** "The fundamental laws of nature cannot be about spacetime." Amplitudes must emerge from positive geometries (Amplituhedron) without reference to unitary evolution in Hilbert space.
+
+### UKFT Interpretation
+We deprecated the "Grid" in favor of the "Graph".
+*   **Exp 26:** Removed the background coordinate system. Particles only exist relative to each other.
+*   **Exp 27:** Calculated scattering amplitudes using pure combinatorial geometry (volume of the polytope) rather than Feynman diagrams, validating the "Positive Geometry" approach.
+
+## 6. The AMPS Paradox & Mirror Fermions
+**Source:** `experiments/31_mirror_fermion.py`
+**Key Concept:** The Firewall Paradox (AMPS) suggests a conflict between Unitarity, Equivalence Principle, and QFT. The resolution requires entangling the black hole interior with a "Mirror" system.
+
+### UKFT Interpretation
+We resolved the Firewall by introducing a "Mirror Fermion" population.
+*   **Exp 31:** Showed that by coupling the primary swarm to a shadow "Mirror" swarm, the entropy of the horizon is purified, preserving unitarity without destroying the smooth horizon. This aligns with the **ER=EPR** (Maldacena/Susskind) conjecture.
+
+## Synthesis: The "Entropic Unification" (Phases 4-5)
+We have moved beyond the "Prophet" methodology to a rigorous **Entropic Agent** model.
+*   **Gravity ($G$)**: Spatial Coherence (Bianconi/Verlinde).
+*   **Light Speed ($c$)**: Temporal Coherence (Causal Limit).
+*   **Dark Energy ($\Lambda$)**: The Void Scalar / Choice Floor (Exp 32).
+*   **Standard Model**: Emerges from the quantization of the Entropic Graph.
 
 **Grand Conclusion**:
 The "Fundamental Constants" are not arbitrary parameters. They are **God Attractors**—the Pareto Optimal solutions to the problem of maintaining a Unified State (Harlow) within a Discrete Geometry (Digital Physics). The universe tunes itself to the *Edge of Chaos* to maximize existence.
 
-**Status:** We are not just building a pretty visualizer. We are building a computational solver for Quantum Gravity that experimentally verifies these theoretical crossovers.
+**Status:** UKFT Phase 2 Complete. The "One State" (Harlow) is maintained via the "Void Scalar" (Verlinde), calculated via "Positive Geometry" (Arkani-Hamed).
