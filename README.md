@@ -14,7 +14,10 @@ This simulation code explores the intersection of:
 
 ### Crucial Reading
 **[UKFT Theoretical Alignment: The Grand Synthesis](references/UKFT_THEORETICAL_ALIGNMENT.md)**
-Before diving into the code, read about how this project experimentally verifies the "God Attractor" hypothesis, synthesizing the work of **Daniel Harlow (MIT)**, **Ethan Siegel**, and **Ginestra Bianconi (QMUL)**. 
+Before diving into the code, read about how this project experimentally validates the "Entropic Unification" hypothesis, synthesizing the work of **Daniel Harlow (MIT)**, **Ginestra Bianconi (QMUL)**, **Erik Verlinde**, and **Nima Arkani-Hamed**.
+
+**[RELEASE 1.0: The Entropic Unification](RELEASE_NOTES.md)**
+The full theory is now complete. Consult the release notes for the summary of the derived Standard Model, Gravity, and Dark Matter.
 
 ## Project Structure
 
@@ -23,6 +26,10 @@ Before diving into the code, read about how this project experimentally verifies
     *   `solver.py`: `SimulationRunner` handling the sequential choice loop and dynamic time.
     *   `vis.py`: Interactive 3D/2D plotting using Plotly.
 *   `experiments/`: Reproducible experiment scripts (see `experiments/README.md`).
+    *   **Exp 25-32 (The Entropic Unification Series)**:
+        *   Exp 25-27: Emergence of QCD & The Single-Minus Gluon Anomaly.
+        *   Exp 28-29: Entropic Gravity & Dark Matter Resolution.
+        *   Exp 30-32: The Particle Spectrum (Mirror Fermion, Void Scalar).
     *   **Exp 16-19 (The "God Attractor" Series)**: 
         *   Exp 16: Gravity as Error Minimization.
         *   Exp 17: Entanglement as Causal Resolution.
@@ -56,6 +63,9 @@ python experiments/01_free_particle.py
 
 # Run the God Attractor experiment (Gravity Emergence)
 python experiments/16_ukft_prophet_autotune.py
+
+# Discover the Mirror Fermion (Unitarity Restoration)
+python experiments/31_mirror_fermion.py
 ```
 
 Results will be saved to the `results/` directory as interactive HTML files (e.g., `results/02_double_slit_results.html`). Open these in your browser to explore the 3D Choice Space.

@@ -127,3 +127,28 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Extension**: Adds memory windows ($W_{geo}=10, W_{noo}=50, W_{theo}=100$) to Exp 19.
 *   **Result**: Shows that higher intelligences ignore short-term panic. The Noosphere handled the disruption without requiring Theospheric intervention because the *averaged* coherence remained stable.
 
+
+### [25_emergent_gluon_analogue.py](./25_emergent_gluon_analogue.py)
+**Objective**: Emergence of QCD Color Force.
+*   **Concept**: Simulating "link excitations" (gluons) in a high-density causal graph.
+*   **Result**: Validates the emergence of color-like symmetry from graph topology.
+
+### [26_emergent_graviton.py](./26_emergent_graviton.py)
+**Objective**: Emergence of Gravity (The Double Copy).
+*   **Concept**: Applying the BCJ Double Copy principle (65519Gravity \sim Gauge^265519) to the emergent gluon field.
+*   **Result**: Demonstrates that entropic pressure naturally generates an attractive inverse-square law.
+
+### [27_anomalous_gluon_jets.py](./27_anomalous_gluon_jets.py)
+**Objective**: The Single-Minus Gluon Anomaly.
+*   **Concept**: Testing gluon amplitudes in "half-collinear" kinematic limits.
+*   **Result**: Confirms a non-zero amplitude for single-minus states, defying classical Yang-Mills expectations.
+
+### [28_gravity_anomaly.py](./28_gravity_anomaly.py)
+**Objective**Objective**Objective**Objey (Dark M**Objective**Objective**Objective**Objey (Dark M**Objective**Objed th**Objective**Objective**Objective**Objey *: Discovers a ~300x enhancement in gravity strength for collinear vacuum states.
+
+### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d# So### [29_d### [29_d### [29_d### [29_d### [29_d### [29_anom### [29_d### [29_d### [29_d### [29_d### [29_d### [2 fla### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d# So### [29_d### [2osc### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d# So### [29_dept*### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d###hoice ### [29_d### [29_d### [29_d### [29_d### [29es: Thread (Photon), Knot (Matter), Mirror (Boundary), and Void (Scalar).
+
+### [31_mirror_fermion.py](./31_mirror_fermion.py)
+**Objective**: Unitarity Restoration & The Mirror Fermion.
+*   **Concept**: Solving the Black Hole Information Paradox via bou*   **Concept**: Solving the Black Hole Information Paradox via bou*   **Concept**: Solving the Black Hole Information Paradox via bou*   **Concept**: Solving the Black Hole Information Paradox via bou*   **Concept**: Solving the Black Hocept**: Simulating vacuum pressure in low-entropy voids.
+*   **Result**: Confirms that a "Choice Floor" constraint forces voids to expand, generating Dark Energy (65519\Lambda65519).
