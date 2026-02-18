@@ -27,7 +27,9 @@ This creates a **Harmonic Oscillator** potential ($F \propto r$) at large distan
 *   **UKFT (Bianconi)**: Gravity is effectively $r$ (Harmonic) at this scale. Orbits are also ellipses, but the period dynamics differ slightly. The fact that we get stable ellipses at all from pure *Information Theory* is the key insight.
 
 ## Results
-!(results/08_ukft_solar_system.png)
+![Solar System](08_ukft_solar_system.png)
+
+Open the **[Interactive 3D Simulation](../results/08_ukft_solar_system.html)** to explore the solar system dynamics.
 
 Open [results/08_ukft_solar_system.html](../results/08_ukft_solar_system.html) for the interactive 3D simulation.
 *   **Slider**: Scrub through time to see the binary star rotation and planetary orbits.

@@ -144,11 +144,27 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Result**: Confirms a non-zero amplitude for single-minus states, defying classical Yang-Mills expectations.
 
 ### [28_gravity_anomaly.py](./28_gravity_anomaly.py)
-**Objective**Objective**Objective**Objey (Dark M**Objective**Objective**Objective**Objey (Dark M**Objective**Objed th**Objective**Objective**Objective**Objey *: Discovers a ~300x enhancement in gravity strength for collinear vacuum states.
+**Objective**: The Single-Minus Graviton Anomaly (Dark Matter Candidate 1).
+*   **Concept**: Testing gravity amplitudes in "half-collinear" kinematic limits.
+*   **Result**: Discovers a ~300x enhancement in gravity strength for collinear vacuum states.
 
-### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d# So### [29_d### [29_d### [29_d### [29_d### [29_d### [29_anom### [29_d### [29_d### [29_d### [29_d### [29_d### [2 fla### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d# So### [29_d### [2osc### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d# So### [29_dept*### [29_d### [29_d### [29_d### [29_d### [29_d### [29_d###hoice ### [29_d### [29_d### [29_d### [29_d### [29es: Thread (Photon), Knot (Matter), Mirror (Boundary), and Void (Scalar).
+### [29_dark_matter_halo.py](./29_dark_matter_halo.py)
+**Objective**: Gravitational Halo from Collinear Vacuum Filaments.
+*   **Concept**: Simulating a Galaxy Rotation Curve under anomalous gravity.
+*   **Result**: Demonstrates a flat rotation curve, explaining Dark Matter phenomenologically as vacuum coherence effects.
+
+### [30_particle_spectroscopy.py](./30_particle_spectroscopy.py)
+**Objective**: The 4 Emergent Particles of the Choice Field.
+*   **Concept**: Classifying stable topological defects in the causal graph.
+*   **Result**: Identifies: Thread (Photon), Knot (Matter), Mirror (Boundary), and Void (Scalar).
 
 ### [31_mirror_fermion.py](./31_mirror_fermion.py)
 **Objective**: Unitarity Restoration & The Mirror Fermion.
-*   **Concept**: Solving the Black Hole Information Paradox via bou*   **Concept**: Solving the Black Hole Information Paradox via bou*   **Concept**: Solving the Black Hole Information Paradox via bou*   **Concept**: Solving the Black Hole Information Paradox via bou*   **Concept**: Solving the Black Hocept**: Simulating vacuum pressure in low-entropy voids.
-*   **Result**: Confirms that a "Choice Floor" constraint forces voids to expand, generating Dark Energy (65519\Lambda65519).
+*   **Concept**: Solving the Black Hole Information Paradox via boundary reflection.
+*   **Result**: Confirms a massive "Mirror State" is required to conserve information at causal horizons.
+
+### [32_void_scalar.py](./32_void_scalar.py)
+**Objective**: The Void Scalar (Dark Energy as Vacuum Pressure).
+*   **Concept**: Simulating vacuum pressure in low-entropy voids.
+*   **Result**: Confirms that a "Choice Floor" constraint forces voids to expand, generating Dark Energy ($\Lambda$).
+
