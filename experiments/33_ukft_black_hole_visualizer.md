@@ -31,10 +31,12 @@ The Black Hole moves from Left to Right across the screen. Notice how the backgr
 
 ## 5. Visualization Color Key
 *   **Blue Grid (Primary Image)**: Represents the standard "weak" gravitational lensing. This is the fabric of spacetime gently warping around the mass.
-*   **Red "Ghost" Grid (Secondary Image)**: Represents the highly distorted "strong" lensing (Einstein Ring). This layer shows light that has passed very close to the horizon, wrapping tightly around the object before escaping to the observer.
-*   **Metallic Sphere (Center)**: The Event Horizon (Causal Mirror). A region of maximum information density that reflects light.
-*   **Golden Ring**: The Photon Sphere. Light trapped in a high-friction processing loop.
-*   **White Dots**: Background stars, warped into arcs by the lens.
+*   **Red "Ghost" Grid (Secondary Image/Photon Ring)**: Represents the highly distorted "strong" lensing (Einstein Ring). This layer shows light that has passed very close to the horizon, wrapping tightly around the object.
+*   **Holographic Horizon (Center)**: The **Causal Mirror**.
+    *   **Bright Red Edge**: Represents the **Holographic Principle**—information is encoded on the 2D surface boundary ($\rho = \rho_{max}$).
+    *   **Black Void (Center)**: Represents the saturated bulk volume where no new information can be processed.
+*   **Golden/Red Ring**: The Photon Sphere. Light trapped in a high-friction processing loop.
+*   **White Dots**: Background stars, warped into arcs by the lens. Looks like the "Unaffected" truth.
 
 ## 6. Conclusion
 This visualization confirms the "optic" of a UKFT Black Hole. Unlike a standard black hole which is a "hole" in space, a UKFT Black Hole is a "full" region of space—a saturated causal volume that acts as a mirror to the rest of the universe. The grid distortion clearly maps the intense gravitational pull leading up to this hard boundary.

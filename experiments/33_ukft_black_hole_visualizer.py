@@ -109,20 +109,32 @@ class UKFTBlackHoleFlyby:
         img[is_star] = np.maximum(star_pixels, np.array([1.0, 1.0, 1.0]))
         
         # 6. Render The "Mirror" (Horizon)
-        # Reflective core.
-        # Simple shader: Sphere normal dot Light source
-        # Normal vector N = (rx, ry, z) / R
-        # Use simple gradient
-        sphere_shade = np.clip(1.0 - (r[mask_horizon] / self.R_s)**2, 0, 1)
-        img[mask_horizon, 0] = sphere_shade * 0.1 # Dark
-        img[mask_horizon, 1] = sphere_shade * 0.9 # Cyan Glow
-        img[mask_horizon, 2] = sphere_shade * 1.0 # White Center
+        # Holographic Principle: Information is encoded on the surface boundary.
+        # Visual: Black Center (Void) -> Bright Red Edge (Encoded Data).
+        
+        # Calculate normalized radius (0 at center, 1 at edge)
+        norm_r = r[mask_horizon] / self.R_s
+        
+        # Shader: Power curve to push brightness to the edge
+        # Higher power = darker center, sharper edge
+        edge_glow = np.power(norm_r, 4.0) 
+        
+        # Holographic Red Edge
+        img[mask_horizon, 0] = edge_glow * 1.0 # Red (Max intensity at edge)
+        img[mask_horizon, 1] = edge_glow * 0.0 # Green
+        img[mask_horizon, 2] = edge_glow * 0.1 # Blue (Deep crimson tint)
         
         # 7. Render Photon Ring (Accretion Edge)
-        # Just outside R_s
+        # Just outside R_s. Matches the "Secondary Image" (Red) layer.
         mask_ring = (r > self.R_s) & (r < self.R_s * 1.15)
         ring_intensity = (1.0 - (r[mask_ring] - self.R_s)/(self.R_s*0.15))
-        img[mask_ring] = [1.0, 0.8, 0.2] * ring_intensity[:, np.newaxis]
+        
+        # Additive blending for the ring -> RED
+        ring_color = np.array([1.0, 0.2, 0.2])
+        
+        current_ring_pixels = img[mask_ring]
+        added_ring = current_ring_pixels + (ring_color * ring_intensity[:, np.newaxis])
+        img[mask_ring] = np.clip(added_ring, 0, 1)
 
         return img, bh_pos_screen
 
