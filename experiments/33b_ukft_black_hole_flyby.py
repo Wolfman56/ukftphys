@@ -77,36 +77,18 @@ class UKFTBlackHoleFlyby:
         # 5. Build Image
         img = np.zeros((self.res, self.res, 3))
         
-        # Procedural Background Sampling
-        # Primary Image (Blue) - Standard Deflection
-        grid_x_prim = (np.abs(self.X + defl_x) % 2.0) < 0.1
-        grid_y_prim = (np.abs(self.Y + defl_y) % 2.0) < 0.1
-        on_grid_prim = grid_x_prim | grid_y_prim
+        # Procedural Background Sampling (Grid + Noise)
+        # Instead of sampling texture (hard with distortion), generate pattern on fly
+        # Grid function of Distorted Coords
+        grid_x = (np.abs(self.X + defl_x) % 2.0) < 0.1
+        grid_y = (np.abs(self.Y + defl_y) % 2.0) < 0.1
+        on_grid = grid_x | grid_y
         
-        img[on_grid_prim] = [0.0, 0.5, 1.0] # Primary Grid (Blue)
+        img[on_grid] = [0.0, 0.3, 0.7] # Warped Grid Lines (Cyan-Blue)
         
-        # Secondary Image (Red) - Increased "Ghost" Deflection
-        # Simulating the second solution to the lens equation (which maps inside out near the ring)
-        # We cheat slightly by just using a much stronger deflection field for the "Ghost" layer
-        defl_x_sec = defl_x * 4.0 
-        defl_y_sec = defl_y * 4.0
-        
-        grid_x_sec = (np.abs(self.X + defl_x_sec) % 2.0) < 0.1
-        grid_y_sec = (np.abs(self.Y + defl_y_sec) % 2.0) < 0.1
-        on_grid_sec = grid_x_sec | grid_y_sec
-        
-        # Blend Red into existing Blue
-        target_red = np.array([1.0, 0.2, 0.2])
-        current_colors = img[on_grid_sec]
-        img[on_grid_sec] = np.maximum(current_colors, target_red)
-        
-        # Star Noise (White)
-        # Applied to Primary path only for clarity
+        # Star Noise
         star_val = (np.sin((self.X + defl_x)*5) * np.cos((self.Y + defl_y)*5))
-        is_star = star_val > 0.95
-        
-        star_pixels = img[is_star]
-        img[is_star] = np.maximum(star_pixels, np.array([1.0, 1.0, 1.0]))
+        img[star_val > 0.9] = [1.0, 1.0, 1.0] # Warped Stars
         
         # 6. Render The "Mirror" (Horizon)
         # Reflective core.
@@ -140,7 +122,7 @@ class UKFTBlackHoleFlyby:
 
         print(f"Rendering {self.frames} frames...")
         ani = FuncAnimation(fig, update, frames=self.frames, blit=True)
-        save_path = "results/33_ukft_black_hole_visualizer.gif"
+        save_path = "results/33b_ukft_black_hole_flyby.gif"
         ani.save(save_path, writer='pillow', fps=15)
         print(f"Animation saved to {save_path}")
 
