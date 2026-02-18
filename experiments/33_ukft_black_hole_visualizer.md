@@ -23,10 +23,25 @@ Visualize what a Black Hole "looks like" under these rules:
 Instead of a black disk that swallows light, we expect to see:
 -   **The Halo**: A glowing ring of bent light (standard lensing).
 -   **The Mirror**: A central "hard sphere" where light bounces back.
--   **The Shadow**: The region *behind* the mirror should be perfectly dark (or contain only diffracted rays).
 
-## 5. Artifacts
--   **Code**: `experiments/33_ukft_black_hole_visualizer.py`
--   **Result**: `results/33_ukft_black_hole_visualizer.png`
+## 5. Visualization Color Key (The Physics of Light)
+The simulation renders the scene in distinct colors representing Information Density Regimes:
 
-![The UKFT Black Hole](../results/33_ukft_black_hole_visualizer.png)
+*   **Cyan/Chrome Sphere (The Causal Mirror)**:
+    *   **Region**: $r < R_s$ (Event Horizon).
+    *   **Physics**: Maximum Causal Density ($\rho \ge \rho_{max}$).
+    *   **Meaning**: The "hard drive" of space is full. Matter and light reflect off this surface to preserve unitarity.
+*   **Golden Ring (The Photon Sphere)**:
+    *   **Region**: Just outside the Horizon.
+    *   **Physics**: High-Friction Processing Loop.
+    *   **Meaning**: Light is trapped in orbit, generating "heat" (entropy) from the immense computational density.
+*   **Red/Orange Background (The Entropic Lens)**:
+    *   **Region**: The Distant Universe (JWST Deep Field).
+    *   **Physics**: Gravitational Lensing ($\nabla \ln \rho$).
+    *   **Meaning**: Ancient galaxies (high redshift) warped by the foreground mass.
+
+## 6. Artifacts
+-   **Code**: `experiments/33c_ukft_black_hole_jwst.py` (High-Res Flyby)
+-   **Result**: `results/33c_ukft_black_hole_jwst.gif`
+
+![The UKFT Black Hole Flyby](../results/33c_ukft_black_hole_jwst.gif)
