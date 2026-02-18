@@ -26,3 +26,7 @@ Note the slope of the curve.
 **Update (Local Time Dilation)**: The simulation now calculates proper time *locally* for each particle based on the knowledge density $\rho(x)$ it experiences ($dt \propto 1/\rho$).
 You may observe a "kink" or flattening as the packet hits the complex slit region, representing the increased "computational cost" (in choice steps) to navigate the superposition.
 ![Emergent Time](02_double_slit_results_fig3.png)
+
+## Interactive Results
+[View Full Particle Simulation](../results/02_double_slit_results.html)
+

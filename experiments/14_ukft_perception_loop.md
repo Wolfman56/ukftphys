@@ -13,7 +13,9 @@ This experiment integrates the **Entropic Physics Engine** with a new **WebGPU P
 ## Results
 ![Perception Loop Animation](../results/14_ukft_perception_loop.gif)
 
-- **Output**: `experiments/14_ukft_perception_loop.gif`
+![Perception Loop Animation](../results/14_ukft_perception_loop.gif)
+
+- **Video**: [High Res MP4](../results/14_ukft_perception_loop.mp4)
 - **Telemetry**:
   - The "Coherence" metric successfully tracks the simulation state.
   - As particles bunch up (high density but smooth gradients), coherence rises.

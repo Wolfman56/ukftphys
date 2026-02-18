@@ -15,6 +15,9 @@ This experiment tests the hypothesis that the "Fundamental Constants" of the uni
     *   It discovers that **Higher Gravity** ($\alpha \uparrow$) and **Sharper Spacetime** ($\sigma \downarrow$) lead to higher coherence.
     *   By Gen 380, it reaches $\alpha \approx 6.0, \sigma \approx 0.8$, and Coherence hits **0.87**.
     
+## Visualization
+![Prophet Autotuning Constants](../results/16_ukft_prophet_autotune.gif)
+    
 ## Significance
 The system **discovered gravity** on its own.
 We did not tell it to form a galaxy. We told it to "Maximize Coherence" (Harlow's Constraint), and it found that forming a galaxy (via strong entropic gravity) was the mathematical solution to that problem.

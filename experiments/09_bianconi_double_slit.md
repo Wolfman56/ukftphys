@@ -23,3 +23,6 @@ The underlying probability distribution (Schrödinger evolution) remains the sam
 ### Figure 3: Time Dilation
 ![Time Dilation](09_bianconi_double_slit_fig3.png)
 The "Proper Time" experienced by the particles varies as they navigate the complex potential landscape.
+
+## Interactive Results
+[View Bianconi Double Slit Simulation](../results/09_bianconi_double_slit.html)

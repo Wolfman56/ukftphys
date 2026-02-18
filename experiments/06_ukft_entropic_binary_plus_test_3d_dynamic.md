@@ -18,3 +18,6 @@ This demonstration moves beyond the 1D lattice to a continuous 2D plane (visuali
 The visualization shows the test particle (yellow) getting captured by the binary system (cyan/magenta), tracing a chaotic path before settling into the attractor basin. The "sheet" continuously deforms to guide the trajectories.
 
 ![Dynamic Entropic Gravity](06_ukft_entropic_binary_plus_test_3d_dynamic.png)
+
+## Interactive Results
+[View Entropic Gravity Simulation](../results/06_ukft_entropic_binary_plus_test_3d_dynamic.html)

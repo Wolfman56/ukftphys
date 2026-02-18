@@ -17,3 +17,7 @@ The behavior differs significantly from the standard UKFT entropic gravity:
 3.  **Expansion**: The `lambda_cosmo` term eventually wins at very large distances, mirroring the expanding universe.
 
 ![Bianconi Relative Entropy Gravity](07_ukft_bianconi_entropic_gravity.png)
+
+## Interactive Results
+[View Bianconi Entropic Gravity Simulation](../results/07_ukft_bianconi_entropic_gravity.html)
+[View Quantum Swarm Simulation](../results/07_quantum_swarm.html)

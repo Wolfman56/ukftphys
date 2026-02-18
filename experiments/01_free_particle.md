@@ -25,3 +25,7 @@ The particle trajectories (white lines) follow the spreading wave packet. They d
 ### Figure 3: Emergent Time
 In a free particle system with smooth density changes, the relationship between "Choice Event" ($n$) and "Physical Time" ($t$) is approximately linear.
 ![Emergent Time](01_free_particle_results_fig3.png)
+
+## Interactive Results
+[View Full Particle Simulation](../results/01_free_particle_results.html)
+

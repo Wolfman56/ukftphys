@@ -22,6 +22,8 @@ Standard Quantum Mechanics posits that measuring one part of an entangled system
     - **Interaction**: The probability amplitude at $x$ only "collapses" (decays) if the Causality Field $I(x,t)$ indicates that a contradictory choice has been made elsewhere.
 
 ## Predicted Results
+![Entanglement Propagation](../results/17_ukft_entanglement_propagation.gif)
+
 
 - **Superposition**: Standard probability distribution (two peaks).
 - **The Spike**: At $t_{choice}$, region A's probability amplifies (confirmation).

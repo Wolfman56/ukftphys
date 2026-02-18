@@ -17,3 +17,8 @@ Trajectories begin to cluster. The "fuzziness" of the quantum probability cloud 
 ### Strong Choice: $\alpha = 15.0$ (Reality Sharpening)
 **The Collapse of Probability.** Trajectories rigidly adhere to the density maxima. The particle "refuses" to exist in low-information regions. This represents the transition from Quantum Potentiality to Classical Actuality via high-frequency choice.
 ![Alpha 15.0 Trajectories](03_sweep_alpha_15.0_fig2.png)
+
+## Interactive Results
+[Alpha 0.0 Simulation](../results/03_sweep_alpha_0.0.html)
+[Alpha 5.0 Simulation](../results/03_sweep_alpha_5.0.html)
+[Alpha 15.0 Simulation](../results/03_sweep_alpha_15.0.html)

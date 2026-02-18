@@ -17,6 +17,9 @@ This experiment represents the culmination of the UKFT implementation phase. It 
     *   The swarm re-condenses into a coherent object.
     *   Feedback relaxes as stability returns.
 
+## Visualization
+![Consciousness Feedback Loop](../results/15_ukft_consciousness_feedback.gif)
+
 ## Technical Implementation
 - **Closed Loop**: Physics $\to$ Density $\to$ Perception $\to$ Control Signal $\to$ Physics Parameters.
 - **Latency**: The loop runs in real-time (frame-by-frame) thanks to the shared GPU backend.

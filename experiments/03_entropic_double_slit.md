@@ -18,6 +18,9 @@ Notice how the trajectories do not just "fill" the potential; they *hunt* for th
 
 ![Choice Guided Trajectories](ukft_choice_guided_double_slit.png)
 
+## Interactive Results
+[View Entropic Choice Simulation](../results/ukft_choice_guided_double_slit.html)
+
 ## Parameters
 *   **Alpha**: 2.0 (Balanced Choice)
 *   **Resolution**: 151x300 (Optimized for contrast)
