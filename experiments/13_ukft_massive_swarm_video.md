@@ -17,5 +17,5 @@ This experiment addresses the visualization bottleneck encountered in Experiment
 - **Zero-Copy Logic**: The particle positions stay on the GPU/VRAM as much as possible (only mapped for the density readout, visualization data is much smaller than particle data).
 
 ## Results
-- **Output**: `results/13_ukft_cinematic.mp4`
+- **Output**: `../results/13_ukft_cinematic.mp4`
 - **Performance**: Rendering 100k particles takes <50ms per frame.

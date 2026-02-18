@@ -44,5 +44,6 @@ The Single-Minus Graviton is not just a theoretical curiosity; it dominates the 
 -   **Implication 2**: This could explain "Jet Quenching" anomalies as a gravitational braking effect, or suggest that "Dark Matter" filaments are actually just normal matter with this "Choice Maximized" gravity turned on.
 
 **Artifacts**:
--   `experiments/exp28_gravity_anomaly.py`: Simulation code.
--   `results/exp28_gravity_anomaly_ratio.png`: Plot showing the 300x enhancement of gravity in collinear jets.
+-   `28_gravity_anomaly.py`: Simulation code.
+![Gravity Anomaly Ratio](../results/exp28_gravity_anomaly_ratio.png)
+-   `../results/exp28_gravity_anomaly_ratio.png`: Plot showing the 300x enhancement of gravity in collinear jets.

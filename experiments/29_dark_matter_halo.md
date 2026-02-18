@@ -35,3 +35,8 @@ File: `experiments/29_dark_matter_halo.py`
 ## 5. Success Criteria
 -   Recover a flat rotation curve ($v \approx constant$) at large radii ($r > 10$ kpc).
 -   Demonstrate that the "collinear enhancement" (300x) makes the vacuum energy density required *plausibly small*.
+
+## 6. Results
+![Galaxy Rotation Curve](../results/exp29_galaxy_rotation.png)
+The simulation compared standard Newtonian gravity with the UKFT-enhanced vacuum model. The result is a striking flattening of the rotation curve at large radii.
+

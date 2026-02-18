@@ -27,5 +27,7 @@ File: `experiments/31_mirror_fermion.py`
 -   We identify this Critical Mass with the predicted ~2.4 TeV particle.
 
 ## 5. Output
+![Information Conservation](../results/exp31_mirror_unitarity.png)
 -   A plot of "Information Conserved vs Mirror Mass".
+-   The critical mass where information is perfectly conserved matches the predicted ~2-3 TeV range.
 -   The value of the critical mass $M_{mirror}$.

@@ -28,6 +28,14 @@ File: `experiments/30_particle_spectroscopy.py`
 
 ## 5. Predicted Spectrum
 -   **Particle 1 (C)**: Mass ~ 0. Spin 1 or 2. (The Force Carrier).
+-   **Particle 2 (K)**: Mass ~ High. Spin 0. (The Monopole).
+-   **Particle 3 (V)**: Mass ~ Tiny. Spin 0. (The Axion).
+-   **Particle 4 (M)**: Mass ~ TeV. Spin 1/2. (The Shadow).
+
+## 6. Results
+![Universe Snapshot](../results/exp30_universe_snapshot.png)
+The simulation identified distinct clusters of causal connectivity corresponding to the hypothesized particles.
+
 -   **Particle 2 (K)**: Mass ~ High. Spin 0. (The Heavy Seed).
 -   **Particle 3 (V)**: Mass ~ Tiny. Spin 0. (The Background Ripple).
 -   **Particle 4 (M)**: Mass ~ Medium. Spin 1/2. (The Matter Partner).
