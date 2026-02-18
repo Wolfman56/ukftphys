@@ -168,3 +168,13 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Concept**: Simulating vacuum pressure in low-entropy voids.
 *   **Result**: Confirms that a "Choice Floor" constraint forces voids to expand, generating Dark Energy ($\Lambda$).
 
+### [33_ukft_black_hole_visualizer.py](./33_ukft_black_hole_visualizer.py)
+**Objective**: The Causal Mirror (Visualizing the UKFT Event Horizon).
+*   **Concept**: 2D Ray Tracing of entropic gravity and causal density limits.
+*   **Result**: Reveals a Black Hole as a **Reflective Sphere** (The "Black Stone") surrounded by a glowing photon ring.
+
+### [34_ukft_volume_lens.py](./34_ukft_volume_lens.py)
+**Objective**: Volumetric Lensing (The Star Field).
+*   **Concept**: Forward projecting 8,000+ stars through a moving gravitational lens.
+*   **Result**: Visualizes the dynamic "LSD" (Large Scale Distortion) of spacetime as the massive object passes through.
+
