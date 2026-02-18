@@ -30,7 +30,7 @@ Starting from a chaotic universe (often repulsive or random), the Prophet rapidl
 The system discovered that **Mutual Attraction** is the only stable strategy to maintain high information density over time. It "invented" Gravity to save the universe from heat death (dispersion).
 
 ## Visualization
-![Emergence of Gravity](26_emergent_graviton.gif)
+![Emergence of Gravity](../results/26_emergent_graviton.gif)
 
 *Top: The Gravitational Constant ($G$) evolving from random noise to a stable positive value. Bottom: The Universality metric rising as the law becomes "Physical" (applying to all objects).*
 

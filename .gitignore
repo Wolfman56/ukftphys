@@ -58,12 +58,12 @@ Desktop.ini
 .idea/
 
 # Simulation Results
-results/*
-!results/*.png
-!results/README.md
-*.html
-*.png
-!experiments/*.png
+# results/*
+# !results/*.png
+# !results/README.md
+# *.html
+# *.png
+# !experiments/*.png
 
 # Archived
 archive/

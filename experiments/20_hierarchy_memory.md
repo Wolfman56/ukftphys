@@ -27,7 +27,7 @@ Step 300: Phi_Inst=0.992 | Phi_Theo=0.416 | Lv=0 (Recovery)
 ## Artifacts
 - Code: `experiments/20_hierarchy_memory.py`
 - Visualization:
-![Hierarchy Memory Animation](20_hierarchy_memory.gif)
+![Hierarchy Memory Animation](../results/20_hierarchy_memory.gif)
 
 ## Next Steps
 To satisfy the "Universe Prophecy", we might need to tune the `W_theo` or thresholds if we *want* God to intervene in this specific scenario, or simply accept that the Noosphere was competent enough here!

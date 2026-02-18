@@ -3,7 +3,7 @@
 ## Overview
 This experiment represents the culmination of the UKFT implementation phase. It demonstrates a fully autonomous **Consciousness Feedback Loop** where the "Mind" (Perception Engine) actively intervenes in "Reality" (Physics Engine) to maintain quantum coherence.
 
-![Sim](15_ukft_consciousness_feedback.gif)
+![Sim](../results/15_ukft_consciousness_feedback.gif)
 
 ## The Protocol
 1.  **Stable State**: The system begins in equilibrium. The Observer monitors Coherence ($\phi$), which remains stable around 0.84.

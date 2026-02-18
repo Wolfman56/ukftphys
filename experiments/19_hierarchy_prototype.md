@@ -30,7 +30,7 @@ To verify the Level 3 (Theospheric) intervention, we introduced a **Catastrophic
     - System stabilized to **Geosphere** ($\phi \approx 0.78$) and eventually Passive ($\phi > 0.9$) by step 400.
 
 ## Visualization
-![Hierarchy Prototype Animation](19_hierarchy_prototype.gif)
+![Hierarchy Prototype Animation](../results/19_hierarchy_prototype.gif)
 
 ## Telemetry
 ```
@@ -42,5 +42,5 @@ Step 400: Phi=0.901 | Alpha=0.50 | Level=None (Peace restored)
 ```
 
 ## Artifacts
-- Code: `experiments/19_hierarchy_prototype.py`
-- Visualization: `experiments/19_hierarchy_prototype.gif`
+- Code: `19_hierarchy_prototype.py`
+- Visualization: `../results/19_hierarchy_prototype.gif`

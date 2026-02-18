@@ -32,4 +32,4 @@ Standard Quantum Mechanics posits that measuring one part of an entangled system
 
 If this mechanism matches physical reality, it suggests that "Entanglement" is maintained by a background connectivity field, and "Decoherence" is simply the propagation of information through that field.
 
-![Animation](17_ukft_entanglement_propagation.gif)
+![Animation](../results/17_ukft_entanglement_propagation.gif)

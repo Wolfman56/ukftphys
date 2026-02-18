@@ -40,6 +40,6 @@ In standard textbooks, this amplitude is often zero or negligible at tree level.
 This suggests that what we call "QCD" is just the low-density approximation of a deeper, choice-based coherence field.
 
 ## Visualization
-![Optimization Process](25_emergent_gluon_analogue.gif)
+![Optimization Process](../results/25_emergent_gluon_analogue.gif)
 
 *Top: Global Coherence rising as the laws of physics evolve. Bottom: The relative weights of different helicity interactions. Note the Single-Minus (Orange) rising alongside the standard MHV (Green).*

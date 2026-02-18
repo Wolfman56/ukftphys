@@ -11,7 +11,7 @@ This experiment integrates the **Entropic Physics Engine** with a new **WebGPU P
     *   Computes Coherence $\phi = \frac{1}{1 + \alpha |\nabla \rho|^2}$.
 
 ## Results
-![Perception Loop Animation](14_ukft_perception_loop.gif)
+![Perception Loop Animation](../results/14_ukft_perception_loop.gif)
 
 - **Output**: `experiments/14_ukft_perception_loop.gif`
 - **Telemetry**:

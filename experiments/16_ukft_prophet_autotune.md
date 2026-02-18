@@ -3,7 +3,7 @@
 ## Overview
 This experiment tests the hypothesis that the "Fundamental Constants" of the universe ($\alpha, \sigma$) are not arbitrary settings but **emergent values** that the system evolves towards to maximize existence (Coherence).
 
-![Autotuning Animation](16_ukft_prophet_autotune.gif)
+![Autotuning Animation](../results/16_ukft_prophet_autotune.gif)
 
 ## The Evolution Process
 1.  **Genesis**: The simulation begins with "weak" physics ($\alpha=2.0$, $\sigma=1.2$). result is a diffuse, low-structure cloud (Coherence $\approx 0.76$).

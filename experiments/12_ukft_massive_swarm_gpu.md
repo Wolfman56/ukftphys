@@ -15,5 +15,5 @@ The simulation effectively models the **UKFT Quantum Potential** emergence from 
 - The velocity law $v \sim \nabla \rho / \rho$ is successfully computed in parallel for 50k agents.
 
 ## Results
-- **Animation**: `results/12_ukft_massive_swarm_gpu.html`
+- **Animation**: `../results/12_ukft_massive_swarm_gpu.html`
 - The swarm exhibits coherent fluid-like properties, orbiting the binary system without scattering, behaving as a single macro-quantum object.

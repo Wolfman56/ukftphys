@@ -29,6 +29,6 @@ This creates a **Harmonic Oscillator** potential ($F \propto r$) at large distan
 ## Results
 !(results/08_ukft_solar_system.png)
 
-Open [results/08_ukft_solar_system.html](./results/08_ukft_solar_system.html) for the interactive 3D simulation.
+Open [results/08_ukft_solar_system.html](../results/08_ukft_solar_system.html) for the interactive 3D simulation.
 *   **Slider**: Scrub through time to see the binary star rotation and planetary orbits.
 *   **Heatmap**: The green/blue surface represents the "Entropic Curvature" of space-time. Notice how the stars and planets create "dents" in the fabric of knowledge.
