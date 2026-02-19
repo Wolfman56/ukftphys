@@ -36,6 +36,8 @@ The full theory is now complete. Consult the release notes for the summary of th
         *   Exp 18: Light Speed as Processing Limit.
         *   Exp 19: The "Theosphere" Control Hierarchy.
     *   **Exp 13-15 (The Consciousness Loop)**: Simulating perception feedback.
+*   `models/`:
+    *   **MadGraph5 Model**: Mirror Fermion (320 GeV) → `models/MirrorFermion/` (full UFO + Run-4 cards).
 *   `references/`: Academic transcripts and alignment documents.
 *   `results/`: Generated HTML reports and plots (git-ignored).
 *   `archive/`: Deprecated monolithic scripts and notes.
