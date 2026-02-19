@@ -93,3 +93,8 @@ secrets.json
 # Local only
 localonly/
 archive/
+
+# MadGraph
+MG5_debug
+test_mg5_mirror.txt
+
