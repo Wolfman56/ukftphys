@@ -928,14 +928,22 @@ V_153 = Vertex(name = 'V_153',
                couplings = {(0,0):C.GC_62})
 
 
-# Higgs portal (Commented out until proper Lorentz structure defined)
-# V_HiggsPortal = Vertex(
-#     name = 'V_HiggsPortal',
-#     particles = [ P.H, P.H, P.xm__tilde__, P.xm ],
-#     color = [ '1' ],
-#     lorentz = [ L.SSSS ],
-#     couplings = { (0,0): C.GC_HiggsPortal }
-# )
+# Higgs portal (Mirror Fermion -> SM Top + Higgs)
+V_HiggsPortal = Vertex(
+    name = 'V_HiggsPortal',
+    particles = [ P.xm__tilde__, P.t, P.H ],
+    color = [ 'Identity(1,2)' ],
+    lorentz = [ L.FFS4 ],
+    couplings = { (0,0): C.GC_HiggsPortal }
+)
+
+V_HiggsPortal_HC = Vertex(
+    name = 'V_HiggsPortal_HC',
+    particles = [ P.t__tilde__, P.xm, P.H ],
+    color = [ 'Identity(1,2)' ],
+    lorentz = [ L.FFS4 ],
+    couplings = { (0,0): C.GC_HiggsPortal }
+)
 
 # Gauge couplings + mirror reflection
 V_Mirror_QCD = Vertex(
@@ -944,5 +952,4 @@ V_Mirror_QCD = Vertex(
     color = [ 'T(3,2,1)' ],
     lorentz = [ L.FFV1 ],
     couplings = { (0,0): C.GC_QCD }
-
 )
