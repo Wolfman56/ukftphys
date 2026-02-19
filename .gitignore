@@ -16,6 +16,7 @@ parts/
 sdist/
 var/
 wheels/
+share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
@@ -24,8 +25,26 @@ MANIFEST
 # Virtual Environments
 venv/
 env/
-ENV/
 .venv/
+.env
+.env.*
+ENV/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+profile_default/
+ipython_config.py
+
+# Models & Large Data
+*.h5
+*.pkl
+*.pth
+*.pt
+*.onnx
+*.safetensors
+results/
+data/
+analysis_results/
 
 # Testing and Quality
 .tox/
@@ -35,43 +54,42 @@ htmlcov/
 .pytest_cache/
 .mypy_cache/
 
-# OS - macOS
+# OS Specific
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 .AppleDouble
 .LSOverride
-._*
-
-# OS - Windows
-Thumbs.db
-ehthumbs.db
 Desktop.ini
 
-# IDE - VS Code
+# IDE & Editor
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-
-# IDE - JetBrains
 .idea/
+*.swp
+*.swo
+*~
 
-# Simulation Results
-# results/*
-# !results/*.png
-# !results/README.md
-# *.html
-# *.png
-# !experiments/*.png
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# Archived
-archive/
+# Private keys & Secrets (Redundancy check)
+*.pem
+*.key
+id_rsa
+secrets.json
 
-
-# Added by cargo
-
-/target
-
-# Local Only
+# Local only
 localonly/
+archive/

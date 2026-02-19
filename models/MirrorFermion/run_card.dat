@@ -1,0 +1,36 @@
+#-----------------------------------------------------
+# MadGraph5_aMC@NLO run_card.dat for Mirror Fermion
+# LHC Run 4 settings - 13.6 TeV, 300 fb^-1 equivalent
+#-----------------------------------------------------
+
+# Collider type and energy
+lpp1 1        # beam 1 type (1 = proton)
+lpp2 1        # beam 2 type
+ebeam1 6800.0 # beam 1 energy in GeV
+ebeam2 6800.0 # beam 2 energy in GeV
+
+# PDF
+pdlabel lhapdf
+lhaid 303600   # NNPDF40_nnlo_as_01180
+
+# Number of events
+nevents 10000   # change to 50000 or 100000 for production
+
+# Cuts
+ptj 20
+etaj 5.0
+drjj 0.4
+ptb 20
+etab 2.5
+
+# Dynamical scale
+dynamical_scale 3   # HT/2
+
+# Other standard settings
+fixed_scale 1
+scale 320.0
+fixed_qes 1
+qes 320.0
+
+# Output
+parton_shower pythia8

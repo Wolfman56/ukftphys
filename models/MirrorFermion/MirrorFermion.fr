@@ -1,0 +1,58 @@
+(* ================================================ *)
+(* UKFT Mirror Fermion Model - FeynRules 2.0        *)
+(* Ted Vucurevich + Grok, Feb 2026                  *)
+(* ================================================ *)
+
+M$ModelName = "MirrorFermion";
+
+(* Load SM *)
+LoadModel["SM.fr"];
+
+(* Mirror Fermion: vector-like Dirac, color triplet, Q=2/3 *)
+xm = F[100, {
+  ClassName -> Xm,
+  SelfConjugate -> False,
+  Indices -> {Index[Colour]},
+  QuantumNumbers -> {Q -> 2/3, Y -> 1/3},
+  Mass -> {MXm, 320 GeV},
+  Width -> {WXm, 1.5 GeV},
+  PDG -> 6000001,
+  ParticleName -> "xm",
+  AntiParticleName -> "xm~",
+  TeX -> "\\Psi_m"
+}];
+
+(* Dummy invisible scalar for mirror-boundary reflection MET *)
+xmInv = S[101, {
+  ClassName -> XmInv,
+  SelfConjugate -> True,
+  Mass -> {MXmInv, 0.001 GeV},
+  Width -> {WXmInv, 0},
+  PDG -> 6000002,
+  ParticleName -> "xmInv",
+  TeX -> "x_m^{inv}"
+}];
+
+(* Lagrangian *)
+Lkin = L[Kinetic, {xm}];
+Lmass = MXm * (xmbar . xm);
+
+LHiggsPortal = lambdaH * (Hdag . H) * (xmbar . xm) /. {lambdaH -> 0.5};
+
+(* Vector-like gauge couplings with reversed chirality flag for reflection *)
+LGauge = L[Gauge, {xm}] + L[GaugeMirror, {xm}];
+
+(* Suppressed kinetic mixing with SM top *)
+LKinMix = epsilon * (xmbar . ga[mu] . D[mu, top] . top) /. {epsilon -> 0.001};
+
+(* Invisible reflection term *)
+LInv = (1/2) * MXmInv * xmInv^2 + gRefl * (xmbar . xm) * xmInv /. {gRefl -> 0.1};
+
+L = Lkin + Lmass + LHiggsPortal + LGauge + LKinMix + LInv;
+
+(* Write UFO *)
+WriteUFO[L,
+  Output -> "MirrorFermion_UFO",
+  FlavorMixing -> True,
+  AddDecays -> True
+];
