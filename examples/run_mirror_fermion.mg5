@@ -1,0 +1,7 @@
+import model MirrorFermion_UFO
+generate p p > xm xm~
+output results/mirror_fermion_run
+launch
+set nevents 100
+set ebeam1 6800.0
+set ebeam2 6800.0

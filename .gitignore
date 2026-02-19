@@ -98,3 +98,6 @@ archive/
 MG5_debug
 test_mg5_mirror.txt
 
+py.py
+test_mirror_fermion_run/
+test_mirror_fermion_simple/
