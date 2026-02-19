@@ -1,0 +1,14 @@
+Block MASS
+    6        173.0   # MT (top)
+    6000001  320.0   # MXm
+    6000002  0.001   # MXmInv (near-zero for MET)
+
+Block YUKAWA
+    6000001  0.5     # lambdaH (Higgs portal)
+
+Block MIRROR
+    1  0.001         # epsilon (kinetic mixing)
+    2  0.10          # BR to invisible reflection
+
+Block DECAY
+    6000001  1.5     # Wxm total width

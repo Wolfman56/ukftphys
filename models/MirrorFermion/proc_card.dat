@@ -1,0 +1,10 @@
+import model MirrorFermion_UFO
+
+# Pair production + all major decays
+generate p p > xm xm~ [QCD]
+add process p p > xm xm~ , xm > t h , xm~ > t~ h~
+add process p p > xm xm~ , xm > t z , xm~ > t~ z
+add process p p > xm xm~ , xm > b w+ , xm~ > b~ w-
+add process p p > xm xm~ , xm > xmInv , xm~ > xmInv   # mirror MET signature
+
+output MirrorLHC
