@@ -1,0 +1,10 @@
+
+import model MirrorFermion_UFO
+generate p p > xm xm~, xm > H t
+output results/mirror_fermion_decay_run -f
+launch
+set nevents 100
+set ebeam1 6800.0
+set ebeam2 6800.0
+set MXm 500.0 
+set lambdaH 1.0
