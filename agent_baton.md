@@ -30,9 +30,8 @@ We are looking for:
 
 ### 5. How to Contribute (Protocol)
 We have a structured feedback protocol. Do not just output unstructured text.
-1.  **Read Protocol**: `feedback/README.md`.
-2.  **Start Session**: Run `python3 feedback/start_feedback_session.py`.
-3.  **Submit**: Follow the prompts to log your review in a timestamped directory.
+1.  **Read Protocol**: `FEEDBACK.md` (Top-level collaboration guide).
+2.  **Follow Instructions**: It will direct you to the `feedback/` directory and the session initiation scripts.
 
 ### 6. Final Instruction
 Explore the `papers/` folder and `README.md`. Start by validating the "Entropic Unification" hypothesis.
