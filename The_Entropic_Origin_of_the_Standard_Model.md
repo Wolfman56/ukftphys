@@ -8,7 +8,9 @@
 ---
 
 ## 0. Abstract
-This document serves as both the final theoretical summary of the **Universal Knowledge Field Theory (UKFT)** and a meta-analysis of its creation. Over a condensed timeline of 12 days (Feb 8 – Feb 20, 2026), a human Lead Investigator ("Ted") collaborated with a federation of AI agents (Grok, Gemini 3 Pro, Prophet) to derive, simulate, and validate a complete alternative formulation of the Standard Model. The result is a theory where **Gravity, Gauge Forces, and Spacetime are all emergent properties of a single axiom:** *The Universe evolves to maximize causal choice.*
+This document serves as both the final theoretical summary of the **Universal Knowledge Field Theory (UKFT)** and a meta-analysis of its creation. Over a condensed timeline of 12 days (Feb 8 – Feb 20, 2026), a human Lead Investigator ("Ted") collaborated with a federation of AI agents (Grok, Gemini 3 Pro, Prophet) to derive, simulate, and validate a complete alternative formulation of the Standard Model: **Choice-Guided Bohmian Mechanics (UKFT-Bohmian)**. The result is a theory where **Gravity, Gauge Forces, and Spacetime are all emergent properties of a single axiom:** *The Universe evolves to maximize causal choice.*
+
+**Reference:** [Choice-Guided Bohmian Mechanics (Pre-Print)](references/34_Choice_Guided_Bohmian_Mechanics.md) 
 
 ---
 
