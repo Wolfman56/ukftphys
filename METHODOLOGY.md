@@ -14,6 +14,7 @@ The standard workflow for every experiment (Exp 01 to Exp 52) followed this prec
 #### Step 1: "Hallucinate" (Hypothesis Generation)
 *   **The Input**: The Human Investigator ("Ted") proposes a high-level intuition or an anomaly in standard physics (e.g., "What if Dark Energy is just the vacuum fighting to stay connected?").
 *   **The Action**: The Federation of Agents (Grok, Gemini, Prophet) "hallucinates" a bridge between this intuition and the specific mathematics of UKFT (Discrete Action Minimization).
+*   **The Evidence**: See `original_chats/` for the raw, unedited logs of this creative process.
 *   **The Output**: A concrete, falsifiable simulation goal (e.g., "Simulate a scalar field on a contracting graph and search for negative pressure").
 
 #### Step 2: The Python Oracle (Lattice Simulation)

@@ -41,6 +41,7 @@ The full theory is now complete. Consult the release notes for the summary of th
     *   **Exp 13-15 (The Consciousness Loop)**: Simulating perception feedback.
 *   `models/`:
     *   **MadGraph5 Model**: Mirror Fermion (320 GeV) → `models/MirrorFermion/` (full UFO + Run-4 cards).
+*   `original_chats/`: **The Raw History.** Actual transcripts of the Human + Agent "Hallucination" sessions that birthed the theory.
 *   `references/`: Academic transcripts and alignment documents.
 *   `results/`: Generated HTML reports and plots (git-ignored).
 *   `archive/`: Deprecated monolithic scripts and notes.
