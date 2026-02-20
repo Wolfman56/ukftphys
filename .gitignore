@@ -109,4 +109,6 @@ experiments/width_test_manual/
 experiments/test_mirror_fermion_run/
 experiments/mirror_fermion_collider_*/
 experiments/test_mg5_mirror.txt
-\n# MadGraph simulations artifacts\nexperiments/background_simulation_*/
+
+# MadGraph simulations artifacts
+experiments/background_simulation_*/
