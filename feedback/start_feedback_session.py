@@ -54,6 +54,8 @@ def start_feedback_session():
             f.write("- [ ] Review Mathematical Consistency\n")
             f.write("- [ ] Review Code Performance\n")
             f.write("- [ ] Propose Future Experiments\n\n")
+            f.write("## Workflow\n")
+            f.write("<Insert workflow here>\n\n")
             f.write("## Notes\n")
             f.write("(Agent to add notes here)\n")
         print(f"   -> Created template: {readme_path}")
