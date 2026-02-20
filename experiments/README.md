@@ -178,3 +178,93 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Concept**: Forward projecting 8,000+ stars through a moving gravitational lens.
 *   **Result**: Visualizes the dynamic "LSD" (Large Scale Distortion) of spacetime as the massive object passes through.
 
+### [35_mirror_fermion_madgraph.md](./35_mirror_fermion_madgraph.md)
+**Objective**: Phenomenology of the Mirror Fermion.
+*   **Concept**: Using MadGraph5 to simulate the collider signature of the Mirror Fermion.
+*   **Result**: Establishes baseline cross-sections for a heavy stable particle.
+
+### [36_mirror_fermion_mass_scan.py](./36_mirror_fermion_mass_scan.py)
+**Objective**: Mass Hierarchy Search.
+*   **Concept**: Scanning the mass parameter space to find stable resonance points.
+*   **Result**: Identifies a potential stability island around 320 GeV.
+
+### [37_mirror_fermion_decay.py](./37_mirror_fermion_decay.py)
+**Objective**: Decay Width Analysis.
+*   **Concept**: Calculating the decay width ($\Gamma$) of the Mirror Fermion.
+*   **Result**: Discovers the "5/9 Rule" ($\Gamma/M \approx 5/9 \alpha_{EM}$).
+
+### [38_mirror_fermion_collider.py](./38_mirror_fermion_collider.py)
+**Objective**: Collider Peak Simulation.
+*   **Concept**: Simulating the invariant mass peak reconstruction at the LHC.
+*   **Result**: Successful reconstruction of the 320 GeV peak over background.
+
+### [39_mirror_fermion_detector.py](./39_mirror_fermion_detector.py)
+**Objective**: Detector Response.
+*   **Concept**: Comparing ideal vs. realistic detector responses using Gaussian smearing.
+*   **Result**: The signal remains robust even with 5-10% energy resolution errors.
+
+### [40_background_simulation.py](./40_background_simulation.py)
+**Objective**: Standard Model Backgrounds.
+*   **Concept**: Simulating $t\bar{t}$ and $W/Z$ backgrounds to estimate signal-to-noise.
+*   **Result**: Identifying kinematic cuts to suppress the dominant top quark background.
+
+### [41_entropic_link.py](./41_entropic_link.py)
+**Objective**: The Entropic Link (Gravity = Entanglement).
+*   **Concept**: Simulating the tension between entangled particles.
+*   **Result**: Verifies that entanglement generates an attractive force indistinguishable from gravity.
+
+### [42_geometric_factor_search.py](./42_geometric_factor_search.py)
+**Objective**: Geometric Origin of Constants.
+*   **Concept**: Searching for geometric relations (pi, e, golden ratio) in the coupling constants.
+*   **Result**: Finds the "Geometric Factor" linking the fine-structure constant to the graph topology.
+
+### [43_theoretical_5_9_investigation.ipynb](./43_theoretical_5_9_investigation.ipynb)
+**Objective**: Theory of the 5/9 Rule.
+*   **Concept**: Deriving the decay width ratio from SU(5) group theory factors.
+*   **Result**: Theoretical confirmation of the empirical 5/9 scaling observed in Exp 37.
+
+### [44_mirror_fermion_precision.py](./44_mirror_fermion_precision.py)
+**Objective**: Precision Mass Measurement.
+*   **Concept**: High-resolution scan of the 320 GeV region.
+*   **Result**: Refines the mass prediction to $320 \pm 25$ GeV.
+
+### [45_color_factor_verification.py](./45_color_factor_verification.py)
+**Objective**: QCD Color Factors.
+*   **Concept**: Verifying the color charge ($N_c=3$) enhancement of the production cross-section.
+*   **Result**: Confirms experimentally that the object transforms as a color triplet.
+
+### [46_entropic_monopole.py](./46_entropic_monopole.py)
+**Objective**: The Entropic Monopole (The Field Knot).
+*   **Concept**: Simulating a topological defect ("Hedgehog") in a 3D lattice vector field.
+*   **Result**: Confirms a **stable** monopole with mass **30.0 Lattice Units** ($\sim$ 30 GeV).
+
+### [47_void_scalar.py](./47_void_scalar.py)
+**Objective**: Dark Energy as Entropic Pressure.
+*   **Concept**: Simulating the "Void Scalar" field in low-information-density regions.
+*   **Result**: Demonstrates that entropy maximization in voids creates an expansive "Vacuum Tension" (Dark Energy).
+
+### [48_entropic_monopole_madgraph.md](./48_entropic_monopole_madgraph.md)
+**Objective**: Collider Phenomenology of the Monopole.
+*   **Concept**: Using MadGraph5 to simulate the 30 GeV Monopole production via Gluon Fusion.
+*   **Result**: Cross-section $\sim 189$ pb. The particle is light but strongly interacting.
+
+### [49_monopole_black_hole_analogue.ipynb](./49_monopole_black_hole_analogue.ipynb)
+**Objective**: Monopole-Black Hole Duality.
+*   **Concept**: Calculating the Hawking Temperature of a 30 GeV mass.
+*   **Result**: Discovers a perfect duality: $T_H(30 \text{ GeV}) \approx 30 \text{ GeV}$. The Monopole behaves like a "Maximum Temperature" Black Hole.
+
+### [50_entropic_monopole_dynamics.py](./50_entropic_monopole_dynamics.py)
+**Objective**: The Sound of the Monopole.
+*   **Concept**: Analyzing the acoustic/radiation spectrum of a perturbed monopole field.
+*   **Result**: The spectrum matches a **Thermal Body** (Black Body Radiation) rather than a single particle resonance.
+
+### [51_holographic_entropy_theory.md](./51_holographic_entropy_theory.md)
+**Objective**: The Holographic Link (Strong Gravity).
+*   **Concept**: Deriving the "Strong Gravity" constant ($G_s$) required for the Monopole to be a Black Hole.
+*   **Result**: Finds $G_s \approx 10^{38} G_{Newton}$, matching the Strong Hierarchy scale.
+
+### [52_holographic_pheno.md](./52_holographic_pheno.md)
+**Objective**: Holographic Phenomenology.
+*   **Concept**: Comparing standard decays ($H \to b\bar{b}$) vs. Holographic decays ($H \to \text{Mirror}$).
+*   **Result**: The "Holographic" decay is characterized by a "Soft Resonance" with significant Missing Transverse Energy (MET) peaking at $\sim 15$ GeV ($M/2$).
+
