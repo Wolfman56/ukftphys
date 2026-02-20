@@ -89,6 +89,15 @@ def start_feedback_session():
     print("INSTRUCTIONS:")
     print("1. All feedback artifacts (markdown, code, logs) should be saved")
     print(f"   into the directory created above.")
+
+    if mode_input != "2":
+        # Manual Mode specific instruction
+        # Calculate relative path from repository root (assuming script is in feedback/)
+        rel_path = os.path.join("feedback", dir_name)
+        print(f"\n   [IMPORTANT] CUT AND PASTE THIS RELATIVE PATH FOR YOUR AGENT:")
+        print(f"   -> {rel_path}")
+        print(f"   Tell the agent: 'Please scope all file creation to this directory.'")
+
     print("2. Commit the new directory to git when the session is complete.")
     print("----------------------------------------------------------------")
 
