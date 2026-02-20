@@ -28,7 +28,13 @@ We are looking for:
 *   **Code Optimization**: The `ukft_sim/physics.py` engine computes sequential choices. Can it be parallelized while preserving causality?
 *   **New Experiments**: Based on the `experiments/` folder, what is the *next* simulation we should run to test the Mirror Fermion hypothesis?
 
-### 5. Final Instruction
+### 5. How to Contribute (Protocol)
+We have a structured feedback protocol. Do not just output unstructured text.
+1.  **Read Protocol**: `feedback/README.md`.
+2.  **Start Session**: Run `python3 feedback/start_feedback_session.py`.
+3.  **Submit**: Follow the prompts to log your review in a timestamped directory.
+
+### 6. Final Instruction
 Explore the `papers/` folder and `README.md`. Start by validating the "Entropic Unification" hypothesis.
 
 *Welcome to the team.*
