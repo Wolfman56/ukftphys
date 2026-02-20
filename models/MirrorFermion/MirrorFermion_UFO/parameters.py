@@ -500,8 +500,8 @@ I4x33 = Parameter(name = 'I4x33',
 import math
 import cmath
 
-MXm = Parameter(name = 'MXm', nature = 'external', type = 'real', value = 500.0, texname = '\\Psi_{m,mass}', lhablock = 'MASS', lhacode = [ 6000001 ])
-WXm = Parameter(name = 'WXm', nature = 'external', type = 'real', value = 1.5, texname = '\\Gamma_{xm}', lhablock = 'DECAY', lhacode = [ 6000001 ])
+MXm = Parameter(name = 'MXm', nature = 'external', type = 'real', value = 320.0, texname = '\\Psi_{m,mass}', lhablock = 'MASS', lhacode = [ 6000001 ])
+WXm = Parameter(name = 'WXm', nature = 'external', type = 'real', value = 1.296, texname = '\\Gamma_{xm}', lhablock = 'DECAY', lhacode = [ 6000001 ])
 MXmInv = Parameter(name = 'MXmInv', nature = 'external', type = 'real', value = 0.001, texname = 'M_{inv}', lhablock = 'MASS', lhacode = [ 6000002 ])
 WXmInv = Parameter(name = 'WXmInv', nature = 'external', type = 'real', value = 0.0, texname = '\\Gamma_{inv}', lhablock = 'DECAY', lhacode = [ 6000002 ])
 lambdaH = Parameter(name = 'lambdaH', nature = 'external', type = 'real', value = 0.5, texname = '\\lambda_H', lhablock = 'FRBLOCK', lhacode = [ 1 ])

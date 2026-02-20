@@ -101,3 +101,11 @@ test_mg5_mirror.txt
 py.py
 test_mirror_fermion_run/
 test_mirror_fermion_simple/
+# MadGraph / Experiment Artifacts
+*.lhe
+*.lhe.gz
+*.mg5
+experiments/width_test_manual/
+experiments/test_mirror_fermion_run/
+experiments/mirror_fermion_collider_*/
+experiments/test_mg5_mirror.txt

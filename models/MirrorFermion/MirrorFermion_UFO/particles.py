@@ -202,7 +202,7 @@ u = Particle(pdg_code = 2,
              width = Param.ZERO,
              texname = 'u',
              antitexname = 'u~',
-             charge = 2/3,
+             charge = 2./3.,
              GhostNumber = 0,
              LeptonNumber = 0,
              Y = 0)
@@ -218,7 +218,7 @@ c = Particle(pdg_code = 4,
              width = Param.ZERO,
              texname = 'c',
              antitexname = 'c~',
-             charge = 2/3,
+             charge = 2./3.,
              GhostNumber = 0,
              LeptonNumber = 0,
              Y = 0)
@@ -234,7 +234,7 @@ t = Particle(pdg_code = 6,
              width = Param.WT,
              texname = 't',
              antitexname = 't~',
-             charge = 2/3,
+             charge = 2./3.,
              GhostNumber = 0,
              LeptonNumber = 0,
              Y = 0)
@@ -250,7 +250,7 @@ d = Particle(pdg_code = 1,
              width = Param.ZERO,
              texname = 'd',
              antitexname = 'd~',
-             charge = -1/3,
+             charge = -1./3.,
              GhostNumber = 0,
              LeptonNumber = 0,
              Y = 0)
@@ -266,7 +266,7 @@ s = Particle(pdg_code = 3,
              width = Param.ZERO,
              texname = 's',
              antitexname = 's~',
-             charge = -1/3,
+             charge = -1./3.,
              GhostNumber = 0,
              LeptonNumber = 0,
              Y = 0)
@@ -282,7 +282,7 @@ b = Particle(pdg_code = 5,
              width = Param.ZERO,
              texname = 'b',
              antitexname = 'b~',
-             charge = -1/3,
+             charge = -1./3.,
              GhostNumber = 0,
              LeptonNumber = 0,
              Y = 0)
@@ -388,7 +388,7 @@ from object_library import all_particles, Particle
 import parameters as Param
 
 xm = Particle(
-    pid = 6000001,
+    pdg_code = 6000001,
     name = 'xm',
     antiname = 'xm~',
     spin = 2,
@@ -397,14 +397,15 @@ xm = Particle(
     width = Param.WXm,
     texname = '\\Psi_m',
     antitexname = '\\bar{\\Psi}_m',
-    charge = 2/3,
-    pdg_code = 6000001
-)
+    charge = 2./3.,
+    GhostNumber = 0,
+    LeptonNumber = 0,
+    Y = 0)
 
 xm__tilde__ = xm.anti()
 
 xmInv = Particle(
-    pid = 6000002,
+    pdg_code = 6000002,
     name = 'xmInv',
     antiname = 'xmInv',
     spin = 1,
@@ -414,5 +415,6 @@ xmInv = Particle(
     texname = 'x_m^{inv}',
     antitexname = 'x_m^{inv}',
     charge = 0,
-    pdg_code = 6000002
-)
+    GhostNumber = 0,
+    LeptonNumber = 0,
+    Y = 0)
