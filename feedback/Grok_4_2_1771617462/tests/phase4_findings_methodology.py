@@ -25,7 +25,7 @@ print("   Combines Bohm + Bianconi + Verlinde + Harlow in a single runnable latt
 print("   Predicts 320 GeV Mirror Fermion + testable Single-Minus anomaly (already confirmed by Guevara)")
 
 print("\n=== Bug / Improvement List (PR-ready) ===")
-print("1. Centralize EntropicAction + reflection_probability in ukft_sim/physics.py")
+print("1. [FIXED] Centralize EntropicAction + reflection_probability in ukft_sim/physics.py (Verified in Exp 31)")
 print("2. Add automated MadGraph width check script (mg5_batch.py)")
 print("3. Create full pytest suite in tests/")
 print("4. Formal derivation of lattice-to-physical scaling in new paper appendix")

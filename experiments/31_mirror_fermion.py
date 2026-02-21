@@ -1,6 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import sys
+
+# Ensure local package is findable
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from ukft_sim.physics import EntropicAction
 
 # Create results directory
 os.makedirs("results", exist_ok=True)
@@ -114,21 +120,30 @@ def run_experiment_31():
     
     if len(critical_idx) > 0:
         critical_mass = masses[critical_idx[0]]
-        print(f"CRITICAL MIRROR MASS FOUND: M_crit ~ {critical_mass:.2f} (Units of Lattice Energy)")
+        print(f"SIMULATED MIRROR MASS: M_crit ~ {critical_mass:.2f} (Units of Lattice Energy)")
     else:
         critical_mass = masses[-1]
         print("Note: Critical reflection not fully reached in scan range.")
-        
-    # Map to TeV scale
-    # Assume characteristic energy scale of horizon is Planck/TeV transition?
-    # Let's say Lattice Energy unit ~ 1 TeV.
-    m_tev = critical_mass * 1.2 # Arbitrary scaling factor based on Exp 30 prediction
-    print(f"Predicted Mirror Fermion Mass: ~{m_tev:.2f} TeV")
+
+    # Theory Comparison
+    theory_crit = EntropicAction.M_CRIT
+    print(f"THEORETICAL MIRROR MASS: M_crit = {theory_crit:.2f} (from ukft_sim.physics)")
+    
+    # Map to TeV scale using centralized physics constant
+    m_tev = critical_mass * EntropicAction.LATTICE_SCALE_TEV
+    m_tev_theory = theory_crit * EntropicAction.LATTICE_SCALE_TEV
+    print(f"Predicted Mirror Fermion Mass (Sim): ~{m_tev:.2f} TeV")
+    print(f"Predicted Mirror Fermion Mass (Theory): ~{m_tev_theory:.2f} TeV")
+
+    # Calculate theoretical curve
+    theory_curve = [EntropicAction.reflection_probability(m) for m in masses]
 
     plt.figure(figsize=(10,6))
-    plt.plot(masses, info_conserved, 'b-o', linewidth=2)
-    plt.axhline(y=1.0, color='g', linestyle='--', label='Unitarity (Conservation)')
-    plt.axhline(y=info_conserved[0], color='r', linestyle='--', label='Classical Horizon (Loss)')
+    plt.plot(masses, info_conserved, 'b-o', linewidth=2, label='Simulation (Exp 31)')
+    plt.plot(masses, theory_curve, 'k--', linewidth=2, label='Theory (EntropicAction)')
+    
+    plt.axhline(y=1.0, color='g', linestyle=':', label='Unitarity (Conservation)')
+    plt.axhline(y=info_conserved[0], color='r', linestyle=':', label='Classical Horizon (Loss)')
     
     plt.title("Information Conservation vs Mirror Particle Mass\n(Solving the Black Hole Information Paradox)")
     plt.xlabel("Mirror Fermion Mass (Coupling Strength)")

@@ -1,6 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import sys
+
+# Ensure local package is findable
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from ukft_sim.physics import EntropicAction
+
 from scipy.sparse import diags, eye
 from scipy.sparse.linalg import splu
 
@@ -132,7 +139,7 @@ def run_experiment_44():
     #    (or the effective coupling is diluted by 1/3, requiring 3x mass to achieve same wall opacity).
     #    Hypothesis: M_phys = M_lattice * N_c * Scale
     
-    SCALE_TEV = 1.23 
+    SCALE_TEV = EntropicAction.LATTICE_SCALE_TEV 
     COLOR_FACTOR = 3.0
     
     # Calculate for both uncolored (lepton) and colored (quark) scenarios
@@ -145,6 +152,13 @@ def run_experiment_44():
     print("-------------------------------------------------------")
     print(f"Scenario A (Lepton-like, Nc=1): {m_lepton_tev*1000:.2f} GeV")
     print(f"Scenario B (Quark-like, Nc=3):  {m_quark_tev*1000:.2f} GeV  <-- MATCHES 320 GeV PREDICTION")
+    print("-------------------------------------------------------")
+    print(f"Theory Comparison (EntropicAction.M_CRIT): {EntropicAction.M_CRIT}")
+    discrepancy = abs(m_999 - EntropicAction.M_CRIT)
+    if discrepancy < 0.02:
+        print(f"SUCCESS: Experimental critical mass matches theory within {discrepancy:.4f}")
+    else:
+        print(f"WARNING: Experimental critical mass differs from theory by {discrepancy:.4f}")
     print("-------------------------------------------------------")
     print("NOTE: The factor of 3 suggests the Mirror Fermion is a colored triplet (Mirror Quark).")
     print("Verification of this Color Factor scaling is scheduled for Experiment 45.")
