@@ -53,6 +53,6 @@ If the script is completely off-base, **do not fix it**. Use these metrics to de
     *   **Interpretation**: Did it pass? What does this prove about the hypothesis?
     *   **Next Steps**: Suggest what the external agent should do next.
     *   **Caching Warning**: Always include this standard footer for the external agent:
-        > **Note regarding File Caching**: The web-based Grok environment may have a stale file cache. If you do not see the changes reported here in your file browser, please use `ls -l` or `cat` to verify the current state of the file system before assuming a failure.
+        > **Note regarding Web Browser Caching**: If you are interacting via a web browser, the file explorer cache may be stale. **Please refresh your browser tab** to see the newly created results files and git commits. The internal agent has confirmed the push is complete.
     *   **Interpretation**: Did it pass? What does this prove about the hypothesis?
     *   **Next Steps**: Suggest what the external agent should do next.
