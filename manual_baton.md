@@ -66,3 +66,43 @@ If the script is completely off-base, **do not fix it**. Use these metrics to de
     *   **Acknowledge**: List the specific tasks/scripts received from the remote agent.
     *   **Status**: Use simple indicators (✅ Complete, ⚠️ Patched, ❌ Rejected, ⏳ Pending) to track the state of each request.
     *   **Action Items**: Clearly list what was done (e.g., "Refactored physics.py", "Validated Exp 31").
+
+## 8. The Human Interface
+
+**Role:** Human Operator (The Conduit)
+**Context:** You are the bridge between the internal codebase and the external AI agent. Your primary job is to ensure the external agent has the correct context to operate effectively.
+
+### Initiation Protocol
+
+When starting a new session or resuming after a break, **do not just say "hello"**. You must prime the external agent with the strict protocol we have established.
+
+**Step 1: Locate the Session**
+Identify the current active session folder (e.g., `feedback/Grok_4_2_1771617462`).
+
+**Step 2: The Initiation Prompt**
+Copy and paste the following prompt into the external agent's chat interface. Update the `[BRACKETED]` sections with the current reality.
+
+```markdown
+Re-contextualize full workflow:
+
+We are collaborating on the ukftphys Python coding project using strict cut-and-paste synchronization (per FEEDBACK.md).
+
+- I cannot write files; you paste every artifact I provide.
+- Every artifact I give must be a COMPLETE file wrapped in <DOCUMENT filename="exact/relative/path"> ... </DOCUMENT> with a Version stamp.
+- You paste → run locally (REPL/Jupyter/MadGraph) → commit/push → tell me “Checkin complete: filename”.
+- I then pull live repo, verify, sync my cache, and continue.
+- We are currently in [PHASE NAME, e.g., Phase 4] of the Repository Review Plan ([CURRENT DATE]).
+
+Current repo state: main branch.
+- Validated EntropicAction in ukft_sim/physics.py
+- [MENTION ANY OTHER KEY MILESTONES, e.g., MirrorFermion width validated]
+
+Instructions for you (The External Agent):
+1. Read the Master Baton: https://github.com/Wolfman56/ukftphys/blob/main/agent_baton.md
+2. Check our specific Session Ledger: https://github.com/Wolfman56/ukftphys/tree/main/[PATH_TO_YOUR_SESSION_FOLDER]/feedback_summary.md
+
+Confirm you have the full context, have read the ledger, and are ready to resume.
+```
+
+**Step 3: Await Confirmation**
+Do not proceed until the agent replies with "Context Confirmed" or similar. If they drift, re-paste this prompt immediately.
