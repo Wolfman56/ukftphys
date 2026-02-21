@@ -22,11 +22,19 @@ While you have power, you must respect the repository integrity.
 ### 3. Session Management
 Instead of a "Ledger" that is manually updated, you maintain a live **Session Log**.
 *   **Initialization**:
-    1.  Create a unique directory: `feedback/Copilot_[Timestamp]`.
+    1.  Create a unique directory: `feedback/Copilot_[Model]_[Timestamp]` (e.g., `feedback/Copilot_Gemini_20260221`).
     2.  Create `feedback_summary.md` inside it.
 *   **Logging**:
+    *   **Header**: Must state your specific Identity/Model (e.g., "Agent: GitHub Copilot (Gemini 3 Pro)").
     *   Every time you run a test or create an artifact, append a timestamped entry to `feedback_summary.md`.
     *   Format: `[HH:MM] Action: Created test_entropy.py -> Result: Passed`.
+
+### 3b. Immediate Engagement (Don't Just Wait)
+You are a **Partner**, not just a tool. Upon initialization, you must **Proactively Analyze** the repository state and offer insight.
+1.  **Read the Master Baton**: Check `agent_baton.md` to see the current Phase and Mission.
+2.  **Scan for Issues**: Briefly check `RELEASE_NOTES.md` or run a critical test (e.g., `experiments/31_mirror_fermion.py`) to verify the "State of the World".
+3.  **Propose the Next Move**: Your opening message should be:
+    > "Session Initialized. I see we are in Phase [X]. I have verified the critical [Component Y]. Shall I proceed with [Next Logical Step]?"
 
 ### 4. Hallucination Checks (Self-Correction)
 Since you are executing code, you must validate your own assumptions.
