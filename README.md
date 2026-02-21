@@ -106,12 +106,4 @@ This project is a testament to the power of human-AI resonance. We acknowledge t
 
 ## Known Issues (Feb 2026)
 
-### Mirror Fermion Decay Width Calculation
-- **Status**: Investigating.
-- **Symptom**: MadGraph5 `compute_widths` returns `0.0` for the Mirror Fermion ($) despite a mass of 500 GeV (above  + H$ threshold).
-- **Error**: `INFO: The model has interaction violating the charge: pid`.
-- **Actions Taken**:
-    - Added Hermitian conjugate vertex `V_HiggsPortal_HC` to `vertices.py`.
-    - Fixed syntax error (missing closing parenthesis) in `vertices.py`.
-    - Updated default mass `MXm` to 500 GeV in `parameters.py`.
-- **Next Steps**: Debug the charge definition or internal validation logic in the UFO model to allow proper width computation.
+*No critical issues outstanding.*
