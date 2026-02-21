@@ -76,12 +76,12 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Tech**: Validates the `wgpu` (WebGPU) installation and compute shader compilation.
 *   **Result**: Benchmarked at >180 Million interactions/second (vs ~100k on CPU).
 
-### [12_ukft_massive_swarm_gpu.py](./12_ukft_massive_swarm_gpu.py)
+### [12_ukft_massive_swarm_gpu.md](./12_ukft_massive_swarm_gpu.md)
 **Objective**: Massive Scale Simulation (50k Particles).
 *   **Tech**: First full physics simulation running entirely on the GPU.
 *   **Visuals**: Plotly visualization of a massive quantum fluid ring.
 
-### [13_ukft_massive_swarm_video.py](./13_ukft_massive_swarm_video.py)
+### [13_ukft_massive_swarm_video.md](./13_ukft_massive_swarm_video.md)
 **Objective**: Direct GPU-to-Video Rendering.
 *   **Problem**: Browser WebGL (Plotly) crashes with >5k particles.
 *   **Solution**: Implemented a "Virtual Camera" compute shader to rasterize 100,000 particles directly on the GPU card.
@@ -276,12 +276,12 @@ Command to run:
 *   **Concept**: Using MadGraph5 to simulate the 30 GeV Monopole production via Gluon Fusion.
 *   **Result**: Cross-section $\sim 189$ pb. The particle is light but strongly interacting.
 
-### [49_monopole_black_hole_analogue.ipynb](./49_monopole_black_hole_analogue.ipynb)
+### [49_monopole_black_hole_analogue.md](./49_monopole_black_hole_analogue.md)
 **Objective**: Monopole-Black Hole Duality.
 *   **Concept**: Calculating the Hawking Temperature of a 30 GeV mass.
 *   **Result**: Discovers a perfect duality: $T_H(30 \text{ GeV}) \approx 30 \text{ GeV}$. The Monopole behaves like a "Maximum Temperature" Black Hole.
 
-### [50_entropic_monopole_dynamics.py](./50_entropic_monopole_dynamics.py)
+### [50_entropic_monopole_dynamics.md](./50_entropic_monopole_dynamics.md)
 **Objective**: The Sound of the Monopole.
 *   **Concept**: Analyzing the acoustic/radiation spectrum of a perturbed monopole field.
 *   **Result**: The spectrum matches a **Thermal Body** (Black Body Radiation) rather than a single particle resonance.
@@ -297,7 +297,7 @@ Command to run:
 *   **Result**: The "Holographic" decay is characterized by a "Soft Resonance" with significant Missing Transverse Energy (MET) peaking at $\sim 15$ GeV ($M/2$).
 
 
-### [53_mirror_fermion_jet_substructure.py](./53_mirror_fermion_jet_substructure.py)
+### [53_mirror_fermion_jet_substructure.md](./53_mirror_fermion_jet_substructure.md)
 **Objective**: Mirror Fermion Detection via Entropic Substructure.
 *   **Concept**: Simulating the decay of Mirror Fermions ($F_M \to qqq$) vs QCD Jets ($g \to q\bar{q}$).
 *   **Innovation**: Introduces the **Entropic Discriminator ($D_E$)**.
