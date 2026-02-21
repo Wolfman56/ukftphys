@@ -148,3 +148,38 @@ def step_discrete_action_minimizer(pos_indices, psi, v_field, V_q, current_dt, a
     steps = choices - 1 
     
     return (pos_indices + steps) % N, S_stack
+
+class EntropicAction:
+    """
+    Central class for all entropic action calculations.
+    """
+    M_CRIT = 0.26
+    LATTICE_SCALE_TEV = 1.23
+    KAPPA = 18.4
+
+    @classmethod
+    def reflection_probability(cls, M_lattice: float) -> float:
+        """
+        Reflection probability P(M) from local entropic action minimization.
+        Returns value between 0.0 and 1.0. At M_CRIT, P_reflection = 0.5.
+        Formula: Sigmoid 1 / (1 + exp(kappa * (M - M_crit)))
+        """
+        # Sigmoid shape: High mass -> High reflection? Or Low mass -> No reflection?
+        # Original physics: M < M_crit => Pass (Refl=0). M > M_crit => Reflect (Refl->1).
+        # So we want P -> 0 for M << M_crit, P -> 1 for M >> M_crit.
+        # Sigmoid(k * (x - c)) has this behavior for k > 0.
+        try:
+            val = 1.0 / (1.0 + np.exp(-cls.KAPPA * (M_lattice - cls.M_CRIT)))
+            return val
+        except OverflowError:
+            return 0.0 if (M_lattice < cls.M_CRIT) else 1.0
+
+    @classmethod
+    def physical_mass_gev(cls, M_lattice: float) -> float:
+        """Convert lattice mass to physical GeV."""
+        return M_lattice * cls.LATTICE_SCALE_TEV * 1000.0
+
+    @classmethod
+    def critical_physical_mass(cls) -> float:
+        """Returns ~320 GeV (the Mirror Fermion prediction)."""
+        return cls.physical_mass_gev(cls.M_CRIT)

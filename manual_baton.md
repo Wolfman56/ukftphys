@@ -41,7 +41,12 @@ If the script is completely off-base, **do not fix it**. Use these metrics to de
     ```
 *   **Capture Output**: Save the stdout/stderr.
 
-#### 5. Organization
+#### 5. Output Format (No Python Printers)
+*   **Markdown Only**: Do NOT write Python scripts solely to `print()` text or summaries.
+*   **Direct Generation**: If you need to create a document, writing it directly to a `.md` file is preferred over wrapping it in a `.py` script that prints it.
+*   **Exception**: Python scripts that run *simulations* and print *results* are fine. Python scripts that just print *static text* (proposals, summaries) are an anti-pattern.
+
+#### 6. Organization
 *   **Artifacts**: If the script generates plots or data, ensure they are saved within the same `feedback/Agent_Session/` directory (or a `results/` folder therein), NOT cluttering the root.
 
 #### 6. The Explainer (Crucial Step)
