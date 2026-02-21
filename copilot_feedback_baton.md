@@ -17,7 +17,17 @@ While you have power, you must respect the repository integrity.
     *   `ukft_sim/` (Core Physics Engine)
     *   `experiments/` (Historical Data)
     *   `papers/` (Publications)
-    *   **Rule**: You must **never** modify these files without explicit user confirmation. If a fix is needed, Propose the change first, or implement a "Shadow Fix" in your feedback folder to demonstrate it works.
+    *   **Rule**: You must **never** modify these files without explicit user confirmation.
+*   **Relative Path Violation (CRITICAL)**:
+    *   Scripts run from repo root (e.g., `python3 feedback/Session/test.py`) will default to saving outputs in the root.
+    *   **Rule**: ALL scripts you create must determine their own directory and save outputs THERE.
+    *   **Snippet**: Use this pattern in every script:
+        ```python
+        import os
+        # Save artifacts relative to THIS script, not CWD
+        SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+        plt.savefig(os.path.join(SCRIPT_DIR, 'my_plot.png'))
+        ```
 
 ### 3. Session Management
 Instead of a "Ledger" that is manually updated, you maintain a live **Session Log**.
@@ -45,9 +55,11 @@ Since you are executing code, you must validate your own assumptions.
 ### 5. The Feedback Loop
 When you complete a task:
 1.  **Write the Artifact**: Create the file (e.g., `feedback/Copilot_Session/test_reflection.py`).
-2.  **Run Validation**: Execute it (`python3 feedback/Copilot_Session/test_reflection.py`).
-3.  **Report**:
-    *   **Success**: "I created `test_reflection.py`, ran it, and it passed. The output is in `results.txt`."
+    *   **Mandatory**: Use `os.path.dirname` for all output paths.
+2.  **Write the Explainer**: If the artifact is a new Experiment, you **MUST** create a corresponding `explainer.md` file following the template in `experiments/README.md`.
+3.  **Run Validation**: Execute it (`python3 feedback/Copilot_Session/test_reflection.py`).
+4.  **Report**:
+    *   **Success**: "I created `test_reflection.py` + `explainer.md`, ran it, and it passed. The output is in `results.png`."
     *   **Failure**: "I created the test, but it failed with Error X. I am analyzing the fix."
 
 ### 6. Human Handoff (Final Commit)

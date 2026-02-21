@@ -87,6 +87,34 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Solution**: Implemented a "Virtual Camera" compute shader to rasterize 100,000 particles directly on the GPU card.
 *   **Result**: High-fidelity cinematic video of the quantum accretion disk.
 
+## Creating New Experiments
+
+When adding a new experiment script (e.g., `experiments/99_new_idea.py`), you **MUST** create a corresponding `explainer.md` file in the same directory (or a dedicated folder).
+
+### Explainer Template
+The explainer file (e.g., `experiments/99_new_idea_explainer.md`) must follow this structure to ensure scientific reproducibility:
+
+```markdown
+# Experiment 99: [Title]
+**Objective**: [One sentence summary]
+
+## Hypothesis
+What are we testing? Reference specific equations or UKFT principles (e.g., "Testing if Entropic Gravity emerges from N \propto A").
+
+## Methodology
+*   **Setup**: Description of the initial conditions (e.g., "Two Gaussian packets colliding").
+*   **Key Parameters**: List critical constants ($\alpha$, $N$, $dt$).
+*   **Metric**: What are we measuring? (e.g., "Entropic Dimension $D_E$").
+
+## Results (Expected or Observed)
+*   **Observation**: What happened?
+*   **Significance**: Does this support or refute the hypothesis?
+
+## Usage
+Command to run:
+`python experiments/99_new_idea.py`
+```
+
 ### [14_ukft_perception_loop.py](./14_ukft_perception_loop.py)
 **Objective**: The "Conscious" Feedback Loop (Part 1).
 *   **Concept**: Integrates a "Perception Engine" (Observer) that watches the Physics Engine.
