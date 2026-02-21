@@ -59,5 +59,10 @@ If the script is completely off-base, **do not fix it**. Use these metrics to de
     *   **Next Steps**: Suggest what the external agent should do next.
     *   **Caching Warning**: Always include this standard footer for the external agent:
         > **Note regarding Web Browser Caching**: If you are interacting via a web browser, the file explorer cache may be stale. **Please refresh your browser tab** to see the newly created results files and git commits. The internal agent has confirmed the push is complete.
-    *   **Interpretation**: Did it pass? What does this prove about the hypothesis?
-    *   **Next Steps**: Suggest what the external agent should do next.
+
+#### 7. Session Ledger (The Handoff)
+*   **Compile a Summary**: At the end of a session, create or update `feedback_summary.md` in the top-level session folder (e.g., `feedback/Agent_Session/`).
+*   **Content**:
+    *   **Acknowledge**: List the specific tasks/scripts received from the remote agent.
+    *   **Status**: Use simple indicators (✅ Complete, ⚠️ Patched, ❌ Rejected, ⏳ Pending) to track the state of each request.
+    *   **Action Items**: Clearly list what was done (e.g., "Refactored physics.py", "Validated Exp 31").
