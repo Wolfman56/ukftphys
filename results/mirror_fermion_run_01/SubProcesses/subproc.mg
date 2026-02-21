@@ -1,3 +1,0 @@
-P1_gg_xmxmx
-P1_qq_xmxmx
-P1_ccx_xmxmx

@@ -112,3 +112,5 @@ experiments/test_mg5_mirror.txt
 
 # MadGraph simulations artifacts
 experiments/background_simulation_*/
+
+results/mirror_fermion_run_01/
