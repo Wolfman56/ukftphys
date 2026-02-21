@@ -24,25 +24,35 @@ If the script is completely off-base, **do not fix it**. Use these metrics to de
 *   **API Drift**: If the script calls methods that look linguistically plausible but don't exist in the actual class definitions (e.g., calling `simulation.evolve()` when the method is `simulation.step()`).
 *   **Containment Breach**: The agent is **FORBIDDEN** from modifying any files outside the current session folder. If the script requires patching the core library (`ukft_sim/`) to run, it is hallucinating the library's readiness. **Report it immediately.**
 
-**Action**: If triggered, create `FEEDBACK_TO_AGENT.md`:
-1.  **State the Confusion**: "The script assumes a library structure that refers to X, Y, Z which do not exist."
-2.  **Point to Truth**: "Please review `ukft_sim/physics.py` for the actual `EntropicAction` implementation or check `experiments/` for the prototype code."
+#### 3. Compute Environment
+*   **PyTorch Device Agnosticism**: All PyTorch scripts **must include device detection**.
+    *   **Standard Pattern**: Use `device = torch.device('cuda' if torch.cuda.is_available() else 'mps' if torch.backends.mps.is_available() else 'cpu')`.
+    *   **Mac Silicon**: Explicitly check for `torch.backends.mps.is_available()`.
+    *   **CPU Fallback**: Ensure scripts don't crash if CUDA/MPS is missing; always provide a CPU path.
 
-#### 3. Execution
+**Action**: If a script hardcodes `.cuda()` or assumes a specific device:
+1.  **Refactor**: Wrap the device logic in the standard detection pattern.
+2.  **Report**: Note in `README_TEST_RESULTS.md` that the script was patched for device compatibility.
+
+#### 4. Execution
 *   **Run the Script**: Execute the script in the terminal from the **Repository Root**.
     ```bash
     python3 feedback/Path/To/Script.py
     ```
 *   **Capture Output**: Save the stdout/stderr.
 
-#### 3. Organization
+#### 5. Organization
 *   **Artifacts**: If the script generates plots or data, ensure they are saved within the same `feedback/Agent_Session/` directory (or a `results/` folder therein), NOT cluttering the root.
 
-#### 4. The Explainer (Crucial Step)
+#### 6. The Explainer (Crucial Step)
 *   **Create a Report**: Generate a `README_TEST_RESULTS.md` in the script's directory.
 *   **Structure**:
     *   **Objective**: What was the external agent trying to test?
     *   **Modifications**: Did you have to fix imports/paths?
     *   **Results**: Paste the terminal output or summary.
+    *   **Interpretation**: Did it pass? What does this prove about the hypothesis?
+    *   **Next Steps**: Suggest what the external agent should do next.
+    *   **Caching Warning**: Always include this standard footer for the external agent:
+        > **Note regarding File Caching**: The web-based Grok environment may have a stale file cache. If you do not see the changes reported here in your file browser, please use `ls -l` or `cat` to verify the current state of the file system before assuming a failure.
     *   **Interpretation**: Did it pass? What does this prove about the hypothesis?
     *   **Next Steps**: Suggest what the external agent should do next.
