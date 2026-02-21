@@ -319,3 +319,14 @@ Command to run:
 **Objective**: Standard Model Consistency Check.
 *   **Concept**: Verifying the decay width formula for heavy fermions.
 *   **Result**: Confirms $\Gamma \approx \frac{G_F M^3}{8\pi\sqrt{2}} \approx 10$ GeV for a 320 GeV Mirror Fermion.
+
+### [57_trotter_integration_test.md](./57_trotter_integration_test.md)
+**Objective**: Validate the $O(N)$ Parallel Causality Engine.
+*   **Concept**: Comparing Global Matrix Exponentiation ($O(N^3)$) vs. Local Trotter-Suzuki Decomposition ($O(N)$).
+*   **Result**: Achieved ~3000x speedup with perfect fidelity ($|\langle \psi_G | \psi_L \rangle| = 1.0$), proving causality is preserved locally.
+
+### [58_gpu_entropic_scattering.md](./58_gpu_entropic_scattering.md)
+**Objective**: 2D Entropic Scattering on GPU.
+*   **Concept**: Simulating a Gaussian Wave Packet scattering off an Entropic Monopole using a GPU-accelerated Split-Step Fourier method.
+*   **Visuals**: Observe "Soft Resonance" – holographic diffraction patterns distinct from hard-sphere scattering.
+*   **Tech**: Implemented a PyTorch-based GPU Solver capable of running $256 \times 256$ grids in real-time.
