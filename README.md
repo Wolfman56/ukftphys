@@ -4,6 +4,12 @@
 
 This repository contains a **Choice-Guided Bohmian Mechanics** simulator. It implements a novel interpretation of Quantum Mechanics where "Time" is emergent from a sequence of Discrete Action Minimizing choices.
 
+## Quick Start: Interactive Reproduction
+
+You can immediately reproduce the key findings of the **Entropic Unification** paper (Mirror Fermion mass, Monopole stability, Dark Energy floor) directly in your browser using Google Colab.
+
+*   **[Launch Interactive Notebook](https://colab.research.google.com/github/Wolfman56/ukftphys/blob/main/reproduce_entropic_unification_experiments.ipynb)**: Runs the simplified simulations on cloud resources. No local installation required.
+
 ## Theoretical Basis
 
 This simulation code explores the intersection of:
