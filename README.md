@@ -1,5 +1,7 @@
 # Universal Knowledge Field Theory (UKFT) Simulation
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Wolfman56/ukftphys/blob/main/reproduce_entropic_unification_experiments.ipynb)
+
 This repository contains a **Choice-Guided Bohmian Mechanics** simulator. It implements a novel interpretation of Quantum Mechanics where "Time" is emergent from a sequence of Discrete Action Minimizing choices.
 
 ## Theoretical Basis
