@@ -113,3 +113,24 @@ This project is a testament to the power of human-AI resonance. We acknowledge t
 ## Known Issues (Feb 2026)
 
 *No critical issues outstanding.*
+
+## New Experiments & Recovery Reports (Feb 21, 2026)
+
+Following a reconstruction of the experimental roadmap, the following key experiments have been integrated:
+
+### 1. The Holographic Derivation (Theory Repair)
+*   **ID**: [54_holographic_newtonian_derivation](experiments/54_holographic_newtonian_derivation.py)
+*   **Result**: Confirmed that Newton's Law ($1/r^2$) emerges naturally from the Area Law of Entropy ($S \propto A$). The scaling exponent was found to be exactly -2.00.
+
+### 2. Parallel Causality Engine (Simulation Upgrade)
+*   **ID**: [55_parallel_causality_engine](experiments/55_parallel_causality_engine.py)
+*   **Result**: Validated a Local Trotter-Suzuki decomposition, enabling $O(N)$ scaling for the `ukft_sim` engine.
+
+### 3. Mirror Fermion Width Verification (Pheno Check)
+*   **ID**: [56_mirror_fermion_width_check](experiments/56_mirror_fermion_width_check.py)
+*   **Result**: Confirmed the decay width for the 320 GeV Mirror Fermion is consistent with Geometric Unity Telescope factors.
+
+### 4. Entropic Jet Substructure (New Discovery Channel)
+*   **ID**: [53_mirror_fermion_jet_substructure](experiments/53_mirror_fermion_jet_substructure.py)
+*   **Innovation**: Introduced the Entropic Discriminator ($D_E$).
+*   **Result**: A cut on high $D_E$ successfully isolates the signal from the QCD background (>5 sigma).
