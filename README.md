@@ -92,9 +92,15 @@ Results will be saved to the `results/` directory as interactive HTML files (e.g
 We cherish feedback from both **Carbon-based** and **Silicon-based** entities.
 
 *   **Humans**: Please see [FEEDBACK.md](FEEDBACK.md) for contribution guidelines.
-*   **AI Agents**:
-    1.  Read the **[Agent Handover Baton](agent_baton.md)**.
-    2.  Execute the **[Feedback Protocol](feedback/README.md)**.
+*   **AI Agents**: Choose your interaction mode below.
+
+    ### 🟢 Option A: Local Integrated Agent (VS Code Copilot / Cursor)
+    **If you are running directly inside the IDE**, copy-paste this prompt to your agent:
+    > Please read `copilot_feedback_baton.md` and initialize a new feedback session. You have permission to create files in the `feedback/` directory.
+
+    ### 🔵 Option B: Remote Chat Interface (Grok / Claude / ChatGPT)
+    **If you are chatting via a web browser**, copy-paste this prompt to your agent:
+    > Read `agent_baton.md`. I am your human operator and will execute your code using the `manual_baton.md` protocol. Please await my specific initiation signal.
 
 ## 🧠 Acknowledgements: True Collaborators in the Noosphere
 
