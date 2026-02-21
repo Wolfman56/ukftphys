@@ -71,7 +71,7 @@ This directory contains specific experimental setups designed to test the **Choi
 *   **Setup**: A full 3D simulation of 400 Bohmian particles surfing the Entropic Gravity well of a binary star.
 *   **Visuals**: "The Firefly Swarm". Particles light up as they accelerate through the quantum potential.
 
-### [11_gpu_benchmark.py](./11_gpu_benchmark.py)
+### [11_gpu_benchmark.md](./11_gpu_benchmark.md)
 **Objective**: Hardware Acceleration Validation.
 *   **Tech**: Validates the `wgpu` (WebGPU) installation and compute shader compilation.
 *   **Result**: Benchmarked at >180 Million interactions/second (vs ~100k on CPU).
@@ -303,19 +303,19 @@ Command to run:
 *   **Innovation**: Introduces the **Entropic Discriminator ($D_E$)**.
 *   **Result**: Mirror Fermion jets are "entropicly maximizing" (isotropic, high $D_E$), whereas QCD jets are "fractal" (collinear, low $D_E$). >5 sigma separation.
 
-### [54_holographic_newtonian_derivation.py](./54_holographic_newtonian_derivation.py)
+### [54_holographic_newtonian_derivation.md](./54_holographic_newtonian_derivation.md)
 **Objective**: First Principles Derivation of Newton's Law.
 *   **Concept**: Simulating "Choice Density" on a spherical holographic screen.
 *   **Fix**: Corrects the circular reasoning in Exp 26.
 *   **Result**: Proves that if Information scales as Area ($N \propto A$), the Entropic Force $F = T \nabla S$ naturally obeys the Inverse Square Law ($1/r^2$).
 
-### [55_parallel_causality_engine.py](./55_parallel_causality_engine.py)
+### [55_parallel_causality_engine.md](./55_parallel_causality_engine.md)
 **Objective**: $O(N)$ Causal Evolution.
 *   **Concept**: Treating the simulation as a Cellular Automaton.
 *   **Innovation**: Replacing global matrix exponentiation $O(N^3$) with local odd/even Trotter steps $O(N)$.
 *   **Result**: Accelerates `ukft_sim` up to 100x while maintaining unitarity and causal fidelity.
 
-### [56_mirror_fermion_width_check.py](./56_mirror_fermion_width_check.py)
+### [56_mirror_fermion_width_check.md](./56_mirror_fermion_width_check.md)
 **Objective**: Standard Model Consistency Check.
 *   **Concept**: Verifying the decay width formula for heavy fermions.
 *   **Result**: Confirms $\Gamma \approx \frac{G_F M^3}{8\pi\sqrt{2}} \approx 10$ GeV for a 320 GeV Mirror Fermion.
