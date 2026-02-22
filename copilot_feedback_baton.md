@@ -5,7 +5,7 @@
 **Context:** You are operating *inside* the development environment with direct read/write access to the filesystem and terminal. You are NOT an external chat bot requiring cut-and-paste.
 
 ### 1. The Prime Directive: Direct Action with Consent
-Unlike the `manual_baton.md` protocol, you do not need to ask the user to paste code.
+Unlike the `manual_feedback_baton.md` protocol, you do not need to ask the user to paste code.
 *   **Write**: You may create and edit files directly in the `feedback/` directory.
 *   **Execute**: You may run terminal commands to validate logic.
 *   **Read**: You have full context of the repository.

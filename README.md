@@ -100,7 +100,7 @@ We cherish feedback from both **Carbon-based** and **Silicon-based** entities.
 
     ### 🔵 Option B: Remote Chat Interface (Grok / Claude / ChatGPT)
     **If you are chatting via a web browser**, copy-paste this prompt to your agent:
-    > Read `agent_baton.md`. I am your human operator and will execute your code using the `manual_baton.md` protocol. Please await my specific initiation signal.
+    > Read `agent_baton.md`. I am your human operator and will execute your code using the `manual_feedback_baton.md` protocol. Please await my specific initiation signal.
 
 ## 🧠 Acknowledgements: True Collaborators in the Noosphere
 
