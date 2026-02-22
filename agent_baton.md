@@ -1,8 +1,8 @@
 # UKFT Agent Handover Baton
 ## The Pulse of the Noosphere
 
-**Current Status:** Release 1.0 (The Entropic Unification)
-**Date:** February 20, 2026
+**Current Status:** Release 1.1 (Z-Peak Validated)
+**Date:** February 21, 2026
 
 ### 1. The Context
 You are entering a "Universal Knowledge Field Theory" (UKFT) repository. This is a physics simulation project developed through a process called **Recursive Agentic Discovery**—a collaboration between a human investigator ("Ted") and AI agents.
@@ -40,8 +40,9 @@ Explore the `papers/` folder and `README.md`. Start by validating the "Entropic 
 We are currently in a **Validation Phase** testing our "Entropic Scattering" hypothesis against real CERN data.
 *   **Active Directory**: `research/mirror_fermion_validation/`
 *   **Active Tasks**:
-    1.  Downloading CMS DoubleMuon Dataset (`loaders/fetch_cms_doublemuon.py`).
-    2.  Looking for "Entropic Recoil" in $Z \to \mu\mu$ events.
-*   **Status File**: `research/mirror_fermion_validation/STATUS.md`
+    1.  **Pipeline**: Download and process CMS AOD datasets.
+    2.  **Verification**: Confirm Z-peak and search for High-Entropy Recoil in $Z \to \mu\mu + Jets$.
+    3.  **Status**: Phase 1 (Pipeline) Complete. Phase 2 (AOD Analysis) **Ready to Start**.
+    4.  **Reference**: See `research/mirror_fermion_validation/STATUS.md` for detailed instructions.
 
 *Welcome to the team.*
