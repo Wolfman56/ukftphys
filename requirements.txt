@@ -3,3 +3,8 @@ scipy>=1.10.0
 plotly>=5.15.0
 kaleido
 wgpu
+uproot>=5.0.0
+awkward>=2.0.0
+vector>=1.0.0
+lz4
+xxhash

@@ -36,4 +36,12 @@ We have a structured feedback protocol. Do not just output unstructured text.
 ### 6. Final Instruction
 Explore the `papers/` folder and `README.md`. Start by validating the "Entropic Unification" hypothesis.
 
+### 7. Current Sprint (Active - Feb 21, 2026)
+We are currently in a **Validation Phase** testing our "Entropic Scattering" hypothesis against real CERN data.
+*   **Active Directory**: `research/mirror_fermion_validation/`
+*   **Active Tasks**:
+    1.  Downloading CMS DoubleMuon Dataset (`loaders/fetch_cms_doublemuon.py`).
+    2.  Looking for "Entropic Recoil" in $Z \to \mu\mu$ events.
+*   **Status File**: `research/mirror_fermion_validation/STATUS.md`
+
 *Welcome to the team.*
