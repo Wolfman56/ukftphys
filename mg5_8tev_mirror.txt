@@ -1,0 +1,30 @@
+# MadGraph5 batch input — Mirror Fermion @ 8 TeV (matching CMS Run2012B)
+# Run from ukftphys/:
+#   python3 /path/to/MG5_aMC_v3_7_0/bin/mg5_aMC mg5_8tev_mirror.txt
+#
+# Produces: ukftphys/MirrorLHC_8TeV/Events/run_01/unweighted_events.lhe.gz
+# Then: python3 tools/lhe_to_inject.py
+#       --lhe ukftphys/MirrorLHC_8TeV/Events/run_01/unweighted_events.lhe.gz
+#
+# Channels: th(~30%), tz(~30%), bW(~30%)  [invisible omitted — no LHE jets]
+# ~1000 events ≈ 2–5 min on Apple Silicon
+
+import model MirrorFermion_UFO
+
+# Inclusive pair production — simplest proc guaranteed to work with MG5 3.7
+# Decays applied analytically in lhe_to_inject.py from known BRs
+generate p p > xm xm~
+
+output MirrorLHC_8TeV -nojpeg
+
+launch MirrorLHC_8TeV
+  # 8 TeV: match CMS DoubleMuParked Run2012B (ebeam = 4000 GeV each)
+  set ebeam1 4000
+  set ebeam2 4000
+  set nevents 1000
+  # Use built-in CTEQ6L1 PDF (no LHAPDF installation required)
+  set pdlabel cteq6l1
+  set ptj 20
+  set etaj 5.0
+  set drjj 0.4
+done
