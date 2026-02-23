@@ -330,3 +330,19 @@ Command to run:
 *   **Concept**: Simulating a Gaussian Wave Packet scattering off an Entropic Monopole using a GPU-accelerated Split-Step Fourier method.
 *   **Visuals**: Observe "Soft Resonance" – holographic diffraction patterns distinct from hard-sphere scattering.
 *   **Tech**: Implemented a PyTorch-based GPU Solver capable of running $256 \times 256$ grids in real-time.
+
+### [59_choice_entanglement_mass.md](./59_choice_entanglement_mass.md)
+**Objective**: Choice-Entanglement Mass ($m_\mathrm{CE}$) — UKFT-39 §6.2 Validation.
+*   **Concept**: 800-node hierarchy swarm (geo/bio/noo/theo, level masses 1/3/10/30) evolved for 600 ticks. Measures $m_\mathrm{CE} = \Sigma \rho^2$ after a disruptive phase-C kick.
+*   **Key Fix**: Quadratic $m_\mathrm{CE}$ formula (replaces coherence-normalised version); level-mass-weighted $\rho$ before renormalisation; dimensionless void-ledger $\kappa = 1 - \text{absorbed}/\text{entropy}$.
+*   **Predictions Tested**: P1 (mass ratio ×2535 ✅), P3 (|κ| < 0.50 ✅), P4 (inertia recovery 1.000 ✅), P4b (disruption floor 0.000 ✅).
+*   **Result**: Four-decade mass separation (geo=0.17 → theo=435) confirms the hierarchy drives geodesic isolation.
+*   **Figures**: `59_void_ledger_balance.png`, `59_mass_spectrum.png`, `59_inertia_recovery.png`, `59_mass_growth.png`.
+
+### [60_ukft_lhc_teaser.md](./60_ukft_lhc_teaser.md)
+**Objective**: UKFT Teaser — Manifold, Cosine Separation, Recall@K, Mass Hierarchy.
+*   **Concept**: Two independent experimental arms (hierarchy swarm simulation + manifold-trained embedding retrieval) converge on the same 12 BSM candidates from 7,181 LHC events.
+*   **Arm 1 (Exp 59)**: Hierarchy swarm predicts ×2535 mass ratio, establishing the geodesic isolation gradient.
+*   **Arm 2 (Manifold retrieval)**: Geodesic isolation scores recover all 12 candidates at K=20 (top 0.28% of dataset). LOO cross-validation: 11/12 @K=30.
+*   **Result**: SM bulk cosine μ=0.576 vs BSM cluster μ=0.853; natural threshold at 0.76 separates all 12 with zero SM contamination.
+*   **Figures**: `60_manifold_schematic.png`, `60_cosine_distribution.png`, `60_recall_at_k.png`, `60_mass_hierarchy.png`.
