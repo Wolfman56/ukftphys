@@ -1,0 +1,27 @@
+# Phase 28 — SM background for 7-muon topology
+# Process 1: pp -> 4mu (ZZ/Zgamma/gammagamma) at sqrt(s)=8 TeV
+# This gives the ZZ->4mu anchor cross-section (~0.9 pb measured by CMS at 8 TeV)
+# We use this as the starting point for extrapolating to 6mu and 7mu rates.
+#
+# Kinematics relevant to target event 202016_209_229639465:
+#   m(7mu) = 331.5 GeV, Dphi(A,B)=166.2 deg, MET/HT=0.488
+#   Dphi_dense < 0.044 rad (5-muon group), m_dense > m_sparse
+#   nA=2 (eta>0), nB=5 (eta<0)
+
+import model sm
+define l+ = mu+
+define l- = mu-
+
+# 4-muon process (ZZ + Zgamma + gammagamma -> 4mu)
+generate p p > l+ l- l+ l-
+output 61_sm_4muon_8tev
+launch
+set nevents 5000
+set ebeam1 4000.0
+set ebeam2 4000.0
+set cut_decays False
+set ptl 3.0
+set etal 2.4
+set mll 0.2
+set use_syst False
+0
