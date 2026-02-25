@@ -1,0 +1,4 @@
+1       g u > ta- ta+ u,g c > ta- ta+ c,g d > ta- ta+ d,g s > ta- ta+ s
+mirror  u g > ta- ta+ u,c g > ta- ta+ c,d g > ta- ta+ d,s g > ta- ta+ s
+2       g u~ > ta- ta+ u~,g c~ > ta- ta+ c~,g d~ > ta- ta+ d~,g s~ > ta- ta+ s~
+mirror  u~ g > ta- ta+ u~,c~ g > ta- ta+ c~,d~ g > ta- ta+ d~,s~ g > ta- ta+ s~
