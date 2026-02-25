@@ -1,6 +1,6 @@
 # Experiment 59: Choice-Entanglement Mass — Results Summary
 
-**Date:** 2026-02-23
+**Date:** 2026-02-25
 **Paper:** UKFT-39, Section 6.2
 
 ## Quantitative Results
