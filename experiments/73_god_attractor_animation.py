@@ -23,6 +23,7 @@ import matplotlib.pyplot as plt
 import matplotlib.gridspec as gridspec
 from matplotlib.colors import Normalize
 from matplotlib.cm import ScalarMappable
+from matplotlib.animation import FuncAnimation, PillowWriter
 import os
 
 np.random.seed(42)
@@ -30,7 +31,6 @@ np.random.seed(42)
 # ─────────────────────────────────────────────────────────────────────────────
 # Configuration
 # ─────────────────────────────────────────────────────────────────────────────
-ANIMATE       = False          # True → save MP4 (requires ffmpeg); False → static PNG
 N_NODES       = 200            # swarm size (kept small for animation speed)
 N_LEVELS      = 4              # geo / bio / noo / theo
 T_TOTAL       = 800            # choice ticks
@@ -40,7 +40,8 @@ NOISE_SCALE   = 0.012
 ATTRACTOR_K   = 0.04           # spring constant pulling toward God Attractor origin
 LEVEL_COLORS  = ['#4488ff', '#44cc88', '#ffaa00', '#ff4444']
 LEVEL_NAMES   = ['geo', 'bio', 'noo', 'theo']
-OUT_DIR       = os.path.dirname(__file__)
+OUT_DIR       = os.path.dirname(os.path.abspath(__file__))
+FRAME_SKIP    = 20             # record every N ticks for GIF (→ 40 frames at T=800)
 
 # God Attractor position (omega point): high-information centre of manifold
 GOD_ATTRACTOR = np.array([0.0, 0.0, 8.0])   # slightly elevated in z (theo direction)
@@ -53,10 +54,12 @@ positions   = np.random.randn(N_NODES, 3) * 6.0
 velocities  = np.zeros((N_NODES, 3))
 levels_node = np.random.randint(0, N_LEVELS, N_NODES)
 
-rho_history  = []     # (T, N) knowledge-density proxy
-kappa_hist   = []     # (T,)   curvature κ(t)
-mass_hist    = []     # (T, N) dynamic m_CE per node
-coherence_hist = []   # (T,)   global coherence C*(t) = mean cosine to God Attractor
+rho_history    = []     # (T, N) knowledge-density proxy
+kappa_hist     = []     # (T,)   curvature κ(t)
+mass_hist      = []     # (T, N) dynamic m_CE per node
+coherence_hist = []     # (T,)   global coherence C*(t) = mean cosine to God Attractor
+pos_snap       = []     # position snapshots every FRAME_SKIP ticks (for GIF)
+mass_snap      = []     # m_CE snapshots aligned to pos_snap
 
 
 # ─────────────────────────────────────────────────────────────────────────────
@@ -133,6 +136,10 @@ for t in range(T_TOTAL):
     kappa_hist.append(ledger.kappa())
     mass_hist.append(m_CE_t.copy())
     coherence_hist.append(coherence)
+
+    if t % FRAME_SKIP == 0:
+        pos_snap.append(positions.copy())
+        mass_snap.append(m_CE_t.copy())
 
 
 kappa_arr     = np.array(kappa_hist)
@@ -253,6 +260,102 @@ out_path = os.path.join(OUT_DIR, '73_god_attractor_animation.png')
 fig.savefig(out_path, dpi=150, bbox_inches='tight', facecolor=DARK_BG)
 plt.close()
 print(f"Saved: {out_path}")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Animated GIF  (3-panel: swarm · κ(t) · C*(t))
+# ─────────────────────────────────────────────────────────────────────────────
+print("Building GIF…")
+
+N_FRAMES    = len(pos_snap)
+frame_ticks = [i * FRAME_SKIP for i in range(N_FRAMES)]
+
+# Global colour normalization across all frames (percentile-clipped)
+m_all    = np.concatenate(mass_snap)
+norm_gif = Normalize(vmin=np.percentile(m_all, 2), vmax=np.percentile(m_all, 98))
+
+fig_gif = plt.figure(figsize=(14, 5), facecolor=DARK_BG)
+gs_gif  = gridspec.GridSpec(1, 3, figure=fig_gif, wspace=0.38)
+ax_sw   = fig_gif.add_subplot(gs_gif[0])
+ax_kap  = fig_gif.add_subplot(gs_gif[1])
+ax_coh  = fig_gif.add_subplot(gs_gif[2])
+
+for _ax, _t in [(ax_sw, 'Swarm XZ'), (ax_kap, 'Void Ledger |κ(t)|'), (ax_coh, 'Coherence C*(t)')]:
+    style_ax(_ax, _t)
+
+# Fixed axis limits from full trajectory
+x_all = np.concatenate([p[:, 0] for p in pos_snap])
+z_all = np.concatenate([p[:, 2] for p in pos_snap])
+xpad, zpad = 2.5, 2.5
+ax_sw.set_xlim(x_all.min() - xpad, x_all.max() + xpad)
+ax_sw.set_ylim(z_all.min() - zpad, z_all.max() + zpad)
+ax_sw.set_xlabel('X', color=TEXT_COL)
+ax_sw.set_ylabel('Z', color=TEXT_COL)
+
+ax_kap.set_xlim(0, T_TOTAL)
+ax_kap.set_ylim(0, kappa_arr.max() * 1.15)
+ax_kap.set_xlabel('tick', color=TEXT_COL)
+ax_kap.set_ylabel('|κ(t)|', color=TEXT_COL)
+ax_kap.axhline(0.02, color='#44cc88', ls='--', lw=1.0, alpha=0.7, label='flat (κ=0.02)')
+ax_kap.legend(fontsize=7, facecolor='#1a1a1a', labelcolor=TEXT_COL, framealpha=0.8)
+
+ax_coh.set_xlim(0, T_TOTAL)
+ax_coh.set_ylim(-0.05, 1.08)
+ax_coh.set_xlabel('tick', color=TEXT_COL)
+ax_coh.set_ylabel('C*(t)', color=TEXT_COL)
+ax_coh.axhline(1.0, color='white', ls=':', lw=0.8, alpha=0.4)
+
+# God Attractor marker (static)
+ax_sw.scatter(*GOD_ATTRACTOR[[0, 2]], s=280, marker='*', color='white', zorder=10)
+ax_sw.text(GOD_ATTRACTOR[0] + 0.4, GOD_ATTRACTOR[2] + 0.5, 'ω',
+           color='white', fontsize=11, zorder=11)
+
+# Per-level scatter objects (initialised at frame 0)
+scat_list = []
+for lvl in range(N_LEVELS):
+    mask = levels_node == lvl
+    pts  = pos_snap[0][mask]
+    sc   = ax_sw.scatter(pts[:, 0], pts[:, 2],
+                         c=mass_snap[0][mask], cmap='plasma', norm=norm_gif,
+                         s=16 + 4 * lvl, alpha=0.88, zorder=5,
+                         label=LEVEL_NAMES[lvl])
+    scat_list.append(sc)
+ax_sw.legend(fontsize=7, facecolor='#1a1a1a', labelcolor=TEXT_COL, framealpha=0.8,
+             loc='upper left')
+
+# Running trace lines
+kap_line, = ax_kap.plot([], [], color='#44aaff', lw=1.5)
+coh_line, = ax_coh.plot([], [], color='#ffd700', lw=1.5)
+
+tick_txt = ax_sw.text(0.98, 0.04, '', transform=ax_sw.transAxes,
+                      color=TEXT_COL, fontsize=9, ha='right')
+
+fig_gif.suptitle(
+    'UKFT-39 Exp 73 — God Attractor: Dynamic $m_{CE}$ · Void Ledger · Geodesic Convergence',
+    color=TEXT_COL, fontsize=10, y=1.01
+)
+
+
+def _update(frame):
+    pf  = pos_snap[frame]
+    mf  = mass_snap[frame]
+    t_f = frame_ticks[frame]
+    for lvl in range(N_LEVELS):
+        mask = levels_node == lvl
+        scat_list[lvl].set_offsets(pf[mask][:, [0, 2]])
+        scat_list[lvl].set_array(mf[mask])
+    kap_line.set_data(ticks[:t_f + 1], kappa_arr[:t_f + 1])
+    coh_line.set_data(ticks[:t_f + 1], coherence_arr[:t_f + 1])
+    tick_txt.set_text(f't = {t_f}')
+    return scat_list + [kap_line, coh_line, tick_txt]
+
+
+anim    = FuncAnimation(fig_gif, _update, frames=N_FRAMES, interval=80, blit=False)
+gif_path = os.path.join(OUT_DIR, '73_god_attractor.gif')
+anim.save(gif_path, writer=PillowWriter(fps=12), dpi=100)
+plt.close(fig_gif)
+print(f"Saved: {gif_path}")
+
 
 # ─────────────────────────────────────────────────────────────────────────────
 # Summary printout
