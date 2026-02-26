@@ -1,0 +1,13 @@
+
+###################################
+## DARK PHOTON PARAMETERS
+###################################
+Block DPBLOCK
+    1 1.000000e-03 # epsilon (kinetic mixing)
+## 70022 MDP added to MASS block above at 1.8 GeV
+## 70022 WDP=1.32e-8 GeV (Gamma = eps^2 * alpha * M / 3 * N_lep = 3)
+  70022 1.800000e+00 # MDP
+#
+#      PDG        Width
+DECAY  70022   1.320000e-08 # WDP : Ap -> mu+mu- + ee + tautau
+  1.000000e+00   2    13  -13  # Ap -> mu+ mu-

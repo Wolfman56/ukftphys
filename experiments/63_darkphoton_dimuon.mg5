@@ -1,0 +1,137 @@
+# Experiment 63 — Dark Photon (A') kinetic mixing: p p > A' j > mu+mu- j at 8 TeV
+#
+# Context:
+#   Experiments 76a-76h (UKFT Borda scan) identified 51 OS dimuon candidates in
+#   CMS Run2012C with:
+#     <ΔR(μμ)> = 0.087 ± 0.039  (HIGHLY COLLIMATED, consistent with ΔR=2m/pT)
+#     <m(μμ)>  = 1.84 ± 0.81 GeV  (peak 1.5-2.5 GeV)
+#     <pT_sys> = 39 GeV  (boosted — A' recoiling against ISR jet)
+#     N = 51 events at L = 7 fb⁻¹  =>  σ_eff = 0.0073 pb
+#
+#   Experiment 62 ruled out:
+#     SM Drell-Yan + jet: ΔR_SM = 1.59 vs ΔR_data = 0.087 (18× gap, rejected)
+#     Colored MirrorFermion: σ(QCD) = 2.5×10⁹ pb (grotesquely excluded)
+#
+#   This experiment tests dark photon A' (mass eigenstate of kinetic mixing):
+#     A' is a SM-neutral U(1)' gauge boson
+#     Couples to SM fermions via ε × e × Q_f (kinetic mixing parameter ε)
+#     Produced via q qbar → A' (Drell-Yan-like), boosted by ISR j
+#     Decays: A' → μ+μ- (ε²α_EM × M / 3 per lepton flavor)
+#     Width at ε=1e-3, M=1.8 GeV: Γ = ε²αM/3 ≈ 1.32×10⁻⁸ GeV (cτ ≈ 15 mm)
+#
+#   Physics question: what value of ε reproduces N_obs = 51 at 7 fb⁻¹?
+#     σ(pp→A'j→μμj) ∝ ε²  =>  ε_fit = ε_0 × sqrt(σ_required / σ(ε_0))
+#     σ_required = 0.0073 pb (accounting for CMS acceptance and efficiency)
+#
+# Model: DarkPhoton_UFO (built from SM + 5 new vertices)
+#   Particle: Ap (pdg 70022, spin=3 vector, color singlet, charge 0)
+#   Vertices: u~uAp, c~cAp (GC_Ap_up = 2εe/3)
+#              d~dAp, s~sAp (GC_Ap_dn = -εe/3)
+#              μ+μ-Ap       (GC_Ap_mu = -εe)
+#   Default: ε = 1×10⁻³, MDP = 1.8 GeV, WDP = 1.32×10⁻⁸ GeV
+#
+# Strategy: Run single benchmark, then scale σ(ε) = ε² × (σ/ε²)
+#   Run A: ε=1e-3, MDP=1.80 GeV  (baseline — rate matching point)
+#   Run B: ε=1e-3, MDP=1.50 GeV  (lower mass edge)
+#   Run C: ε=1e-3, MDP=2.20 GeV  (upper mass edge)
+#
+# All runs use CMS Run2012C kinematics (ebeam=4000 GeV) and CMS acceptance cuts.
+#
+# Companion analysis: experiments/63_darkphoton_analysis.py
+#   Parses LHE, computes ΔR/m_inv/pT distributions
+#   Overlays against 76h_b_kinematics.json (51 CMS candidates)
+#   Fits ε from rate matching and checks kinematic agreement
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════
+# RUN A: Dark Photon at ε=1e-3, MDP=1.80 GeV (benchmark)
+# ═══════════════════════════════════════════════════════
+import model DarkPhoton_UFO
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+
+# Drell-Yan + ISR jet: q qbar → A' g,  or  q g → A' q, then A' → μ+μ-
+# NWA: MG5 handles A' as on-shell intermediate, BR(A'→μμ) factored in
+generate p p > Ap j, Ap > mu+ mu-
+output experiments/63_dp_1p80gev
+launch
+set ebeam1 4000.0
+set ebeam2 4000.0
+set nevents 10000
+# Mass and width: 1.80 GeV, prompt decay (cτ~15 mm but MG5 treats as on-shell)
+set MDP 1.8
+set WDP 1.32e-8
+# Kinetic mixing: epsilon controls overall rate (sigma ∝ epsilon^2)
+# Using param_card block notation for custom DPBLOCK parameter
+set param_card DPBLOCK 1 1e-3
+# CMS muon acceptance: pT > 5 GeV (conservative; L1 trigger is ~7 GeV)
+set ptl 5.0
+set etal 2.4
+# ISR jet: pT > 10 GeV, |eta| < 4.5
+set ptj 10.0
+set etaj 4.5
+# Dimuon invariant mass: veto J/ψ and below ρ (use loose lower cut)
+set mll 0.2
+# Separation between the two muons: no upper cut (we observe ΔR~0.09)
+# MG5 drll cut is a minimum — set to very small to allow collimated pairs
+set drll 0.001
+set use_syst False
+set iseed 42
+0
+
+# ═══════════════════════════════════════════════════════
+# RUN B: Dark Photon at ε=1e-3, MDP=1.50 GeV (lower mass)
+# ═══════════════════════════════════════════════════════
+import model DarkPhoton_UFO
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+
+generate p p > Ap j, Ap > mu+ mu-
+output experiments/63_dp_1p50gev
+launch
+set ebeam1 4000.0
+set ebeam2 4000.0
+set nevents 5000
+set MDP 1.5
+set WDP 9.17e-9
+# WDP: Gamma = eps^2 * alpha_EM * MDP / 3  (N_lep=3 flavors below thr)
+# eps=1e-3: Gamma = 1e-6 * (1/137) * 1.5 / 3 = 3.65e-9 (ee+μμ+ττ at 1.5 GeV)
+# Since only μμ and ee are open at 1.5 GeV (ττ requires 3.554 GeV): Gamma ≈ 2/3 * 1e-6/137 * 1.5
+set param_card DPBLOCK 1 1e-3
+set ptl 5.0
+set etal 2.4
+set ptj 10.0
+set etaj 4.5
+set mll 0.2
+set drll 0.001
+set use_syst False
+set iseed 43
+0
+
+# ═══════════════════════════════════════════════════════
+# RUN C: Dark Photon at ε=1e-3, MDP=2.20 GeV (upper mass)
+# ═══════════════════════════════════════════════════════
+import model DarkPhoton_UFO
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+
+generate p p > Ap j, Ap > mu+ mu-
+output experiments/63_dp_2p20gev
+launch
+set ebeam1 4000.0
+set ebeam2 4000.0
+set nevents 5000
+set MDP 2.2
+set WDP 1.61e-8
+# Gamma(A'→μμ) at 2.2 GeV: eps^2 * alpha_EM * 2.2 / 3 = 1.20e-8;
+# +ee contribution for total WDP ~ 1.61e-8 (3 flavors approx)
+set param_card DPBLOCK 1 1e-3
+set ptl 5.0
+set etal 2.4
+set ptj 10.0
+set etaj 4.5
+set mll 0.2
+set drll 0.001
+set use_syst False
+set iseed 44
+0
