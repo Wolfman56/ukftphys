@@ -8,6 +8,12 @@
 
 ---
 
+![God Attractor — 4-panel animated GIF](73_god_attractor.gif)
+
+*40 frames · 12 fps · top-left: swarm XZ with node trails and size ∝ √m_CE · top-right: tier mass accumulation · bottom-left: void ledger |κ(t)| · bottom-right: coherence C*(t) → 0.978*
+
+---
+
 ## What This Is
 
 The **God Attractor** is the omega point (ω) of UKFT: the manifold configuration at which
@@ -81,6 +87,8 @@ swarm is aligned along the geodesic to ω. The experiment achieves **C* = 0.978*
 | Final \|κ\| | 0.120 | Void ledger still curved — mass accumulation ongoing |
 | Convergence verdict | **YES** | C* > 0.95 sustained for final 50 ticks |
 | theo tier leads | Yes | Lowest noise → fastest convergence to ω |
+
+![Static 4-panel summary at t=800](73_god_attractor_animation.png)
 
 The fact that κ ≠ 0 at t=800 is **not a failure** — it's the correct physics. The void
 ledger only goes flat when the integration is *complete*. Since the simulation is finite,
