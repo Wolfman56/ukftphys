@@ -1,0 +1,44 @@
+{
+  "experiment": "62",
+  "description": "Low-mass dimuon MG5 comparison vs d5 population",
+  "cms_data": {
+    "n_clean_d5": 51,
+    "m_inv_mean": 1.8433351417382557,
+    "m_inv_median": 2.1136415004730225,
+    "dR_mean": 0.08689398216085804,
+    "dR_std": 0.038802408831562926,
+    "pt_lead_mean": 23.60595531089633,
+    "HT_dimuon_mean": 42.43124051187553,
+    "source": "76h_b_kinematics.json"
+  },
+  "mg5_sm": {
+    "label": "p p > mu+ mu- j (SM, 8 TeV)",
+    "n_events": 10000,
+    "m_inv_mean": 42.289480839155225,
+    "m_inv_std": 42.92775022796209,
+    "dR_mean": 1.5860555529584996,
+    "dR_std": 1.3725198566930692,
+    "pt_lead_mean": 31.495176244876166
+  },
+  "mg5_mf2": {
+    "label": "p p > xm xm~ MXm=2 GeV (8 TeV)",
+    "n_events": 0,
+    "status": "MG5 not run yet"
+  },
+  "mg5_mf1": {
+    "label": "p p > xm xm~ MXm=1 GeV (8 TeV)",
+    "n_events": 0,
+    "status": "MG5 not run yet"
+  },
+  "theoretical_dR": {
+    "m0.5_pT39": 0.02564102564102564,
+    "m1.0_pT39": 0.05128205128205128,
+    "m1.5_pT39": 0.07692307692307693,
+    "m2.0_pT39": 0.10256410256410256,
+    "m2.5_pT39": 0.1282051282051282,
+    "m3.0_pT39": 0.15384615384615385
+  },
+  "key_diagnostic": "If SM DY+j \u0394R distribution peaks at ~0.11 matching data \u2192 SM explanation. If SM gives broad/large \u0394R and data is narrowly peaked at 0.11 \u2192 BSM signal. MirrorFermion pair production (QCD) at MXm=1-2 GeV gives production cross-section for rate comparison with 51 observed events at L~7 fb^-1.",
+  "dR_boosted_formula": "\u0394R \u2248 2m/pT  (exact for back-to-back decay in boosted frame)",
+  "status": "MG5 output loaded and analyzed"
+}

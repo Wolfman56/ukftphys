@@ -1,0 +1,103 @@
+# Experiment 62 — d5 Mirror Fermion: Low-mass dimuon comparison at sqrt(s)=8 TeV
+#
+# The UKFT Borda scan (exp 76h-B) found 51 clean OS dimuon candidates in CMS
+# Run2012C with:
+#   m(mu+mu-) = 0.2 - 3.0 GeV (peak 1.5-2.5 GeV)
+#   <Delta_R(mu,mu)> = 0.114 +/- 0.043  (HIGHLY COLLIMATED)
+#   <pT_lead> = 23.5 GeV  <pT_sub> = 19.2 GeV
+#   <pT_dimuon> ~ 39 GeV  >>  m(mu+mu-)   => boosted system
+#   All opposite-sign (charge_product = -1): clean pair, no SS background
+#
+# The ΔR ~ 2m/pT geometry is consistent with a boosted dimuon resonance.
+# Key question: are these consistent with SM Drell-Yan + ISR jet, or
+# do they require BSM production (mirror fermion, dark photon)?
+#
+# Run 1: SM null hypothesis
+#   p p > mu+ mu- j  at sqrt(s)=8 TeV
+#   kinematic window matching d5 cluster: m(ll) ∈ [0.2, 3.2] GeV
+#   → expected Delta_R distribution, pT/eta profile
+#   → if SM rate >> 51 events: these are just rare boosted DY
+#   → if SM rate ~ 51 events: interesting excess
+#
+# Run 2: MirrorFermion QCD production at low mass
+#   p p > xm xm~  at sqrt(s)=8 TeV, MXm = 2.0 GeV
+#   → production cross-section (compare to expected from CMS luminosity ~12 fb^-1)
+#   → if sigma(xm xm~) x BR x eff ~ N_obs/lumi: confirms mirror fermion interpretation
+#   → kinematics: what does a boosted xm-xmbar system look like?
+#
+# Parameters:
+#   lambdaH  = 0.5  (default — Higgs portal coupling)
+#   epsilon  = 0.001  (kinetic mixing — small)
+#   gRefl    = 0.1   (reflection coupling)
+#   MXm      = 2.0 GeV (set for run 2; run 1 uses SM only)
+#
+# Companion analysis: experiments/62_d5_analysis.py
+#   Parses LHE output, computes ΔR, pT, m_inv distributions
+#   Compares to 76h_b_kinematics.json
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ═══════════════════════════════════════════════════════
+# RUN 1: SM Drell-Yan + jet (null hypothesis for d5 cluster)
+# ═══════════════════════════════════════════════════════
+import model sm
+define p = g u c d s u~ c~ d~ s~
+define j = g u c d s u~ c~ d~ s~
+
+generate p p > mu+ mu- j
+output experiments/62_sm_dimuon_j_8tev
+launch
+# CMS Run2012C beam energy: 4 TeV per beam
+set ebeam1 4000.0
+set ebeam2 4000.0
+# Match CMS dimuon trigger: both muons above 7 GeV, |eta| < 2.4
+set ptl 7.0
+set etal 2.4
+# Minimum invariant mass of OS lepton pair (avoid deep photon pole)  
+set mll 0.2
+# Require a reconstructed jet to give the dimuon system its boost
+set ptj 10.0
+set etaj 2.4
+# Collinearity — select collinear regime matching d5 candidates (post-process for upper m cut)
+set drll 0.005
+set use_syst False
+set iseed 42
+0
+
+# ═══════════════════════════════════════════════════════
+# RUN 2: MirrorFermion QCD pair production at m = 2.0 GeV
+# ═══════════════════════════════════════════════════════
+import model MirrorFermion_UFO
+
+generate p p > xm xm~
+output experiments/62_mirror_fermion_2gev
+launch
+set ebeam1 4000.0
+set ebeam2 4000.0
+set nevents 10000
+# Set mirror fermion mass to 2.0 GeV (matching the star event region)
+set MXm 2.0
+set WXm Auto
+# Decay width auto-computed (xm -> t h is kinematically closed at 2 GeV,
+# so MG5 will find WXm -> 0 and xm is stable in this run)
+# Minimal production cuts
+set ptj 0.0
+set use_syst False
+set iseed 99
+0
+
+# ═══════════════════════════════════════════════════════
+# RUN 3: MirrorFermion QCD at m = 1.0 GeV (sub-rho window)
+# ═══════════════════════════════════════════════════════
+import model MirrorFermion_UFO
+
+generate p p > xm xm~
+output experiments/62_mirror_fermion_1gev
+launch
+set ebeam1 4000.0
+set ebeam2 4000.0
+set nevents 5000
+set MXm 1.0
+set WXm Auto
+set use_syst False
+set iseed 101
+0
