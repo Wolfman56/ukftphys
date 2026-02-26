@@ -419,3 +419,22 @@ Command to run:
 *   **Predictions Tested**: P1 (m_CE(BSM)=1.990 vs m_CE(SM)=1.073, d=2.47, p=1.6e-15 ✅), P2 (|z|=0.00 ✅), P5 (beta=5.46, expected 1.5-3.0 ⚠️).
 *   **Result**: Two of three predictions pass; P5 flags a domain-of-applicability question for synthetic-to-real tail exponent transfer.
 *   **Figures**: `71_choice_mass_spectrum.png`, `71_void_ledger_balance.png`.
+
+### Exp 72 — BERT cos² Proxy: Real LHC Validation *(unreleased — lives in noosphere)*
+**Objective**: Upgrade $m_\mathrm{CE}$ proxy from linear cosine to squared cosine (Born-rule kernel).
+*   **Repo**: `noosphere/apps/hep-explorer/tools/choice_mass.py` (`compute_m_CE_bert_regression`)
+*   **Explainer**: `noosphere/apps/hep-explorer/tools/72_bert_cos2_proxy.md`
+*   **Paper**: UKFT-39 §3.4
+*   **Concept**: Replace $\rho_k = \cos_i$ with $\rho_k = \cos_i^2$; squaring amplifies the Borda/SM gap from 1.49× (linear) to 2.2× (quadratic), matching the Born-rule projection for a two-state system.
+*   **Result**: P1 PASS — Δm_CE=+1.812, t=12.22, **p=2.8×10⁻³⁴, d=3.491** (+41% over v1); P2 PASS (|z|=0); Steps 4–5 limited by kinematic feature bottleneck (ρ_s=0.094, β=4.78).
+*   **Note**: Not in this repo because the LHC data and BERT model live in `noosphere`. Run from `hep-explorer/`.
+
+### [73_god_attractor_animation.py](./73_god_attractor_animation.py)
+**Objective**: God Attractor — Infinite Choice Integrator Animation.
+*   **Paper**: UKFT-39 §3.5, §7.4
+*   **Explainer**: [73_god_attractor_animation.md](./73_god_attractor_animation.md)
+*   **Concept**: Swarm of 200 nodes converging toward the God Attractor ω-point under dynamic $m_\mathrm{CE}$ accumulation (no hardcoded level masses) and void ledger conservation law; $\kappa(t)$ curvature sensor tracks ledger balance; global coherence $C^*(t)$ measures geodesic alignment.
+*   **Key physics**: $m_{CE}(i,t) = \sum_\tau \rho_k(i,\tau)^2$ over a rolling 60-tick window; attractor force $\propto m_{CE}$; four UKFT tiers (geo/bio/noo/theo) with decreasing thermal noise; void ledger tracks entropy vs entanglement imbalance.
+*   **Result**: Final $C^* = 0.978$ (geodesic convergence confirmed), $|\kappa|=0.12$ (mass still accumulating — correct physics).
+*   **Figures**: `73_god_attractor_animation.png` (4-panel static) · `73_god_attractor.gif` (40-frame animated, node trails + size ∝ √m_CE).
+
