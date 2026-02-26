@@ -438,3 +438,54 @@ Command to run:
 *   **Result**: Final $C^* = 0.978$ (geodesic convergence confirmed), $|\kappa|=0.12$ (mass still accumulating — correct physics).
 *   **Figures**: `73_god_attractor_animation.png` (4-panel static) · `73_god_attractor.gif` (40-frame animated, node trails + size ∝ √m_CE).
 
+
+
+### Exp 74 — UKFT Knowledge Manifold: Cinematic Animation *(unreleased — lives in noosphere)*
+**Objective**: Animate the Exp 60 knowledge manifold in three acts: crystallisation, geodesic pulse, BSM discovery.
+*   **Repo**: `noosphere/apps/hep-explorer/tools/74_manifold_animation.py`
+*   **Explainer**: `noosphere/apps/hep-explorer/tools/74_manifold_animation.md`
+*   **Paper**: UKFT-39 §3.1, companion to Exp 60 / Figure 1
+*   **Note**: Lives in `noosphere` alongside the LHC data pipeline and other hep-explorer visualisations. Run from `hep-explorer/`.
+
+
+### Exp 75 — The Choice Journey: Particle Lifecycle as Collapse Sequence *(unreleased — lives in noosphere)*
+**Objective**: Visualise a pp collision NOT as a particle moving through space-time but as the universe progressively narrowing its options until one history remains.
+*   **Repo**: `noosphere/apps/hep-explorer/tools/75_choice_journey.py`
+*   **Paper**: UKFT-39 §2 (Choice Operator), §3.1 (manifold), §6 (non-linear time)
+*   **Concept**: Two-panel animation — left: Choice Tree for the deepest real BSM candidate (event 199833_928_1023645996, m_inv=2.2 GeV) showing topology→energy→mass collapse branches with ghost "roads not taken"; right: all 12 Borda-top candidates simultaneously tracing their manifold paths from the SM core to the BSM island, ordered by choice depth (not clock time).
+*   **Key physics**: x-axis = choice depth (collapse count), not time; BSM candidates require more choices to resolve than SM events — choice-density time dilation; every observable (m_inv, e_muon, borda_r) is a fossilised choice record.
+*   **Real data**: top-12 Borda candidates from `scan_run2012c_full.ndjson`; all have e_muon=1.000 (100% muonic jets); event #12 additionally has m_inv=2.2 GeV (sub-J/ψ — deepest journey).
+*   **Note**: Lives in `noosphere` alongside the LHC data and hep-explorer pipeline. Run from `hep-explorer/`.
+
+### Exp 76 — Decay-Topology Semantic Dimensions *(unreleased — lives in noosphere)*
+**Objective**: Extend the 40D kinematic manifold with named SM decay-channel axes ($d_1$…$d_9$), shifting hep-explorer from topology-agnostic anomaly detection to **decay-channel attribution by Bayesian choice-depth residual**.
+*   **Repo**: `noosphere/apps/hep-explorer/tools/76_decay_topology_semantic_dimensions.md`
+*   **Paper**: UKFT-39 §2 (Choice Operator), §3.1 (manifold), §6 (non-linear time)
+*   **Note**: Lives in `noosphere` alongside the LHC data pipeline. Not for public disclosure.
+
+### [77_binned_pull_analysis.py](./77_binned_pull_analysis.py)
+**Objective**: m_inv-Binned Pull Analysis — diagnose and fix the Exp 66 GOF failure.
+*   **Explainer**: [77_binned_pull_analysis.md](./77_binned_pull_analysis.md)
+*   **Chain**: Calibration series Exps 64 → 65 → 66 → **77** → 78
+*   **Concept**: Exp 66 pull distribution had mean +0.33σ and non-Gaussian shape because $m_{\rm inv}$ spans 0.6–3.7 GeV (30% width). Binning into 5 quantile windows isolates the pure collinear-approximation scatter from kinematic spread.
+*   **Method**: 5 quantile bins (~14 events each); per-bin residuals $\delta = m_{\Delta R} - m_{\rm inv}$; pull $= \delta/\sigma_{\rm bin}$; bootstrap (N=8000) pull mean; slope trend fit vs mass.
+*   **Key results**:
+    - Per-bin pull means: +0.05, +0.38, +0.75, +0.42, +0.20 σ — flat pattern, no mass trend (p=0.69)
+    - Bin 4 [3.08, 3.10): slope=1.298, r=0.655 → **J/ψ cluster identified** (hadronic contamination, not detector pathology)
+    - GOF CHECK flags = small-N (N≈14) Shapiro-Wilk artifact; KS p-values much less severe
+    - Conclusion: single flat collinear correction of ~+0.35σ adequate; no mass-dependent correction needed
+*   **Figure**: `results/74_binned_pull_analysis.png` (5 bin histograms + QQ + per-bin bias + slope trend)
+
+### [78_calibration_publication_figure.py](./78_calibration_publication_figure.py)
+**Objective**: Four-panel publication figure for the in-situ detector calibration section.
+*   **Explainer**: [78_calibration_publication_figure.md](./78_calibration_publication_figure.md)
+*   **Chain**: Calibration series Exps 64 → 65 → 66 → 77 → **78**
+*   **Identity**: $\Delta R \cdot H_T/2 = M_{A'}$ (exact Lorentz identity in collinear/boosted limit)
+*   **Panels**:
+    - **(A)** $m_{\Delta R}$ vs $m_{\rm inv}$ scatter — $r=0.9995$, $p=2.47\times10^{-103}$, slope=1.0051
+    - **(B)** pT power law $\beta=-0.489$ + QM hyperbola family ($k_x \in \{5,8,12,15,18\}$)
+    - **(C)** Cross-calibration regression — tension = **0.06σ**, $1\sigma$ bootstrap slope band
+    - **(D)** Systematic lever-arm scan — **0.612 σ per 1%** (pT and angular, symmetric)
+*   **Key numbers** (bootstrap N=10 000): $m_{\rm inv}=2.536\pm0.093$ GeV, $m_{\Delta R}=2.544\pm0.093$ GeV, $M_{\rm fit}=2.506\pm0.099$ GeV; Cramer-Rao floor 5.9%; LHC scaling ($N=10^4$) → sub-0.01% calibration
+*   **Outputs**: `results/75_calibration_publication_figure.png`, `results/75_paper_numbers.json`, LaTeX `\newcommand` macros printed to stdout
+*   **Analogy**: CMS boosted $Z\to bb$ soft-drop mass calibration (CMS-BTV-16-002) — angular mass handle replaces groomed jet mass
