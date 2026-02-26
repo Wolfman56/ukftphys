@@ -263,96 +263,158 @@ print(f"Saved: {out_path}")
 
 
 # ─────────────────────────────────────────────────────────────────────────────
-# Animated GIF  (3-panel: swarm · κ(t) · C*(t))
+# Animated GIF  (4-panel: swarm+trails · theo/geo ratio · κ(t) · C*(t))
+# Nodes sized by sqrt(m_CE); trails show last TRAIL_LEN frames fading out
 # ─────────────────────────────────────────────────────────────────────────────
 print("Building GIF…")
+
+TRAIL_LEN   = 6      # number of ghost frames shown as fading trail
+TRAIL_ALPHA = [0.06, 0.10, 0.16, 0.24, 0.36, 0.55]   # oldest → newest ghost
 
 N_FRAMES    = len(pos_snap)
 frame_ticks = [i * FRAME_SKIP for i in range(N_FRAMES)]
 
-# Global colour normalization across all frames (percentile-clipped)
-m_all    = np.concatenate(mass_snap)
-norm_gif = Normalize(vmin=np.percentile(m_all, 2), vmax=np.percentile(m_all, 98))
+# Global normalization (consistent colour scale across all frames)
+m_all      = np.concatenate(mass_snap)
+m_global_max = np.percentile(m_all, 99) + 1e-8
+norm_gif   = Normalize(vmin=0, vmax=m_global_max)
 
-fig_gif = plt.figure(figsize=(14, 5), facecolor=DARK_BG)
-gs_gif  = gridspec.GridSpec(1, 3, figure=fig_gif, wspace=0.38)
-ax_sw   = fig_gif.add_subplot(gs_gif[0])
-ax_kap  = fig_gif.add_subplot(gs_gif[1])
-ax_coh  = fig_gif.add_subplot(gs_gif[2])
+# Fixed axis limits from full trajectory  +  padding
+x_all  = np.concatenate([p[:, 0] for p in pos_snap])
+z_all  = np.concatenate([p[:, 2] for p in pos_snap])
+xlim   = (x_all.min() - 2.5, x_all.max() + 2.5)
+zlim   = (z_all.min() - 2.5, z_all.max() + 2.5)
 
-for _ax, _t in [(ax_sw, 'Swarm XZ'), (ax_kap, 'Void Ledger |κ(t)|'), (ax_coh, 'Coherence C*(t)')]:
-    style_ax(_ax, _t)
-
-# Fixed axis limits from full trajectory
-x_all = np.concatenate([p[:, 0] for p in pos_snap])
-z_all = np.concatenate([p[:, 2] for p in pos_snap])
-xpad, zpad = 2.5, 2.5
-ax_sw.set_xlim(x_all.min() - xpad, x_all.max() + xpad)
-ax_sw.set_ylim(z_all.min() - zpad, z_all.max() + zpad)
-ax_sw.set_xlabel('X', color=TEXT_COL)
-ax_sw.set_ylabel('Z', color=TEXT_COL)
-
-ax_kap.set_xlim(0, T_TOTAL)
-ax_kap.set_ylim(0, kappa_arr.max() * 1.15)
-ax_kap.set_xlabel('tick', color=TEXT_COL)
-ax_kap.set_ylabel('|κ(t)|', color=TEXT_COL)
-ax_kap.axhline(0.02, color='#44cc88', ls='--', lw=1.0, alpha=0.7, label='flat (κ=0.02)')
-ax_kap.legend(fontsize=7, facecolor='#1a1a1a', labelcolor=TEXT_COL, framealpha=0.8)
-
-ax_coh.set_xlim(0, T_TOTAL)
-ax_coh.set_ylim(-0.05, 1.08)
-ax_coh.set_xlabel('tick', color=TEXT_COL)
-ax_coh.set_ylabel('C*(t)', color=TEXT_COL)
-ax_coh.axhline(1.0, color='white', ls=':', lw=0.8, alpha=0.4)
-
-# God Attractor marker (static)
-ax_sw.scatter(*GOD_ATTRACTOR[[0, 2]], s=280, marker='*', color='white', zorder=10)
-ax_sw.text(GOD_ATTRACTOR[0] + 0.4, GOD_ATTRACTOR[2] + 0.5, 'ω',
-           color='white', fontsize=11, zorder=11)
-
-# Per-level scatter objects (initialised at frame 0)
-scat_list = []
+# Pre-compute mean m_CE per level per tick for ratio panel
+level_means_all = np.zeros((T_TOTAL, N_LEVELS))
 for lvl in range(N_LEVELS):
     mask = levels_node == lvl
-    pts  = pos_snap[0][mask]
-    sc   = ax_sw.scatter(pts[:, 0], pts[:, 2],
-                         c=mass_snap[0][mask], cmap='plasma', norm=norm_gif,
-                         s=16 + 4 * lvl, alpha=0.88, zorder=5,
-                         label=LEVEL_NAMES[lvl])
-    scat_list.append(sc)
-ax_sw.legend(fontsize=7, facecolor='#1a1a1a', labelcolor=TEXT_COL, framealpha=0.8,
-             loc='upper left')
+    level_means_all[:, lvl] = mass_arr[:, mask].mean(axis=1)
 
-# Running trace lines
-kap_line, = ax_kap.plot([], [], color='#44aaff', lw=1.5)
-coh_line, = ax_coh.plot([], [], color='#ffd700', lw=1.5)
+fig_gif = plt.figure(figsize=(14, 11), facecolor=DARK_BG)
+gs_gif  = gridspec.GridSpec(2, 2, figure=fig_gif, hspace=0.40, wspace=0.38)
+ax_sw   = fig_gif.add_subplot(gs_gif[0, 0])   # swarm (large)
+ax_rat  = fig_gif.add_subplot(gs_gif[0, 1])   # theo/geo mass ratio
+ax_kap  = fig_gif.add_subplot(gs_gif[1, 0])   # void ledger κ(t)
+ax_coh  = fig_gif.add_subplot(gs_gif[1, 1])   # coherence C*(t)
 
-tick_txt = ax_sw.text(0.98, 0.04, '', transform=ax_sw.transAxes,
-                      color=TEXT_COL, fontsize=9, ha='right')
+for _ax in [ax_sw, ax_rat, ax_kap, ax_coh]:
+    _ax.set_facecolor('#111111')
+    _ax.tick_params(colors=TEXT_COL)
+    _ax.xaxis.label.set_color(TEXT_COL)
+    _ax.yaxis.label.set_color(TEXT_COL)
+    for sp in _ax.spines.values():
+        sp.set_edgecolor(GRID_COL)
+    _ax.grid(True, color=GRID_COL, alpha=0.5)
+
+# Static decoration: κ and C* axes
+ax_kap.set_xlim(0, T_TOTAL); ax_kap.set_ylim(0, kappa_arr.max() * 1.15)
+ax_kap.set_xlabel('choice tick', color=TEXT_COL)
+ax_kap.set_ylabel('void ledger $|\\kappa(t)|$', color=TEXT_COL)
+ax_kap.axhline(0.02, color='#44cc88', ls='--', lw=1.0, alpha=0.8,
+               label='flat  κ = 0.02')
+ax_kap.legend(fontsize=7, facecolor='#1a1a1a', labelcolor=TEXT_COL, framealpha=0.8)
+
+ax_coh.set_xlim(0, T_TOTAL); ax_coh.set_ylim(-0.05, 1.08)
+ax_coh.set_xlabel('choice tick', color=TEXT_COL)
+ax_coh.set_ylabel('global coherence $C^*(t)$', color=TEXT_COL)
+ax_coh.axhline(1.0, color='white', ls=':', lw=0.8, alpha=0.35)
 
 fig_gif.suptitle(
-    'UKFT-39 Exp 73 — God Attractor: Dynamic $m_{CE}$ · Void Ledger · Geodesic Convergence',
-    color=TEXT_COL, fontsize=10, y=1.01
+    'UKFT-39 Exp 73 — God Attractor: trails · dynamic $m_{CE}$ · void ledger · convergence',
+    color=TEXT_COL, fontsize=10, y=1.005,
 )
 
+# Running trace line objects (κ and C*)
+kap_line, = ax_kap.plot([], [], color='#44aaff', lw=1.5)
+coh_line, = ax_coh.plot([], [], color='#ffd700', lw=1.8)
 
-def _update(frame):
-    pf  = pos_snap[frame]
-    mf  = mass_snap[frame]
-    t_f = frame_ticks[frame]
+
+def _draw_frame(frame):
+    """Redraw swarm and ratio panels each frame; update line traces."""
+    t_f    = frame_ticks[frame]
+    t_idx  = t_f + 1   # exclusive index into ticks/arrays
+
+    # ── Swarm panel (clear + redraw for trails & dynamic sizes) ──────────
+    ax_sw.cla()
+    ax_sw.set_facecolor('#111111')
+    ax_sw.grid(True, color=GRID_COL, alpha=0.5)
+    for sp in ax_sw.spines.values():
+        sp.set_edgecolor(GRID_COL)
+    ax_sw.set_xlim(xlim); ax_sw.set_ylim(zlim)
+    ax_sw.set_xlabel('X', color=TEXT_COL)
+    ax_sw.set_ylabel('Z', color=TEXT_COL)
+    ax_sw.set_title('Swarm XZ  — node size & colour $\\propto m_{CE}$',
+                    color=TEXT_COL, fontsize=10, pad=6)
+    ax_sw.tick_params(colors=TEXT_COL)
+
+    trail_colors = [LEVEL_COLORS[l] for l in levels_node]
+
+    # Trail ghosts (oldest first, so they sit below current)
+    for age in range(min(frame, TRAIL_LEN), 0, -1):
+        fi  = frame - age
+        alp = TRAIL_ALPHA[min(age - 1, len(TRAIL_ALPHA) - 1)]
+        sz_trail = 3 + 22 * (mass_snap[fi] / m_global_max) ** 0.5
+        ax_sw.scatter(pos_snap[fi][:, 0], pos_snap[fi][:, 2],
+                      c=trail_colors,
+                      s=sz_trail, alpha=alp, edgecolors='none', zorder=4)
+
+    # Current frame — plasma colormap + size by mass
+    sz_curr = 7 + 55 * (mass_snap[frame] / m_global_max) ** 0.5
+    ax_sw.scatter(pos_snap[frame][:, 0], pos_snap[frame][:, 2],
+                  c=mass_snap[frame], cmap='plasma', norm=norm_gif,
+                  s=sz_curr, alpha=0.92, edgecolors='none', zorder=10)
+
+    # God Attractor ω marker
+    ax_sw.scatter(*GOD_ATTRACTOR[[0, 2]], s=320, marker='*',
+                  color='white', zorder=20, lw=0)
+    ax_sw.text(GOD_ATTRACTOR[0] + 0.5, GOD_ATTRACTOR[2] + 0.7,
+               'ω', color='white', fontsize=12, zorder=21, va='bottom')
+
+    # Level legend
     for lvl in range(N_LEVELS):
-        mask = levels_node == lvl
-        scat_list[lvl].set_offsets(pf[mask][:, [0, 2]])
-        scat_list[lvl].set_array(mf[mask])
-    kap_line.set_data(ticks[:t_f + 1], kappa_arr[:t_f + 1])
-    coh_line.set_data(ticks[:t_f + 1], coherence_arr[:t_f + 1])
-    tick_txt.set_text(f't = {t_f}')
-    return scat_list + [kap_line, coh_line, tick_txt]
+        ax_sw.scatter([], [], c=LEVEL_COLORS[lvl], s=22,
+                      label=LEVEL_NAMES[lvl], alpha=0.9)
+    ax_sw.legend(fontsize=7, facecolor='#1a1a1a', labelcolor=TEXT_COL,
+                 framealpha=0.85, loc='upper left', markerscale=1.4)
+    ax_sw.text(0.98, 0.04, f't = {t_f}', transform=ax_sw.transAxes,
+               color='#aaaaaa', fontsize=9, ha='right')
+
+    # ── Ratio panel (clear + redraw) ─────────────────────────────────────
+    ax_rat.cla()
+    ax_rat.set_facecolor('#111111')
+    ax_rat.grid(True, color=GRID_COL, alpha=0.5)
+    for sp in ax_rat.spines.values():
+        sp.set_edgecolor(GRID_COL)
+    ax_rat.set_title('$m_{CE}$ accumulation by tier  (log)',
+                     color=TEXT_COL, fontsize=10, pad=6)
+    ax_rat.set_xlabel('choice tick', color=TEXT_COL)
+    ax_rat.set_ylabel('mean $m_{CE}$  (log scale)', color=TEXT_COL)
+    ax_rat.tick_params(colors=TEXT_COL)
+    for lvl in range(N_LEVELS):
+        ax_rat.semilogy(ticks[:t_idx],
+                        level_means_all[:t_idx, lvl] + 1e-3,
+                        color=LEVEL_COLORS[lvl], lw=1.8, label=LEVEL_NAMES[lvl])
+    if t_f > 10:
+        cur_ratio = (level_means_all[t_f, 3] /
+                     (level_means_all[t_f, 0] + 1e-8))
+        ax_rat.text(0.97, 0.06, f'theo/geo = {cur_ratio:.1f}×',
+                    transform=ax_rat.transAxes, ha='right',
+                    color='#ffaa00', fontsize=9)
+    ax_rat.legend(fontsize=7, facecolor='#1a1a1a', labelcolor=TEXT_COL,
+                  framealpha=0.85)
+
+    # ── Running traces (κ and C*) ─────────────────────────────────────────
+    kap_line.set_data(ticks[:t_idx], kappa_arr[:t_idx])
+    coh_line.set_data(ticks[:t_idx], coherence_arr[:t_idx])
+
+    return []
 
 
-anim    = FuncAnimation(fig_gif, _update, frames=N_FRAMES, interval=80, blit=False)
+anim     = FuncAnimation(fig_gif, _draw_frame, frames=N_FRAMES,
+                         interval=83, blit=False)
 gif_path = os.path.join(OUT_DIR, '73_god_attractor.gif')
-anim.save(gif_path, writer=PillowWriter(fps=12), dpi=100)
+anim.save(gif_path, writer=PillowWriter(fps=12), dpi=110)
 plt.close(fig_gif)
 print(f"Saved: {gif_path}")
 
