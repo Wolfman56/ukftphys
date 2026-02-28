@@ -113,6 +113,9 @@ experiments/test_mg5_mirror.txt
 # MadGraph simulations artifacts
 experiments/background_simulation_*/
 experiments/61_sm_4muon_8tev/
+experiments/62_mirror_fermion_1gev/
+experiments/62_mirror_fermion_2gev/
+experiments/62_sm_dimuon_j_8tev/
 
 results/mirror_fermion_run_01/
 MirrorLHC_8TeV/
