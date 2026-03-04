@@ -1,0 +1,10 @@
+import model MirrorFermion_UFO
+generate p p > xm xm~
+output experiments/81_glitch_source
+launch
+set nevents 10000
+set ebeam 6800.0
+set Mxm 320.0
+set Wxm 1.296
+set use_syst False
+done

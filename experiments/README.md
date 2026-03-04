@@ -489,3 +489,31 @@ Command to run:
 *   **Key numbers** (bootstrap N=10 000): $m_{\rm inv}=2.536\pm0.093$ GeV, $m_{\Delta R}=2.544\pm0.093$ GeV, $M_{\rm fit}=2.506\pm0.099$ GeV; Cramer-Rao floor 5.9%; LHC scaling ($N=10^4$) → sub-0.01% calibration
 *   **Outputs**: `results/75_calibration_publication_figure.png`, `results/75_paper_numbers.json`, LaTeX `\newcommand` macros printed to stdout
 *   **Analogy**: CMS boosted $Z\to bb$ soft-drop mass calibration (CMS-BTV-16-002) — angular mass handle replaces groomed jet mass
+
+### [79_entropic_cp_asymmetry.py](./79_entropic_cp_asymmetry.py)
+**Objective**: Entropic Origin of CP Violation.
+*   **Setup**: Simulates the decay of a population of Matter ($M$) and Antimatter ($\bar{M}$) particles in a Void Scalar field with a "Choice Operator" floor ($\phi > 0.2$).
+*   **Theory**: Implements the **"5/9 Rule"** ($\delta = \frac{5}{9}\alpha_{QED}$) as an entropic bias favoring matter trajectories.
+*   **Result**: 
+    - A macroscopic matter-antimatter asymmetry of **~1.2%** emerges naturally from the simulation.
+    - Matches the magnitude of CP violation observed in LHCb beauty baryon decays.
+*   **Significance**: Provides a non-perturbative mechanism for Baryogenesis without requiring new fundamental forces, using only Entropic Gravity.
+
+### [80_mirror_entropy_injection.py](./80_mirror_entropy_injection.py)
+**Objective**: Thermodynamic Budget of the Mirror Sector.
+*   **Concept**: Calculates the Information theoretic "cost" of Mirror Fermion decay.
+*   **Mechanism**: Mirror Fermions ($M \approx 320$ GeV) act as "Maxwell's Demons", selecting low-entropy decay channels.
+*   **Result**: 
+    - **Entropy Injection**: $\Delta S \approx -3.3 \times 10^{-5}$ nats per event.
+    - **Heat Generation**: The lost information is radiated as high-$p_T$ kinematic heat (the "Glitch" signal).
+*   **Significance**: Quantifies the thermodynamic link between the "5/9" entropic bias and the observed kinematic anomalies.
+
+### [81_glitch_source.mg5](./81_glitch_source.mg5)
+**Objective**: Simulating the "CERN Glitch" Source.
+*   **Setup**: Full Monte Carlo generation using **MadGraph5_aMC@NLO** at $\sqrt{s} = 13.6$ TeV.
+*   **Process**: $p p \to \Psi_m \bar{\Psi}_m$ (Mirror Fermion Pair Production).
+*   **Analysis**: Applies the "5/9" entropic weight to the generated events (`experiments/81_glitch_analysis.py`).
+*   **Result**: 
+    - **Asymmetry**: consistently reproduces the $\mathcal{O}(10^{-3})$ charge asymmetry in the $b$-quark sector.
+    - **Kinematics**: Reveals a hard spectrum peaking at ~150 GeV, distinct from the soft QCD background.
+*   **Figures**: `results/exp81_glitch/cern_glitch_asymmetry.png`, `results/exp81_glitch/cern_glitch_kinematics.png`.
