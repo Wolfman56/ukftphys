@@ -1,0 +1,8 @@
+Entropic Barrier: 7.5978 MeV
+
+GUT Scale       (T=1.0e+16 GeV): Suppression = 1.00e+00
+Electroweak     (T=1.0e+02 GeV): Suppression = 1.00e+00
+QCD Phase       (T=1.5e-01 GeV): Suppression = 9.51e-01
+Nucleosynthesis (T=1.0e-03 GeV): Suppression = 5.02e-04
+Recombination   (T=3.0e-10 GeV): Suppression = 0.00e+00
+Today (CMB)     (T=2.3e-13 GeV): Suppression = 0.00e+00

@@ -553,3 +553,16 @@ Command to run:
     ![Oscillation](../results/exp83_neutron_oscillation/oscillation_suppression.png)
     
     ![Energy Scales](../results/exp83_neutron_oscillation/energy_scales.png)
+
+### [84_entropic_proton_decay.py](./84_entropic_proton_decay.py)
+**Objective**: Entropic Suppression of Proton Decay.
+*   **Problem**: Why is the proton stable ($\tau_p > 10^{34}$ yrs) if GUTs predict decay?
+*   **Hypothesis**: The vacuum has a **7.6 MeV Entropic Barrier** favoring the asymmetric phase.
+*   **Mechanism**: To decay ($p \to e^+ \pi^0$), the proton must tunnel through the symmetric vacuum where B-violation is allowed. This tunneling is exponentially suppressed at low T.
+*   **Result**: 
+    - At high T (GUT scale), decay is allowed (Baryogenesis).
+    - At low T (Today), the effective lifetime becomes infinite due to the Entropic Barrier.
+    - Resolves the tension between Early Universe B-violation and Late Universe B-conservation.
+*   **Figure**:
+    
+    ![Stability](../results/exp84_proton_decay/proton_stability_evolution.png)
