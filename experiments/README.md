@@ -498,6 +498,9 @@ Command to run:
     - A macroscopic matter-antimatter asymmetry of **~1.2%** emerges naturally from the simulation.
     - Matches the magnitude of CP violation observed in LHCb beauty baryon decays.
 *   **Significance**: Provides a non-perturbative mechanism for Baryogenesis without requiring new fundamental forces, using only Entropic Gravity.
+*   **Figure**:
+    
+    ![Exp 79 Asymmetry](../results/79_entropic_cp_asymmetry_20260303_190854.png)
 
 ### [80_mirror_entropy_injection.py](./80_mirror_entropy_injection.py)
 **Objective**: Thermodynamic Budget of the Mirror Sector.
@@ -507,6 +510,9 @@ Command to run:
     - **Entropy Injection**: $\Delta S \approx -3.3 \times 10^{-5}$ nats per event.
     - **Heat Generation**: The lost information is radiated as high-$p_T$ kinematic heat (the "Glitch" signal).
 *   **Significance**: Quantifies the thermodynamic link between the "5/9" entropic bias and the observed kinematic anomalies.
+*   **Figure**:
+
+    ![Exp 80 Entropy](../results/80_mirror_entropy_injection.png)
 
 ### [81_glitch_source.mg5](./81_glitch_source.mg5)
 **Objective**: Simulating the "CERN Glitch" Source.
@@ -516,4 +522,8 @@ Command to run:
 *   **Result**: 
     - **Asymmetry**: consistently reproduces the $\mathcal{O}(10^{-3})$ charge asymmetry in the $b$-quark sector.
     - **Kinematics**: Reveals a hard spectrum peaking at ~150 GeV, distinct from the soft QCD background.
-*   **Figures**: `results/exp81_glitch/cern_glitch_asymmetry.png`, `results/exp81_glitch/cern_glitch_kinematics.png`.
+*   **Figures**: 
+    
+    ![Exp 81 Asymmetry](../results/exp81_glitch/cern_glitch_asymmetry.png)
+    
+    ![Exp 81 Kinematics](../results/exp81_glitch/cern_glitch_kinematics.png)
