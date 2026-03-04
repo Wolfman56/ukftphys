@@ -28,6 +28,8 @@ We calculated the resulting CP Asymmetry ($A_{CP}$) and the Information Gain (En
 
 This small but consistent information injection accumulates over cosmic time (Exp 79 showed this accumulation). The Mirror Fermion acts as a "Maxwell's Demon" at the horizon, filtering entropy by $3 \times 10^{-5}$ bits per interaction favor of matter.
 
+![Exp 80 Entropy](../results/80_mirror_entropy_injection.png)
+
 ## 4. Conclusion
 The "Glitch" is thermodynamically powered. The Mirror Fermion's coupling $\delta = \frac{5}{9} \alpha$ creates a branching ratio asymmetry $A_{CP} \approx 2\delta \approx 0.8\%$.
 This validates the mechanism: **The Mirror Fermion injects order (Information) into the early universe, driving the matter dominance.**

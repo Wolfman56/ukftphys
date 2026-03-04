@@ -41,6 +41,8 @@ The final raw asymmetry was $A_{CP} \approx 0.584$. Scaling this back by the amp
 
 This indicates that the asymmetry accumulates over time. A fundamental bias of $\sim 0.4\%$ (the 5/9 factor) successfully drives a macroscopic asymmetry of $\sim 1\%$ over the simulation timescale.
 
+![Exp 79 Asymmetry](../results/79_entropic_cp_asymmetry_20260303_190854.png)
+
 ## 4. Conclusion
 This experiment confirms that the **5/9 Entropic Bias**, when coupled to the Void Scalar mechanism, naturally generates a significant matter-antimatter asymmetry. 
 

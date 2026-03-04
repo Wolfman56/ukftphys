@@ -25,9 +25,17 @@ We analyzed the kinematics of the resulting $b$-quarks, applying the entropic we
 - **Kinematics**: High-$p_T$ $b$-quarks peaking at ~120 GeV, distinct from SM QCD background.
 
 ### 4. Figures
-- **Asymmetry**: `results/exp81_glitch/cern_glitch_asymmetry.png`
-  - Shows the constant bias across the $p_T$ spectrum.
-- **Kinematics**: `results/exp81_glitch/cern_glitch_kinematics.png`
+- **Asymmetry**: 
+  
+  ![CERN Glitch Asymmetry](../results/exp81_glitch/cern_glitch_asymmetry.png)
+  
+  Shows the constant bias across the $p_T$ spectrum.
+
+- **Kinematics**: 
+  
+  ![CERN Glitch Kinematics](../results/exp81_glitch/cern_glitch_kinematics.png)
+  
+  Shows the "hard" spectrum characteristic of a 320 GeV parent.
   - Shows the "hard" spectrum characteristic of a 320 GeV parent.
 
 ### 5. Conclusion
