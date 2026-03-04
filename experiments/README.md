@@ -527,3 +527,14 @@ Command to run:
     ![Exp 81 Asymmetry](../results/exp81_glitch/cern_glitch_asymmetry.png)
     
     ![Exp 81 Kinematics](../results/exp81_glitch/cern_glitch_kinematics.png)
+
+### [82_entropic_leptogenesis.py](./82_entropic_leptogenesis.py)
+**Objective**: Unifying the "Glitch" and the Big Bang.
+*   **Concept**: Simulates the cooling of the **Causal Graph Choice Operator** from nucleation ($T \sim 10^{19}$ GeV) to today ($T \sim 2.7$ K).
+*   **Hypothesis**: The Entropic Bias $\delta$ evolves with topological connectivity:
+    - **High T (Nucleation)**: Raw graph counting dominates. Matter has 5 moves, Antimatter has 4. $\delta \approx (5-4)/9 = 11.1\%$. Drives massive Baryogenesis.
+    - **Low T (Today)**: Screened by geometry/gauge fields. $\delta \approx \frac{5}{9} \alpha_{QED} \approx 0.4\%$. Explains the LHCb anomaly.
+*   **Result**: Demonstrates that the tiny observed CP violation is a fossil remnant of the engine that created the matter universe.
+*   **Figures**:
+    
+    ![Bias Evolution](../results/exp82_leptogenesis/bias_evolution.png)
