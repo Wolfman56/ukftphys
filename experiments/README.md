@@ -538,3 +538,18 @@ Command to run:
 *   **Figures**:
     
     ![Bias Evolution](../results/exp82_leptogenesis/bias_evolution.png)
+
+### [83_entropic_neutron_oscillation.py](./83_entropic_neutron_oscillation.py)
+**Objective**: Entropic Stabilization of the Neutron.
+*   **Problem**: Why doesn't the $p/\bar{p}$ asymmetry relax back to zero? Why are neutrons stable against oscillation into antineutrons?
+*   **Hypothesis**: The "5/9" Entropic Bias ($\delta \approx 0.405\%$) acts as a permanent **Vacuum Potential** holding matter in existence.
+*   **Mechanism**: The bias creates an energy splitting $\Delta E = 2 \delta m_n \approx 7.6$ MeV between $n$ and $\bar{n}$.
+*   **Result**: 
+    - This $7.6$ MeV "detuning" suppresses GUT-scale oscillations by a factor of **$10^{-60}$**.
+    - The universe is dynamically "held open" by this potential.
+    - We are safe from spontaneous annihilation.
+*   **Figures**:
+    
+    ![Oscillation](../results/exp83_neutron_oscillation/oscillation_suppression.png)
+    
+    ![Energy Scales](../results/exp83_neutron_oscillation/energy_scales.png)
