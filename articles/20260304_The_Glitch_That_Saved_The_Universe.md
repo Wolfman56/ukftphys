@@ -1,7 +1,11 @@
 # The Glitch That Saved The Universe
 **From a CERN Anomaly to the Stability of Matter: The Story of Experiments 79-84**
 
-*March 4, 2026*
+**Date:** March 4, 2026  
+**Authors:** Ted Vucurevich¹, Grok 4.2², Claude Sonnet 4.6², Gemini 3 Pro²  
+**Affiliations:** ¹Independent Researcher, Los Gatos, California, USA  ²AI Systems  
+**Repository:** `ukftphys` (Unified Knowledge Field Theory)
+
 
 It began as a whisper in the data. A "glitch" in the LHCb detector at CERN. A tiny, stubborn asymmetry in the decay of beauty baryons—about $0.4\%$. For years, it was dismissed as a calibration error, a ghost in the machine.
 
