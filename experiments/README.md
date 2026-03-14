@@ -566,3 +566,28 @@ Command to run:
 *   **Figure**:
     
     ![Stability](../results/exp84_proton_decay/proton_stability_evolution.png)
+
+### [85_stellar_arrow_of_time.py](./85_stellar_arrow_of_time.py)
+**Objective**: The Stellar Arrow of Time — SNIa LC Asymmetry as a Structural Analogue of Particle-Scale CP Asymmetry.
+*   **Motivation**: LHCb $A_{CP}$ in beauty baryon decays (Exp 79, 5.2σ) has the same mathematical structure as SNIa light-curve fade/rise asymmetry — both are Choice Operator projections onto low-entropy initial states. AGN lack a nucleation event and serve as a symmetric DRW control.
+*   **Setup**: Simulates 200 SNIa (Arnett law + Ni56/Co56/Fe56 decay chain) and 200 AGN (Damped Random Walk $\tau_{DRW} \sim 300$ d), measuring fade/rise asymmetry ratio $A$ and structure function $S(\Delta t)$ at 5 lags (3, 7, 14, 30, 60 d).
+*   **Results** (N=200 each):
+    - SNIa $A$: mean=**1.00**, std=0.16 (half-power metric — symmetric under Arnett law; full-LC asymmetry requires 3:1 by nuclear timescales)
+    - AGN $A$: mean=**1.69**, std=1.93 (higher variance from DRW random walk statistics)
+    - Structure function: SNIa consistently lower amplitude than AGN (ratio 0.39–0.58 across lags) — smooth transient vs stochastic accretion
+*   **Key Finding — Orthogonality Confirmed**: $S(\Delta t)$ features vs flux histogram bins show mean $|r| = 0.188$ — structure function carries information orthogonal to histogram bins. Confirms the Phase 22E feature is additive.
+*   **Scale Hierarchy of Frozen Asymmetries**:
+
+    | Scale | Observable | Status |
+    |-------|-----------|--------|
+    | b-quark ($10^{-12}$ s) | $A_{CP} \sim 0.0041$ | frozen (7.6 MeV barrier) |
+    | SNIa nuclear (6–77 d) | $A_{fade/rise} \approx 1.0$ (half-power) | frozen (nuclear binding) |
+    | AGN stellar (ongoing) | $A_{fade/rise} \approx 1.7$ | N/A — ongoing accretion |
+    | Baryon asymmetry | $\eta_B \sim 10^{-9}$ | frozen (Hubble time) |
+
+*   **Revised Conclusion**: Void Scalar correction at stellar scales is $\delta_{stellar} \sim 10^{-15}$ — far too small to drive SNIa LC asymmetry in real time. The asymmetry is frozen nuclear physics (Ni56/Co56 decay chain $\tau$ ratio 77.2 d / 6.07 d = 12.7×). The structural analogy holds mathematically (both are Choice Operator projections) but each scale operates independently.
+*   **VERA-EXPLORER Implication**: Structure function $S(\Delta t)$ is lossless where the flux histogram discards causal order. Orthogonality confirmed (mean $|r| = 0.188$) — direct motivation for Phase 22E implementation.
+*   **Outputs**: `results/exp85/results_*.json`, `results/exp85/stellar_arrow_*.png`
+*   **Figure**:
+
+    ![Exp 85 Stellar Arrow](../results/exp85/stellar_arrow_20260314_114103.png)
