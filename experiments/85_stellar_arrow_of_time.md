@@ -109,6 +109,8 @@ Expected outputs:
 
 ### 4C — VERA-EXPLORER Implication
 
+**VERA-EXPLORER** (Variable Event Recognition & Analysis — Explorer) is an unreleased, internal classification system being developed within the noo-ecosystem to distinguish astrophysical transient types — primarily Type Ia supernovae (SNIa) versus active galactic nuclei (AGN) — using UKFT-informed embedding features derived from photometric light curves. It operates by projecting raw multi-band flux time series into a high-dimensional vector space where features such as temporal morphology, amplitude coherence, and chromatic structure are weighted according to the UKFT knowledge metric. The system has not been released to the public and is currently in an active research and tuning phase. The findings of this experiment directly inform its next development phase (Phase 22E) by confirming that the structure function $S(\Delta t)$ carries additive discriminative information beyond what the current flux histogram features already capture.
+
 The asymmetry ratio and structure function are **lossless** in a way the flux histogram is not:
 - Flux histogram: captures *what* fluxes occurred (order statistics)
 - Structure function: captures *how* fluxes changed (temporal causal structure)
