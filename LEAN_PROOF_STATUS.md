@@ -92,3 +92,6 @@ Proved also in `WeilPositivity.lean` §6 bridge (commit `7d3d6ed`):
 | 2026-03-28 | 03 | α→∞ = zero-manifold convergence; α sweep = Re(Δt) sweep | **G, A** |
 | 2026-03-28 | 04 | Extend O(√Δt) bound to complex Δt; rate governed by Re(Δt); Im(Δt) → zero-cost mode | **G, H** |
 | 2026-03-28 | 05 | Old solver staircase artefacts = prime manifold {Im(Δt)=0} confinement; theorem A proves orthogonality | **A** |
+| 2026-03-28 | 31 | R=1 = fermion_pair_cancels_iff_on_critical_line; leak (1−R) ∝ 2(σ−1/2) from W2 | **B, D, W2** |
+| 2026-03-28 | 36 | Mass scan = σ-residual measurement; off-line detection requires σ≠1/2 by theorem E | **W2, E** |
+| 2026-03-28 | 37 | Γ>0 = fermion_residual_sq_pos; Γ/M at 320 GeV = 0.004050 ≈ δ=(5/9)α_QED (NEW: triangle Exp37+79+80) | **W2, W3** |

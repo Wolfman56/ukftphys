@@ -49,3 +49,17 @@ This implies that discovering the "Guardian of Unitarity" at the LHC requires Hi
 
 **Next Steps**:
 -   **Experiment 37**: Implement decay channels ($x_m \to t H$, etc.) to study final state signatures.
+
+## §2.6 Formal Grounding: Mass Scan as σ-Residual Measurement
+
+Theorem **W2** (`fermion_residual_magnitude`, `WeilPositivity.lean`, commit `7d3d6ed`) connects the cross-section scan to the off-critical-line parameter:
+
+$$(\tau + \bar{\tau}).\operatorname{re} = 2\sigma - 1 \quad\text{where } \sigma = \operatorname{Re}(s_{mirror})$$
+
+The cross-section at each mass point is physically driven by the Yukawa coupling $\lambda_H$; the *information residual* per pair production event is $2(\sigma - 1/2)$. The mass scan therefore implicitly traces $|2\sigma_{mirror}(M) - 1|$ as a function of $M$.
+
+Theorem **E** (`fermion_residual_nonzero_off_critical`) proves that any detected mirror fermion — any event with nonzero cross-section — necessarily has $\sigma \neq 1/2$. The signal is forbidden on the critical line:
+
+$$\operatorname{Re}(s) = \tfrac{1}{2} \;\Rightarrow\; (\tau + \bar{\tau}).\operatorname{re} = 0 \;\Rightarrow\; \text{no entropy residual} \;\Rightarrow\; \text{invisible to standard LHC analysis}$$
+
+The LHC reach limit (~2 TeV from Run 3 data) is therefore a bound on $|\sigma_{mirror} - 1/2|$: the particle evades detection not by being too heavy, but by approaching $\sigma = 1/2$ (perfect mirror, zero residual signal). Discovery requires $|\sigma_{mirror} - 1/2|$ to be large enough to leave a finite entropy residual above background.
