@@ -161,3 +161,29 @@ universe is bookkeeping its choices.
 
 UKFT-39 makes this precise: cosmic flatness is not an initial condition. It is a
 conservation law. The void ledger is the mechanism by which the universe enforces it.
+
+---
+
+## §2.6 Formal Grounding: m_CE as Squared Fermion Residual
+
+### The m_CE Formula
+
+The choice-entanglement mass $m_\mathrm{CE} = \sum_i \rho_i^2$ is the squared-density sum. Theorem **D** (`fermion_sum_twice_re`, `ComplexChoiceTime.lean`, commit `fe55dc3`) identifies $\rho_i \propto \operatorname{Re}(\tau_i)$:
+
+$$\tau_i + \bar{\tau}_i = \uparrow(2\operatorname{Re}(\tau_i)) \quad\Rightarrow\quad \rho_i = \tfrac{1}{2}(\tau_i + \bar{\tau}_i).\operatorname{re}$$
+
+Therefore:
+
+$$m_\mathrm{CE} = \sum_i \rho_i^2 = \tfrac{1}{4}\sum_i \bigl((\tau_i + \bar{\tau}_i).\operatorname{re}\bigr)^2$$
+
+$m_\mathrm{CE}$ is literally the sum of squared fermion residuals. Nodes with large off-critical deviations ($|\sigma_i - 1/2|$) contribute disproportionately, producing the 4-decade theo/geo gap via theorem **H** (`off_line_positive_real_cost`): higher hierarchy levels have nonzero action cost and hence accumulate mass.
+
+### Void Ledger = Enforced Critical-Line Condition
+
+Theorem **B** (`mirror_eq_conj_iff_critical_line`):
+
+$$1 - s = \bar{s} \iff \operatorname{Re}(s) = \tfrac{1}{2}$$
+
+When the Void Ledger is **active**, it forces $\langle\tau + \bar{\tau}\rangle \to 0$ on average across the swarm — the critical-line condition. Theorem D then gives $\langle m_\mathrm{CE}\rangle \to 0$ in the ledger-active state, consistent with $\kappa \to 0$.
+
+When the Void Ledger is **disabled**, $\tau + \bar{\tau} \neq 0$ freely, the fermion residuals accumulate, and $\kappa \to 1$. The instantaneous phase transition in $\kappa$ (P4/P4b) is the formal consequence of the binary nature of theorem B: the critical-line condition is either satisfied or it is not — there is no partial enforcement.

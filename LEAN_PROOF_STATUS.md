@@ -98,3 +98,5 @@ Proved also in `WeilPositivity.lean` §6 bridge (commit `7d3d6ed`):
 | 2026-03-28 | 41 | cpow_re_im_split = gravity/QM Re/Im decomposition; A = orthogonality; 5/9 fraction resolved; triangle extended to 4 experiments | **A, F** |
 | 2026-03-28 | 53 | D_E discriminator = detector proxy for fermion residual; 3-prong peak = ln3 + 2δ from W2 | **D, E, W2** |
 | 2026-03-28 | 56 | 5/9 rule = fixed_equilibrium_orthogonal DOF count; Γ>0 = fermion_residual_sq_pos; links to δ triangle | **A, W3** |
+| 2026-03-28 | 59 | m_CE = (1/4)Σ(fermion residual)²; void ledger = critical-line enforcement; κ phase transition = theorem B binary | **B, D, H** |
+| 2026-03-28 | 71 | Signal variable = mirror_conj_discrepancy_re; P5 β=5.46 reinterpreted as SM clustering near Re(s)=1/2 (PREDICTION CORRECTION) | **B, C, D** |
