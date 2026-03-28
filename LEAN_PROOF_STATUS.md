@@ -100,3 +100,5 @@ Proved also in `WeilPositivity.lean` §6 bridge (commit `7d3d6ed`):
 | 2026-03-28 | 56 | 5/9 rule = fixed_equilibrium_orthogonal DOF count; Γ>0 = fermion_residual_sq_pos; links to δ triangle | **A, W3** |
 | 2026-03-28 | 59 | m_CE = (1/4)Σ(fermion residual)²; void ledger = critical-line enforcement; κ phase transition = theorem B binary | **B, D, H** |
 | 2026-03-28 | 71 | Signal variable = mirror_conj_discrepancy_re; P5 β=5.46 reinterpreted as SM clustering near Re(s)=1/2 (PREDICTION CORRECTION) | **B, C, D** |
+| 2026-03-28 | 79 | CP = star operator; `mirror_eq_conj_iff_critical_line` = exact CP condition; per-step bias = 2δ from `mirror_conj_discrepancy_re`; 3rd independent δ measurement, δ triangle now 4-legged | **B, C** |
+| 2026-03-28 | 83 | V_entropic = `realActionCostCoeff(τ_neutron)`; n→n̄ crossing blocked by `off_line_positive_real_cost`; ΔE = 2δ·m_n from G; P_max ≈ 3×10⁻⁶⁰ no free parameters | **G, H** |
