@@ -22,3 +22,13 @@ Trajectories begin to cluster. The "fuzziness" of the quantum probability cloud 
 [Alpha 0.0 Simulation](../results/03_sweep_alpha_0.0.html)
 [Alpha 5.0 Simulation](../results/03_sweep_alpha_5.0.html)
 [Alpha 15.0 Simulation](../results/03_sweep_alpha_15.0.html)
+
+## §2.6 Formal Note
+
+The α parameter is the entropic gravity coefficient weighting the density bonus against the kinetic cost. Theorem **G** (`realActionCostCoeff_zero_iff`, `ComplexChoiceTime.lean`, commit `fe55dc3`) formalizes the kinetic cost factor as $\operatorname{Re}(\Delta t)$:
+
+$$\mathrm{cost}(u) = \operatorname{Re}(\Delta t) \cdot \|u - v^{\psi}\|^2$$
+
+The α → 0 regime (standard Bohmian) corresponds to $\operatorname{Re}(\Delta t)$ dominating — kinetic cost is the only constraint, and trajectories explore the full probability cloud. The α → ∞ regime corresponds to the entropic bonus overwhelming the kinetic term, formally equivalent to $\operatorname{Re}(\Delta t) \to 0$: the system sits on the *zero manifold* $\{\operatorname{Re}(dt) = 0\}$.
+
+Theorem **A** (`fixed_equilibrium_orthogonal`) proves that this zero manifold and the prime manifold $\{\operatorname{Im}(dt) = 0\}$ intersect only at $dt = 0$. Reality sharpening is therefore the formal approach to the zero-manifold equilibrium — the unique point where entropy cost and kinetic cost simultaneously vanish.

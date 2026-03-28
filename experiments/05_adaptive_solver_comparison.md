@@ -149,6 +149,25 @@ Experiment 04 showed, via convergence rate measurement, that:
 Experiment 05 now shows this on a **physically meaningful, non-trivial problem**
 (interference + equivariance), not just a 1D free-particle convergence benchmark.
 
+---
+
+## §2.6 Formal Grounding: Old Solver Artefacts as Prime Manifold Confinement
+
+The staircase artefacts visible in old-solver trajectories have a precise formal interpretation via theorem **A** (`fixed_equilibrium_orthogonal`, `ComplexChoiceTime.lean`, commit `fe55dc3`):
+
+$$\{\operatorname{Im}(dt) = 0\} \cap \{\operatorname{Re}(dt) = 0\} = \{0\}$$
+
+The old solver's candidate set $\{-\Delta x/\Delta t,\ 0,\ +\Delta x/\Delta t\}$ constrains particles to move by exactly one integer lattice cell or stay fixed. These are **real displacements** — the solver samples exclusively from the *prime manifold* $\{\operatorname{Im}(\Delta t) = 0\}$.
+
+Theorem **A** proves the prime manifold and the zero manifold $\{\operatorname{Re}(\Delta t) = 0\}$ are orthogonal, intersecting only at $dt = 0$. A solver confined to the prime manifold therefore:
+1. Cannot reach the zero-manifold equilibrium (the entropy-free fixed point)
+2. Cannot access smooth off-lattice velocities — every candidate is an integer multiple of $\Delta x / \Delta t$
+3. As Δt → 0, the lattice becomes infinitely fine in position but the velocity grid becomes infinitely coarse → Exp 04 saturation
+
+The AdaptiveSolver escapes this by scaling $\ell = c \cdot \Delta t^{3/2}$, which makes the velocity step $\delta v = c\sqrt{\Delta t} \to 0$ as Δt→0. This samples smoothly across both manifold directions.
+
+**Predicted upgrade path**: adding an imaginary Δt component (entropy regularizer, range $[0, \varepsilon]$) would allow the solver to exit the prime manifold, accessing the zero-manifold region where the entropic cost vanishes — the same mechanism that produces "reality sharpening" in Exp 03 at α→∞. This is the formal basis for the Im(Δt) entropy regularizer mode proposed in §2.6.
+
 The Lean theorem `one_step_velocity_consistency` (module `ChoiceOperatorConsistency`)
 proves:
 

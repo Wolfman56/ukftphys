@@ -78,6 +78,26 @@ TV distance measures how well the choice operator transports the Born distributi
 1. **Paper 34 Gap1** proof sketch has the wrong secondary rate; O(√Δt) is the tight bound
 2. **Lean theorem** `one_step_velocity_consistency` correctly uses `C * Real.sqrt Δt`
 3. **Existing `solver.py`** cannot converge in the dense-choice limit at fixed dx — it needs the adaptive candidate scaling in `solver_adaptive.py`
+
+## §2.6 Extension: Complex Δt and the Re(Δt) Convergence Geometry
+
+The O(√Δt) bound proven here assumes real, positive Δt. Theorems **G** and **H** in `ComplexChoiceTime.lean` (commit `fe55dc3`) extend the picture to complex time steps.
+
+Theorem **G** (`realActionCostCoeff_zero_iff` / `_pos_iff`):
+
+$$\mathrm{cost} = \operatorname{Re}(\Delta t) \cdot \|u - v^{\psi}\|^2 = 0 \iff \operatorname{Re}(\Delta t) = 0 \;\lor\; u = v^{\psi}$$
+
+The convergence rate in the minimality bound is governed by $\operatorname{Re}(\Delta t)$, not the full magnitude $|\Delta t|$. Consequences:
+
+| Δt type | Re(Δt) | Cost | Convergence regime |
+|---------|--------|------|--------------------|
+| Real positive | > 0 | > 0 | O(√Δt) bound applies |
+| Purely imaginary | = 0 | = 0 | Zero-cost equilibrium — `realActionCostCoeff_zero_iff` |
+| Complex (Re > 0) | > 0 | > 0 | Rate set by Re(Δt); Im(Δt) only shifts the phase |
+
+Theorem **H** (`off_line_positive_real_cost`) adds: for particles off the critical line (Re(s) ≠ 1/2), the action cost is strictly positive regardless of Im(Δt). This means purely imaginary time steps cannot neutralize the mirror-fermion residual for off-line zeros — the cost persists.
+
+**Solver design consequence**: adding an imaginary component to Δt (entropy regularizer mode) reduces the effective kinetic cost by a factor of Re(Δt)/|Δt|², potentially improving equivariance for smooth potentials while exploiting the zero-manifold geometry identified in Exp 03.
 4. If ℓ = O(Δt²) (more refined candidates), the paper's O(Δt) rate is achievable
 
 ## Connection to Experiment 05

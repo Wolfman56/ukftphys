@@ -89,3 +89,6 @@ Proved also in `WeilPositivity.lean` §6 bridge (commit `7d3d6ed`):
 | Date | Experiment | Change | Lean theorem used |
 |------|-----------|--------|-------------------|
 | 2026-03-28 | 80 | Back-calculate σ_mirror−1/2 from ΔI using `fermion_sum_twice_re` | **D, W2** |
+| 2026-03-28 | 03 | α→∞ = zero-manifold convergence; α sweep = Re(Δt) sweep | **G, A** |
+| 2026-03-28 | 04 | Extend O(√Δt) bound to complex Δt; rate governed by Re(Δt); Im(Δt) → zero-cost mode | **G, H** |
+| 2026-03-28 | 05 | Old solver staircase artefacts = prime manifold {Im(Δt)=0} confinement; theorem A proves orthogonality | **A** |
