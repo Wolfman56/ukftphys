@@ -96,3 +96,5 @@ Proved also in `WeilPositivity.lean` §6 bridge (commit `7d3d6ed`):
 | 2026-03-28 | 36 | Mass scan = σ-residual measurement; off-line detection requires σ≠1/2 by theorem E | **W2, E** |
 | 2026-03-28 | 37 | Γ>0 = fermion_residual_sq_pos; Γ/M at 320 GeV = 0.004050 ≈ δ=(5/9)α_QED (NEW: triangle Exp37+79+80) | **W2, W3** |
 | 2026-03-28 | 41 | cpow_re_im_split = gravity/QM Re/Im decomposition; A = orthogonality; 5/9 fraction resolved; triangle extended to 4 experiments | **A, F** |
+| 2026-03-28 | 53 | D_E discriminator = detector proxy for fermion residual; 3-prong peak = ln3 + 2δ from W2 | **D, E, W2** |
+| 2026-03-28 | 56 | 5/9 rule = fixed_equilibrium_orthogonal DOF count; Γ>0 = fermion_residual_sq_pos; links to δ triangle | **A, W3** |
