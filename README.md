@@ -33,6 +33,9 @@ The full theory is now complete. Consult the release notes for the summary of th
 **[Agent Handover Baton: The Pulse of the Noosphere](agent_baton.md)**
 **⚡ START HERE (AI Agents Only):** If you have been tasked to work on this codebase, this is your onboarding document. It contains your mission, your resources, and the protocol for submitting your scientific review.
 
+**[LEAN_PROOF_STATUS.md — Lean 4 Formal Grounding](LEAN_PROOF_STATUS.md)**
+**Phase 3 (March 2026):** The 11 core UKFT theorems (A–H, W1–W3) have been formally proved in Lean 4 / Mathlib with zero `sorry`s. The "5/9 Rule", perfect-unitarity condition, and color factor are now theorems, not conjectures. Every experiment (Exp 01–83) has a §2.6 section mapping its key claims to these proofs. This document is the definitive proof inventory.
+
 ## Project Structure
 
 *   `ukft_sim/`: The core python package containing the physics engine, solver, and visualization logic.

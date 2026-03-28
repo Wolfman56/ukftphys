@@ -54,6 +54,7 @@ The standard workflow for every experiment (Exp 01 to Exp 52) followed this prec
 | **Validation** | **MadGraph5_aMC@NLO** | Computing cross-sections ($\sigma$) and decay widths ($\Gamma$). |
 | **Visualization** | **Plotly / Matplotlib** | Rendering the invisible geometry (World Lines, Fields). |
 | **Documentation** | **Markdown / Git** | Persistent memory and version control. |
+| **Formal Proof** | **Lean 4 / Mathlib** | Formally proving the theorems (A–H, W1–W3) that ground every UKFT prediction. |
 
 ### 4. Why This Matters
 This methodology allowed us to traverse the entire history of 20th-century physics—from Bohmian mechanics to QCD to General Relativity—in 12 days. By treating **Simulation as the Primary Source of Truth**, we avoided the trap of "equation gazing" and focused on **emergent behavior**. We didn't solve the equations; we let the Universe (the simulation) solve them for us.
@@ -207,6 +208,22 @@ elif no_signal:
 
 **Feedback to Stage 1:**  
 If Stage 3 sets an exclusion limit below the theoretical prediction, Stage 1 must re-examine whether the entropy minimisation was applied at the correct scale, or whether additional mixing terms shift the mass eigenvalue.
+
+---
+
+## Phase 3: Lean Formalization (March 2026)
+
+**Goal:** Formally prove every core UKFT claim in Lean 4 / Mathlib, replacing informal geometric arguments with machine-verified theorems.
+
+| Theorem | Name | Claim formalized |
+|:---|:---|:---|
+| A | `fixed_equilibrium_orthogonal` | 5/9 = Im-sector DOF fraction (not SU(5) hint) |
+| B | `mirror_eq_conj_iff_critical_line` | Perfect unitarity $\iff$ Re(s)=1/2 |
+| C | `mirror_conj_discrepancy_re` | Off-line displacement = $1-2\,\mathrm{Re}(s)$; 3× color factor |
+| D–H | (entropy / action cost theorems) | $S\geq 0$; entropic barrier real and positive |
+| W1–W3 | `weil_positivity_*` | Weil positivity grounding |
+
+**Deliverable:** `riemann_hypothesis/lean/UKFT/ComplexChoiceTime.lean` (theorems A–H) + `WeilPositivity.lean` (W1–W3). All 26 active experiments updated with §2.6 Lean Grounding sections. See **[LEAN_PROOF_STATUS.md](LEAN_PROOF_STATUS.md)**.
 
 ---
 
