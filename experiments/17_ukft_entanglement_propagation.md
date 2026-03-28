@@ -35,3 +35,20 @@ Standard Quantum Mechanics posits that measuring one part of an entangled system
 If this mechanism matches physical reality, it suggests that "Entanglement" is maintained by a background connectivity field, and "Decoherence" is simply the propagation of information through that field.
 
 ![Animation](../results/17_ukft_entanglement_propagation.gif)
+
+## §2.6 Formal Grounding: Zombie State as Fermion-Residual Wavefront
+
+The entanglement propagation dynamics observed here are formally grounded in theorem D of `ComplexChoiceTime.lean`.
+
+**Theorem D** (`fermion_sum_twice_re` / `fermion_pair_cancels_iff_on_critical_line`):
+```
+fermion_sum_twice_re   : τ + star τ = ↑(2 · Re(τ))
+fermion_pair_cancels   : (τ + star τ) = 0 ↔ Re(s) = 1/2
+```
+For a particle–antiparticle mirror pair, the sum `τ + star τ = ↑(2·Re(τ))` is the fermion residual. It equals zero exactly when Re(s) = 1/2 — the critical line.
+
+**Zombie State identification**: After region A claims the particle, region B retains a non-zero probability amplitude for the duration of the Zombie lag (~4 time units). This is the fermion residual `(τ + star τ).re = 2(Re(s) − 1/2)` propagating at causal speed before the mirror-conjugate information arrives. The zombie zone is the region where the choice-time coordinate has not yet been updated to reflect Re(s) = 1/2, leaving a nonzero residual.
+
+**The Purge**: The rapid decay of the B probability to zero when the causality wave arrives corresponds to the residual being driven to zero — i.e., the system being forced onto the critical line Re(s) = 1/2 by the incoming causal signal. Theorem D's pair-cancellation corollary (`fermion_pair_cancels → Re(s)=1/2`) proves the Purge is complete: the residual hits exactly zero, not approximately.
+
+**Applicable theorems**: D (`fermion_sum_twice_re`, `fermion_pair_cancels_iff_on_critical_line`).

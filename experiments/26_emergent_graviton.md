@@ -43,3 +43,19 @@ The system discovered that **Mutual Attraction** is the only stable strategy to 
 | **Common Origin** | **Maximize Information Coherence** | **Maximize Information Coherence** |
 
 This confirms that the Standard Model and General Relativity are two sides of the same teleological coin.
+
+## §2.6 Formal Grounding: Graviton as Re Log-Time Mode
+
+The emergence of gravity here is formally grounded in theorem F of `ComplexChoiceTime.lean`, the companion result to the gluon identification in Exp 25.
+
+**Theorem F** (`cpow_re_im_split`):
+```
+cpow_re_im_split : n ^ (-s) = n ^ (-σ) · exp(-it · log n · I)
+```
+The Re-sector `n^{-σ}` is a purely scalar amplitude that depends only on the magnitude σ of the choice-time coordinate, not its phase. It is universal — it applies to all objects regardless of charge — and it favors clustering (higher σ = faster amplitude decay = stronger local density attraction).
+
+**Graviton identification**: The Re log-time mode is gravity. The scalar amplitude `n^{-σ}` increases with decreasing σ (i.e., as the system approaches the critical line σ = 1/2), creating a universal attractive tendency. The Prophet's discovery of `G > 0` (Exp 26) = the system settling into the Re-sector as the entropy-minimizing strategy: clustering concentrates information density (high ρ) in a smaller volume, which is the minimum-action Re-sector trajectory.
+
+**Unification**: Gluons (Exp 25) and graviton (this experiment) are both outputs of the same `cpow_re_im_split` decomposition — Im-sector and Re-sector respectively. They are not two separate fundamental forces; they are two orthogonal projections of a single choice-time dynamics. Theorem A (`fixed_equilibrium_orthogonal`) guarantees they cannot mix.
+
+**Applicable theorems**: F (`cpow_re_im_split`), A (`fixed_equilibrium_orthogonal`).

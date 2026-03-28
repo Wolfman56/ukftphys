@@ -43,3 +43,19 @@ This suggests that what we call "QCD" is just the low-density approximation of a
 ![Optimization Process](../results/25_emergent_gluon_analogue.gif)
 
 *Top: Global Coherence rising as the laws of physics evolve. Bottom: The relative weights of different helicity interactions. Note the Single-Minus (Orange) rising alongside the standard MHV (Green).*
+
+## §2.6 Formal Grounding: Gluon as Im Log-Time Mode
+
+The emergent gluon dynamics are formally grounded in theorem F of `ComplexChoiceTime.lean`.
+
+**Theorem F** (`cpow_re_im_split`):
+```
+cpow_re_im_split : n ^ (-s) = n ^ (-σ) · exp(-it · log n · I)
+```
+The Riemann prime factorization decomposes into a real part (scalar amplitude `n^{-σ}`) and an imaginary part (phase rotation `exp(-it·log n)`). These are two orthogonal sectors of the same choice-time plane.
+
+**Gluon identification**: Gauge fields — specifically color charge rotation — correspond to oscillation along the Im log-time axis: `exp(-it·log n)`. A gluon is an Im-sector excitation. The strong force's selective coupling (color matching) arises because Im-sector modes cyclically permute the color phases, while Re-sector modes (mass/gravity) are blind to phase.
+
+**The Single-Minus Anomaly**: The non-vanishing half-collinear Single-Minus amplitude (~+11.4) that this experiment independently discovered is the Im-sector contribution that cannot be projected away on the real axis. Theorem A (`fixed_equilibrium_orthogonal`) proves the two sectors share only the origin — any projection of an Im-sector contribution onto the Re-axis is structurally zero, but the Im-sector contribution itself is nonzero, creating the amplitude that standard tree-level Re-axis calculations miss.
+
+**Applicable theorems**: F (`cpow_re_im_split`), A (`fixed_equilibrium_orthogonal`).

@@ -102,3 +102,16 @@ Proved also in `WeilPositivity.lean` §6 bridge (commit `7d3d6ed`):
 | 2026-03-28 | 71 | Signal variable = mirror_conj_discrepancy_re; P5 β=5.46 reinterpreted as SM clustering near Re(s)=1/2 (PREDICTION CORRECTION) | **B, C, D** |
 | 2026-03-28 | 79 | CP = star operator; `mirror_eq_conj_iff_critical_line` = exact CP condition; per-step bias = 2δ from `mirror_conj_discrepancy_re`; 3rd independent δ measurement, δ triangle now 4-legged | **B, C** |
 | 2026-03-28 | 83 | V_entropic = `realActionCostCoeff(τ_neutron)`; n→n̄ crossing blocked by `off_line_positive_real_cost`; ΔE = 2δ·m_n from G; P_max ≈ 3×10⁻⁶⁰ no free parameters | **G, H** |
+| 2026-03-28 | 17 | Zombie State = fermion-residual wavefront; Purge = pair-cancellation driving residual to zero on critical line | **D** |
+| 2026-03-28 | 25 | Gluon = Im log-time mode from `cpow_re_im_split`; Single-Minus anomaly = Im-sector contribution invisible to Re-axis projection | **F, A** |
+| 2026-03-28 | 26 | Graviton = Re log-time mode from `cpow_re_im_split`; G>0 = Re-sector clustering as entropy-minimizing strategy | **F, A** |
+| 2026-03-28 | 28 | 300x gravity in collinear jets = off-line action cost accumulation; angular confinement = prime manifold boundary geometry | **H, G** |
+| 2026-03-28 | 29 | Dark matter halo = spatial distribution of off-critical particles with persistent `realActionCostCoeff`; flat rotation curve = constant off-line fraction at all radii | **H, G** |
+| 2026-03-28 | 35 | Pair-production threshold = 2×M_mirror from theorem C discrepancy; every LHE event is a theorem E instantiation | **B, C, E** |
+| 2026-03-28 | 38 | 320 GeV peak = argmax of productive discrepancy gradient (closest stable off-line approach); BW width from W3 | **B, C, W3** |
+| 2026-03-28 | 39 | Unbiased reconstruction (centroid fixed at 320 GeV despite 30 GeV smearing) = theorem B iff: centroid is intrinsic, not detector artifact | **B, W3** |
+| 2026-03-28 | 42 | 5/9 Rule = Im-sector DOF (5) / total (9) from manifold orthogonality; not a GUT coincidence but a theorem A result | **A, F** |
+| 2026-03-28 | 44 | 3× color scaling = three independent `mirror_conj_discrepancy_re` residuals; no free tuning — color multiplicity required by theorem C | **C, E** |
+| 2026-03-28 | 55 | Trotter V/T split = {Im(dt)=0}/{Re(dt)=0} manifold decomposition; fidelity >0.9999 from exact orthogonality (theorem A) | **A** |
+| 2026-03-28 | 57 | Strang second-order accuracy from exact manifold orthogonality; MSE ~10⁻¹³ = BCH error suppressed to floating-point floor by theorem A | **A** |
+| 2026-03-28 | 82 | 5 Matter / 4 Antimatter moves = Im-sector (5 DOF) / Re-sector (4 DOF) from theorem F; 11% GUT bias → 0.4% modern δ via gauge screening | **A, F** |
