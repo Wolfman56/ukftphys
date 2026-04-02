@@ -43,6 +43,11 @@ error — the minimal-action trajectory selector of Paper 34.
 | Bit width k | 6 (covers all Geo primes 2–37) |
 | OSR | 16 (oversampling ratio for ΔΣ encoding) |
 | σ_ρ | 1.4 Hamming units (Gaussian width for ρ) |
+
+OSR = 16 and σ_ρ = 1.4 were chosen to match the mean bit-length of Geo primes (≈ 4.2)
+while keeping the packing–Shannon margin comfortable (margin ≈ 2.3 bits): at OSR = 16 the
+effective noise floor is −24 dB relative to the 1-bit decision level, well below the
+Hamming-distance resolution of any two 6-bit prime codes.
 | Choice dynamics | Steepest ascent on ρ = Σ_p exp(−d_H² / 2σ²) |
 | Basin sampling | 60 random k-bit strings per (prime, Hamming distance) |
 
@@ -78,6 +83,12 @@ attractor basin evidence (Panel 3) supporting that statement quantitatively.
 
 A companion tool `tools/geo_sigma_delta.py` in hep-explorer loads the saved
 projection centroid and compares its angular structure to the Geo prime tensor.
+
+> **Cross-reference**: The 37 + 3 decomposition is validated in
+> `TEILHARD_HYPOTHESIS_MAP.md` §*The 37 Signal* and in the 40D JEPA attractor
+> results of hep-explorer experiment `tools/bert_align.py`. See also
+> `LEAN_FORMALIZATION_REPORT.md` §6.4 (`TeilhardSpheres.lean`) where
+> `isBiosphericPrime 37` is machine-checked.
 
 ## Results
 
