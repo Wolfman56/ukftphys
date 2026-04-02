@@ -81,45 +81,24 @@ projection centroid and compares its angular structure to the Geo prime tensor.
 
 ## Results
 
-### Figure: `86_choice_bohmian_sigma_delta_geo.png`
+![Experiment 86 — Choice-Bohmian Sigma-Delta in the Geosphere](86_choice_bohmian_sigma_delta_geo.png)
 
-#### Panel 1 — ΔΣ Error Accumulator Traces  (choice trajectories)
+**Panel 1** — ΔΣ error accumulator traces over 48 bit-cycles. Each curve is the
+choice-Bohmian trajectory through 1-bit configuration space for one Geo prime.
+Jump primes (2, 5, 11, 17, 37) plotted solid; trivial primes dashed.
 
-Each curve shows the error accumulator for one Geo prime over 48 bit-cycles.
-Jump primes (2, 5, 11, 17, 37) are drawn with solid lines; trivial primes with
-dashed lines.  The trace IS the choice-Bohmian trajectory through 1-bit
-configuration space: rapid sign alternation at high-density targets, slow drift
-at low-density targets.
+**Panel 2** — Capacity bin map for n ∈ [2, 44]. Green = jump prime (ΔC > 0),
+amber = trivial Geo prime, blue = prime outside Geosphere, dark = composite.
+Red dashed line marks p = 37 (geo-bio boundary); blue dash-dot marks the 40D
+hep-explorer projection dimension.
 
-#### Panel 2 — Capacity Bin Map  n ∈ [2, 44]
+**Panel 3** — Pairwise Hamming distance heatmap in 6-bit Geo space. p = 37 is
+framed in red and has `d_min_within_bin = ∞` (sole 6-bit Geo occupant), the
+structural evidence for H20.
 
-Bar chart of bitLength(n) coloured by prime status:
-- **Green**: jump prime (ΔC > 0, opens a new bin)
-- **Amber**: trivial Geo prime (sits inside existing bin)
-- **Blue**: prime outside Geosphere
-- **Dark**: composite
-
-Vertical lines mark p = 37 (geo-bio boundary, red) and the 40D hep-explorer
-projection dimension (blue dash-dot).
-
-#### Panel 3 — Attractor Basin Convergence
-
-For each Geo prime p, the fraction of k-bit bitstrings at Hamming distance
-d ∈ {0, 1, 2, 3} from canonical(6, p) that collapse to the correct prime under
-choice-Bohmian steepest ascent.
-
-Key finding for H20: convergence at d = 2 drops for primes near the geo-bio
-boundary, where the action branch alone faces ambiguity between adjacent
-canonical forms in the 6-bit space.
-
-#### Panel 4 — W_Δ Weights + ΔΣ Fidelity
-
-Left axis: W_Δ(p) = (1 − 1/bitLength(p)) × (1 − 1/p), the entropic zeta
-weight from BitstreamProjection.lean, plotted with jump primes starred.
-
-Right axis: target normalised value x = p/64 (blue circles) and actual ΔΣ
-pulse density (red triangles), with residual bars.  Perfect fidelity (H2)
-means all bars vanish.
+**Panel 4** — W_Δ(p) entropic zeta weights (left axis, starred at jump primes)
+overlaid with target x = p/64 (blue circles) and actual ΔΣ pulse density (red
+triangles). Zero residual bars confirm H2.
 
 ## Lean Connections
 
