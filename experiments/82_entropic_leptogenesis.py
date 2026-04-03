@@ -41,6 +41,24 @@ def calculate_bias_evolution(T):
     delta = f_topo * DELTA_HIGH_T + (1.0 - f_topo) * DELTA_LOW_T
     return delta
 
+# === Emergent GR Hook ===
+# The same entropic bias delta(T) that drives leptogenesis also sources the
+# Friedmann equation via rho_choice ∝ delta(T) / a^3.  In UKFT, gravity is the
+# error-minimisation of the same choice operator (Exps 16–19), so the cooling
+# causal graph IS the expanding universe.  The Friedmann link is:
+#
+#   H^2 = (8πG/3) * rho_choice,   rho_choice = delta(T) / a^3
+#
+# This gives H^2 ∝ delta(T) / a^3 — recovering standard radiation-dominated
+# Friedmann scaling when delta(T) ∝ T^4 (Stefan–Boltzmann) and a ∝ 1/T.
+# The same δ(T) that produces η_baryon also seeds spacetime curvature.
+# Lean stub: UKFT/Emergent_GR.lean `entropic_leptogenesis_unifies_gr`.
+
+def friedmann_rho_choice(delta: float, a: float) -> float:
+    """Effective energy density sourced by entropic bias (arbitrary units)."""
+    return delta / (a ** 3)
+
+
 def simulate_universe_cooling():
     deltas = calculate_bias_evolution(Temps)
     

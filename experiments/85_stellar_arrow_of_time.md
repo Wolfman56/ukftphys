@@ -152,6 +152,8 @@ The "cosmic lattice deformation" interpretation is partially correct with a crit
 - **Exp 85 simulation**: Run `85_stellar_arrow_of_time.py`, verify fade/rise ratio and structure function orthogonality
 - **VERA-EXPLORER Phase 22E**: Implement structure function `S(Δt)` features in embedder — test if classification gain is consistent with the predicted information orthogonality
 - **Cross-check**: Do VERA-EXPLORER classification weights on fade/rise-sensitive dims (morphology=7.0, ukft=2.5) correlate with the expected SNIa asymmetry signature?
+- **Dual-operator / Noosphere link**: The stellar arrow is the first macroscopic observable where the **knowledge + action** branches of the dual choice operator $\mathsf{C}_{\text{dual}} = (\Pi, \text{Action})$ become distinguishable at astrophysical scales. The geo/bio boundary ($p = 37$, zero #5) is microscopic; stellar scales probe the bio/noo transition ($p = 67$, zero #15) — SNIa asymmetry $\mathcal{A} \approx 1$ is the signature of the Noosphere operator activating. Lean: `TeilhardSpheres.lean` `stellar_arrow_from_dual_operator`.
+- **Chartreuse kernel on asymmetry filter**: Apply $K(\omega) = \sin\omega + \phi^{-1}\sin(\phi\omega) + \tfrac{1}{2}\sin(2\omega)$ as the low-pass filter on the structure function $S(\Delta t)$. It should suppress the AGN tail ($\mathcal{A}_{\text{AGN}} \approx 1.69$) exactly as it suppresses the off-line zero excess in the RH scanner — both are aliasing artefacts of under-sampling the packing–Shannon Nyquist bound.
 
 ## Artifacts
 

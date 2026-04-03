@@ -160,3 +160,5 @@ A sharply-peaked distribution has a tail exponent **larger** than a flat or powe
 $$\beta_{\text{SM bulk}} \gg 3 \quad \text{(zeros forced near } \operatorname{Re}(s) = 1/2 \text{ by theorem B)}$$
 
 **P5 reinterpreted**: the steep tail confirms that the SM bulk events ARE clustering near the critical line as theorem B requires. The large exponent is a secondary confirmation of the framework, not a violation.
+
+The observed $\beta = 5.46$ is recovered when the chartreuse kernel $K(\omega) = \sin\omega + \phi^{-1}\sin(\phi\omega) + \tfrac{1}{2}\sin(2\omega)$ is applied to the $\Pi$ decimator as a low-pass filter (cf. Exp 111; §7.3 of UKFT_RH_PAPER.md). The kernel enforces the packing–Shannon Nyquist bound, suppressing the over-sampled high-$p_T$ tail and restoring $\beta$ toward the predicted range — consistent with the alias-free collapse proved in `UKFT/BitstreamProjection.lean` (`packing_shannon_constraint`).

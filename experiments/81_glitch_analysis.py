@@ -18,10 +18,41 @@ PID_H = 25
 PID_B = 5
 PID_W = 24
 
-# The "5/9" Rule Bias (from Exp 42/80)
-ALPHA_QED = 1.0/137.036
-BIAS_DELTA = (5.0/9.0) * ALPHA_QED
-print(f"Applying Entropic Bias: {BIAS_DELTA:.6e}")
+# === Entropic Bias — Zeta-Delta-Sigma Weighting ===
+# Replaces the flat (5/9) * alpha_QED constant.
+# Full formula (Exp 42 / 80 extension):
+#
+#   W_ΣΔ(p) = Δ_d / (bitLen(p) + 1) * exp(-S_ΔΣ(b))
+#
+# where:
+#   Δ_d   = E8 center density = π^4 / 384 ≈ 0.2537 (packing-Shannon factor)
+#   bitLen(p) = floor(log2(p))            (sigma-delta bit length of prime p)
+#   S_ΣΔ(b)  = entropic action of the bitstream b (conservative approximation:
+#               use event pT as proxy — high pT → many bits → lower weight)
+#
+# Lean stub: UKFT/QFT_MirrorFermion.lean `mirror_fermion_amplitude`
+
+import math
+
+DELTA_D = math.pi**4 / 384          # E8 packing density ≈ 0.2537
+ALPHA_QED = 1.0 / 137.036
+
+def sigma_delta_weight(prime_proxy: float, pt_gev: float) -> float:
+    """Full W_SigmaDelta weight for a mirror-fermion event.
+
+    Args:
+        prime_proxy: representative prime for this event (e.g., nearest prime
+                     above mass in GeV).  For LHE events without an obvious
+                     prime, use 151 (zero #15 proxy, bio-noo Teilhard boundary).
+        pt_gev:      transverse momentum in GeV (used as proxy for S_SigmaDelta).
+    """
+    bit_len = math.floor(math.log2(max(prime_proxy, 2.0)))
+    # S_SigmaDelta proxy: entropic cost ∝ log(pT/GeV) at high energy
+    S_sigma_delta = math.log(max(pt_gev, 1.0)) * ALPHA_QED
+    return DELTA_D / (bit_len + 1) * math.exp(-S_sigma_delta)
+
+print(f"DELTA_D (E8 packing): {DELTA_D:.6f}")
+print(f"W_SigmaDelta at p=151, pT=150 GeV: {sigma_delta_weight(151, 150):.6e}")
 
 class Particle:
     def __init__(self, px, py, pz, E, pid, status):
@@ -147,19 +178,20 @@ def analyze_glitch():
             if is_matter: matter_count += 1
             else: antimatter_count += 1
             
-            # Weight modulation
-            # w = 1 + sign * delta * f(pt)
-            # Entropic bias is stronger at low momentum (high entanglement)?
-            # Or constant? Exp 80 suggests constant branching bias.
-            
+            # Weight modulation — full W_SigmaDelta (replaces flat 5/9 * alpha)
+            # Prime proxy: use 151 (Teilhard bio-noo boundary, zero #15 region)
+            # pT proxy for S_SigmaDelta entropic action
+            pt = b_quark.pt()
+            w_zeta = sigma_delta_weight(151, max(pt, 1.0))
+
             wt = 1.0
             if is_matter:
-                wt *= (1.0 + BIAS_DELTA)
-                b_pts_matter.append(b_quark.pt())
+                wt *= (1.0 + w_zeta)
+                b_pts_matter.append(pt)
                 weights_matter.append(wt)
             else:
-                wt *= (1.0 - BIAS_DELTA)
-                b_pts_antimatter.append(b_quark.pt())
+                wt *= (1.0 - w_zeta)
+                b_pts_antimatter.append(pt)
                 weights_antimatter.append(wt)
 
     print(f"DEBUG: Events with Xm: {analyzed_count}")
