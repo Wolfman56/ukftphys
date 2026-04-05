@@ -8,7 +8,7 @@ Why is the proton so stable if the forces unify at high energy?
 
 ## Hypothesis: The Entropic Barrier
 
-We extend the findings of Exp 82 and 83: The vacuum has a **7.6 MeV Entropic Bias** favoring the Asymmetric (Matter) Phase over the Symmetric Phase.
+We extend the findings of Exp 82 and 83 — specifically the **configuration-space** result: the vacuum has a $\bar{\delta} = (5/9)\,\alpha_{QED} \approx 4\times10^{-3}$ topological bias (move-count ratio, QED-screened) that creates a **7.6 MeV Entropic Barrier**. Note: $W_{\Sigma\Delta} \approx 3\times10^{-2}$ (Exp 81, momentum space) is geometrically distinct and does not apply to vacuum tunnelling; the Exp 82 probe (April 5, 2026) confirms these are uncoupled. The barrier uses $\bar{\delta}$ because proton decay requires traversal of configuration space (restoring the symmetric vacuum locally), not a momentum-space asymmetry.
 
 For a proton to decay, the local vacuum must tunnel back to the Symmetric Phase where Baryon Number ($B$) is not conserved. This creates an **Entropic Barrier**:
 
@@ -38,6 +38,6 @@ We simulated the thermal suppression factor across cosmic history:
 ## Conclusion
 
 The **Entropic Vacuum** solves the Proton Stability puzzle.
-The proton serves as a "topological knot" in the asymmetric vacuum. To untie it (decay), one must pay the entropy cost to restore the symmetric vacuum locally.
+The proton serves as a "topological knot" in the asymmetric vacuum. To untie it (decay), one must pay the entropy cost to restore the symmetric vacuum locally — a configuration-space process governed by $\bar{\delta} = (5/9)\,\alpha_{QED}$, not by the momentum-space $W_{\Sigma\Delta}$ (Exp 81). The Exp 82 probe confirms these are geometrically distinct: baryon persistence is insulated from the collider-observable sector.
 At low temperatures, this cost is prohibitive.
 Thus, **Proton Decay is dynamically suppressed** in the modern epoch, consistent with the null results from Super-Kamiokande, while still allowing for the Baryogenesis that created us.

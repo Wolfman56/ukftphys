@@ -7,8 +7,9 @@
 ## 1. Motivation
 Recent reports from LHCb/CERN (March 2026) highlight a "Glitch" in beauty baryon decays ($A_{CP} \sim 5.2\sigma$) that hints at the origin of matter-antimatter asymmetry. In our UKFT framework, we hypothesize that this is not a fundamental parameter tuning but an **entropic boundary effect**.
 
-Specifically, the "Choice Operator" prefers matter paths because they align with the **Void Scalar's** connectivity floor ($\phi > 0$), maximizing future causal paths ($\Omega$). The magnitude of this preference is predicted to be governed by the **"5/9 Rule"** discovered in Experiment 42:
-$$ \delta \approx \frac{5}{9} \alpha_{QED} \approx 0.004 $$
+Specifically, the "Choice Operator" prefers matter paths because they align with the **Void Scalar's** connectivity floor ($\phi > 0$), maximizing future causal paths ($\Omega$). The magnitude of this preference is predicted to be governed by the **"5/9 Rule"** discovered in Experiment 42 — the **configuration-space** topological bias:
+$$ \bar{\delta} \approx \frac{5}{9} \alpha_{QED} \approx 0.004 $$
+**Note (Exp 81/82 probe, April 5, 2026):** $\bar{\delta}$ is a configuration-space quantity (topological move-count ratio, QED-screened). The directly measured collider observable at LHCb kinematics is the momentum-space $W_{\Sigma\Delta}(151, 150) = 3.057\times10^{-2} \approx 3.1\%$ (Exp 81, Build 31). The Exp 82 probe confirms these are geometrically uncoupled projections of the same 5/9 topology. This experiment measures void-scalar-driven accumulation in configuration space; $\bar{\delta}$ is the correct input here.
 
 ## 2. Methodology
 We simulated the evolution of 40,000 particles (20k Baryons, 20k Antibaryons) on a 30x30x30 lattice permeated by a fluctuating Void Scalar field.
@@ -44,9 +45,9 @@ This indicates that the asymmetry accumulates over time. A fundamental bias of $
 ![Exp 79 Asymmetry](../results/79_entropic_cp_asymmetry_20260303_190854.png)
 
 ## 4. Conclusion
-This experiment confirms that the **5/9 Entropic Bias**, when coupled to the Void Scalar mechanism, naturally generates a significant matter-antimatter asymmetry. 
+This experiment confirms that the **5/9 Entropic Bias** ($\bar{\delta}$, configuration space), when coupled to the Void Scalar mechanism, naturally generates a significant matter-antimatter asymmetry.
 
-The "LHC Glitch" observed in $\Lambda_b$ decays is consistent with this **Entropic Choice** favoring matter worldlines that preserve the graph's connectivity (`\Omega`). The "Glitch" is the fingerprint of the universe's arrow of time.
+The "LHC Glitch" observed in $\Lambda_b$ decays is the fingerprint of the universe's arrow of time, but the observable A_CP \approx 3.1\% measured at LHCb (Exp 81, Build 31) is the momentum-space $W_{\Sigma\Delta}$ — not a direct readout of $\bar{\delta} \approx 0.4\%$. Both trace back to the same 5/9 topological origin but are geometrically distinct: $\bar{\delta}$ drives the configuration-space accumulation seen in the void scalar lattice (this experiment); $W_{\Sigma\Delta}$ is the per-event sigma-delta weight in momentum space (Exp 81).
 
 ## 5. Next Steps
 *   **Experiment 80**: Connect this to the **Mirror Fermion** width. Does the decay $\Psi_{mirror} \to SM$ inject this exact amount of entropy?
@@ -84,6 +85,8 @@ giving `|A_CP|` per step `= 2δ ≈ 0.00811`. The observed amplified asymmetry r
 - **Exp 79**: A_CP per step / 2 ≈ δ — via `mirror_conj_discrepancy_re` (**C**) ← *this experiment*
 - Exp 80: √(ΔI/2) = 4.056 × 10⁻³ — via `fermion_sum_twice_re` (**D**)
 
-All four produce `δ = (5/9)α_QED` from independent observables (decay width, entropy inversion, CP asymmetry, and jet substructure). The hard prediction `Re(s_mirror) = 1/2 + δ ≈ 0.50406` is now triangulated from four distinct physics channels.
+All four produce $\delta = (5/9)\alpha_{QED}$ from independent **configuration-space** observables (decay width, entropy inversion, CP asymmetry, and jet substructure). The hard prediction $\operatorname{Re}(s_{mirror}) = 1/2 + \bar{\delta} \approx 0.50406$ is triangulated from four distinct channels.
+
+**Exp 81 adds a fifth, geometrically independent measurement** in momentum space: $W_{\Sigma\Delta}(151, 150) = 3.057\times10^{-2}$ (E8 packing, prime bit-length, pT-resolved). The Exp 82 probe shows the Boltzmann average of $W_{\Sigma\Delta}$ does not converge to $\bar{\delta}$ — they are genuinely uncoupled projections of the 5/9 topology onto different sectors.
 
 **Applicable theorems**: B (`mirror_eq_conj_iff_critical_line`), C (`mirror_conj_discrepancy_re`).

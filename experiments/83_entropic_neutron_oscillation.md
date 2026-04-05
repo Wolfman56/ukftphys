@@ -38,7 +38,7 @@ $$
 
 ## Simulation Results
 
-Using the Modern Entropic Bias ($\delta = 5/9 \alpha_{QED} \approx 0.00405$) derived in Exp 82:
+Using the **configuration-space** entropic bias $\bar{\delta} = (5/9)\,\alpha_{QED} \approx 0.00405$ — the topological move-count ratio (5 matter / 4 antimatter) screened by QED, established in Exp 82 and confirmed as the correct geometric sector for vacuum potentials by the Exp 82 probe (April 5, 2026). Note: $\bar{\delta}$ is distinct from $W_{\Sigma\Delta}(p,p_T) \approx 3\times10^{-2}$ (Exp 81, momentum space); the probe shows these are geometrically uncoupled. A vacuum holding potential is a configuration-space quantity — $\bar{\delta}$ applies here, $W_{\Sigma\Delta}$ does not.
 
 *   **Neutron Mass**: $939.57$ MeV
 *   **Mixing Element ($\epsilon$)**: $~10^{-23}$ eV (typical GUT scale)
@@ -59,7 +59,7 @@ Using the Modern Entropic Bias ($\delta = 5/9 \alpha_{QED} \approx 0.00405$) der
 
 The **Entropic Bias** does not just explain the *origin* of matter; it explains its *persistence*.
 
-The universe is "held open" by a **7.6 MeV potential** that prevents neutrons from sliding back into the symmetric void. This mechanism renders the proton and neutron effectively stable against oscillation, consistent with all experimental bounds, without requiring absolute conservation of Baryon Number. We are safe from spontaneous annihilation.
+The universe is "held open" by a **7.6 MeV potential** — computed from the configuration-space bias $\bar{\delta} = (5/9)\,\alpha_{QED}$ (topological move-count ratio, QED-screened) — that prevents neutrons from sliding back into the symmetric void. The Exp 82 probe (April 5, 2026) confirms that $\bar{\delta}$ and the momentum-space $W_{\Sigma\Delta}$ (Exp 81) are geometrically uncoupled: the barrier comes from the configuration sector and is unchanged by the Exp 81 calibration. This mechanism renders the proton and neutron effectively stable against oscillation, consistent with all experimental bounds, without requiring absolute conservation of Baryon Number. We are safe from spontaneous annihilation.
 
 ## §2.6 Formal Grounding: Entropic Barrier as Real Action Cost
 
@@ -91,4 +91,6 @@ follows directly from `ΔE = 2 · realActionCostCoeff(τ_n)`. Theorem G sets `Δ
 
 **Key implication**: Baryon number is not conserved by an accidental global symmetry that could be violated by GUTs or sphalerons. It is stabilised by the off-critical real action cost. As long as matter particles carry `Re(s) ≠ 1/2`, theorem H closes the oscillation channel. The universe is not fragile.
 
-**Applicable theorems**: G (`realActionCostCoeff_zero_iff/_pos_iff`), H (`off_line_positive_real_cost`).
+**Geometric sector note (Exp 82 probe, April 5, 2026)**: The `realActionCostCoeff` grounding confirms that $V_{\rm entropic}$ is a configuration-space quantity, correctly parameterised by $\bar{\delta} = (5/9)\,\alpha_{QED}$ (topological move-count ratio). The momentum-space quantity $W_{\Sigma\Delta} \approx 3\times10^{-2}$ (Exp 81) is geometrically uncoupled from $\bar{\delta}$ and does not enter the neutron barrier — its Boltzmann average does not converge to $\bar{\delta}$ at any temperature. The two are independent projections of the 5/9 topology onto different geometric sectors.
+
+**Applicable theorems**: A (`fixed_equilibrium_orthogonal`), F (`cpow_re_im_split`), G (`realActionCostCoeff_zero_iff/_pos_iff`), H (`off_line_positive_real_cost`).

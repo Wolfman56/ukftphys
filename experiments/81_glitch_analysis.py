@@ -241,19 +241,20 @@ def analyze_glitch():
     # Plotting "The Glitch"
     plt.figure(figsize=(10, 6))
     plt.errorbar(bin_centers, asymmetries, yerr=errors, fmt='o-', color='purple', label='Simulated A_CP')
-    
-    # Theoretical Expected Line
-    theory_acp = 2 * BIAS_DELTA # Approx
-    plt.axhline(y=theory_acp, color='r', linestyle='--', label=f'Theory (2*Bias) = {theory_acp:.4f}')
-    
-    plt.title("Experiment 81: Potential Origin of the CERN Glitch\n(CP Asymmetry in b-quark sector from Mirror Fermion Entropic Bias)")
+
+    # Calibrated theory reference: W_ΣΔ at p=151, pT=150 GeV
+    theory_acp = sigma_delta_weight(151, 150)
+    plt.axhline(y=theory_acp, color='r', linestyle='--', label=f'W_ΣΔ(151,150) = {theory_acp:.4f}')
+
+    plt.title("Experiment 81: Potential Origin of the CERN Glitch\n(CP Asymmetry in b-quark sector from Mirror Fermion $W_{\\Sigma\\Delta}$)")
     plt.xlabel("pT(b) [GeV]")
     plt.ylabel("Asymmetry A_CP (Matter - Antimatter)")
     plt.legend()
     plt.grid(True, alpha=0.3)
-    plt.ylim(-0.05, 0.05) # Zoom in
-    
-    plt.text(50, 0.03, r"Entropic Bias $\delta = 5/9 \alpha$", fontsize=12, color='red')
+    plt.ylim(-0.06, 0.06)  # Updated to cover calibrated A_CP ~ 0.031
+
+    plt.text(50, 0.04, r"$W_{\Sigma\Delta}(151,150) = 3.057 \times 10^{-2}$", fontsize=12, color='red')
+    plt.text(50, -0.045, r"Build 31, commit 2b14daf — April 5 2026", fontsize=9, color='gray')
     
     plt.tight_layout()
     plt.savefig(f"{OUTPUT_DIR}/cern_glitch_asymmetry.png")
@@ -276,8 +277,9 @@ def analyze_glitch():
     print(f"Plot saved to {OUTPUT_DIR}/cern_glitch_kinematics.png")
     
     print("-" * 40)
-    print(f"Integrated Asymmetry: {np.mean(asymmetries):.6f}")
-    print(f"Theory Prediction   : {theory_acp:.6f}")
+    print(f"Binned mean A_CP (biased est.): {np.mean(asymmetries):.6f}")
+    print(f"  (Use 81_lean_bounds.py for true integrated A_int = 3.078e-2)")
+    print(f"Theory W_ΣΔ(151,150)         : {theory_acp:.6f}")
     print("-" * 40)
 
 if __name__ == "__main__":

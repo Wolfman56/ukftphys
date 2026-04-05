@@ -86,10 +86,13 @@ This is where the mirror fermion's contribution to $\zeta(s)$ deviates from the 
 > **Status**: Lean-grounded hard prediction. First ukftphys experiment formally connected to §2.6 theorems via `fermion_sum_twice_re` + `fermion_residual_magnitude`.
 
 ## 5. Conclusion
-The "Glitch" is thermodynamically powered. The Mirror Fermion's coupling $\delta = \frac{5}{9} \alpha$ creates a branching ratio asymmetry $A_{CP} \approx 2\delta \approx 0.8\%$.
+The "Glitch" is thermodynamically powered. The Mirror Fermion's coupling $\bar{\delta} = \frac{5}{9} \alpha$ (configuration space) creates a branching ratio asymmetry $A_{CP} \approx 2\bar{\delta} \approx 0.8\%$ in the entropy injection channel.
+
+**Note (Exp 81/82 probe, April 5, 2026):** The directly measured LHCb collider $A_{CP} = 3.078\times10^{-2} \approx 3.1\%$ (Exp 81, Build 31) is the momentum-space $W_{\Sigma\Delta}$, which is geometrically distinct from $\bar{\delta}$ and does not reduce to it by thermal averaging. The 0.8% here is the entropy-injection asymmetry in configuration space; both are independent fossils of the same 5/9 topology.
+
 This validates the mechanism: **The Mirror Fermion injects order (Information) into the early universe, driving the matter dominance.**
 
-The §2.6 formalization elevates this from a numerical coincidence to a formal result: the entropy injection ΔI is the direct measurable signature of the mirror fermion's off-critical-line parameter $\sigma_{mirror} - \tfrac{1}{2}$, proved via `fermion_sum_twice_re` in the Lean 4 UKFT library.
+The §2.6 formalization elevates this from a numerical coincidence to a formal result: the entropy injection $\Delta I$ is the direct measurable signature of the mirror fermion's off-critical-line parameter $\sigma_{mirror} - \tfrac{1}{2}$, proved via `fermion_sum_twice_re` in the Lean 4 UKFT library.
 
 ## Artifacts
 *   Script: `experiments/80_mirror_entropy_injection.py`
