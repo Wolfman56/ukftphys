@@ -75,18 +75,23 @@ The void fraction f_void(w) is strictly decreasing from ~0.286 at w = 0.1 to
 > **PASS ✓**  *(labelled speculative: this is the finite-w approximation of
 > the V_eff-regulated continuum limit described in §4.15)*
 
-**H91-4** — Void ledger structural checks (residual capacity role)
-> (a) C_void/C_DM = 0.676 ∈ (0.3, 1.5): True — void is present but sub-dominant in
->     the finite Dirichlet model (as expected for a residual sector)
+**H91-4-ORIGINAL** — Capacity ratio vs cosmological constant ratio *(GAP-03)*
+> C_void/C_DM at w=0.1 = 0.676; Planck Ω_Λ/Ω_DM = 2.555.  Relative error: **73.4%**.
+> **FAIL ✗** — The bare Dirichlet sum does not reproduce the cosmological ratio.
+> This was the original H91-4 test; it was replaced with structural proxies after
+> failure (GAP-03, documented in `UKFT_QFT_GR_PAPER_GAP.md`).  Reproducing
+> Ω_Λ/Ω_DM = 2.55 from the bare ledger requires V_eff regulation of the w→0⁺
+> continuum limit — a derivation not yet constructed.  Lean M28 is blocked
+> pending this work.
+
+**H91-4-STRUCT** — Void ledger structural proxy checks (residual capacity role)
+> (a) C_void/C_DM = 0.676 ∈ (0.3, 1.5): True — void is present but sub-dominant
+>     in the finite Dirichlet model (expected for a residual sector)
 > (b) C_void < C_col at w = 0.5: True — collapsed primes always dominate at
 >     physically relevant w
 > (c) Sensitivity step bl9→bl10 = 0.079 < 0.15: True — boundary choice is
 >     modestly constrained
-> **PASS ✓**
->
-> *Note:* The cosmological ratio Ω_Λ/Ω_DM = 2.545 exceeds C_void/C_DM = 0.676
-> because Ω_Λ derives from the V_eff-regulated w→0⁺ limit, not the bare
-> discrete Dirichlet sum at any finite w.
+> **PASS ✓** *(structural proxies only — not the cosmological ratio test)*
 
 ---
 

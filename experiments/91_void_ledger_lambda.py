@@ -275,7 +275,22 @@ print(f"  Observed   = {RHO_LAMBDA_OBS:.3e} GeV⁴")
 print(f"  log₁₀|ratio| = {abs(log10_ratio):.2f}  (threshold < 2.0)")
 print(f"  STATUS: {'PASS' if PASS_H3 else 'FAIL'}")
 
-# H91-4: The void sector is sub-dominant at finite w (C_void < C_DM and C_void < C_col
+# H91-4-ORIGINAL: C_void/C_DM = 0.676 ≠ Omega_Lambda/Omega_DM = 2.555 (73.4% error)
+# The original H91-4 tested whether the capacity ratio C_void/C_DM matches the
+# cosmological ratio Ω_Λ/Ω_DM = 2.555.  It FAILS at 73.4% relative error.
+# REPLACED with structural proxies — GAP-03 (retraction committed in UKFT_QFT_GR_PAPER.md §4.15
+# and documented in UKFT_QFT_GR_PAPER_GAP.md).
+# Resolving H91-4-ORIGINAL to PASS requires V_eff regulation of the w→0⁺ continuum
+# limit (future work; §4.15 note; Lean M28 blocked pending this derivation).
+print(f"\nH91-4-ORIGINAL (capacity ratio vs cosmological constant ratio):")
+print(f"  C_void/C_DM  at w=0.1 = {ratio_ledger:.4f}")
+print(f"  Ω_Λ/Ω_DM    Planck   = {ratio_planck:.4f}")
+print(f"  Relative error        = {abs(ratio_ledger - ratio_planck)/ratio_planck * 100:.1f}%")
+print(f"  STATUS: FAIL [GAP-03] — bare Dirichlet does not reproduce cosmological ratio")
+print(f"  NOTE: V_eff regulation required; see §4.15 and UKFT_QFT_GR_PAPER_GAP.md")
+#
+# Current H91-4 (renamed H91-4-STRUCT): structural proxy checks that pass by construction.
+# The void sector is sub-dominant at finite w (C_void < C_DM and C_void < C_col
 # at w ≥ 0.5), consistent with the ledger's role as a *residual* capacity.
 # At very low w, void primes contribute more robustly — C_void/C_DM must lie in (0, 1)
 # at w=0.1 (void is present but not dominant in finite-sum Dirichlet model).
