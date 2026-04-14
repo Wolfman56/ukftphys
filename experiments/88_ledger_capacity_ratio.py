@@ -617,6 +617,9 @@ def print_summary(jump_primes, ledgers, cr, w257_window, sweep):
     print(f"\nHypothesis checks:")
     n_dm = cr["n_dm"]
     h1 = n_dm == 5
+    # H88-2: compares INTEGER COUNT n_DM=5 against Planck 5.362 — a CARDINALITY
+    # comparison, NOT a continuous Dirichlet capacity ratio.  The script uses
+    # "C_DM" as shorthand for #JP_DM throughout.  GAP-05 [RESOLVED-OPT-A]
     h2 = abs(n_dm - PLANCK_RATIO) / PLANCK_RATIO < 0.10
     # H88-3 checked in figure (ratio << 1)
     h4 = True  # by construction: neighbouring boundaries give counts 4 and 6

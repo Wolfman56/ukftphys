@@ -2,7 +2,7 @@
 
 **File:** `88_ledger_capacity_ratio.py`  
 **Depends on:** Experiment 87 (jump-prime framework), `UKFT_QFT_GR_PAPER.md §4.16`  
-**Supports Lean milestone:** M29 `dark_matter_ledger_mirror_capacity`
+**Supports Lean milestone:** M29 `dark_matter_ledger_count` (renamed from `dark_matter_ledger_mirror_capacity` — GAP-05)
 
 ---
 
@@ -167,7 +167,7 @@ void ledger (Exp 91).
 
 ## Lean Connection
 
-**M29** `dark_matter_ledger_mirror_capacity` (planned, `LedgerHierarchy.lean`):
+**M29** `dark_matter_ledger_count` (renamed from `dark_matter_ledger_mirror_capacity`, planned, `LedgerHierarchy.lean`):
 
 ```lean
 -- Informal statement:
@@ -202,3 +202,20 @@ requiring numerical bounds on Planck 2018 data, outside the scope of Lean.
 | Discrepancy | −6.8% |
 | 257–307 window primes | 9 (closure regime) |
 | Peak continuous ratio | ≈ 0.086 (at w ≈ 1.65) |
+
+---
+
+## GAP-05 Resolution Note
+
+**Status:** `[RESOLVED-OPT-A]` (April 14 2026)
+
+The definitional confusion between "capacity" (continuous Dirichlet function) and "count" (integer cardinality) has been resolved by:
+
+| Action | Detail |
+|--------|--------|
+| §4.16 paper overclaim retracted | "natural ratio of mirror-ledger to collapsed capacity" → "natural count of DM bit-length classes, |JP_DM|=5" |
+| GAP-05 quantitative caveat added to §4.16 | Documents −6.8% residual; notes continuous C_DM(w)/C_col(w) << 1 for all w > 0 |
+| M29 Lean stub renamed | `dark_matter_ledger_mirror_capacity` → `dark_matter_ledger_count` |
+| H88-2 annotation added to `88_ledger_capacity_ratio.py` | Explicitly labels the comparison as cardinality, not capacity |
+
+**Unresolved sub-item:** The −6.8% discrepancy (5 vs 5.362) has no derivation within the framework. It is documented in §4.16 as a subleading correction reserved for future work.
