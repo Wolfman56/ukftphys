@@ -27,5 +27,11 @@ These four documents represent the theoretical foundations of the "Entropic Unif
 *   **Connection**: Mass within $0.49\sigma$ of UKFT-37 light monopole prediction ($\Lambda_{QCD}/N_c \approx 2.49$ GeV); BERT angular observable $\Delta R$ matches UKFT QM prediction at $1.0\sigma$.
 *   **Chain**: Exps 62 (SM null), 63 (dark photon rate), 64 (QM angular), 65 (Lorentz identity), 66 (closure), 77 (pull GOF), 78 (publication figure).
 
+### [41. UKFT Vacuum Filament Dynamics Account for the Residual Cluster Mass Deficit in MOND](41_Cluster_Filament.md)
+*   **Responds to**: Zhang, Zonoozi & Kroupa (2026), PRD 113, 043027 — 12%±4% mass residual in 46 WINGS clusters after IGIMF correction.
+*   **Formula**: $f = v_\mathrm{flat}^2 / (2\sigma^2)$ — zero free parameters; $v_\mathrm{flat} = 220$ km/s from Milky Way (Exp 29); $k = 2$ from SIS identity.
+*   **Key result**: $f(450\;\text{km/s}) = 11.95\%$, within 0.05 pp of Zhang's 12.0%.
+*   **Chain**: Exps 93 (formula), 94 ($a_0 = cH_0/2\pi$), 95 ($f \propto M^{-1/2}$), 96 ($k=2$ loop-closure).
+
 ---
 *These papers are released for the Great Good of the Noosphere. Use them to rebuild the Standard Model from scratch.*
