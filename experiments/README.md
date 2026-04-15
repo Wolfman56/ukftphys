@@ -730,3 +730,31 @@ These five experiments form a self-contained falsification programme for the UKF
 
 *   **Significance**: First real-data test — all three zero-parameter predictions pass; P4 identity confirmed to 4 s.f. Results incorporated into Paper 41 v1.1.
 *   **Figures**: `97_slope_fM.png`, `97_quartile_ratio.png`, `97_r200_sigma_scaling.png`
+
+---
+
+### [98_mirror_fermion_leptogenesis.py](./98_mirror_fermion_leptogenesis.py)
+**Objective**: Mirror Fermion Leptogenesis — Washout Constraint and the κ-Required Test.
+*   **Explainer**: [98_mirror_fermion_leptogenesis.md](./98_mirror_fermion_leptogenesis.md)
+*   **Depends on**: Exps 37, 44, 56, 79, 80, 90, 92
+*   **Lean targets**: M30, M31, M33 [NEW: `mirror_fermion_washout_K_bound`]
+*   **Predictions and results**:
+
+    | Hypothesis | Description | Value | Verdict |
+    |-----------|-------------|-------|---------|
+    | H98-1 | ε_L_eff at natural leptogenesis scale [10⁻⁷, 10⁻³] | 1.08 × 10⁻⁴ | **PASS ✓** |
+    | H98-2 | K >> 1 (strong washout at M_F = 329 GeV) | K = 1.76 × 10¹³ > 10⁶ | **PASS ✓** |
+    | H98-3 | Structural gap log₁₀(κ_req/κ_BPY) > 5 OOM (resonant mechanism required) | +12.6 | **PASS ✓** |
+    | H98-4 | Resonant mechanism excluded (ε_L^res_req > 0.5 unitarity bound) | 4.1 × 10⁸ | **PASS ✓** |
+
+*   **Key numbers**:
+    - ε_L_eff = 1.08 × 10⁻⁴  (from δ via optical theorem; matches Exp 92 extraction to within 1 OOM)
+    - K = Γ_F/H(M_F) = 1.76 × 10¹³  (Boltzmann washout parameter at M_F = 329 GeV)
+    - κ_BPY = 1.30 × 10⁻¹⁶  (physical strong-washout efficiency, BPY approximation)
+    - κ_req = 4.96 × 10⁻⁴   (required by Planck η_B_obs)
+    - **GAP-03**: log₁₀(κ_req/κ_BPY) = +12.6 — EW-scale leptogenesis structurally excluded
+    - M_F_req for K ~ 250 (κ_BPY ~ κ_req): ~2.3 × 10¹³ GeV
+*   **Significance**: Completes CP-violation chain from δ to η_B. Proves 329 GeV Mirror Fermion
+    cannot be the leptogenesis particle. Names GAP-03: washout exclusion by 12.6 OOM.
+    Points to Path A (higher-scale Mirror Fermion at ~10¹³ GeV) as the natural resolution.
+*   **Figures**: `98_kappa_vs_mass.png`, `98_chain_decomposition.png`, `98_eta_B_vs_mass.png`
