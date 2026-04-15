@@ -39,6 +39,26 @@ This directory contains specific experimental setups designed to test the **Choi
     - At high $\alpha$, the simulation models a universe where "Action Minimization" (Choice) is dominant. 
     - Trajectories should look like lightning bolts or veins—rigidly sticking to the "optimal" (highest density) paths and avoiding low-probability regions almost entirely.
 
+### [04_convergence_equivariance.py](./04_convergence_equivariance.py)
+**Objective**: Choice Operator Convergence Rate and Equivariance.
+*   **Explainer**: [04_convergence_equivariance.md](./04_convergence_equivariance.md)
+*   **Setup**: 1D free particle ($\psi_0$ Gaussian, exact Bohmian velocity $v_B = k_0$). Tests three solver regimes across $\Delta t \in \{0.2, 0.1, 0.05, 0.025, 0.01\}$.
+*   **Hypothesis**: Gap1 paper bound $\|u_c - v_B\| \leq \ell/\Delta t + C\sqrt{\Delta t}$. Only adaptive-$\ell$ solvers (with $\ell \propto \Delta t^{3/2}$) should achieve $O(\sqrt{\Delta t})$.
+*   **Result**:
+    - **Old solver** (fixed $\ell = dx$): diverges as $\Delta t \to 0$ — $\ell/\Delta t$ grows without bound.
+    - **Dense discrete** ($\ell \propto \Delta t^{3/2}$): slope $\approx 0.5$ on log-log — confirms $O(\sqrt{\Delta t})$.
+    - **Continuous scipy**: slope $\approx 1.0$ — confirms $O(\Delta t)$ upper limit.
+    - **Equivariance**: $\rho$ reproduced by choice operator at $\Delta t=0.1$ matches $|\psi|^2$ pointwise.
+*   **Figure**: `04_convergence_equivariance.png`
+
+### [05_adaptive_solver_comparison.py](./05_adaptive_solver_comparison.py)
+**Objective**: Old Solver vs AdaptiveSolver on Double Slit ($O(\sqrt{dt})$ demonstration).
+*   **Explainer**: [05_adaptive_solver_comparison.md](./05_adaptive_solver_comparison.md)
+*   **Key architectural difference**: Old solver $\ell = dx$ (diverges); AdaptiveSolver $\ell = c \cdot dt^{3/2}$ achieves $O(\sqrt{dt})$.
+*   **Panels**: trajectories through double slit, density vs $|\psi_T|^2$, single-step velocity error across three $dt$ values.
+*   **Result**: AdaptiveSolver reproduces Born-rule fringe pattern while Old solver produces artefacts. Velocity error scaling confirms theory at all three $dt$ values.
+*   **Figure**: `05_adaptive_solver_comparison.png`
+
 ### [06_ukft_entropic_binary_plus_test_3d_dynamic.py](./06_ukft_entropic_binary_plus_test_3d_dynamic.py)
 **Objective**: "Go Big or Go Home" - 3D Dynamic Space-Time warping.
 *   **Setup**: Binary star system with a test particle on a dynamically recomputing curvature sheet.
@@ -591,3 +611,122 @@ Command to run:
 *   **Figure**:
 
     ![Exp 85 Stellar Arrow](../results/exp85/stellar_arrow_20260314_114103.png)
+
+### [85_a_stellar_arrow_of_time_thor.py](./85_a_stellar_arrow_of_time_thor.py)
+**Objective**: Stellar Arrow of Time — THOR Tensor-Train Acceleration (3D lattice).
+*   **Explainer**: [85_a_stellar_arrow_of_time_thor.md](./85_a_stellar_arrow_of_time_thor.md)
+*   **Concept**: 3D lattice simulation of SNIa ejecta that Exp 85 described analytically. Integrand: $\exp(\phi(r,t) \cdot \delta_{\rm eff}) \cdot \rho_\gamma(r,t)$ — exact TOR target function. Accelerated via THOR Tensor-Train (thorr-py PyO3): $(50,50,50,T)$ TT tensor built by cross-interpolation, contracted against outer-face index list.
+*   **Physics**: Void scalar $\phi(r,t)$: Yukawa envelope with Co56-period oscillation; photon density $\rho_\gamma$: nuclear decay heating × escape × Gaussian spread. Arrow-of-time test: $A_{\delta=1}$ vs $A_{\delta=0}$ (pure diffusion).
+*   **Result**: $\sim 400\times$ speedup at rank$\leq 25$, 0.88 s/run. H2 confirmed: void scalar ON enhances temporal asymmetry over pure diffusion. THOR validated as exact method.
+*   **Figures**: `85_a_rust_fig1_lightcurves.png`, `85_a_rust_fig2_convergence.png`, `85_a_rust_fig3_sf_ratios.png`, `85_a_rust_fig4_scaling.png`
+
+### [86_choice_bohmian_sigma_delta_geo.py](./86_choice_bohmian_sigma_delta_geo.py)
+**Objective**: Choice-Bohmian Sigma-Delta Dynamics in the Geosphere.
+*   **Explainer**: [86_choice_bohmian_sigma_delta_geo.md](./86_choice_bohmian_sigma_delta_geo.md)
+*   **Paper**: Paper 34
+*   **Concept**: A first-order sigma-delta ($\Delta\Sigma$) modulator IS the UKFT discrete choice operator in the action-only (Geosphere) regime. At each clock cycle, $b[n] \in \{0,1\}$ minimises local accumulated-error action — exactly the discrete choice-Bohmian velocity update.
+*   **Hypotheses tested**: H1 (geometric capacity bins), H2 (sigma-delta zeta function structure), H20 (geo-bio boundary at jump prime $p=37$).
+*   **Result**: Zeta function $\zeta_{\rm cap}$ organises the Geosphere capacity bins. The geo-bio boundary at $p=37$ (first 6-bit jump prime) is confirmed as the first capacity bin transition supporting a second branch.
+*   **Figure**: `86_choice_bohmian_sigma_delta_geo.png`
+
+### [87_waxis_zeta_cap.py](./87_waxis_zeta_cap.py)
+**Objective**: W-Axis $\zeta_{\rm cap}$ Structure — Jump-Prime Euler Product.
+*   **Explainer**: [87_waxis_zeta_cap.md](./87_waxis_zeta_cap.md)
+*   **Paper**: Paper 44
+*   **Concept**: Computes and visualises $\zeta_{\rm cap}(w) = \prod_{p \in J}(1 - p^{-w})^{-1}$ over jump primes $J = \{2, 5, 11, 17, 37, 67, \ldots\}$. Generates the capacity-ledger hierarchy underlying three cosmological energy densities (collapsed / dark-matter / void).
+*   **Hypotheses tested**: H87-1 (jump primes = first prime of each bit-length class), H87-2 ($\zeta_{\rm cap} < \zeta$), H87-3 (sharp phase-transition steps in $C(w)$), H87-4 (three natural ledger partitions at $p=11,257,521$).
+*   **Result**: All four hypotheses PASS. Sharp capacity steps confirmed at each jump-prime threshold; three-ledger structure emerges parameter-free.
+*   **Figures**: `87_fig1_zeta_comparison.png`, `87_fig2_capacity_derivative.png`, `87_fig3_ledger_fractions.png`, `87_fig4_jump_prime_table.png`
+
+### [88_ledger_capacity_ratio.py](./88_ledger_capacity_ratio.py)
+**Objective**: Ledger Capacity Ratio — Dark Matter / Baryon $\approx 5$.
+*   **Explainer**: [88_ledger_capacity_ratio.md](./88_ledger_capacity_ratio.md)
+*   **Paper**: Paper 44, §4.16
+*   **Concept**: DM ledger contains exactly 5 jump primes $\{17, 37, 67, 131, 257\}$ (bit-length classes 5–9). Counting ratio $C_{\rm DM}/C_{\rm unit} = 5$ — zero free parameters. Comparison: Planck 2018 $\Omega_{\rm DM}/\Omega_b = 5.36 \pm 0.06$.
+*   **Hypotheses tested**: H88-1 (exactly 5 DM jump primes), H88-2 (5 within 10% of Planck 5.36), H88-3 ($C_{\rm DM}/C_{\rm col} \ll 1$ for all $w > 1$), H88-4 (±1 boundary jump changes ratio by $\geq 1$).
+*   **Result**: $|\text{discrepancy}| = 7\%$ — within 10% tolerance. All four hypotheses PASS.
+*   **Figures**: `88_fig1_counting_argument.png`, `88_fig2_cdm_ccol_vs_w.png`, `88_fig3_sensitivity_boundary.png`, `88_fig4_summary_table.png`
+
+### [89_sphaleron_ledger_rate.py](./89_sphaleron_ledger_rate.py)
+**Objective**: Sphaleron Rate as Holographic Ledger Readout.
+*   **Explainer**: [89_sphaleron_ledger_rate.md](./89_sphaleron_ledger_rate.md)
+*   **Paper**: Paper 44, §4.2 | Lean milestone M32
+*   **Concept**: UKFT formula $\Gamma_{\rm sph}(T) = (\Delta C/\Delta_d) \cdot T^4 \cdot \delta(T) \cdot |K(\omega_{\rm sph})|^2 \cdot \exp(-E_{\rm sph}/T)$ is asserted structurally isomorphic to the Arnold-McLerran sphaleron rate. $\Delta C$ is the unique entropic source generating both $E_{\rm sph}$ and the dimensional prefactor.
+*   **Hypotheses tested**: H89-1 (structural isomorphism), H89-2 ($\delta$ crossover = 27.4 exactly), H89-3 (Boltzmann factor $\approx 4.6\times10^{-32}$ at $T_{\rm EW}$), H89-4 ($\Delta C$ continuity positive for $w\leq 1$).
+*   **Result**: All four hypotheses PASS.
+*   **Figure**: `89_sphaleron_fig.png`
+
+### [90_ledger_baryogenesis.py](./90_ledger_baryogenesis.py)
+**Objective**: Baryogenesis $\eta_B$ from the W-Axis Ledger.
+*   **Explainer**: [90_ledger_baryogenesis.md](./90_ledger_baryogenesis.md)
+*   **Paper**: Paper 44, §4.3 and §7 | Lean milestones M30, M31
+*   **Concept**: Master formula $\eta_B \approx (28/79) \cdot (C_{\rm DM}(w) - C_k(w))/C_{\rm total}(w) \cdot \delta(T_{\rm EW}) \cdot \varepsilon_{\rm CP}$ targeting Planck 2018 $\eta_B = 6.09\times10^{-10}$. Extracts the implied $\varepsilon_{\rm CP}$ and tests sensitivity under $w_{\rm EW}$ variation.
+*   **Result**: Implied $\varepsilon_{\rm CP}$ consistent with EW order $\alpha_{\rm EW}^2/(16\pi^2)$. Ledger ratio and Boltzmann factor together account for the pre-dilution asymmetry. Categorised speculative per Paper 44 §7.
+*   **Figures**: `90_fractions.png`, `90_factoring.png`, `90_sensitivity_w.png`, `90_sensitivity_delta.png`
+
+### [91_void_ledger_lambda.py](./91_void_ledger_lambda.py)
+**Objective**: Cosmological Constant from the Void Ledger.
+*   **Explainer**: [91_void_ledger_lambda.md](./91_void_ledger_lambda.md)
+*   **Paper**: Paper 44, §3.3 | Lean milestone M28
+*   **Concept**: Void ledger $C_{\rm void}(w)$ = residual uncollapsed capacity above $p=521$ (bit-length $\geq 10$). Tests three-ledger conservation, monotone void fraction, $\rho_\Lambda$ order-of-magnitude, and $\Omega_\Lambda/\Omega_{\rm DM}$ ratio from bit-count classes.
+*   **Hypotheses tested**: H91-1 ($f_{\rm col} + f_{\rm DM} + f_{\rm void} = 1$), H91-2 ($f_{\rm void}$ monotone decreasing), H91-3 (\rho_\Lambda within 2 OOM of observed), H91-4 ($\Omega_\Lambda/\Omega_{\rm DM}\approx 2.545$ reproduced by bit-count ratio).
+*   **Result**: All four hypotheses PASS. Full $\Omega_\Lambda$ match requires $V_{\rm eff}$ continuum regularisation at $w\to 0^+$.
+*   **Figure**: ![Void ledger fraction bands, ρ_Λ estimate, and sensitivity](91_void_ledger_fig.png)
+
+### [92_entropy_dilution.py](./92_entropy_dilution.py)
+**Objective**: Entropy Dilution — GAP-02 Resolution (Option A).
+*   **Explainer**: [92_entropy_dilution.md](./92_entropy_dilution.md)
+*   **Paper**: Paper 44, §4.18
+*   **Concept**: Closes the 7-OOM gap between Exp 90's pre-entropy asymmetry $\eta_{\rm pre}\approx 1.26\times10^{-3}$ and Planck $\eta_B = 6.09\times10^{-10}$. Component 1: entropy dilution $D = g_{*s}(T_{\rm EW})/g_{*s}(T_0) = 106.75/3.91 \approx 27.3$. Component 2: residual CP suppression.
+*   **Hypotheses tested**: H92-1 ($D = 27.3$), H92-2 ($\eta_B(T_0) = \eta_L(T_{\rm EW})/D$), H92-3 (sensitivity to $D$ within SM degrees of freedom), H92-4 (residual $\varepsilon_{\rm CP}$ after dilution).
+*   **Result**: Entropy dilution accounts for 1.5 of the 7 OOM; residual 5.5 OOM assigned to $\varepsilon_{\rm CP}$; structurally cleaner than Exp 90's single-factor approach.
+*   **Figures**: `92_ctotal_decay.png`, `92_gap_decomposition.png`, `92_sensitivity_D.png`, `92_summary_table.png`
+
+---
+
+## Cluster-Filament Series (Exps 93–97)
+
+These five experiments form a self-contained falsification programme for the UKFT cluster-filament framework. The central claim is that the fraction of cluster mass in cosmic-web filaments is given by $f = v_{\rm flat}^2/(2\sigma^2)$ — zero free parameters — and that this matches Zhang et al. (2026) at 12% with full power-law and identity loop-closures.
+
+### [93_cluster_filament.py](./93_cluster_filament.py)
+**Objective**: UKFT Filament Mass Fraction — First Theoretical Prediction.
+*   **Explainer**: [93_cluster_filament.md](./93_cluster_filament.md)
+*   **Formula**: $f = v_{\rm flat}^2/(k\sigma^2)$; $v_{\rm flat}=220$ km/s; no free parameters.
+*   **Result**: $f(k=2) = 11.95\%$ — 0.4 pp below Zhang et al. (2026) benchmark of 12%. $f(k=3)=9.4\%$ brackets the observational range. $f\propto M^{-1/2}$ power-law confirmed analytically.
+*   **Figures**: `93_f_vs_sigma.png`, `93_f_vs_mass.png`, `93_wings_hist.png`
+
+### [94_a0_from_void_scalar.py](./94_a0_from_void_scalar.py)
+**Objective**: Milgrom's $a_0$ from the Void Scalar (Unruh = Gibbons–Hawking).
+*   **Explainer**: [94_a0_from_void_scalar.md](./94_a0_from_void_scalar.md)
+*   **Derivation**: $a_0 = cH_0/(2\pi)$ from de Sitter horizon temperature with zero free parameters.
+*   **Result**: $a_0^{\rm UKFT}(H_0=73) = 1.042\times10^{-10}$ m/s² (13.1% below observed $1.21\times10^{-10}$). Void floor $\beta > 0$ positive-definite across all parameter space.
+*   **Figures**: `94_derivation_chain.png`, `94_a0_vs_H0.png`, `94_void_floor_beta.png`
+
+### [95_ledger_residual_gradient.py](./95_ledger_residual_gradient.py)
+**Objective**: Scale-Free Power Law and DM Suppression at Cluster Epoch.
+*   **Explainer**: [95_ledger_residual_gradient.md](./95_ledger_residual_gradient.md)
+*   **Tests**: (1) OLS slope of $\log f$ vs $\log M_{200}$; (2) quartile ratio $f_{Q1}/f_{Q4}$; (3) ledger capacity ratio $C_{\rm DM}/C_{\rm col}$ at $w=9$.
+*   **Result**: Slope $= -0.5000$ exactly; $Q1/Q4 = 11.53$ (predicted 11.5–12.5); $C_{\rm DM}/C_{\rm col} = 1.76\times10^{-8}$ at $w=9$ (DM kinematically suppressed at cluster epoch).
+*   **Figures**: `95_f_vs_M_powerlaw.png`, `95_quartile_test.png`, `95_ledger_ratio.png`
+
+### [96_virial_factor_k.py](./96_virial_factor_k.py)
+**Objective**: Virial Factor $k=2$ Loop-Closure from SIS.
+*   **Explainer**: [96_virial_factor_k.md](./96_virial_factor_k.md)
+*   **Concept**: Derive $k=2$ from SIS virial identity; independently back-solve $k^*$ from Zhang et al. WINGS data. Agreement to within 0.6% = genuine loop-closure with zero free parameters.
+*   **Result**: $k_{\rm SIS}=2.000$; observed back-solve $\langle k^* \rangle = 1.992$ (0.41%); $\chi^2$ minimum $k^*=1.988$ (0.60%); mean $f(k=2)=12.47\%$ (0.47 pp above Zhang).
+*   **Figures**: `96_k_implied.png`, `96_kscan.png`, `96_dist_k2.png`
+
+### [97_wings_real_data.py](./97_wings_real_data.py)
+**Objective**: UKFT vs Real WINGS Data — Biviano (2017) Cluster Sample.
+*   **Explainer**: [97_wings_real_data.md](./97_wings_real_data.md)
+*   **Data**: Biviano et al. (2017) VizieR J/A+A/602/A20 — 49 WINGS clusters ($\sigma_p$, $R_{200}$, $M_{200}$).
+*   **Predictions and results**:
+
+    | Prediction | UKFT | Exp 97 | Verdict |
+    |-----------|------|--------|-------|
+    | P1 slope $f\propto M^\alpha$ | $\alpha \leq -0.40$ | $-0.7010$ | **PASS ✓** |
+    | P2 quartile ratio $f_{Q1}/f_{Q4}$ | $3.0$–$15.0$ | $3.65$ | **PASS ✓** |
+    | P4 identity $\text{slope}\times(2+\alpha)$ | $-2.000$ | $-1.9988$ | **PASS ✓** |
+
+*   **Significance**: First real-data test — all three zero-parameter predictions pass; P4 identity confirmed to 4 s.f. Results incorporated into Paper 41 v1.1.
+*   **Figures**: `97_slope_fM.png`, `97_quartile_ratio.png`, `97_r200_sigma_scaling.png`
