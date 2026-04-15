@@ -119,6 +119,17 @@ The abbreviated PLAN formula `η_B = (28/79) × |ratio| × (5/9)` (without α_QE
 gives η_plan ≈ 0.173, requiring an additional factor of ~3.5 × 10⁻⁹ to reach
 η_B^obs. This factor combines both the α_QED from δ and the ε_CP component.
 
+**GAP-04 resolved — δ(T_EW) approximation hierarchy (§4.17 Remark 4.17.2):**
+Three levels appear across the derivation:
+
+| Level | Formula | Value | Role |
+|-------|---------|-------|------|
+| (i) Bare topological | δ_bare = 5/9 | ≈ 0.556 | PLAN leading-order estimate; `TOPOLOGICAL_BARE` in code |
+| (ii) QED-screened (**canonical**) | δ_SM = (5/9)·α_QED | ≈ 4.07 × 10⁻³ | Used in all H90 hypotheses; `TOPOLOGICAL` in code |
+| (iii) Momentum-space | W_ΣΔ(p, p_T) | ≈ 3 × 10⁻² (thermal avg) | Exp 81; geometrically distinct (Remark 4.17.1) |
+
+Levels (i) and (ii) are successive approximations of the same configuration-space quantity (factor 1/α_QED ≈ 137 between them). Level (iii) is a different geometric object. The canonical definition for all cosmological ledger experiments is level (ii).
+
 ---
 
 ## Hypotheses and Results
