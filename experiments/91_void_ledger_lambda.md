@@ -126,7 +126,7 @@ This experiment provides numerical grounding for **M28** —
 
 ## Figures
 
-`91_void_ledger_fig.png`
+![Void ledger fraction bands, ρ_Λ estimate, and sensitivity](91_void_ledger_fig.png)
 
 - **Fig 1**: Three-ledger stacked fraction bands vs w — shows void fraction
   shrinking as w increases (larger primes penalised faster)
