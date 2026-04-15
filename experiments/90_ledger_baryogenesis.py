@@ -120,9 +120,14 @@ TOPOLOGICAL = (5.0 / 9.0) * ALPHA_QED   # δ(T_EW) ≈ 4.05 × 10⁻³
 # EW epoch w-value.  Paper 44 Table 4.18.1 places the SM/EW epoch at w ≈ 1.8
 W_EW        = 1.8
 
-# Note: The PLAN (§4.18 step 3) uses δ = 5/9 without α_QED.  Both forms are
-# kept for comparison; the physically motivated form is (5/9)·α_QED.
-TOPOLOGICAL_BARE = 5.0 / 9.0   # as written in PLAN step 3
+# GAP-04 [RESOLVED — see §4.17 Remark 4.17.2]: Three approximation levels for δ(T_EW):
+#   (i)  δ_bare = 5/9                          (bare SU(3)×SU(2) topological ratio;
+#                                               PLAN step 3 used this as leading-order estimate)
+#   (ii) δ_SM  = (5/9)·α_QED ≈ 4.07×10⁻³     (canonical QED-screened form; used in Exps 89, 90)
+#   (iii) W_ΣΔ(p,p_T)                          (Exp 81 momentum-space fossil; geometrically
+#                                               distinct — Remark 4.17.1; NOT used for η_B)
+# All H90 hypotheses use TOPOLOGICAL = δ_SM = (5/9)·α_QED as canonical.
+TOPOLOGICAL_BARE = 5.0 / 9.0   # δ_bare: level-(i) bare form (PLAN step 3); reference only
 
 # Natural electroweak CP-violation scale (Jarlskog invariant order):
 #   ε_CP ~ α_EW² / (16π²) ~ a few × 10⁻⁶  (rough SM estimate)
