@@ -131,3 +131,27 @@ The DM and VOID sectors are each **bracketed by Fermat primes**. The COL sector 
 ## Outcome
 
 **All four hypotheses PASS.** The jump prime Fibonacci hierarchy makes a parameter-free prediction of the leptogenesis mass scales ($M_\star$ to 0.14%, $M_{\rm req}$ to 2.3%) and the washout enhancement factor ($K_{\rm eff} = 256$ vs $K_{\rm BPY} = 250$, to 2.4%). The VOID sector's 8-bit Fibonacci span is the geometric origin of the washout parameter $K \sim 2^8$ that governs the baryogenesis efficiency in Experiment 98.
+
+---
+
+## Bonus Observation (→ Experiment 100)
+
+During this analysis a structural feature of the ledger emerged that was not originally sought.
+
+At the leptogenesis epoch ($T \sim M_{\rm req} \sim 2.3 \times 10^{13}$ GeV, $w \sim 10^{-11}$), the void sector carries approximately **50% of total ledger capacity**, and the baryogenesis imbalance is *negative*:
+
+$$S(T_{\rm lepto}) = C_{\rm col} - C_{\rm DM} < 0 \quad \Longrightarrow \quad C_{\rm DM} > C_{\rm col}$$
+
+The ledger is **DM-biased** at the epoch where leptogenesis generates the CP asymmetry.
+
+As the universe cools, there is a unique symmetry point $T^*$ at which $C_{\rm col} = C_{\rm DM}$ exactly. Below $T^*$, the ledger first develops a **positive colour preference** ($C_{\rm col} > C_{\rm DM}$). This sign flip is the ledger's effective electroweak transition — the point at which the bookkeeping of the prime-sector capacities tips in favour of the coloured sector.
+
+Numerically (precise bisection, formalised in Experiment 100):
+
+| Quantity | Value |
+|----------|-------|
+| $w^*$ | 0.338800 |
+| $T^* = M_F / w^*$ | **971 GeV** (within HL-LHC range) |
+| $S(T_{\rm EW} = 183\,\text{GeV})$ | $+0.380$ (COL-dominant, as required) |
+
+**Physical interpretation:** Leptogenesis stores CP asymmetry in a DM-biased universe ($T > T^*$); EW sphalerons then convert it into net baryons in a COL-biased universe ($T < T^*$). The sign flip at $T^*$ is the "unlock event" separating these two phases of baryogenesis. This observation seeded Experiment 100, which establishes $T^*$ as a new UKFT prediction.

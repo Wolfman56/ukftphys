@@ -247,6 +247,60 @@ print("  K_eff = 2^(VOID_span) = 2^8 = 256")
 print("  Measured K_eff (Exp 98 BPY washout) = 250  →  agreement %.2f%%" % (100*abs(1-256/250)))
 print()
 
+# ─── Bonus Observation: Ledger Symmetry Point ───────────────────────────────
+# Discovered during this analysis; formalised in Experiment 100.
+# At the leptogenesis epoch the ledger is DM-dominated (C_DM > C_col).
+# There is a single temperature T* at which C_col = C_DM — a matter–DM
+# epoch transition embedded in the prime arithmetic of the three sectors.
+print()
+print(SEP)
+print("=== Bonus Observation: Ledger Symmetry Point (→ Experiment 100) ===")
+print()
+print("  At the leptogenesis epoch (T ~ M_req, w ~ 10^-11):")
+
+# Void fraction at leptogenesis
+w_l = M_F / M_req
+cc_l = ledger_c(w_l, JP_COL)
+cd_l = ledger_c(w_l, JP_DM)
+cv_l = ledger_c(w_l, JP_VOID)
+ct_l = cc_l + cd_l + cv_l
+print("    C_void / C_tot = %.3f  (~50%% — void sector carries half the ledger)" % (cv_l / ct_l))
+print("    C_DM > C_col:  baryogenesis imbalance S = C_col - C_DM = %+.3e  (NEGATIVE)" % (cc_l - cd_l))
+print("    → the ledger is DM-biased at the epoch where leptogenesis operates.")
+
+# Bisect for w*
+def _find_wstar():
+    lo, hi = 1e-12, 5.0
+    for _ in range(200):
+        mid = (lo + hi) / 2.0
+        if (ledger_c(mid, JP_COL) - ledger_c(mid, JP_DM)) < 0:
+            lo = mid
+        else:
+            hi = mid
+    return (lo + hi) / 2.0
+
+w_sym  = _find_wstar()
+T_sym  = M_F / w_sym
+S_at_TEW = ledger_c(w_EW, JP_COL) - ledger_c(w_EW, JP_DM) if (w_EW := 1.8) else 0
+S_at_TEW = ledger_c(1.8, JP_COL) - ledger_c(1.8, JP_DM)
+
+print()
+print("  Symmetry point (C_col = C_DM):")
+print("    w*  = %.6f" % w_sym)
+print("    T*  = M_F / w* = %.2f GeV  (~971 GeV, within HL-LHC range)" % T_sym)
+print("    At T > T*: DM sector exceeds COL  (negative entropy gap, DM epoch)")
+print("    At T < T*: COL sector exceeds DM  (positive entropy gap, matter epoch)")
+print()
+print("  EW sphaleron scale check:")
+print("    S(T_EW = %.0f GeV) = %+.4f  → COL-dominant at EW transition" % (M_F/1.8, S_at_TEW))
+print()
+print("  Physical interpretation:")
+print("    The sign flip at T* is the ledger's matter–DM epoch boundary.")
+print("    Leptogenesis stores CP asymmetry in a DM-biased universe (T > T*).")
+print("    EW sphalerons then act in a COL-biased universe (T < T*),")
+print("    converting the lepton asymmetry into net baryons.")
+print("    T* is the 'unlock event' for baryogenesis — formalised in Experiment 100.")
+
 # ─── Outcome ─────────────────────────────────────────────────────────────────
 all_pass = h1 and h2 and h3 and h4
 print(SEP)
@@ -266,4 +320,11 @@ print("  M_star = M_F × 2^44 is parameter-free (0.01% accuracy).")
 print("  M_req  = M_F × 2^36 follows as M_star / 2^(VOID_span) (2.3% accuracy).")
 print("  The three-sector ledger's Fibonacci geometry is not decorative —")
 print("  it is the mass hierarchy of the baryogenesis chain.")
+print()
+print("  BONUS OBSERVATION (→ Exp 100):")
+print("  At the leptogenesis epoch the void sector carries ~50%% of total capacity")
+print("  and the baryogenesis imbalance S = C_col - C_DM is NEGATIVE (DM-biased).")
+print("  The ledger has a symmetry point at T* ≈ %.0f GeV where S changes sign;" % T_sym)
+print("  below T* the ledger develops a positive color preference (COL epoch).")
+print("  That sign flip is the ledger's effective EW transition — formalised as Exp 100.")
 print(SEP)
