@@ -27,14 +27,6 @@ These four documents represent the theoretical foundations of the "Entropic Unif
 *   **Connection**: Mass within $0.49\sigma$ of UKFT-37 light monopole prediction ($\Lambda_{QCD}/N_c \approx 2.49$ GeV); BERT angular observable $\Delta R$ matches UKFT QM prediction at $1.0\sigma$.
 *   **Chain**: Exps 62 (SM null), 63 (dark photon rate), 64 (QM angular), 65 (Lorentz identity), 66 (closure), 77 (pull GOF), 78 (publication figure).
 
-### [42. Values as Living Systems: UKFT Entropy Minimization as a Structurally Superior Foundation for AI Alignment](42_Values_as_Living_Systems.md)
-*   **Core Claim**: Static AI alignment specifications (RLHF, Constitutional AI) fail structurally due to Hume's Is-Ought gap, Berlin's value pluralism, and the extended frame problem — collectively: The Specification Trap.
-*   **Proposal**: UKFT entropy gap $S = \mathrm{Tr}(\log G_{\mathrm{truth}} - \log G_{\mathrm{post}})$ as an alignment substrate that escapes all three constraints structurally. Alignment is a geometric property of the knowledge manifold, not a training-time specification.
-*   **GodAttractor**: Basin $\mathcal{A} \subset \mathbb{R}^{768}$ bounded by $\phi$-distance thresholds; 4D metric (Factual Grounding, Logical Coherence, Expansion Potential, Tone/Benevolence); $\alpha = 0$ training invariant validated empirically in noogine Phase 7.1.
-*   **Falsifiability**: `noo_know_boost` metric; predictions P1–P3 against distributional shift comparison with RLHF.
-*   **Implementation**: https://github.com/Wolfman56/nooknow (open-source companion; Phase L of nooverse ecosystem).
-*   **Companion Doctrine**: `nooknow/context/NOOKNOW_ALIGNMENT_DOCTRINE.md`
-
 ### [41. UKFT Vacuum Filament Dynamics Account for the Residual Cluster Mass Deficit in MOND](41_Cluster_Filament.md)
 *   **Responds to**: Zhang, Zonoozi & Kroupa (2026), PRD 113, 043027 — 12%±4% mass residual in 46 WINGS clusters after IGIMF correction.
 *   **Formula**: $f = v_\mathrm{flat}^2 / (2\sigma^2)$ — zero free parameters; $v_\mathrm{flat} = 220$ km/s from Milky Way (Exp 29); $k = 2$ from SIS identity.
