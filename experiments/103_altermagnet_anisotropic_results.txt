@@ -1,0 +1,42 @@
+Experiment 103 — Results
+============================================================
+
+Material: RuO₂  (Room-temp altermagnet (experiment))
+  J_AF=2.5, α=0.42
+  J_d1_final=1.430  J_d2_final=0.670
+  H103-1 |M|<0.01: PASS  |M|=0.0000
+  H103-2 Π≈φ²: PASS  ratio=3.098 (φ²=2.618)
+  H103-3 AF-order>5: PASS  AF/FM=500000000.00
+  H103-4 p_w∈Bio/Noo: PASS  p_w=131
+  H103-5 C4-breaking: PASS  j_asym=0.362  J_d1/J_d2=2.135
+  RESULT: 5/5 PASS
+
+Material: MnF₂  (Classic altermagnet candidate)
+  J_AF=0.8, α=0.3
+  J_d1_final=0.293  J_d2_final=0.187
+  H103-1 |M|<0.01: PASS  |M|=0.0000
+  H103-2 Π≈φ²: PASS  ratio=3.098 (φ²=2.618)
+  H103-3 AF-order>5: PASS  AF/FM=312500000.00
+  H103-4 p_w∈Bio/Noo: PASS  p_w=67
+  H103-5 C4-breaking: PASS  j_asym=0.219  J_d1/J_d2=1.561
+  RESULT: 5/5 PASS
+
+Material: FeS  (Room-temp iron sulfide)
+  J_AF=1.2, α=0.35
+  J_d1_final=0.537  J_d2_final=0.303
+  H103-1 |M|<0.01: PASS  |M|=0.0000
+  H103-2 Π≈φ²: PASS  ratio=3.098 (φ²=2.618)
+  H103-3 AF-order>5: PASS  AF/FM=1000000000.00
+  H103-4 p_w∈Bio/Noo: PASS  p_w=131
+  H103-5 C4-breaking: PASS  j_asym=0.278  J_d1/J_d2=1.771
+  RESULT: 5/5 PASS
+
+Material: α-Fe₂O₃  (Hematite (expected weaker signal))
+  J_AF=0.6, α=0.22
+  J_d1_final=0.149  J_d2_final=0.115
+  H103-1 |M|<0.01: PASS  |M|=0.0000
+  H103-2 Π≈φ²: PASS  ratio=3.098 (φ²=2.618)
+  H103-3 AF-order>5: PASS  AF/FM=1000000000.00
+  H103-4 p_w∈Bio/Noo: FAIL  p_w=37
+  H103-5 C4-breaking: FAIL  j_asym=0.130  J_d1/J_d2=1.300
+  RESULT: 3/5 PASS

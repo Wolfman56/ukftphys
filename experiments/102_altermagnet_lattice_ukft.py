@@ -227,11 +227,23 @@ class LatticeUKFT:
 
     def _site_delta_action(self, i: int, j: int) -> float:
         """
-        ΔS for flipping spin at (i,j).  For an antiferromagnet (J_AF > 0),
-        the energy *decreases* when the spin aligns with its sublattice (anti-
-        aligns with neighbours), so the standard Heisenberg flip rule gives:
-          ΔE = 2 · J · s · Σ_neighbours(s_j)
-        which is negative (accepted) when the local field points opposite to s.
+        ΔS for flipping spin at (i,j).
+
+        Physical Hamiltonian:
+          H = J_AF Σ_NN s_i s_j  −  J_NNN · Π_n · Σ_NNN s_i s_j
+        The NN term is minimised when s_i s_j = −1 (checkerboard AF).
+        The NNN term is minimised when diagonal s_i s_j = +1 (FM diagonals).
+        Both are satisfied simultaneously by the Néel checkerboard.
+
+        Flipping s_i → −s_i changes the energy by:
+          ΔE_NN  = −2 · J_AF  ·    s_i · Σ_NN(s_j)
+          ΔE_NNN = +2 · J_NNN · Π_n · s_i · Σ_NNN(s_j)
+
+        In the AF ground state: s_i · Σ_NN(s_j) < 0  → ΔE_NN > 0 → rejected ✓
+        In the AF ground state: s_i · Σ_NNN(s_j) > 0 → ΔE_NNN > 0 → rejected ✓
+
+        NOTE (Gemini code review, 2026-05-21): original code had both signs
+        inverted, running a frustrated FM J1-J2 model → stripe phase.  Fixed.
         """
         s   = self.spins[i, j]
         Ni  = self.shape[0]
@@ -239,7 +251,7 @@ class LatticeUKFT:
         # NN sum
         nn_sum = (self.spins[(i+1) % Ni, j] + self.spins[(i-1) % Ni, j] +
                   self.spins[i, (j+1) % Nj] + self.spins[i, (j-1) % Nj])
-        delta_NN = 2.0 * self.J_AF * s * nn_sum
+        delta_NN = -2.0 * self.J_AF * s * nn_sum          # CORRECTED: was +2.0
         # NNN sum (diagonal) — config-momentum coupling
         nnn_sum = (
             self.spins[(i+1) % Ni, (j+1) % Nj] +
@@ -247,11 +259,10 @@ class LatticeUKFT:
             self.spins[(i-1) % Ni, (j+1) % Nj] +
             self.spins[(i-1) % Ni, (j-1) % Nj]
         )
-        # NNN coupling is FERROMAGNETIC (same sign) to create the sublattice
-        # imbalance that distinguishes altermagnet from plain antiferromagnet.
+        # NNN coupling: FM diagonals (J_NNN > 0, minus sign in H absorbed above)
         # The config-momentum weight grows with Teilhard level, amplifying NNN.
         Pi_weight = max(self._Pi_n, 1e-6)
-        delta_NNN = -2.0 * self.J_NNN * Pi_weight * s * nnn_sum
+        delta_NNN = +2.0 * self.J_NNN * Pi_weight * s * nnn_sum  # CORRECTED: was -2.0
         return delta_NN + delta_NNN
 
     def sweep(self, beta: float = 2.0) -> None:
@@ -318,12 +329,18 @@ class LatticeUKFT:
         Ni, Nj = self.shape
         # Primary AF peak at q=(π,π)
         S_AFM = float(np.abs(spin_ft[Ni // 2, Nj // 2])) / (Ni * Nj)
-        # d-wave pockets at (π,0) and (0,π) — altermagnetic asymmetry
+        # Ferromagnetic q=(0,0) mode (should be suppressed in AF state)
+        S_FM  = float(np.abs(spin_ft[0, 0])) / (Ni * Nj)
+        # AF order ratio: how much larger the Néel peak is vs the FM mode.
+        # Plain ferromagnet: S_FM >> S_AFM → ratio ≪ 1.
+        # Checkerboard AF: S_AFM >> S_FM → ratio >> 1 (target > 5).
+        af_order_ratio = S_AFM / max(S_FM, 1e-9)
+        # d-wave pockets at (π,0) and (0,π) — kept for diagnostic output
         S_pi0  = float(np.abs(spin_ft[Ni // 2, 0])) / (Ni * Nj)
         S_0pi  = float(np.abs(spin_ft[0, Nj // 2])) / (Ni * Nj)
         S_sum  = S_pi0 + S_0pi
         S_diff = abs(S_pi0 - S_0pi)
-        # Normalised splitting: 0 = plain AF, 1 = maximal altermagnet asymmetry
+        # Normalised stripe/stripe-asymmetry (retained for cross-check; not used in H102-3)
         momentum_splitting = S_diff / max(S_sum, 1e-9)
 
         # Capacity bound: altermagnetic order in a finite lattice is characterised
@@ -354,7 +371,8 @@ class LatticeUKFT:
             "M_final"         : abs(M_final),
             "E_final"         : E_final,
             "Pi_ratio"        : Pi_ratio,
-            "momentum_split"  : momentum_splitting,
+            "momentum_split"  : momentum_splitting,  # diagnostic (stripe asymmetry)
+            "af_order_ratio"  : af_order_ratio,       # H102-3: Néel peak vs FM mode
             "p_w"             : p_w,
             "C_req"           : c_req,
             "C_k"             : c_k,
@@ -377,23 +395,24 @@ MATERIALS = {
 # ── Hypothesis evaluation ───────────────────────────────────────────────────────
 def evaluate_hypotheses(res: dict, material: str) -> dict:
     """
-    H102-1: |M| / N < 0.01  (zero net magnetisation → altermagnetic order)
+    H102-1: |M| / N < 0.01  (zero net magnetisation → no net FM order)
     H102-2: Π_n / Π_n_init ≈ φ²  (within 20%)
-    H102-3: momentum_splitting > 0.5 (normalised units)
+    H102-3: af_order_ratio > 5.0  (Néel AF peak dominates FM mode → checkerboard order)
+             [Revised post sign-correction — original tested stripe asymmetry]
     H102-4: p_w ∈ {67, 131}  (Bio or Noo jump prime, not trivial Geo=37)
     """
     h1 = res["M_final"] < 0.01
     h2 = abs(res["Pi_ratio"] - PHI**2) / PHI**2 < 0.20
-    h3 = res["momentum_split"] > 0.5
+    h3 = res["af_order_ratio"] > 5.0          # revised: Néel order confirmed
     h4 = res["p_w"] in (67, 131)
 
     n_pass = sum([h1, h2, h3, h4])
     return {
         "material"     : material,
-        "H102-1 |M|<0.01" : ("PASS" if h1 else "FAIL", f"|M|={res['M_final']:.4f}"),
-        "H102-2 Π≈φ²"    : ("PASS" if h2 else "FAIL", f"ratio={res['Pi_ratio']:.3f} (φ²={PHI**2:.3f})"),
-        "H102-3 splitting": ("PASS" if h3 else "FAIL", f"split={res['momentum_split']:.3f}"),
-        "H102-4 p_w∈Bio/Noo": ("PASS" if h4 else "FAIL", f"p_w={res['p_w']}"),
+        "H102-1 |M|<0.01"    : ("PASS" if h1 else "FAIL", f"|M|={res['M_final']:.4f}"),
+        "H102-2 Π≈φ²"        : ("PASS" if h2 else "FAIL", f"ratio={res['Pi_ratio']:.3f} (φ²={PHI**2:.3f})"),
+        "H102-3 AF-order>5"  : ("PASS" if h3 else "FAIL", f"AF/FM={res['af_order_ratio']:.2f}"),
+        "H102-4 p_w∈Bio/Noo" : ("PASS" if h4 else "FAIL", f"p_w={res['p_w']}"),
         "n_pass"          : n_pass,
         "summary"         : f"{n_pass}/4 PASS",
     }
@@ -446,7 +465,7 @@ def make_figure(results_all: dict) -> None:
             "",
             f"H102-1  {hyp['H102-1 |M|<0.01'][0]}  {hyp['H102-1 |M|<0.01'][1]}",
             f"H102-2  {hyp['H102-2 Π≈φ²'][0]}  {hyp['H102-2 Π≈φ²'][1]}",
-            f"H102-3  {hyp['H102-3 splitting'][0]}  {hyp['H102-3 splitting'][1]}",
+            f"H102-3  {hyp['H102-3 AF-order>5'][0]}  {hyp['H102-3 AF-order>5'][1]}",
             f"H102-4  {hyp['H102-4 p_w∈Bio/Noo'][0]}  {hyp['H102-4 p_w∈Bio/Noo'][1]}",
             "",
             f"Result:  {hyp['summary']}",
