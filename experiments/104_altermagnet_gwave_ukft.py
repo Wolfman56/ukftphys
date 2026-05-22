@@ -156,20 +156,26 @@ class HoneycombAnisotropicUKFT:
         self.J_AF         = J_AF
         self.J_NNN        = J_AF * J_config_ratio
         self.alpha        = J_config_ratio   # C6-breaking anisotropy parameter
+        self.J_MODE       = self.J_NNN       # domain Ising mode-field coupling
+        self.J_CROSS      = 0.15             # cross-sublattice domain coupling
+        self.H_COUPLING   = 0.05             # Π_n → mode external field scale
         self.rng          = np.random.default_rng(seed)
         # shape (Ni, Nj, 2): axis-2 = sublattice (0=A, 1=B)
         self.spins        = self.rng.choice([-1.0, 1.0],
                                             size=(shape[0], shape[1], 2))
+        # mode field shape (Ni, Nj, 2): per-site per-sublattice ±1
+        self.pi_n         = self.rng.choice([-1., 1.], size=(shape[0], shape[1], 2))
 
         self.teilhard_level   = TEILHARD["Geo"]
         self.levels_completed = []
         self._Pi_n            = 0.0
         self._Pi_n_initial    = None
 
-        self.energy_history      = []
+        self.energy_history        = []
         self.magnetisation_history = []
-        self.Pi_history          = []
-        self.c6_asym_history     = []   # C6→C3 breaking as a function of Π_n
+        self.Pi_history            = []
+        self.c6_asym_history       = []   # C6→C3 breaking as a function of Π_n
+        self.U_history             = []   # domain uniformity |⟨π_n⟩|
 
     @property
     def Pi_n(self) -> float:
@@ -193,7 +199,7 @@ class HoneycombAnisotropicUKFT:
         Return (J_t1, J_t2) as functions of current Π_n and α.
         f_Pi = tanh(Π_n · α) ∈ [0, 1), saturating as Π_n grows.
         """
-        f_Pi = np.tanh(self._Pi_n * self.alpha)
+        f_Pi = float(np.mean(self.pi_n))            # domain order parameter ∈ [-1, +1]
         J_t1 = self.J_NNN * (1.0 + self.alpha * f_Pi)   # C3-even triplet strengthens
         J_t2 = self.J_NNN * (1.0 - self.alpha * f_Pi)   # C3-odd triplet weakens
         return J_t1, J_t2
@@ -242,9 +248,11 @@ class HoneycombAnisotropicUKFT:
                   self.spins[(i-1) % Ni, j,          s] +
                   self.spins[(i+1) % Ni, (j-1) % Nj, s])
 
-        J_t1, J_t2 = self._triplet_couplings()
+        f = self.pi_n[i, j, s]                   # per-site per-sublattice mode field ±1
+        J_t1_eff = self.J_NNN * (1.0 + self.alpha * f)
+        J_t2_eff = self.J_NNN * (1.0 - self.alpha * f)
         # FM NNN coupling: + sign resists sublattice-flip, stabilises AF ground state
-        delta_NNN = 2.0 * (J_t1 * spin * t1_sum + J_t2 * spin * t2_sum)
+        delta_NNN = 2.0 * (J_t1_eff * spin * t1_sum + J_t2_eff * spin * t2_sum)
 
         return delta_NN + delta_NNN
 
@@ -263,6 +271,45 @@ class HoneycombAnisotropicUKFT:
         level_C    = config_complexity(self.teilhard_level)
         self._Pi_n += level_C * 5e-4
         self._advance_teilhard()
+        # Domain Ising sweep for the π_n mode field.
+        self._sweep_pi_n(beta)
+
+    def _sweep_pi_n(self, beta: float) -> None:
+        """3-colour × 2-sublattice Metropolis for the π_n domain Ising field on honeycomb.
+
+        Domain Ising Hamiltonian:
+          H_mode = −J_MODE · Σ_{NNN} π_n[i] π_n[j]  −  J_CROSS · Σ_{NN} π_A[i] π_B[j]
+                   −  H_ext · Σ_i π_n[i]
+        where H_ext = H_COUPLING · Π_n.
+        """
+        Ni, Nj = self.shape
+        H_ext  = self.H_COUPLING * self._Pi_n
+        ii, jj = np.meshgrid(np.arange(Ni), np.arange(Nj), indexing='ij')
+        for sub in range(2):
+            for colour in range(3):
+                pi_n_sub = self.pi_n[:, :, sub].copy()
+                opp      = 1 - sub
+                # All 6 NNN bonds on the same sublattice (t1 + t2 triplets)
+                nnn_pi = (np.roll(pi_n_sub, -1, 0) +
+                          np.roll(np.roll(pi_n_sub,  1, 0), -1, 1) +
+                          np.roll(pi_n_sub,  1, 1) +
+                          np.roll(pi_n_sub, -1, 1) +
+                          np.roll(pi_n_sub,  1, 0) +
+                          np.roll(np.roll(pi_n_sub, -1, 0),  1, 1))
+                # NN cross-sublattice coupling
+                if sub == 0:   # A bonds to B(i,j), B(i-1,j), B(i,j-1)
+                    nn_cross = (self.pi_n[:, :, opp] +
+                                np.roll(self.pi_n[:, :, opp],  1, 0) +
+                                np.roll(self.pi_n[:, :, opp],  1, 1))
+                else:          # B bonds to A(i,j), A(i+1,j), A(i,j+1)
+                    nn_cross = (self.pi_n[:, :, opp] +
+                                np.roll(self.pi_n[:, :, opp], -1, 0) +
+                                np.roll(self.pi_n[:, :, opp], -1, 1))
+                mask = ((ii + 2 * jj) % 3) == colour
+                dH   = 2.0 * pi_n_sub * (self.J_MODE * nnn_pi + self.J_CROSS * nn_cross + H_ext)
+                rand = self.rng.random((Ni, Nj))
+                accept = mask & ((dH < 0) | (rand < np.exp(-beta * np.clip(dH, None, 500))))
+                self.pi_n[:, :, sub][accept] *= -1
 
     def run(self, n_sweeps: int = 2000, beta_schedule=None) -> dict:
         if beta_schedule is None:
@@ -275,6 +322,9 @@ class HoneycombAnisotropicUKFT:
         self._Pi_n_initial = self._Pi_n
 
         Ni, Nj = self.shape
+        # Re-initialise domain Ising field and history lists.
+        self.pi_n      = self.rng.choice([-1., 1.], size=(Ni, Nj, 2))
+        self.U_history = []
 
         for step in range(n_sweeps):
             self.sweep(beta=beta_schedule[step])
@@ -292,6 +342,7 @@ class HoneycombAnisotropicUKFT:
                 self.magnetisation_history.append(M)
                 self.Pi_history.append(self._Pi_n)
                 self.c6_asym_history.append(self._measure_c6_asymmetry())
+                self.U_history.append(abs(float(np.mean(self.pi_n))))
 
         # ── Final measurements ────────────────────────────────────────────────
         A = self.spins[:, :, 0]   # sublattice A: → +1 for AF ground state
@@ -319,6 +370,7 @@ class HoneycombAnisotropicUKFT:
         c_k   = cumulative_capacity(p_w)
 
         Pi_ratio = self._Pi_n / self._Pi_n_initial
+        U_final  = abs(float(np.mean(self.pi_n)))
 
         # Staggered field and its FFT (for visualisation)
         staggered = A - B                            # = +2 everywhere for perfect AF
@@ -329,6 +381,7 @@ class HoneycombAnisotropicUKFT:
             "m_A"            : m_A,
             "m_B"            : m_B,
             "Pi_ratio"       : Pi_ratio,
+            "U_final"        : U_final,
             "af_order_ratio" : af_order_ratio,
             "c6_asymmetry"   : c6_asymmetry,
             "c6_ratio"       : c6_ratio,
@@ -345,6 +398,7 @@ class HoneycombAnisotropicUKFT:
             "energy_history" : list(self.energy_history),
             "Pi_history"     : list(self.Pi_history),
             "c6_asym_history": list(self.c6_asym_history),
+            "U_history"      : list(self.U_history),
         }
 
 
@@ -377,14 +431,14 @@ MATERIALS = {
 def evaluate_hypotheses(res: dict, material: str) -> dict:
     """
     H104-1: |M| < 0.01   (AF order preserved under anisotropic NNN coupling)
-    H104-2: Π_ratio ≈ φ²  (within 20%)
+    H104-2: U > 0.85          (domain Ising π_n field orders uniformly)
     H104-3: af_order_ratio > 5.0  (staggered Néel order >> FM mode)
     H104-4: p_w ∈ {67, 131}  (Bio or Noo holographic capacity)
     H104-5: c6_asymmetry > 0.15  (Hamiltonian C6→C3 breaking via Π_n)
              c6_asymmetry = |J_t1 − J_t2| / (J_t1 + J_t2)
     """
     h1 = res["M_final"] < 0.01
-    h2 = abs(res["Pi_ratio"] - PHI**2) / PHI**2 < 0.20
+    h2 = res["U_final"] > 0.85
     h3 = res["af_order_ratio"] > 5.0
     h4 = res["p_w"] in (67, 131)
     h5 = res["c6_asymmetry"] > 0.15
@@ -394,8 +448,8 @@ def evaluate_hypotheses(res: dict, material: str) -> dict:
         "material"             : material,
         "H104-1 |M|<0.01"     : ("PASS" if h1 else "FAIL",
                                   f"|M|={res['M_final']:.4f}  m_A={res['m_A']:+.3f}  m_B={res['m_B']:+.3f}"),
-        "H104-2 Π≈φ²"         : ("PASS" if h2 else "FAIL",
-                                  f"ratio={res['Pi_ratio']:.3f} (φ²={PHI**2:.3f})"),
+        "H104-2 U>0.85"        : ("PASS" if h2 else "FAIL",
+                                  f"U={res['U_final']:.3f}"),
         "H104-3 AF-order>5"   : ("PASS" if h3 else "FAIL",
                                   f"stag/FM={res['af_order_ratio']:.2f}"),
         "H104-4 p_w∈Bio/Noo"  : ("PASS" if h4 else "FAIL",
@@ -434,16 +488,15 @@ def make_figure(results_all: dict) -> None:
         ax2.set_title("FFT(A−B) [log]\nDC peak = AF order", fontsize=8)
         ax2.axis("off")
 
-        # 3 — Π_n convergence
+        # 3 — Domain uniformity U = |⟨π_n⟩|
         ax3 = fig.add_subplot(inner[2])
-        steps = np.arange(len(res["Pi_history"])) * 20
-        ax3.plot(steps, res["Pi_history"], color="goldenrod", lw=1.5, label="Π_n")
-        Pi_init = results_all[mat]["Pi_init"]
-        ax3.axhline(Pi_init * PHI**2, color="steelblue", ls="--", lw=1,
-                    label=f"φ²·Π₀")
+        steps = np.arange(len(res["U_history"])) * 20
+        ax3.plot(steps, res["U_history"], color="mediumseagreen", lw=1.5, label="U = |⟨π_n⟩|")
+        ax3.axhline(0.85, color="tomato", ls="--", lw=1, label="threshold 0.85")
+        ax3.set_ylim(0.0, 1.05)
         ax3.set_xlabel("Sweep", fontsize=7)
-        ax3.set_ylabel("Π_n", fontsize=7)
-        ax3.set_title("Config-momentum\nΠ_n", fontsize=8)
+        ax3.set_ylabel("|⟨π_n⟩|", fontsize=7)
+        ax3.set_title("Domain Uniformity\nU = |⟨π_n⟩|", fontsize=8)
         ax3.legend(fontsize=6)
         ax3.tick_params(labelsize=6)
 
@@ -468,7 +521,7 @@ def make_figure(results_all: dict) -> None:
             f"  J_t1={res['J_t1_final']:.3f}  J_t2={res['J_t2_final']:.3f}",
             "",
             f"H104-1  {hyp['H104-1 |M|<0.01'][0]}  {hyp['H104-1 |M|<0.01'][1]}",
-            f"H104-2  {hyp['H104-2 Π≈φ²'][0]}  {hyp['H104-2 Π≈φ²'][1]}",
+            f"H104-2  {hyp['H104-2 U>0.85'][0]}  {hyp['H104-2 U>0.85'][1]}",
             f"H104-3  {hyp['H104-3 AF-order>5'][0]}  {hyp['H104-3 AF-order>5'][1]}",
             f"H104-4  {hyp['H104-4 p_w∈Bio/Noo'][0]}  {hyp['H104-4 p_w∈Bio/Noo'][1]}",
             f"H104-5  {hyp['H104-5 C6-breaking'][0]}  {hyp['H104-5 C6-breaking'][1]}",

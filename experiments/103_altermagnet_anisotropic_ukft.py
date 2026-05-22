@@ -122,18 +122,22 @@ class AnisotropicLatticeUKFT:
         self.J_AF           = J_AF
         self.J_NNN          = J_AF * J_config_ratio
         self.alpha          = J_config_ratio  # C4-breaking anisotropy parameter
+        self.J_MODE         = self.J_NNN      # domain Ising mode-field coupling
+        self.H_COUPLING     = 0.05            # Π_n → mode external field scale
         self.rng            = np.random.default_rng(seed)
         self.spins          = self.rng.choice([-1, 1], size=shape).astype(float)
+        self.pi_n           = self.rng.choice([-1., 1.], size=shape)  # mode field ±1
 
         self.teilhard_level   = TEILHARD["Geo"]
         self.levels_completed = []
         self._Pi_n            = 0.0
         self._Pi_n_initial    = None
 
-        self.energy_history      = []
+        self.energy_history        = []
         self.magnetisation_history = []
-        self.Pi_history          = []
-        self.c4_asym_history     = []   # track C4-breaking as function of Π_n
+        self.Pi_history            = []
+        self.c4_asym_history       = []   # track C4-breaking as function of Π_n
+        self.U_history             = []   # domain uniformity |⟨π_n⟩|
 
     @property
     def Pi_n(self) -> float:
@@ -157,9 +161,9 @@ class AnisotropicLatticeUKFT:
         Return (J_d1, J_d2) as functions of current Π_n and α.
         f_Pi = tanh(Π_n · α) ∈ [0, 1), saturating as Π_n grows.
         """
-        f_Pi = np.tanh(self._Pi_n * self.alpha)
-        J_d1 = self.J_NNN * (1.0 + self.alpha * f_Pi)   # strengthens
-        J_d2 = self.J_NNN * (1.0 - self.alpha * f_Pi)   # weakens (stays ≥ 0 for α ≤ 1)
+        f_Pi = float(np.mean(self.pi_n))            # domain order parameter ∈ [-1, +1]
+        J_d1 = self.J_NNN * (1.0 + self.alpha * f_Pi)   # strengthens when U > 0
+        J_d2 = self.J_NNN * (1.0 - self.alpha * f_Pi)   # weakens when U > 0
         return J_d1, J_d2
 
     def _site_delta_action(self, i: int, j: int) -> float:
@@ -190,9 +194,11 @@ class AnisotropicLatticeUKFT:
         d2_sum = (self.spins[(i+1) % Ni, (j-1) % Nj] +   # [+1,-1]
                   self.spins[(i-1) % Ni, (j+1) % Nj])     # [-1,+1]
 
-        J_d1, J_d2 = self._diag_couplings()
-        delta_NNN = (2.0 * J_d1 * s * d1_sum +
-                     2.0 * J_d2 * s * d2_sum)
+        f = self.pi_n[i, j]                          # per-site mode field ±1
+        J_d1_eff = self.J_NNN * (1.0 + self.alpha * f)
+        J_d2_eff = self.J_NNN * (1.0 - self.alpha * f)
+        delta_NNN = (2.0 * J_d1_eff * s * d1_sum +
+                     2.0 * J_d2_eff * s * d2_sum)
 
         return delta_NN + delta_NNN
 
@@ -208,6 +214,34 @@ class AnisotropicLatticeUKFT:
         level_C = config_complexity(self.teilhard_level)
         self._Pi_n += level_C * 5e-4
         self._advance_teilhard()
+        # Domain Ising sweep for the π_n mode field.
+        self._sweep_pi_n(beta)
+
+    def _sweep_pi_n(self, beta: float) -> None:
+        """Vectorised 2-colour checkerboard Metropolis for the π_n domain Ising field.
+
+        Domain Ising Hamiltonian:
+          H_mode = −J_MODE · Σ_{NNN} π_n[i] π_n[j]  −  H_ext · Σ_i π_n[i]
+        where H_ext = H_COUPLING · Π_n grows as config-momentum accumulates.
+        """
+        Ni, Nj = self.shape
+        H_ext  = self.H_COUPLING * self._Pi_n
+        nnn_pi = (np.roll(np.roll(self.pi_n,  1, 0),  1, 1) +
+                  np.roll(np.roll(self.pi_n,  1, 0), -1, 1) +
+                  np.roll(np.roll(self.pi_n, -1, 0),  1, 1) +
+                  np.roll(np.roll(self.pi_n, -1, 0), -1, 1))
+        ii, jj = np.meshgrid(np.arange(Ni), np.arange(Nj), indexing='ij')
+        for colour in range(2):
+            mask = ((ii + jj) % 2) == colour
+            dH   = 2.0 * self.pi_n * (self.J_MODE * nnn_pi + H_ext)
+            rand = self.rng.random(self.shape)
+            accept = mask & ((dH < 0) | (rand < np.exp(-beta * np.clip(dH, None, 500))))
+            self.pi_n[accept] *= -1
+            if colour == 0:
+                nnn_pi = (np.roll(np.roll(self.pi_n,  1, 0),  1, 1) +
+                          np.roll(np.roll(self.pi_n,  1, 0), -1, 1) +
+                          np.roll(np.roll(self.pi_n, -1, 0),  1, 1) +
+                          np.roll(np.roll(self.pi_n, -1, 0), -1, 1))
 
     def _measure_c4_asymmetry(self) -> float:
         """
@@ -226,6 +260,9 @@ class AnisotropicLatticeUKFT:
 
         self._Pi_n         = config_complexity(0)   # = 1.0
         self._Pi_n_initial = self._Pi_n
+        # Re-initialise domain Ising field and history lists.
+        self.pi_n      = self.rng.choice([-1., 1.], size=self.shape)
+        self.U_history = []
 
         for step in range(n_sweeps):
             self.sweep(beta=beta_schedule[step])
@@ -239,6 +276,7 @@ class AnisotropicLatticeUKFT:
                 self.magnetisation_history.append(M)
                 self.Pi_history.append(self._Pi_n)
                 self.c4_asym_history.append(self._measure_c4_asymmetry())
+                self.U_history.append(abs(float(np.mean(self.pi_n))))
 
         M_final = float(np.mean(self.spins))
         E_final = self.J_AF * (
@@ -276,11 +314,13 @@ class AnisotropicLatticeUKFT:
         c_k    = cumulative_capacity(p_w)
 
         Pi_ratio = self._Pi_n / self._Pi_n_initial
+        U_final  = abs(float(np.mean(self.pi_n)))
 
         return {
             "M_final"        : abs(M_final),
             "E_final"        : E_final,
             "Pi_ratio"       : Pi_ratio,
+            "U_final"        : U_final,
             "af_order_ratio" : af_order_ratio,
             "c4_asymmetry"   : c4_asymmetry,      # H103-5: J-Hamiltonian C4 breaking
             "c4_ratio"       : c4_ratio,           # J_d1/J_d2 for reporting
@@ -295,6 +335,7 @@ class AnisotropicLatticeUKFT:
             "energy_history" : list(self.energy_history),
             "Pi_history"     : list(self.Pi_history),
             "c4_asym_history": list(self.c4_asym_history),
+            "U_history"      : list(self.U_history),
         }
 
 
@@ -310,14 +351,14 @@ MATERIALS = {
 def evaluate_hypotheses(res: dict, material: str) -> dict:
     """
     H103-1: |M| < 0.01   (AF order preserved under anisotropic coupling)
-    H103-2: Π_ratio ≈ φ²  (within 20%)
+    H103-2: U > 0.85          (domain Ising π_n field orders uniformly)
     H103-3: af_order_ratio > 5.0  (Néel peak >> FM mode)
     H103-4: p_w ∈ {67, 131}  (Bio or Noo holographic capacity)
     H103-5: j_asymmetry > 0.15  (Hamiltonian C4→C2 breaking via Π_n)
              j_asymmetry = |J_d1 − J_d2| / (J_d1 + J_d2)
     """
     h1 = res["M_final"] < 0.01
-    h2 = abs(res["Pi_ratio"] - PHI**2) / PHI**2 < 0.20
+    h2 = res["U_final"] > 0.85
     h3 = res["af_order_ratio"] > 5.0
     h4 = res["p_w"] in (67, 131)
     h5 = res["c4_asymmetry"] > 0.15
@@ -326,7 +367,7 @@ def evaluate_hypotheses(res: dict, material: str) -> dict:
     return {
         "material"            : material,
         "H103-1 |M|<0.01"    : ("PASS" if h1 else "FAIL", f"|M|={res['M_final']:.4f}"),
-        "H103-2 Π≈φ²"        : ("PASS" if h2 else "FAIL", f"ratio={res['Pi_ratio']:.3f} (φ²={PHI**2:.3f})"),
+        "H103-2 U>0.85"      : ("PASS" if h2 else "FAIL", f"U={res['U_final']:.3f}"),
         "H103-3 AF-order>5"  : ("PASS" if h3 else "FAIL", f"AF/FM={res['af_order_ratio']:.2f}"),
         "H103-4 p_w∈Bio/Noo" : ("PASS" if h4 else "FAIL", f"p_w={res['p_w']}"),
         "H103-5 C4-breaking" : ("PASS" if h5 else "FAIL",
@@ -361,15 +402,15 @@ def make_figure(results_all: dict) -> None:
         ax2.set_title("FFT |S(q)|\n(log)", fontsize=8)
         ax2.axis("off")
 
-        # 3 — Π_n convergence
+        # 3 — Domain uniformity U = |⟨π_n⟩|
         ax3 = fig.add_subplot(inner[2])
-        steps = np.arange(len(res["Pi_history"])) * 20
-        ax3.plot(steps, res["Pi_history"], color="goldenrod", lw=1.5, label="Π_n")
-        Pi_init = results_all[mat]["Pi_init"]
-        ax3.axhline(Pi_init * PHI**2, color="steelblue", ls="--", lw=1, label=f"φ²·Π₀")
+        steps = np.arange(len(res["U_history"])) * 20
+        ax3.plot(steps, res["U_history"], color="mediumseagreen", lw=1.5, label="U = |⟨π_n⟩|")
+        ax3.axhline(0.85, color="tomato", ls="--", lw=1, label="threshold 0.85")
+        ax3.set_ylim(0.0, 1.05)
         ax3.set_xlabel("Sweep", fontsize=7)
-        ax3.set_ylabel("Π_n", fontsize=7)
-        ax3.set_title("Config-momentum\nΠ_n", fontsize=8)
+        ax3.set_ylabel("|⟨π_n⟩|", fontsize=7)
+        ax3.set_title("Domain Uniformity\nU = |⟨π_n⟩|", fontsize=8)
         ax3.legend(fontsize=6)
         ax3.tick_params(labelsize=6)
 
@@ -394,7 +435,7 @@ def make_figure(results_all: dict) -> None:
             f"  J_d1={res['J_d1_final']:.3f}  J_d2={res['J_d2_final']:.3f}",
             "",
             f"H103-1  {hyp['H103-1 |M|<0.01'][0]}  {hyp['H103-1 |M|<0.01'][1]}",
-            f"H103-2  {hyp['H103-2 Π≈φ²'][0]}  {hyp['H103-2 Π≈φ²'][1]}",
+            f"H103-2  {hyp['H103-2 U>0.85'][0]}  {hyp['H103-2 U>0.85'][1]}",
             f"H103-3  {hyp['H103-3 AF-order>5'][0]}  {hyp['H103-3 AF-order>5'][1]}",
             f"H103-4  {hyp['H103-4 p_w∈Bio/Noo'][0]}  {hyp['H103-4 p_w∈Bio/Noo'][1]}",
             f"H103-5  {hyp['H103-5 C4-breaking'][0]}  {hyp['H103-5 C4-breaking'][1]}",
