@@ -1,0 +1,51 @@
+====================================================================
+Exp 105 — Modal Uniformity and Bulk Altermagnetic Behavior in FeS
+====================================================================
+FeS: J_AF=1.2, J_config_ratio=0.28, α=0.4530
+Domain Ising: J_MODE=0.5, J_CROSS=0.15, H_COUPLING=0.05, β_c≈0.881
+Lattice: honeycomb (Ni=32, Nj=32, 2 sublattices); Π_n ∈ {±1} binary
+Cooling: β 0.2→6.0, schedules: [500, 1000, 2000, 4000, 8000]
+Seeded: Π_n all +1 (Czochralski), n_sweeps = 2000
+
+  n_sweeps        U      DWD    j_bulk   j_local   inter    S_AFM    p_w
+----------------------------------------------------------------------------
+       500    0.562   0.0417    0.0256    0.1923       1   0.0254     37
+      1000    1.000   0.0000   -0.1923    0.1923       1   0.3730    131
+      2000    1.000   0.0000    0.1923    0.1923       1   1.0000    131
+      4000    1.000   0.0000    0.1923    0.1923       1   1.0000    131
+      8000    1.000   0.0000    0.1923    0.1923       1   1.0000    131
+    seeded    1.000   0.0000    0.1923    0.1923       1   1.0000    131
+
+── Hypothesis Results ──────────────────────────────────────────────
+  H105-1: PASS  — U increases monotonically with n_sweeps
+           {'U_by_n': {500: '0.562', 1000: '1.000', 2000: '1.000', 4000: '1.000', 8000: '1.000'}}
+  H105-2: PASS  — Seeded init gives U > 0.85
+           {'U_seeded': '1.000'}
+  H105-3: PASS  — Pearson r(U, |j_bulk|) > 0.80
+           {'r(U,|j_bulk|)': '1.000'}
+  H105-4: PASS  — Fastest schedule gives U < 0.70 (domain-disordered regime)
+           {'U_fastest': '0.562', 'n_sweeps': 500}
+  H105-5: PASS  — Fast quench freezes domain walls (DWD_n500>0.01), slow anneal removes them (DWD_n≥4000<0.01)
+           {'DWD_fast(n=500)': '0.0417', 'DWD_slow(n≥4000)': '0.0000', 'note': 'KZM power-law needs dedicated multi-rate study (Exp 106)'}
+
+  Score: 5/5
+
+── Physical Interpretation ─────────────────────────────────────────
+Two coupled MC systems: spin (Metropolis, J_t1/J_t2 from Π_n mode) +
+domain Ising (Metropolis, ferromagnetic NNN coupling J_MODE=0.50).
+
+Domain Ising T_c ≈ 1.135 (β_c ≈ 0.88). All cooling schedules cross T_c
+early; the difference is the quench rate at T_c:
+  Fast quench  → short ξ → many small domains → high DWD → bulk j_asym ≈ 0
+  Slow anneal  → long ξ → few large domains  → low DWD → bulk j_asym ≠ 0
+  Seeded (all +1) → single domain maintained  → U ≈ 1 → bulk j_asym ≈ α·tanh(α)
+
+Kibble–Zurek prediction (H105-5): DWD ∝ (cooling_rate)^(2/3) for 2D Ising.
+Experimentally: neutron diffraction on FeS cooled through 420 K at different
+rates should show domain-size scaling consistent with KZM.
+
+Compute scaling note:
+  NumPy vectorised 3-colour checkerboard: ≈300 µs/sweep (32×32, two MC passes).
+  For KZM with >100 cooling rates × 20 repeats, or lattice >64×64:
+  switch to WGSL backend (wgpu-py or PyO3 Rust extension, ~100× faster).
+  np.roll(a,±1,axis) → textureLoad with wrap; tanh,exp,select → WGSL builtins.
