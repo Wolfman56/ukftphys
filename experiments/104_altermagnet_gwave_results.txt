@@ -1,0 +1,42 @@
+Experiment 104 — G-wave Altermagnet Results
+============================================================
+
+Material: α-Fe₂O₃  (Hematite — g-wave positive control (R-3c corundum, 3₁ screw))
+  J_AF=0.6, α=0.4
+  J_t1_final=0.321  J_t2_final=0.159
+  H104-1 |M|<0.01: PASS  |M|=0.0000  m_A=+1.000  m_B=-1.000
+  H104-2 Π≈φ²: PASS  ratio=3.098 (φ²=2.618)
+  H104-3 AF-order>5: PASS  stag/FM=1000000000.00
+  H104-4 p_w∈Bio/Noo: PASS  p_w=131  C_req=118.9
+  H104-5 C6-breaking: PASS  j_asym=0.338  J_t1/J_t2=2.022
+  RESULT: 5/5 PASS
+
+Material: FeS  (Iron sulfide — predicted g-wave (NiAs P6₃/mmc hexagonal structure))
+  J_AF=1.2, α=0.28
+  J_t1_final=0.402  J_t2_final=0.270
+  H104-1 |M|<0.01: PASS  |M|=0.0010  m_A=+0.852  m_B=-0.854
+  H104-2 Π≈φ²: PASS  ratio=3.098 (φ²=2.618)
+  H104-3 AF-order>5: PASS  stag/FM=873.00
+  H104-4 p_w∈Bio/Noo: PASS  p_w=67  C_req=63.5
+  H104-5 C6-breaking: PASS  j_asym=0.196  J_t1/J_t2=1.488
+  RESULT: 5/5 PASS
+
+Material: RuO₂  (Rutile (tetragonal) — d-wave, expected hexagonal negative control)
+  J_AF=2.5, α=0.12
+  J_t1_final=0.313  J_t2_final=0.287
+  H104-1 |M|<0.01: PASS  |M|=0.0029  m_A=+0.115  m_B=-0.121
+  H104-2 Π≈φ²: PASS  ratio=3.098 (φ²=2.618)
+  H104-3 AF-order>5: PASS  stag/FM=40.33
+  H104-4 p_w∈Bio/Noo: FAIL  p_w=37  C_req=12.5
+  H104-5 C6-breaking: FAIL  j_asym=0.043  J_t1/J_t2=1.089
+  RESULT: 3/5 PASS
+
+Material: MnF₂  (Rutile (tetragonal) — d-wave, expected hexagonal negative control)
+  J_AF=0.8, α=0.1
+  J_t1_final=0.082  J_t2_final=0.078
+  H104-1 |M|<0.01: PASS  |M|=0.0000  m_A=+1.000  m_B=-1.000
+  H104-2 Π≈φ²: PASS  ratio=3.098 (φ²=2.618)
+  H104-3 AF-order>5: PASS  stag/FM=1000000000.00
+  H104-4 p_w∈Bio/Noo: FAIL  p_w=17  C_req=8.2
+  H104-5 C6-breaking: FAIL  j_asym=0.030  J_t1/J_t2=1.062
+  RESULT: 3/5 PASS
