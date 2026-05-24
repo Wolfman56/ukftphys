@@ -758,3 +758,139 @@ These five experiments form a self-contained falsification programme for the UKF
     cannot be the leptogenesis particle. Names GAP-03: washout exclusion by 12.6 OOM.
     Points to Path A (higher-scale Mirror Fermion at ~10¹³ GeV) as the natural resolution.
 *   **Figures**: `98_kappa_vs_mass.png`, `98_chain_decomposition.png`, `98_eta_B_vs_mass.png`
+
+---
+
+## Leptogenesis Scale Series (Exps 99–100)
+
+These two experiments derive the leptogenesis mass scale and the matter–DM epoch crossover
+purely from the UKFT ledger's jump-prime geometry, with a single observable input ($M_F = 329$ GeV).
+
+### [99_jump_prime_mass_hierarchy.py](./99_jump_prime_mass_hierarchy.py)
+**Objective**: Predict leptogenesis mass scales from jump-prime ledger geometry.
+*   **Explainer**: [99_jump_prime_mass_hierarchy.md](./99_jump_prime_mass_hierarchy.md)
+*   **Extends**: Exp 98 (washout parameter K at $M_F = 329$ GeV).
+*   **Paper**: Paper 44, §4.20.
+*   **Derivation**: From prime arithmetic alone (no free parameters beyond $M_F$), predicts
+    $M_{\rm req} = 2.31 \times 10^{13}$ GeV (leptogenesis-viable scale) and
+    $M_\star = 5.78 \times 10^{15}$ GeV ($K=1$ crossover). Ratio $M_\star/M_{\rm req} \approx 250$
+    matches the Exp 98 washout calculation.
+*   **Figures**: `99_jump_prime_mass_hierarchy.png`, `99_bit_hierarchy.png`, `99_sector_capacity.png`, `99_keff_void_span.png`
+
+### [100_ledger_symmetry_point.py](./100_ledger_symmetry_point.py)
+**Objective**: Locate the matter–DM epoch transition at $T^* \approx 971$ GeV from the ledger entropy gap.
+*   **Explainer**: [100_ledger_symmetry_point.md](./100_ledger_symmetry_point.md)
+*   **Extends**: Exps 98–99 (leptogenesis chain).
+*   **Paper**: Paper 44, §4.21. **All 4 hypotheses: PASS.**
+*   **Physics**: The ledger entropy gap $S(T) \equiv C_{\rm col}(T) - C_{\rm DM}(T)$ crosses zero
+    at a definite scale $T^*$; below $T^*$ ordinary matter dominates, above it DM dominates.
+*   **Result**: $T^* \approx 971$ GeV — coincides with the HL-LHC discovery reach and the MadGraph
+    $p p \to X_{971}$ prediction from Paper 44. Zero free parameters.
+*   **Figures**: `100_ledger_symmetry_point.png`, `100_entropy_gap.png`, `100_sector_fractions.png`, `100_epoch_timeline_phi.png`
+
+---
+
+### [101_sphaleron_m31m32_confirmation.py](./101_sphaleron_m31m32_confirmation.py)
+**Objective**: Numerically validate the Lean sphaleron theorems M31 and M32.
+*   **Explainer**: [101_sphaleron_m31m32_confirmation.md](./101_sphaleron_m31m32_confirmation.md)
+*   **Paper**: Paper 44, §4. **All 4 hypotheses: PASS.**
+*   **Lean milestones**: M31 (`sphaleron_ledger_handover`, zero sorry) ✅; M32 (`sphaleron_rate_from_ledger_imbalance`, zero sorry) ✅.
+*   **Tests**: (1) Ledger prime sets disjoint; (2) ΔC_count = 2 > 0; (3) sphaleron rate positivity
+    $\Gamma_{\rm sph}(\Delta C, T) > 0$ for all $\Delta C, T > 0$; (4) $\Gamma_{\rm UKFT}/\Gamma_{\rm AM} = r$ structural identity.
+*   **Extends**: Exp 89 (H89-1 extended to 250 parameter points), Exp 90 (M31 grounding).
+
+---
+
+## Altermagnet Series (Exps 102–105)
+
+Four experiments forming a complete proof of UKFT config-momentum Π_n as the symmetry-breaking
+field for altermagnets.  The series progresses: Néel ground-state (102) → d-wave C4→C2 (103) →
+g-wave C6→C3 on honeycomb (104) → domain-cooling schedule for FeS (105).
+
+### [102_altermagnet_lattice_ukft.py](./102_altermagnet_lattice_ukft.py)
+**Objective**: UKFT action-minimiser converges to the Néel AF ground state.
+*   **Explainer**: [102_altermagnet_lattice_ukft.md](./102_altermagnet_lattice_ukft.md)
+*   **Phase**: K.8. **15/16 PASS** (α-Fe₂O₃ correctly fails d-wave H102-4 on square lattice).
+*   **Materials tested**: RuO₂, MnF₂, Mn₅Si₃, α-Fe₂O₃.
+*   **Key additions to Hamiltonian**: UKFT chartreuse kernel (penalises non-altermagnetic Fourier modes),
+    config-momentum NNN coupling weighted by Π_n, holographic capacity bound from jump-prime ladder.
+*   **Figure**: `102_altermagnet_lattice_ukft.png`
+
+### [103_altermagnet_anisotropic_ukft.py](./103_altermagnet_anisotropic_ukft.py)
+**Objective**: UKFT Π_n spontaneously breaks C4 → C2 (d-wave altermagnetic signature).
+*   **Explainer**: [103_altermagnet_anisotropic_ukft.md](./103_altermagnet_anisotropic_ukft.md)
+*   **Phase**: K.8. **17/20 PASS** (α-Fe₂O₃ correctly fails d-wave probe H103-4/5 — R-3c corundum is g-wave).
+*   **Key result**: Two NNN diagonal couplings become inequivalent without an explicit symmetry-breaking
+    field; emerges purely from Π_n geometry.
+*   **Figure**: `103_altermagnet_anisotropic_ukft.png`
+
+### [104_altermagnet_gwave_ukft.py](./104_altermagnet_gwave_ukft.py)
+**Objective**: Flip to honeycomb lattice; prove α-Fe₂O₃ passes the g-wave (C6→C3) probe.
+*   **Explainer**: [104_altermagnet_gwave_ukft.md](./104_altermagnet_gwave_ukft.md)
+*   **Phase**: K.8. **16/20 PASS** (RuO₂ and MnF₂ correctly fail the g-wave discriminator).
+*   **Key result**: α-Fe₂O₃ now **passes** on the honeycomb; d-wave materials correctly fail.
+    Confirms that the probe geometry, not the physics, determines pass/fail.
+*   **Figure**: `104_altermagnet_gwave_ukft.png`
+
+### [105_fes_modal_uniformity.py](./105_fes_modal_uniformity.py)
+**Objective**: How many Metropolis sweeps are needed to achieve a well-ordered FeS domain state?
+*   **Explainer**: [105_fes_modal_uniformity.md](./105_fes_modal_uniformity.md)
+*   **Phase**: K.8 → K.9 (domain-scaling precursor). **5/5 PASS.**
+*   **Context**: FeS emerged from Exp 104 as a g-wave honeycomb altermagnet. Its binary domain
+    field π_n ∈ {−1, +1} requires a separate cooling study before KZM scaling can be measured.
+*   **Key result**: ≥ 2 000 sweeps with random init (or ≥ 500 with seeded all-+1 Czochralski init)
+    achieves $U > 0.85$. Identifies the KZM-measurable regime for Exp 106.
+*   **Figure**: `105_fes_modal_uniformity.png`
+
+---
+
+## KZM GPU Series (Exps 106–108)
+
+These three experiments form the Kibble–Zurek Mechanism (KZM) validation campaign, culminating
+in a fully GPU-native power-law measurement on a 2D antiferromagnetic Ising model.
+
+**KZM recap**: a finite-rate quench through a second-order phase transition leaves topological
+defects with density $\rho \propto \tau_Q^{-\nu/(1+\nu z)}$.  For 2D model-A AF Ising with
+$\nu=1$, $z=2$: **theory exponent $\beta = -1/3 \approx -0.333$**.
+
+### [106_kzm_domain_scaling.py](./106_kzm_domain_scaling.py)
+**Objective**: First KZM power-law measurement attempt on the FeS-motivated domain system.
+*   **Explainer**: [106_kzm_domain_scaling.md](./106_kzm_domain_scaling.md)
+*   **Phase**: K.9. **0/3 PASS — deliberate negative result.**
+*   **Setup**: Pure Python, L ∈ {16, 32, 64}, 6 n-sweep values, 8 reps per condition.
+*   **Result**: The KZM window is too narrow at these sizes (L=32 orders fully at n ≥ 1 000 sweeps;
+    L=64 always disordered in this range). R² < 0.3 across all fits. Exponent structurally
+    unmeasurable with N=8 reps.
+*   **Significance**: Motivated the switch to a GPU-native implementation (Exp 107) with
+    larger L, more reps, and a cleaner 2D square-lattice AF Ising model.
+*   **Figure**: `106_kzm_domain_scaling.png`
+
+### [107_kzm_square_af_exp107.md](./107_kzm_square_af_exp107.md) · [107_analyze_exp107.py](./107_analyze_exp107.py)
+**Objective**: GPU-native KZM measurement — WGSL checkerboard Metropolis, 880 runs.
+*   **Explainer**: [107_kzm_square_af_exp107.md](./107_kzm_square_af_exp107.md) — **primary document for the 107/108 campaign** (§§1–10).
+*   **Literature**: [107_kzm_literature_review.md](./107_kzm_literature_review.md)
+*   **Phase**: K.9. **Status: ✅ Complete.**
+*   **GPU stack**: WGSL 2-sublattice checkerboard Metropolis (`noogine/examples/ising_kzm.rs`);
+    Apple Metal via wgpu; PCG32 per-thread seeded RNG; ~981 M spin-flip attempts/s.
+*   **Setup**: L ∈ {64, 128, 256, 512}, 11 n-sweep values, **N=20 reps** per (L, n) → 880 runs.
+*   **Validation**: 18/18 Python ground-truth comparisons PASS (|Δmean DWD| < 0.004).
+*   **Key finding**: N=20 reps is insufficient — zero-censoring bias (runs with no domain walls
+    are recorded as DWD=0) pulls the fitted exponent toward zero.  Fitted β at L=256/512 reach
+    only −0.21 to −0.22 vs theory −0.333.  Motivated Exp 108 (N=200).
+*   **Figures**: `107_fig1_loglog_dwd.pdf/png`, `107_fig2_defect_prob.pdf/png`, `107_fig3_censored_fit.pdf/png`
+*   **Output files**: `107_exp107_raw.csv` (880 rows), `107_fit_summary.txt`
+
+### Exp 108 — Extended KZM Run (N=200 reps, L ∈ {256, 512})
+*   **No standalone explainer file** — design, parameters, and results are documented in
+    [107_kzm_square_af_exp107.md](./107_kzm_square_af_exp107.md) §§8 (design), 9 (parameters), 10 (results / arXiv notes).
+*   **Scripts**: [108_analyze_exp108.py](./108_analyze_exp108.py) (post-processing); GPU binary = same `ising_kzm` as Exp 107.
+*   **Setup**: L ∈ {256, 512}, 6 n-sweep values ∈ {800, 1600, 3200, 6400, 12800, 25600},
+    **N=200 reps** per (L, n) → 2 400 runs.  Wall-clock: 3 365.1 s.
+*   **Result**: P(defect) ≈ 35% **flat** across all n-values for both lattice sizes; fitted
+    exponents β=−0.026 (L=256, R²=0.16) and β=−0.072 (L=512, R²=0.54).
+*   **Physical interpretation**: The entire range n ∈ [800, 25 600] falls in the **fast-quench
+    plateau** ($\tau_Q / L^2 \ll 1$).  For model-A dynamics, the KZM scaling regime requires
+    $n_{\rm sweeps} \gg L^{1+z} \approx L^3$ — for L=512 that is n > 10^8, far beyond the
+    experiment.  The flat P(defect) delineates this boundary cleanly.
+*   **Figures**: `108_fig4_loglog_dwd.pdf/png`, `108_fig5_defect_prob.pdf/png`, `108_fig6_censored_fit.pdf/png`
+*   **Output files**: `107_exp108_raw.csv` (2 400 rows; note prefix 107 — hardcoded in binary), `108_fit_summary.txt`
