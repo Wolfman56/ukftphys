@@ -57,6 +57,7 @@ planets_init = [
 
 planet_positions = [ [np.array(p['pos'])] for p in planets_init ]
 planet_vels = [ np.array(p['vel']) for p in planets_init ]
+planet_times = [ 0.0 for p in planets_init ] # track proper time for each planet
 
 # Animation frames
 frames = []
@@ -67,7 +68,7 @@ x_grid = np.linspace(-4, 4, grid_size)
 y_grid = np.linspace(-4, 4, grid_size)
 X, Y = np.meshgrid(x_grid, y_grid)
 
-print("Running UKFT Solar System Simulation...")
+print("Running UKFT Solar System Simulation (Local Proper Time Dilation)...")
 
 pos_stars_hist_1 = []
 pos_stars_hist_2 = []
@@ -79,24 +80,33 @@ for step in range(n_steps):
     t = step * dt
     angle = omega_star * t
     
-    # Binary Star Positions (Prescribed)
+    # Binary Star Positions in Global Coordinate Frame (for visual drawing)
     p_star1 = np.array([radius_star * np.cos(angle), radius_star * np.sin(angle), 0])
     p_star2 = np.array([radius_star * np.cos(angle + np.pi), radius_star * np.sin(angle + np.pi), 0])
     
     pos_stars_hist_1.append(p_star1)
     pos_stars_hist_2.append(p_star2)
 
-    # Update Planets
-    current_sources = [(p_star1, m_star), (p_star2, m_star)]
-    
+    # Update Planets individually in their own proper timeframes
     for i, p_hist in enumerate(planet_positions):
         pos = p_hist[-1]
         vel = planet_vels[i]
+        t_p = planet_times[i] # current proper time of this planet
         
-        rho, grad = get_analytic_density_and_gradient(pos, current_sources, sigma)
+        # Star positions in this planet's proper timeframe
+        angle_p = omega_star * t_p
+        p_star1_p = np.array([radius_star * np.cos(angle_p), radius_star * np.sin(angle_p), 0])
+        p_star2_p = np.array([radius_star * np.cos(angle_p + np.pi), radius_star * np.sin(angle_p + np.pi), 0])
+        sources_p = [(p_star1_p, m_star), (p_star2_p, m_star)]
+        
+        rho, grad = get_analytic_density_and_gradient(pos, sources_p, sigma)
+        
+        # Calculate local proper time step: dt_p = dt_base * (rho_base / (rho + eps))
+        # Slows down (dilates) in dense regions near stars, speeds up in deep voids
+        dt_p = dt * (0.5 / (rho + 0.05))
+        dt_p = np.clip(dt_p, 0.001, 0.03) # clamp for stability
         
         # F = alpha * grad(rho)/rho + lambda * pos
-        # Stability epsilon for rho
         eps_rho = 1e-12
         acc = alpha_entropic * grad / (rho + eps_rho)
         acc += lambda_cosmo * pos
@@ -104,11 +114,12 @@ for step in range(n_steps):
         # Damping for stability
         vel *= 0.999
         
-        vel += acc * dt
-        new_pos = pos + vel * dt
+        vel += acc * dt_p
+        new_pos = pos + vel * dt_p
         
         p_hist.append(new_pos)
         planet_vels[i] = vel
+        planet_times[i] += dt_p
 
     # Build Frame
     if step % animate_every == 0 or step == n_steps - 1:
