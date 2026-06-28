@@ -26,7 +26,7 @@ def simulate_spiral_aliasing():
     log_primes = np.log(primes)
     
     # 2. Sweep Spiral Angles (theta)
-    thetas = np.linspace(0.1, 5.0, 300)
+    thetas = np.linspace(0.1, 10.0, 500)
     aliasing_errors = []
     
     for theta in thetas:
@@ -81,7 +81,11 @@ def simulate_spiral_aliasing():
     
     # Subplot 3: Clustered/De-coherent Spiral Projection (High Aliasing)
     plt.subplot(2, 2, 4)
-    bad_theta = opt_theta + 0.8
+    if opt_theta > 5.0:
+        bad_theta = opt_theta - 2.5
+    else:
+        bad_theta = opt_theta + 2.5
+
     bad_angles = bad_theta * log_primes
     bad_x = log_primes * np.cos(bad_angles)
     bad_y = log_primes * np.sin(bad_angles)
